@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datasets | SMASH-BIO</title>
+  <meta name="description" content="Repository deposits of force spectroscopy data (Zenodo, Figshare, Dryad, Mendeley Data, OSF, Dataverse, 4TU...) linked to the studies that produced them.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>Datasets</h1>
+      <p>Force-spectroscopy deposits found in data repositories via DataCite, ScholeXplorer, Europe PMC and article data-availability statements. Deposits not yet linked to a paper are included so they can be claimed.</p>
+    </div>
+  </header>
+  <main class="container" style="padding-bottom:60px">
+    <div class="stat-row" id="ds-stats" style="margin-bottom:18px"></div>
+    <div class="results-bar">
+      <div class="search-input"><i class="fas fa-magnifying-glass"></i><input type="search" id="dq" placeholder="Search deposit title, creator, DOI…" aria-label="Search datasets"></div>
+      <select id="drepo" aria-label="Repository" style="width:auto"></select>
+      <select id="dtech" aria-label="Technique" style="width:auto"></select>
+      <select id="dlink" aria-label="Linked status" style="width:auto">
+        <option value="">Linked & unlinked</option><option value="linked">Linked to a study</option><option value="unlinked">Not linked yet</option>
+      </select>
+      <label class="facet" style="padding:8px 4px"><input type="checkbox" id="draw"> Raw traces only</label>
+      <label class="facet" style="padding:8px 4px"><input type="checkbox" id="dmirror"> Include journal supplement mirrors</label>
+    </div>
+    <div class="results-meta"><span id="dcount" class="num"></span><a class="btn btn-ghost btn-sm" href="downloads/smash-smfs-datasets.csv" download><i class="fas fa-download"></i> All deposits (CSV)</a></div>
+    <div id="dlist" class="result-list"></div>
+    <div class="pagination" id="dpag"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/datasets.js"></script>
+  <script src="js/datasets.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "record_id": "SPT-000001",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/spt.example.membrane", "title": "Diffusion of a membrane receptor tracked in live cells", "authors": ["Example A"], "journal": "Example Journal", "year": 2024, "open_access": true},
+  "technique": {"primary": "SPT", "variant": "single_particle_tracking", "dimensions": "2D", "time_resolution": {"value": 20, "unit": "ms"}},
+  "biological_system": {"entities": [{"name": "GABA-B receptor", "type": "receptor", "identifiers": [{"scheme": "uniprot", "id": "Q9UBS5", "verified": true}]}]},
+  "probe": {"type": "fluorescent_protein", "name": "mEos3.2", "labeling_strategy": "PA_FP"},
+  "sample": {"context": "live_cell_membrane", "cell_line": {"name": "HEK293", "cellosaurus_id": "CVCL_0045"}, "organism": "Homo sapiens"},
+  "hardware": {"microscope": "custom TIRF", "illumination": "TIRF", "camera_type": "EMCCD", "frame_rate": {"value": 50, "unit": "Hz"}, "pixel_size": {"value": 100, "unit": "nm"}, "objective_na": 1.49},
+  "tracking": {"software": ["TrackMate", "ThunderSTORM"], "max_jump": {"value": 0.5, "unit": "um"}, "gap_frames": 1, "min_track_length": 8},
+  "trajectory_sets": [{"id": "traj-1", "format": "csv", "columns": [{"name": "track_id", "unit": "1"}, {"name": "x", "unit": "um"}, {"name": "y", "unit": "um"}, {"name": "t", "unit": "s"}], "coordinate_unit": "um", "n_tracks": 3120, "time_step": {"value": 20, "unit": "ms"}}],
+  "results": [{"quantity": "diffusion_coefficient_um2_s-1", "value": 0.12, "unit": "um2/s", "uncertainty": 0.02, "uncertainty_type": "CI95", "statistic": "median", "n_molecules": 3120, "model": "Spot_On"}, {"quantity": "bound_fraction", "value": 0.42, "unit": "1", "statistic": "fit_parameter", "model": "Spot_On"}, {"quantity": "localization_precision_nm", "value": 32.0, "unit": "nm"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "datasets": [{"id": "10.0000/spt.example.membrane.data", "scheme": "doi", "repository": "Zenodo", "content": "raw_traces", "file_formats": ["csv", "tif"]}]},
+  "data_flags": {"has_trajectories": true, "has_raw_movies": true},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.9, "assay": 0.8, "construct": 0.6, "solution": 0.4, "analysis": 0.9, "data": 1.0, "overall": 0.8}
+}

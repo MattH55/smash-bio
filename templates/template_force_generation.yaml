@@ -1,0 +1,118 @@
+# SMASH-BIO Metadata Template: FORCE GENERATION (CYTOSKELETAL)
+# For studies of force generation by cytoskeletal filaments or motors
+# Based on Table 3 from "FAIR data for optical tweezers experiments"
+
+experiment_id: ""  # e.g., "MOTOR-2025-001"
+experiment_type: "force_generation_cytoskeletal"
+schema_version: "2.0.0"
+created_date: ""
+last_modified: ""
+
+# ============================================================================
+# PUBLICATION
+# ============================================================================
+publication:
+  title: ""
+  authors: []
+  journal: ""
+  year: null
+  volume: ""
+  pages: ""
+  doi: ""
+  pubmed_id: ""
+
+# ============================================================================
+# HARDWARE CONDITIONS
+# ============================================================================
+hardware:
+  setup:
+    make: ""
+    model_number: ""
+  spatial_laser_control: ""
+  detection_device: ""
+  objective_lens:
+    make: ""
+    model: ""
+    numerical_aperture: null
+    magnification: null
+  laser:
+    power_at_source_mW: null
+    power_at_objective_mW: null
+    wavelength_nm: null
+  trap_parameters:
+    stiffness_pN_per_nm: null
+    stiffness_uncertainty_pN_per_nm: null
+    calibration_technique: ""
+  acquisition:
+    rate_kHz: null
+    filter_frequency_Hz: null
+  temperature_K: null
+
+# ============================================================================
+# ASSAY CONDITIONS
+# ============================================================================
+assay_conditions:
+  bead:
+    geometry: ""  # one-bead, three-bead, polymerization_assay
+    size_nm: null
+    size_uncertainty_nm: null
+    functionalization: ""
+  trap_control:
+    mode: ""
+  microfluidics:
+    flow_pressure_mbar: null
+
+# ============================================================================
+# CONSTRUCT PARAMETERS (Cytoskeletal specific)
+# ============================================================================
+cytoskeletal_structure:
+  type: ""  # microfilaments_actin, intermediate_filaments, microtubules
+  source_organism: ""
+  
+  structural_units:
+    - name: ""  # e.g., "actin", "tubulin"
+      gene_symbol: ""
+      fasta_sequence: ""
+      pdb_id: ""
+      uniprot_id: ""
+  
+  perturbations:
+    description: ""  # mutations, modifications, drug treatments
+
+motor_protein:
+  name: ""  # e.g., "kinesin-1", "myosin V", "dynein"
+  gene_symbol: ""
+  sequence_identity:
+    fasta_sequence: ""
+    pdb_id: ""
+    uniprot_id: ""
+  concentration_nM: null
+  
+  fluorescent_labels:
+    - label_name: ""
+      sequence_location: ""
+
+# ============================================================================
+# FACTORS IN SOLUTION
+# ============================================================================
+solution:
+  buffer:
+    name: ""
+    composition: ""
+    pH: null
+  atp_concentration_mM: null
+  cofactors:
+    - name: ""
+      concentration_mM: null
+
+# ============================================================================
+# RESULTS
+# ============================================================================
+results:
+  force_measurements:
+    stall_force_pN: null
+    step_size_nm: null
+    velocity_nm_per_s: null
+  key_findings: []
+
+notes: ""

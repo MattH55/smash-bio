@@ -1,0 +1,14 @@
+{
+  "record_id": "MP-000004",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/mp.example.mspt", "title": "Mass-sensitive particle tracking of membrane proteins on supported bilayers", "year": 2025, "open_access": true},
+  "technique": {"primary": "MP", "variant": "mspt"},
+  "biological_system": {"entities": [{"name": "membrane protein complex", "type": "membrane_protein"}]},
+  "instrument": {"manufacturer": "Refeyn", "model": "TwoMP", "frame_rate": {"value": 1000, "unit": "Hz"}},
+  "calibration": {"standards": ["BSA"], "calibration_type": "in_situ"},
+  "assay": {"surface": "supported_bilayer", "method": "MSPT", "software": ["custom"]},
+  "results": [{"quantity": "diffusion_coefficient_um2_s-1", "value": 0.35, "unit": "um2/s", "statistic": "median", "model": "MSD"}, {"quantity": "molecular_mass_kDa", "value": 240.0, "unit": "kDa", "statistic": "most_probable"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "datasets": [{"id": "10.0000/mp.example.mspt.data", "scheme": "doi", "repository": "Zenodo", "content": "raw_traces"}]},
+  "data_flags": {"has_event_lists": true, "has_raw_movies": true},
+  "correlative": ["single_particle_tracking"]
+}

@@ -1,0 +1,202 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM-based single-molecule force spectroscopy of mammalian orthoreovirus (T3SA- virions or sigma3 capsid protein on the tip) against His6-tagged PirB receptor on NTA model surfaces (ForceRobot 300, JPK) and against PirB-expressing live Lec2 cells (BioScope Resolve, PeakForce QNM) with correlative epifluorescence/confocal imaging. Dynamic force spectroscopy over retraction velocities 0.1-20 um/s plus contact-time (kon/KD) analysis; the rest of the paper (CRISPRa screen, mouse infection) is not force spectroscopy."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": [
+      "confocal_fluorescence",
+      "widefield_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "ForceRobot 300 (model surfaces); BioScope Resolve (live cells)",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "objective_lens": {
+      "magnification": 40,
+      "numerical_aperture": 0.95,
+      "immersion": "oil"
+    },
+    "temperature": {
+      "value": 310.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All fluorescence and AFM experiments were conducted using cell-culture conditions with the combined AFM and fluorescence microscopy chamber maintained at 37 °C.",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 0.25,
+      "unit": "kHz",
+      "note": "PeakForce QNM oscillation frequency on live cells",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The AFM tip was oscillated in a sinusoidal fashion at 0.25 kHz with a 750 nm amplitude.",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "thermal_noise_cantilever"
+    ],
+    "afm": {
+      "cantilever_model": "MSCT-D (model surfaces); PFQNM-LC-A-CAL (live cells)",
+      "spring_constant": {
+        "min": 80,
+        "max": 140,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Cantilevers were calibrated using the thermal noise method, yielding values ranging from 0.08 to 0.14 N m−1.",
+          "confidence": "high"
+        }
+      },
+      "tip_radius": {
+        "value": 65,
+        "unit": "nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "using PFQNM-LC probes (Bruker) having tip lengths of 17 μm, tip radii of 65 nm, and opening angles of 15°",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "min": 100,
+        "max": 20000,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Dynamic force spectroscopy (DFS) experiments were conducted using a ForceRobot 300 (JPK) with same parameters used for the binding probability assays, with a varying retraction velocity of 0.1, 0.2, 1, 5, 10, and 20 μm s−1.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "attachment_chemistry": [
+      "His-tag–Ni-NTA",
+      "NHS-PEG24-Ph-aldehyde linker",
+      "APTES silanization"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity",
+      "oscillatory"
+    ],
+    "pulling_speed": {
+      "min": 100,
+      "max": 20000,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "with a varying retraction velocity of 0.1, 0.2, 1, 5, 10, and 20 μm s−1",
+        "confidence": "high"
+      }
+    },
+    "setpoint_force": {
+      "value": 500,
+      "unit": "pN",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Cell images (30–50 μm2) were recorded with forces of 500 pN using PFQNM-LC probes (Bruker)",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "organisms": [
+      {
+        "name": "Mus musculus",
+        "ncbi_taxon": 10090
+      }
+    ],
+    "entities": [
+      {
+        "name": "Paired immunoglobulin-like receptor B (PirB), His6-tagged ectodomain",
+        "entity_type": "protein",
+        "role": "surface_receptor",
+        "organism": {
+          "name": "Mus musculus",
+          "ncbi_taxon": 10090
+        },
+        "region": "extracellular D3D4 region required for attachment",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Model surfaces (gold-coated silicon) were functionalized with His6-tagged PirB (Abcam, #ab276923) using Ni2+-nitrilotriacetate (NTA) chemistry.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Mammalian orthoreovirus T3SA- virion",
+        "entity_type": "virus",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Tips were functionalized with T3SA- virions or σ3 capsid protein (Cusa Bio, #EP365971) using a heterobifunctional PEG linker as described20,21.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Reovirus σ3 capsid protein",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Tips were functionalized with T3SA- virions or σ3 capsid protein (Cusa Bio, #EP365971) using a heterobifunctional PEG linker as described20,21.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Lec2 cells transfected with PirB-2A-GFP",
+        "entity_type": "cell",
+        "role": "sample",
+        "fluorescent_labels": [
+          {
+            "identifier": "GFP"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The day prior to imaging, cells were transfected with a plasmid encoding PirB-2A-GFP containing an auto-cleavable linker using Lipofectamine LTX",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "Lec2 (CHO-derived)"
+    }
+  },
+  "solution": {
+    "buffer": "virus buffer (model surfaces); alpha-MEM cell culture medium (live cells)",
+    "components": [
+      {
+        "name": "NiSO4",
+        "concentration": {
+          "value": 40,
+          "unit": "mM"
+        }
+      }
+    ],
+    "pH": 7.2
+  },
+  "results": [],
+  "publication": {
+    "doi": "10.1038/s41467-023-38327-6"
+  }
+}

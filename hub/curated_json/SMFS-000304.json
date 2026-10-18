@@ -1,0 +1,74 @@
+{
+  "publication": {"doi": "10.7554/elife.108477"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Stall force of human KIF1A (WT, KAND mutants P305L, V8M, A255V, and mutant/WT heterodimers) measured with a Cy3-labelled DNA origami nanospring (NS) linking KIF1A to an inert KIF5B(G234A) anchor on surface-bound microtubules; force is read out from NS extension in fluorescence images via a pre-calibrated force-extension curve. No optical tweezers were used in this study (auto record wrongly assigned dual-trap OT); stall force values are only in figures, not in the provided text."
+  },
+  "technique": {
+    "primary": "tension_sensors",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": ["widefield_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "EVIDENT (IX83 fluorescence microscope)",
+    "model_number": "IX83",
+    "custom_built": false,
+    "detection_device": ["camera_CMOS"],
+    "objective_lens": {"make": "EVIDENT", "magnification": 100, "numerical_aperture": 1.3, "immersion": "oil"},
+    "temperature": {"value": 298.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "The flow chamber was maintained at 25°C using a heating plate (HP-R-Z002, Live Cell Instrument) during observation.", "confidence": "high"}},
+    "acquisition_rate": {"value": 0.033, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "was recorded at 33 frames per second (fps) with an effective pixel size of 65 nm by a CMOS camera (ORCA-Flash4.0, Hamamatsu Photonics). Experiments were also performed at 100 fps in addition to the recording rate of 33 fps", "confidence": "high"}},
+    "calibration_technique": ["other"]
+  },
+  "assay": {
+    "experiment_class": ["force_generation_motor"],
+    "attachment_chemistry": ["SNAP-tag (BG-oligonucleotide)", "DNA hybridization handle", "nonspecific adsorption (microtubules to glass)", "biotin–neutravidin (calibration rods only)"],
+    "trap_control": ["passive_mode"]
+  },
+  "biological_system": {
+    "system_class": ["force_generation_motor"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}, {"name": "Sus scrofa", "ncbi_taxon": 9823}],
+    "entities": [
+      {"name": "KIF1A(1–393)-LZ-SNAP-6His (kinesin-3 motor domain dimer)", "entity_type": "protein", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "Q12756", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606}, "region": "residues 1–393 fused to GCN4 leucine zipper and SNAP-tag",
+       "mutations": ["P305L", "V8M", "A255V"],
+       "evidence": {"method": "llm_review", "snippet": "A recombinant human KIF1A(1–393)-LZ-SNAP-6His construct containing the motor domain (amino acids 1–361), neck linker, neck coil domain, and a GCN4 leucine zipper (LZ) for stabilized dimerization was used for NS force generated study", "confidence": "high"}},
+      {"name": "KIF1A(1–393)-LZ-SNAP-Strep-tagII (for WT/mutant heterodimers)", "entity_type": "protein", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "Q12756", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "A recombinant human KIF1A(1–393)-LZ-SNAP-Strep-tagII construct was used to develop heterodimers of wild-type and mutant KIF1A.", "confidence": "high"}},
+      {"name": "Inactive KIF5B(1–560, G234A)-SNAP-His (microtubule anchor)", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "P33176", "verified": false}],
+       "region": "residues 1–560", "mutations": ["G234A"],
+       "evidence": {"method": "llm_review", "snippet": "Inactive mutant kinesin 5 B (G234A) expression vector was a gift from Dr. Yuta Shimamoto (National Institute of Genetics), which has been described (pYS05 K560 pET-17b KIF5B (1–560, G234A)::LZ::His-tag)", "confidence": "high"}},
+      {"name": "DNA origami nanospring (four-helix bundle coil, Cy3-labelled)", "entity_type": "synthetic", "role": "tethered_construct",
+       "fluorescent_labels": [{"identifier": "Cy3", "sequence_location": "124 Cy3-labelled antihandles along the NS"}],
+       "evidence": {"method": "llm_review", "snippet": "NSs were designed by introducing a negative superhelical strain into a four-helix bundle arranged on a square lattice.", "confidence": "high"}},
+      {"name": "Microtubule (porcine brain tubulin, Taxol-stabilised)", "entity_type": "cytoskeletal_filament", "role": "track",
+       "organism": {"name": "Sus scrofa", "ncbi_taxon": 9823},
+       "evidence": {"method": "llm_review", "snippet": "Tubulin was purified from porcine brain (Tokyo Shibaura Organ Co, Ltd) through two cycles of polymerization and depolymerization", "confidence": "high"}},
+      {"name": "DNA origami calibration rod (116 Cy3)", "entity_type": "synthetic", "role": "other",
+       "evidence": {"method": "llm_review", "snippet": "a total of 116 Cy3 molecules were conjugated to the DNA calibration rod at equal intervals", "confidence": "high"}}
+    ],
+    "cytoskeleton": {"structure_type": "microtubule"}
+  },
+  "solution": {
+    "buffer": "HEPES (SRP90)",
+    "pH": 7.6,
+    "components": [
+      {"name": "HEPES", "concentration": {"value": 90, "unit": "mM"}},
+      {"name": "CH3COOK", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "Mg(CH3COO)2", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "2-mercaptoethanol", "concentration": {"value": 0.4, "unit": "mM"}},
+      {"name": "casein", "concentration": {"value": 0.2, "unit": "mg/ml"}},
+      {"name": "ATP", "concentration": {"value": 1, "unit": "mM"}}
+    ],
+    "nucleotides": ["ATP"],
+    "oxygen_scavenging": "glucose (3 mg/ml), glucose oxidase (0.1 mg/ml), catalase (0.02 mg/ml)",
+    "small_molecules": [{"name": "Taxol", "concentration": {"value": 20, "unit": "µM"}}]
+  },
+  "results": []
+}

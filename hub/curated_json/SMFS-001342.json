@@ -1,0 +1,221 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM-based single-molecule force spectroscopy (SMFS) of the Na+-coupled melibiose permease MelB from Salmonella typhimurium reconstituted into E. coli polar-lipid proteoliposomes on mica, unfolded from the membrane with ~13 x 10^6 FD curves recorded across cation (Li/Na/K/Rb) and sugar (melibiose, alpha-NPG) conditions. FD-based AFM imaging (peak-force tapping, Bruker Multimode 8) was used to locate protein-rich membrane patches; SMFS used JPK NanoWizard II / ForceRobot 300 instruments. Constructs include WT MelB-His10, a 42-aa polyGly C-terminal extension and a 15-aa loop-C4 insertion."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "NanoWizard II / NanoWizard II Ultra / ForceRobot 300 (SMFS); Nanoscope Multimode 8 (imaging)",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "AFM imaging and SMFS were performed at ≈ 25°C using semi-automated/automated AFMs (NanoWizard II/Nano Wizard II Ultra/Force Robot 300, JPK Instruments)",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "equipartition"
+    ],
+    "afm": {
+      "cantilever_model": "OMCL-RC800PSA (Olympus) for SMFS; ScanAsyst Fluid+ (Bruker) for imaging",
+      "spring_constant": {
+        "value": 50,
+        "unit": "pN/nm",
+        "note": "nominal, SMFS cantilever",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "200 μm long silicon nitride cantilevers (OMCL-RC800PSA, Olympus) having nominal spring constants of 0.05 N m−1",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 700,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "For SMFS the AFM stylus was pushed on the localized membrane patches for 0.5 s at a force of 700 pN and then retracted with a velocity of 700 nm s−1.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein",
+      "membrane_mechanics"
+    ],
+    "attachment_chemistry": [
+      "non-specific tip adsorption to exposed polypeptide",
+      "proteoliposome adsorption to mica"
+    ],
+    "trap_control": [
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "value": 700,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "then retracted with a velocity of 700 nm s−1",
+        "confidence": "high"
+      }
+    },
+    "setpoint_force": {
+      "value": 700,
+      "unit": "pN",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "the AFM stylus was pushed on the localized membrane patches for 0.5 s at a force of 700 pN",
+        "confidence": "high"
+      }
+    },
+    "n_molecules": 426
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein",
+      "membrane_mechanics"
+    ],
+    "organisms": [
+      {
+        "name": "Salmonella typhimurium",
+        "ncbi_taxon": 90371
+      }
+    ],
+    "entities": [
+      {
+        "name": "Melibiose permease MelB (wild type, C-terminal His10)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Salmonella typhimurium",
+          "ncbi_taxon": 90371
+        },
+        "length": {
+          "value": 485,
+          "unit": "aa",
+          "evidence": {
+            "method": "llm_review",
+            "snippet": "Contour lengths of WT MelB (485 aa =^ 175 nm; including His10-tag) and MelB polyGly (526 aa =^ 190 nm) polypeptides were calculated assuming a backbone length of 0.36 nm aa−1.",
+            "confidence": "high"
+          }
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The plasmid pK95 ΔAH/MelBSt/CHis10 containing the sequence for wild-type (WT) MelB of Salmonella typhimurium was used to generate the MelB polyGly constructs.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "MelB polyGly construct (42-aa C-terminal insertion, His9)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Salmonella typhimurium",
+          "ncbi_taxon": 90371
+        },
+        "length": {
+          "value": 526,
+          "unit": "aa",
+          "evidence": {
+            "method": "llm_review",
+            "snippet": "Contour lengths of WT MelB (485 aa =^ 175 nm; including His10-tag) and MelB polyGly (526 aa =^ 190 nm) polypeptides were calculated assuming a backbone length of 0.36 nm aa−1.",
+            "confidence": "high"
+          }
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The final construct pK95 ΔAH/MelBSt/polyGly/CHis9 results in a 42 aa insertion with residue Gly and Thr prior to the 40 aa long polyglycine (polyGly) fragment followed by a His9-tag at the end.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "MelB elongated loop C4 construct (15-aa SGSG insertion)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "region": "cytoplasmic loop C4",
+        "organism": {
+          "name": "Salmonella typhimurium",
+          "ncbi_taxon": 90371
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "To construct the MelB with a 15 aa long insertion (SGSGSGSGSGSGSGS) to the cytoplasmic loop C4 (pK95 ΔAH/MelBSt/elongC4/CHis9)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "E. coli polar lipid extract proteoliposome",
+        "entity_type": "lipid",
+        "role": "sample",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The reconstitution of purified MelB into proteoliposomes was carried out at a 1:5 (w/w) protein to lipid ratio with E. coli polar lipid extract (Avanti Polar lipids)",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "LiCl, NaCl, KCl or RbCl (one per condition)",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "melibiose or alpha-nitrophenyl galactoside (with/without)",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "melibiose",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "alpha-nitrophenyl galactoside (alphaNPG)",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      }
+    ]
+  },
+  "results": [],
+  "publication": {
+    "doi": "10.1016/j.str.2022.11.011"
+  }
+}

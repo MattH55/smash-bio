@@ -1,0 +1,300 @@
+{
+  "publication": {
+    "doi": "10.1073/pnas.2602528123"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "S. pombe Pfh1 helicase unwinding/rewinding of a 559 bp DNA (and RNA-DNA) hairpin measured with a custom miniaturized dual-beam optical tweezers (bead on micropipette + trapped bead) under force feedback (5-11 pN), varying ATP, force, fork composition and spRim1 SSB. A second instrument (LUMICKS C-Trap, dumbbell with confocal) tracks Alexa488(IgG)-Pfh1 translocation on a ssDNA tether held at 10-20 pN."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "micropipette_bead",
+    "correlative_modalities": [
+      "confocal_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "model_number": "miniaturized dual-beam optical tweezers (hairpin assays); LUMICKS C-Trap (fluorescence assays)",
+    "custom_built": true,
+    "temperature": {
+      "value": 295.15,
+      "unit": "K",
+      "uncertainty": 1,
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "In all cases, data were collected at 500 Hz at 22 ± 1 °C using a feedback loop to maintain a constant force on the DNA.",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 0.5,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "In all cases, data were collected at 500 Hz at 22 ± 1 °C using a feedback loop to maintain a constant force on the DNA.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "trap_stiffness": {
+        "value": 0.135,
+        "unit": "pN/nm",
+        "uncertainty": 0.0043,
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The trap stiffness calibrated for 3.0 μm beads was k = 0.135 ± 0.0043 pN nm−1.",
+          "confidence": "high"
+        }
+      },
+      "trap_stiffness_ctrap": {
+        "value": 0.32,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Trap stiffness was adjusted to 0.32 pN/nm in both traps.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "force_generation_motor",
+      "nucleic_acid_protein_interaction",
+      "translation_transcription_replication"
+    ],
+    "bead_geometry": "bead_on_micropipette_and_trapped_bead",
+    "bead_size": {
+      "value": 3000,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "an anti-digoxigenin-coated bead (3.0 μm, Kisker Biotech) held in the optical trap",
+        "confidence": "high"
+      }
+    },
+    "bead_size_micropipette": {
+      "value": 2100,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Each hairpin was tethered between a streptavidin-coated bead (2.1 μm, Kisker Biotech) immobilized on a micropipette",
+        "confidence": "high"
+      }
+    },
+    "bead_size_ctrap": {
+      "value": 4380,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "DNA-molecules were trapped between two streptavidin-coated polystyrene beads (4.38 μm diameter).",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin"
+    ],
+    "trap_control": [
+      "force_clamp",
+      "constant_distance"
+    ],
+    "handle_sequences": [
+      {
+        "length_bp": 2686,
+        "annotations": "a 2,686 base pairs (bp) DNA “handle” (pUC19 vector, Novagen) labeled with digoxigenin at one end"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "force_generation_motor",
+      "nucleic_acid_protein_interaction",
+      "translation_transcription_replication"
+    ],
+    "organisms": [
+      {
+        "name": "Schizosaccharomyces pombe",
+        "ncbi_taxon": 4896
+      }
+    ],
+    "entities": [
+      {
+        "name": "DNA hairpin (559 bp stem, (dT)4 loop, 5' (dT)35 biotinylated end); RNA-DNA hairpin variant",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 559,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The DNA hairpin construct consists of a 2,686 base pairs (bp) DNA “handle” (pUC19 vector, Novagen) labeled with digoxigenin at one end, a 5’ (dT)35 end functionalized with biotin, and a 559 bp stem capped by a (dT)4 loop (79).",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dsDNA handle (2,686 bp, pUC19, digoxigenin-labelled)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 2686,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "a 2,686 base pairs (bp) DNA “handle” (pUC19 vector, Novagen) labeled with digoxigenin at one end",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Hybrid ssDNA tether (14,987 nt ssDNA + 2,136 bp dsDNA, from 17,303 bp nicked dsDNA)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 14987,
+          "unit": "nt"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Application of force higher than 80 pN to tether promoted dissociation of the nicked strand and yielded a hybrid DNA tether containing 14,987 nt of ssDNA and 2,136 bp dsDNA.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Pfh1 helicase (Pif1-family)",
+        "entity_type": "protein",
+        "role": "motor",
+        "organism": {
+          "name": "Schizosaccharomyces pombe",
+          "ncbi_taxon": 4896
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "Alexa 488",
+            "sequence_location": "anti-6xHis IgG bound to N-terminal 6xHis tag"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "dissect the real-time mechanochemical behavior of Pfh1, the sole Pif1-family helicase in Schizosaccharomyces pombe",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "spRim1 (mitochondrial single-stranded DNA-binding protein)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Schizosaccharomyces pombe",
+          "ncbi_taxon": 4896
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "S. pombe Pfh1 and SpRim1 were overexpressed and purified as previously described (31, 81).",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 7.5,
+    "components": [
+      {
+        "name": "Tris",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 30,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "DTT",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 4,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.2,
+          "unit": "mg/mL"
+        }
+      },
+      {
+        "name": "ATP",
+        "concentration": {
+          "min": 0.005,
+          "max": 1.5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "Pfh1",
+        "concentration": {
+          "value": 2,
+          "unit": "nM"
+        }
+      },
+      {
+        "name": "spRim1",
+        "concentration": {
+          "value": 2,
+          "unit": "nM"
+        }
+      }
+    ],
+    "nucleotides": [
+      "ATP",
+      "ATPγS"
+    ]
+  },
+  "results": [
+    {
+      "quantity": "processivity_run_length",
+      "value": 20,
+      "unit": "bp",
+      "applies_to": {
+        "entity": "Pfh1 helicase",
+        "transition": "unwinding burst"
+      },
+      "conditions": {
+        "force_pN": {
+          "min": 5,
+          "max": 11
+        }
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "Stable interactions of the helicase with both strands at the fork may limit unwinding processivity to ~20 bp, eventually triggering transition to rewinding.",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    }
+  ]
+}

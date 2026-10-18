@@ -1,0 +1,76 @@
+{
+  "publication": {"doi": "10.1038/s41592-026-03129-3"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Methods paper (SmartTrap): an automated counterpropagating dual-beam optical tweezers (MiniTweezers-derived, light-momentum force detection) with a micropipette in a microfluidic chamber. Demonstrated on lambda-DNA F3 fragment pulling/overstretching (trapped bead vs. pipette bead), human red blood cell stretching, and electrostatic repulsion between colloidal polystyrene particles."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "micropipette_bead",
+    "correlative_modalities": ["brightfield_video"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "model_number": "SmartTrap (MiniTweezers-derived counterpropagating tweezers)",
+    "custom_built": true,
+    "detection_device": ["PSD", "photodiode"],
+    "objective_lens": {"make": "Olympus", "magnification": 60, "numerical_aperture": 1.2, "immersion": "water"},
+    "temperature": {"value": 294.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "In the case of the particle characterization experiments, we use the tabulated value for μ for water at room temperature (21 ∘C) and 0.9775 mPa", "confidence": "low"}},
+    "acquisition_rate": {"value": 15.625, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "The sampling of the PSDs is triggered every 64 μs by a software interrupt procedure resulting in a sample rate of 15.625 kHz.", "confidence": "high"}},
+    "calibration_technique": ["stokes_drag", "image_based_variance"],
+    "optical": {
+      "laser_model": "Lumics LU0808M250 (x2)",
+      "number_of_traps": 1
+    }
+  },
+  "assay": {
+    "experiment_class": ["methods_calibration", "nucleic_acid_mechanics", "rheology_cell"],
+    "bead_geometry": "trap_bead_and_micropipette_bead",
+    "bead_size": {"min": 2200, "max": 3400, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "The anti-digoxigenin particles are around 3.4 μm in diameter and the streptavidin particles are around 2.2 μm, making it possible to visually distinguish the particles.", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin", "anti-digoxigenin (on Protein G)"],
+    "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+    "trap_control": ["constant_velocity"],
+    "handle_sequences": [{"length_bp": 490, "annotations": "Twenty cycles of PCR yielded a 490-base-pair fragment. Digestion with EagI gave back two fragments of 224 bases and 266 bases, each containing digoxigenin"}]
+  },
+  "biological_system": {
+    "system_class": ["methods_calibration", "nucleic_acid_mechanics", "rheology_cell"],
+    "organisms": [{"name": "Escherichia phage lambda", "ncbi_taxon": 10710}, {"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "lambda-DNA EagI fragment F3 (11.8 kb)", "entity_type": "dna", "role": "tethered_construct",
+       "organism": {"name": "Escherichia phage lambda", "ncbi_taxon": 10710},
+       "length": {"value": 11.8, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "The experiments presented are performed on the λ-DNA F3 fragments (11.8 kb), which has a contour length of 4.0 μm.", "confidence": "high"}},
+      {"name": "lambda-DNA EagI fragment F1 (19.9 kb), minor population", "entity_type": "dna", "role": "tethered_construct",
+       "organism": {"name": "Escherichia phage lambda", "ncbi_taxon": 10710},
+       "length": {"value": 19.9, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "Also, the F1 (19.9 kb) fragment is labeled in the preparation and approximately 10% of the attached molecules which attach during experiments are F1.", "confidence": "high"}},
+      {"name": "Digoxigenin-labelled PCR handles (224 and 266 bases)", "entity_type": "dna", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "Digestion with EagI gave back two fragments of 224 bases and 266 bases, each containing digoxigenin, and each with a cut overhang (5’-GGCCG) complimentary to the cut ends of λ fragments F1 and F3.", "confidence": "high"}},
+      {"name": "Human red blood cell", "entity_type": "cell", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "Human red blood cells are prepared at room temperature immediately before each experiment by finger-pricking using a sterile single-use needle.", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "human red blood cell"}
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 1, "unit": "M"}},
+      {"name": "EDTA", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}}
+    ],
+    "notes": "DNA pulling buffer. Red blood cell experiments used Dulbecco's PBS 10x diluted 25-fold in Milli-Q water plus 10 mM glucose; electrostatic experiments used 0.1 mM and 1 mM salt or water."
+  },
+  "results": [
+    {"quantity": "other", "value": 0.04, "unit": "pN",
+     "applies_to": {"entity": "SmartTrap instrument (force resolution)"},
+     "source": {"location": "methods", "snippet": "In this way, the SmartTrap achieves a force resolution of 0.04 pN and a distance resolution of 1 nm when using the PSD sensors and about 10 nm when using video microscopy.", "extraction": "manual", "confidence": "high"}},
+    {"quantity": "other", "value": 480000, "unit": "charge groups per particle",
+     "applies_to": {"entity": "4.24 μm polystyrene particles (DLVO fit, 0.1 mM dataset)"},
+     "model": "DLVO",
+     "source": {"location": "methods", "snippet": "From the fit shown in Fig. 6, the number of charge groups was found to be Z ≈ 480,000.", "extraction": "manual", "confidence": "high"}}
+  ]
+}

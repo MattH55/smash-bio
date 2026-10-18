@@ -1,0 +1,16 @@
+{
+  "record_id": "SPT-000003",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/spt.example.dnacurtain", "title": "Single-molecule tracking of a repair protein on DNA curtains", "authors": ["Example C"], "journal": "Example Journal", "year": 2022, "open_access": true},
+  "technique": {"primary": "SPT", "variant": "single_particle_tracking", "dimensions": "2D"},
+  "biological_system": {"entities": [{"name": "DNA mismatch repair protein MutS", "type": "protein", "identifiers": [{"scheme": "uniprot", "id": "P23909", "verified": true}]}, {"name": "lambda DNA", "type": "DNA"}]},
+  "probe": {"type": "organic_dye", "name": "ATTO 647N", "labeling_strategy": "other"},
+  "sample": {"context": "DNA_curtain", "organism": "Escherichia coli"},
+  "hardware": {"illumination": "TIRF", "camera_type": "EMCCD", "frame_rate": {"value": 100, "unit": "Hz"}},
+  "tracking": {"software": ["custom"], "max_jump": {"value": 0.2, "unit": "um"}},
+  "trajectory_sets": [{"id": "traj-3", "format": "trackmate_xml", "columns": [{"name": "track_id", "unit": "1"}, {"name": "x", "unit": "px"}, {"name": "y", "unit": "px"}, {"name": "frame", "unit": "frame"}], "coordinate_unit": "px", "n_tracks": 410}],
+  "results": [{"quantity": "anomalous_exponent_alpha", "value": 0.78, "unit": "1", "statistic": "median", "model": "MSD"}, {"quantity": "confinement_radius_nm", "value": 55.0, "unit": "nm", "model": "MSD"}],
+  "data_availability": {"status": "source_data_supplement", "has_any_data": true},
+  "data_flags": {"has_trajectories": true, "has_raw_movies": false},
+  "correlative": ["optical_tweezers"]
+}

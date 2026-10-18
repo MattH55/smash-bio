@@ -1,0 +1,72 @@
+{
+  "publication": {"doi": "10.1038/s41467-025-61755-5"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Dual-trap optical tweezers (LUMICKS C-Trap Edge-450, two instruments) stretch single biotinylated mitotic chromosomes isolated from HeLa Ki-67-mEmerald cells (WT, Ki-67 knockdown, overexpression) in a bead dumbbell; force-extension at 0.02 and 0.2 µm/s plus a step-and-hold broadband microrheology analysis (2.5 MHz force data) fitted with a Burgers model. HILO (pseudo-TIRF) fluorescence imaging acquired simultaneously."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": ["widefield_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap Edge-450",
+    "custom_built": false,
+    "acquisition_rate": {"value": 2500, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "High frequency (2.5 MHz) force data over the 2 min dwell period was used in the microrheology analysis.", "confidence": "high"}},
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {"value": 0.5, "unit": "pN/nm", "uncertainty": 0.03, "evidence": {"method": "llm_review", "snippet": "Trap stiffness was calibrated for every new bead pair in the absence of fluid flow and was 0.5 ± 0.03 pN/nm at each bead.", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["chromatin_mechanics"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {"value": 3000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "A pair of streptavidin-coated polystyrene beads (3 μm diameter, Bangs Laboratories) in PA buffer was optically trapped in the first microfluidic channel with the two optical traps.", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin"],
+    "trap_control": ["constant_velocity", "constant_distance"],
+    "pulling_speed": {"min": 20, "max": 200, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "linearly displacing the second trap position along the x-axis at a fixed rate of 0.02 μm/s to measure linear elasticity and 0.2 μm/s to examine chromosome non-linear stiffening behaviour", "confidence": "high"}}
+  },
+  "biological_system": {
+    "system_class": ["chromatin_mechanics"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {
+        "name": "Mitotic (prometaphase) chromosome, biotinylated",
+        "entity_type": "nucleoprotein",
+        "role": "tethered_construct",
+        "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+        "evidence": {"method": "llm_review", "snippet": "The trapped bead pair was then moved across to the channel flowing chromosomes suspended in PA buffer (channel 2) to capture a single biotinylated chromosome first by binding to one bead.", "confidence": "high"}
+      },
+      {
+        "name": "Ki-67-mEmerald (chromosome periphery organiser; WT, knockdown, overexpression)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+        "fluorescent_labels": [{"identifier": "mEmerald", "sequence_location": "C-terminus of MKI67"}],
+        "evidence": {"method": "llm_review", "snippet": "Homology-directed repair (HDR) plasmids designed to introduce mEmerald to the C-terminus of MKI67 were synthesised using a pUC18 backbone", "confidence": "high"}
+      }
+    ],
+    "cell": {"cell_identity": "HeLa (Ki-67-mEmerald knock-in)"}
+  },
+  "solution": {
+    "buffer": "PA (polyamine) buffer, Tris-HCl",
+    "pH": 8.0,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 15, "unit": "mM"}},
+      {"name": "EDTA", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 80, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "spermidine", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "spermine", "concentration": {"value": 0.2, "unit": "mM"}},
+      {"name": "Tween-20", "concentration": {"value": 0.2, "unit": "%"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "PA buffer (15 mM Tris-HCl (pH 8.0), 2 mM EDTA, 0.5 mM EGTA, 80 mM KCl, 20 mM NaCl, 0.5 mM spermidine, 0.2 mM spermine and 0.2% Tween-20)", "confidence": "high"}
+  },
+  "results": []
+}

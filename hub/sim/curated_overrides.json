@@ -1,0 +1,21 @@
+{
+  "_note": "Hand curation of simulation records, keyed by publication DOI (record numbers can shift between builds). Each override replaces the named fields with values taken from the record's own evidence. Applied by build_records.apply_overrides after automatic extraction.",
+  "10.7554/elife.109753": {
+    "curator_note": "2026-10-15 audit item 8: the extractor took the AFM experiment's geometry and set both anchors to the N-terminus. The methods text says the C-terminus was restrained and the N-terminus pulled.",
+    "protocol.geometry.force_application_geometry": "other",
+    "protocol.geometry.anchor_a": {
+      "description": "C-terminus (harmonically restrained)",
+      "end": "C_terminus",
+      "evidence": [{"field": "protocol.geometry.anchor_a", "method": "manual_curation", "confidence": "high",
+                    "snippet": "During SMD simulations, the C-terminus was harmonically restrained while a harmonic pulling potential was applied to the N-terminus in umbrella mode"}]
+    },
+    "protocol.geometry.anchor_b": {
+      "description": "N-terminus (pulled, umbrella potential)",
+      "end": "N_terminus",
+      "evidence": [{"field": "protocol.geometry.anchor_b", "method": "manual_curation", "confidence": "high",
+                    "snippet": "a harmonic pulling potential was applied to the N-terminus in umbrella mode"}]
+    },
+    "protocol.geometry.evidence": [{"field": "protocol.geometry.force_application_geometry", "method": "manual_curation", "confidence": "high",
+      "snippet": "steered MD with a restrained C-terminus and a pulled N-terminus (no instrument geometry); the AFM construct sentence describes the paper's experiment, not the simulation"}]
+  }
+}

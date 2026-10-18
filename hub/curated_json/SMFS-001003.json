@@ -1,0 +1,177 @@
+{
+  "publication": {
+    "doi": "10.1126/sciadv.adr4519"
+  },
+  "curation": {
+    "notes": "Methods paper for the angular optical trap (AOT, optical torque wrench): new metamaterial elliptical cylinders (multilayer SiO2/Si3N4) replace birefringent quartz cylinders as the trapped, surface-tethered particle; benchmarked by free spinning, DNA stretching at 200 nm/s and DNA twisting (cylinder rotated at 2 turn/s under constant force). No magnetic tweezers are used (auto magnetic section removed).",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [
+      "torque_tweezers"
+    ],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "custom_built": true,
+    "temperature": {
+      "value": 296.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All the AOT experiments were performed at room temperature (23°C).",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 10,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data were acquired at 10 kHz and recorded after averaging to 400 Hz.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "laser_power_at_objective": {
+        "value": 30,
+        "unit": "mW",
+        "note": "power before the objective",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The DNA stretching experiments (fig. S6) were carried out at a laser power of 30 mW (before the objective).",
+          "confidence": "high"
+        }
+      },
+      "number_of_traps": 1
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_mechanics",
+      "methods_calibration"
+    ],
+    "bead_geometry": "bead_surface",
+    "bead_material": "metamaterial elliptical cylinder (multilayer SiO2/Si3N4); quartz cylinders for comparison",
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin"
+    ],
+    "trap_control": [
+      "constant_velocity",
+      "constant_force",
+      "rotation"
+    ],
+    "pulling_speed": {
+      "value": 200,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The single-labeled DNA molecule was stretched at a constant velocity of 200 nm/s.",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "length_bp": 500,
+        "annotations": "~500-bp multibiotin-labeled and multidig-labeled adapters were prepared via PCR with labeled nucleotides"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_mechanics",
+      "methods_calibration"
+    ],
+    "entities": [
+      {
+        "name": "6546-bp single-labeled dsDNA (pMDW133; 5′-dig / 5′-biotin primers) for stretching",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 6546,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "A 6546-bp single-labeled DNA was used for the DNA stretching experiment, which was prepared via polymerase chain reaction (PCR) from plasmid pMDW133",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "6481-bp multilabeled (torsionally constrained) dsDNA for twisting",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 6481,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "A 6481-bp multilabeled DNA was used for the DNA twisting experiment, which was also prepared from plasmid pMDW133",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Multibiotin / multidigoxigenin adapters (~500 bp, pMDW111)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 500,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "~500-bp multibiotin-labeled and multidig-labeled adapters were prepared via PCR with labeled nucleotides",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 137,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 2.7,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "Na2HPO4",
+        "concentration": {
+          "value": 8,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KH2PO4",
+        "concentration": {
+          "value": 2,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "β-casein",
+        "concentration": {
+          "value": 0.6,
+          "unit": "mg/mL"
+        }
+      }
+    ]
+  }
+}

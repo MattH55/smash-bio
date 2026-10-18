@@ -1,0 +1,22 @@
+15/180 (121 s)
+30/180 (155 s)
+45/180 (229 s)
+60/180 (262 s)
+75/180 (300 s)
+90/180 (314 s)
+105/180 (356 s)
+120/180 (371 s)
+135/180 (423 s)
+150/180 (439 s)
+165/180 (696 s)
+180/180 (767 s)
+Titin I27 N–C: peak@0.1 7.211±0.527, xb 0.181 Å, ΔLc total 28.241/26.827/23.919 nm (contour 29.121)
+Ubiquitin N–C: peak@0.1 6.063±0.387, xb 0.287 Å, ΔLc total 23.664/20.662/15.606 nm (contour 24.794)
+Ubiquitin K48–C: peak@0.1 4.4±0.387, xb 0.403 Å, ΔLc total 4.786/3.901/2.881 nm (contour 8.109)
+Protein G B1 (GB1) N–C: peak@0.1 5.724±0.305, xb 0.618 Å, ΔLc total 16.931/15.495/12.791 nm (contour 18.354)
+Protein L B1 N–C: peak@0.1 6.364±0.383, xb 0.606 Å, ΔLc total 19.473/17.809/14.667 nm (contour 20.921)
+Talin rod R3 N–C: peak@0.1 9.02±0.211, xb 0.11 Å, ΔLc total 41.996/22.71/0 nm (contour 46.936)
+20-bp DNA hairpin, 4T loop (example) F½ 19.208 unfold 18.309 refold 15.017
+12-bp GC-rich DNA hairpin F½ 21.978 unfold 20.016 refold 18.018
+12-bp RNA hairpin, GAAA loop F½ 25.282 unfold 25.331 refold 23.16
+unzip mean 17.056 wall 795 s

@@ -1,0 +1,188 @@
+{
+  "publication": {
+    "doi": "10.1093/nar/gkae865"
+  },
+  "curation": {
+    "notes": "Correlative dual-trap optical tweezers + confocal fluorescence (LUMICKS C-Trap) imaging of AF488-labelled human LIG1 (full-length and C-terminal 261-919 fragment) binding/diffusing on a nicked lambda DNA tether held between two beads. Separate TIRF and BLI binding assays (not force-based) are also reported; the TIRF oxygen scavenger and sCMOS camera belong to that assay, not the trap experiment.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": [
+      "confocal_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "value": 0.25,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "single beads were caught in both optical traps in channel 1 using a trap stiffness of 0.25 pN/nm",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_protein_interaction",
+      "translation_transcription_replication"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 4890,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "DNA substrate was held between two 4.89 μm streptavidin-coated polystyrene bead (0.1% w/v) handles",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_protein_interaction",
+      "translation_transcription_replication"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "Nicked lambda DNA (48.5 kbp, ten nicks, two ATTO647N markers)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 48500,
+          "unit": "bp"
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "ATTO647N",
+            "sequence_location": "positions 33 786 and 44 826 bp"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we used a custom-generated biotinylated double-stranded (ds) lambda DNA (48.5 kbp) with ten methylguanine lesions (nicks) at the defined locations as well as two fluorophores (ATTO647N) at positions 33 786 and 44 826 bp",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA ligase 1 (LIG1), full-length",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P43075",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "region": "residues 1–919",
+        "length": {
+          "value": 919,
+          "unit": "aa"
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "Alexa Fluor 488",
+            "sequence_location": "amine (NHS ester) labelling"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we used human DNA ligase 1 (LIG1) proteins coding full-length (1–919 amino acids) and C-terminal (261–919 amino acids) region harboring the AdD, OBD and DBD domains",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA ligase 1 (LIG1), C-terminal fragment",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P43075",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "region": "residues 261–919 (AdD, OBD, DBD)",
+        "fluorescent_labels": [
+          {
+            "identifier": "Alexa Fluor 488",
+            "sequence_location": "amine (NHS ester) labelling"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we used human DNA ligase 1 (LIG1) proteins coding full-length (1–919 amino acids) and C-terminal (261–919 amino acids) region harboring the AdD, OBD and DBD domains",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.02,
+          "unit": "% (w/v)"
+        }
+      },
+      {
+        "name": "Tween 20",
+        "concentration": {
+          "value": 0.002,
+          "unit": "% (v/v)"
+        }
+      }
+    ]
+  }
+}

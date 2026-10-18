@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "model": "Go-Ca-Langevin",
+  "status": "uncalibrated",
+  "pn_per_reduced_force": null,
+  "ps_per_reduced_time": null,
+  "evidence": null,
+  "note": "No calibration of the Ca Go model's reduced force (epsilon per Angstrom) or time (tau) to physical units exists. The reference pipeline's harmonized table carries calibrated_force = null for every record. Protein forces are therefore reported in model units only. A calibration, if ever added, must state the experimental data set, fit and uncertainty here, and bump the version."
+}

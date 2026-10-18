@@ -1,0 +1,174 @@
+{
+  "publication": {
+    "doi": "10.1016/j.bpr.2026.100252"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Single-cell vibrational frequency profiling: whole A549 and U251 cancer cells are held in a single stationary optical trap (Bruker/JPK NanoTracker 2) and their force fluctuations recorded by QPD for 15 s at 100 kHz, then Fourier transformed and classified by PLS-DA. Compares Petri dish vs microfluidic chamber, serum-synchronised cells and agarose-increased medium viscosity. Cell-level passive force measurement rather than single-molecule."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "NanoTracker 2",
+    "custom_built": false,
+    "detection_device": [
+      "QPD"
+    ],
+    "temperature": {
+      "value": 310.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All samples were maintained at 37°C throughout experiments to ensure consistency.",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 100,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Experiments consisted of 15 second recordings with a stationary laser at a sampling rate of 100,000 Hz.",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "stokes_drag"
+    ],
+    "optical": {
+      "laser_power_at_source": {
+        "value": 500,
+        "unit": "mW",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Viable, isolated cells were trapped using a 500-mW laser.",
+          "confidence": "medium"
+        }
+      },
+      "number_of_traps": 1
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "rheology_cell"
+    ],
+    "trap_control": [
+      "passive_mode"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "rheology_cell"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "A549 human lung carcinoma cells",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "U251 human glioblastoma cells and A549 human lung carcinoma cells were used as our model system.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "U251 human glioblastoma cells",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "U251 human glioblastoma cells and A549 human lung carcinoma cells were used as our model system.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "A549; U251"
+    }
+  },
+  "solution": {
+    "buffer": "DMEM",
+    "components": [
+      {
+        "name": "fetal bovine serum",
+        "concentration": {
+          "value": 10,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "penicillin-streptomycin",
+        "concentration": {
+          "value": 1,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "agarose (viscosity experiments)",
+        "concentration": {
+          "min": 0.1,
+          "max": 0.3,
+          "unit": "wt %"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 1.9e-13,
+      "unit": "N",
+      "applies_to": {
+        "entity": "A549 cells"
+      },
+      "conditions": {
+        "note": "median RMS force of vibration signal, microfluidic chamber, n = 173"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "Microfluidic samples showed higher vibration intensity (median RMS = 1.90e−13 N) compared with dished samples (median RMS = 9.92e−14 N).",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "other",
+      "value": 9.92e-14,
+      "unit": "N",
+      "applies_to": {
+        "entity": "A549 cells"
+      },
+      "conditions": {
+        "note": "median RMS force of vibration signal, Petri dish, n = 129"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "Microfluidic samples showed higher vibration intensity (median RMS = 1.90e−13 N) compared with dished samples (median RMS = 9.92e−14 N).",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

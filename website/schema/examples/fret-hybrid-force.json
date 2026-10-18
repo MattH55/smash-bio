@@ -1,0 +1,23 @@
+{
+  "record_id": "FRET-000005",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.hybrid", "title": "Coupled optical tweezers and confocal FRET of a DNA hairpin", "authors": ["Example F"], "journal": "Example Journal", "year": 2026, "open_access": true},
+  "technique": {"primary": "smfret_confocal_burst", "excitation_scheme": "continuous", "detection": "point_detector", "geometry": "hybrid_force_fret", "time_resolution": {"value": 1, "unit": "ms"}},
+  "biological_system": {"molecule_types": ["DNA"], "entities": [{"name": "force-coupled DNA hairpin", "type": "DNA", "length_nt": 60}]},
+  "construct": {"labels": [{"name": "Cy3", "role": "donor", "labeling_site": "hairpin arm 1"}, {"name": "Cy5", "role": "acceptor", "labeling_site": "hairpin arm 2"}], "immobilization": "surface_tethered"},
+  "correlative": ["optical_tweezers"],
+  "cross_ref_smfs_record": "SMFS-000123",
+  "related_force_records": ["SMFS-000123"],
+  "fret_assays": [{
+    "assay_id": "optical-trap-confocal",
+    "fluorophores": [{"role": "donor", "name": "Cy3", "labeling_site": "hairpin arm 1"}, {"role": "acceptor", "name": "Cy5", "labeling_site": "hairpin arm 2"}],
+    "acquisition": {"sampling_rate": {"value": 1, "unit": "kHz"}},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": false, "detection_efficiency": true},
+    "analysis": {"accurate_vs_apparent_E": "apparent", "state_detection": "HMM", "kinetic_model": "HMM"},
+    "trace_sets": [{"id": "hybrid-01", "format": "HDF5", "channels": ["donor_intensity", "acceptor_intensity", "fret_efficiency", "force", "extension", "time"], "sampling_rate": {"value": 1, "unit": "kHz"}, "n_molecules": 27, "n_traces": 27}]
+  }],
+  "results": [{"quantity": "fret_efficiency_apparent", "value": 0.81, "unit": "1", "state": "closed", "conditions": {"force_pN": 5.0}}, {"quantity": "unfolding_rate", "value": 0.42, "unit": "1/s", "conditions": {"force_pN": 8.0}}],
+  "data_availability": {"status": "public_repository", "raw_traces_available": true, "datasets": [{"id": "https://example.org/hybrid-data", "scheme": "url", "url": "https://example.org/hybrid-data", "file_formats": ["h5"], "content": "raw_traces"}]},
+  "data_flags": {"has_raw_traces": true, "has_raw_photon_data": false, "has_raw_movies": false},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.5, "assay": 0.8, "construct": 0.6, "solution": 0.3, "analysis": 0.8, "data": 1.0, "overall": 0.71}
+}

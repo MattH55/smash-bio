@@ -1,0 +1,214 @@
+{
+  "publication": {
+    "doi": "10.1038/s42003-024-06367-3"
+  },
+  "curation": {
+    "notes": "Active microrheology in a modified acoustic force spectroscopy setup (LUMICKS AFS chip on a Nikon Eclipse Ti, camera tracking, LED-synchronised force readout): oscillating acoustic forces (0.01-100 Hz) on large beads embedded in rat-tail collagen I gels (6.39 µm polystyrene) or attached via concanavalin A to human red blood cells and gingival fibroblasts (6.59 µm silica) give G' and G''. Cell-scale rheology, not single-molecule; the cytochalasin D response is also measured.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "acoustic_force_spectroscopy",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_acoustic",
+    "correlative_modalities": [
+      "brightfield_video"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS (AFS chip) / custom-modified",
+    "custom_built": true,
+    "detection_device": [
+      "camera_CMOS"
+    ],
+    "objective_lens": {
+      "make": "Nikon",
+      "magnification": 40,
+      "numerical_aperture": 0.75,
+      "immersion": "air"
+    },
+    "temperature": {
+      "value": 310.15,
+      "unit": "K",
+      "note": "stated for RBC measurements",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All measurements were performed at 37 °C by making use of an AFS temperature control module (LUMICKS BV)",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 0.06,
+      "unit": "kHz",
+      "note": "maximum full-FOV camera frame rate; higher with reduced FOV",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "in full FOV mode, the camera achieves a maximum frame rate of ~60 Hz",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "stokes_drag"
+    ],
+    "acoustic": {
+      "resonance_frequency": {
+        "min": 14.2,
+        "max": 14.4,
+        "unit": "MHz",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the oscillation signal is impressed on the resonance frequency of the glass chamber (14.2–14.4 MHz) which generates the acoustic field",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "rheology_cell",
+      "rheology_material"
+    ],
+    "bead_geometry": "bead_surface",
+    "bead_size": {
+      "value": 6590,
+      "unit": "nm",
+      "note": "cell experiments; collagen gels used 6.39 µm polystyrene beads",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "6.59 µm silica microspheres (SiO2-R-SC33-1; Micro particles GmbH)",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "silica",
+    "bead_functionalization": [
+      "concanavalin A"
+    ],
+    "attachment_chemistry": [
+      "concanavalin A–glycoprotein (non-specific)"
+    ],
+    "trap_control": [
+      "oscillatory"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "rheology_cell",
+      "rheology_material"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      },
+      {
+        "name": "Rattus norvegicus",
+        "ncbi_taxon": 10116
+      }
+    ],
+    "entities": [
+      {
+        "name": "Human red blood cells",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "RBC data (N = 143) was collected over N = 10 days of experiments, and blood was collected from N = 4 donors",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Human gingival fibroblasts (HgF)",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The HgF cell line was a kind gift from T. De Vries (ACTA, Amsterdam), and extracted from the residual gingiva on wisdom tooth of a healthy 20 years old female.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Type I rat tail collagen gel (0.2 and 0.6 mg/mL)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Rattus norvegicus",
+          "ncbi_taxon": 10116
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "3.5 µl of 3 mg/ml type I rat tail collagen stock (A1048301; Thermofisher)",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "Red blood cells; human gingival fibroblasts"
+    }
+  },
+  "solution": {
+    "buffer": "Ringer's buffer (HEPES)",
+    "components": [
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 125,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "CaCl2",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgSO4",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "D-glucose",
+        "concentration": {
+          "value": 5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 32,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "cytochalasin D",
+        "concentration": {
+          "value": 500,
+          "unit": "nM"
+        }
+      }
+    ]
+  }
+}

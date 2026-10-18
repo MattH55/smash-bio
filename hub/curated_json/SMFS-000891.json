@@ -1,0 +1,80 @@
+{
+  "publication": {"doi": "10.1016/j.celrep.2024.114252"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "In vitro single-trap optical tweezers on spherical supported lipid bilayers (SSLBs: 500 nm latex beads, also 3 µm silica, coated with PC or PC:PA 19:1 membranes) carrying endogenous motors recruited from Dictyostelium (dynein) or rat brain (kinesin-1) ATP-releasates; stalls measured against the trap on polarity-marked, surface-adhered microtubules, plus free runs with the trap off, with/without inhibitors KTD-GST and Ciliobrevin-D."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": ["brightfield_video"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["QPD"],
+    "acquisition_rate": {
+      "value": 2, "unit": "kHz",
+      "evidence": {"method": "llm_review", "snippet": "QPD data was digitized at 2 kHz for recording SSLB motion. To calibrate the trap, thermal fluctuations of SSLBs were recorded at 40 kHz and the corner frequency was determined.", "confidence": "high"}
+    },
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {
+      "number_of_traps": 1,
+      "trap_stiffness": {
+        "min": 0.05, "max": 0.15, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "Trap stiffness was adjusted between 0.05 pN/nm to 0.15 pN/nm, depending on the experiment.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["force_generation_motor"],
+    "bead_geometry": "single_bead_surface",
+    "bead_size": {
+      "value": 500, "unit": "nm", "note": "latex SSLB core; larger 3 µm silica SSLBs also used for size dependence",
+      "evidence": {"method": "llm_review", "snippet": "These liposomes were then deposited onto a latex bead of 500nm diameter, as described in Figure 1A (also see STAR Methods).", "confidence": "high"}
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["supported lipid bilayer (PC or PC:PA 19:1)"],
+    "attachment_chemistry": ["lipid-mediated motor recruitment (phosphatidic acid)", "poly-L-lysine (microtubule adhesion)"],
+    "trap_control": ["passive_mode"]
+  },
+  "biological_system": {
+    "system_class": ["force_generation_motor"],
+    "organisms": [
+      {"name": "Dictyostelium discoideum", "ncbi_taxon": 44689},
+      {"name": "Rattus norvegicus", "ncbi_taxon": 10116},
+      {"name": "Capra hircus", "ncbi_taxon": 9925}
+    ],
+    "entities": [
+      {"name": "Spherical supported lipid bilayer (SSLB) cargo, PC or PC:PA (19:1) with 0.01% Rh-PE", "entity_type": "membrane", "role": "tethered_construct",
+       "fluorescent_labels": [{"identifier": "Rhodamine-PE"}],
+       "evidence": {"method": "llm_review", "snippet": "Phosphatidylcholine (PC; for PC liposomes) or PC and Phosphatidic acid (PA) in the molar ratio 19:1 (for PA liposomes) were dried in a nitrogen stream to form lipid films.", "confidence": "high"}},
+      {"name": "Cytoplasmic dynein (from Dictyostelium ATP-releasate)", "entity_type": "protein_complex", "role": "motor",
+       "organism": {"name": "Dictyostelium discoideum", "ncbi_taxon": 44689},
+       "evidence": {"method": "llm_review", "snippet": "SSLBs containing phosphatidic acid recruit dynein when incubated with Dictyostelium fractions but kinesin-1 when incubated with rat brain fractions.", "confidence": "high"}},
+      {"name": "Kinesin-1 (from rat brain ATP-releasate)", "entity_type": "protein_complex", "role": "motor",
+       "organism": {"name": "Rattus norvegicus", "ncbi_taxon": 10116},
+       "evidence": {"method": "llm_review", "snippet": "SSLBs containing phosphatidic acid recruit dynein when incubated with Dictyostelium fractions but kinesin-1 when incubated with rat brain fractions.", "confidence": "high"}},
+      {"name": "Taxol-stabilized microtubules (goat brain tubulin), minus-end biotin-labeled", "entity_type": "cytoskeletal_filament", "role": "track",
+       "organism": {"name": "Capra hircus", "ncbi_taxon": 9925},
+       "evidence": {"method": "llm_review", "snippet": "360μg of goat brain tubulin was polymerized using BGT (BRB 80 + 20μM taxol +10mM GTP).", "confidence": "high"}}
+    ],
+    "cytoskeleton": {"structure_type": "microtubule"}
+  },
+  "solution": {
+    "components": [
+      {"name": "MgCl2", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "creatine phosphate", "concentration": {"value": 40, "unit": "mM"}},
+      {"name": "creatine kinase", "concentration": {"value": 40, "unit": "U/mL"}}
+    ],
+    "nucleotides": ["ATP"],
+    "small_molecules": [
+      {"name": "ATP", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "KTD-GST (kinesin inhibitor)", "concentration": {"value": 17, "unit": "μM"}},
+      {"name": "Ciliobrevin-D (dynein inhibitor)", "concentration": {"value": 20, "unit": "μM"}}
+    ]
+  },
+  "results": []
+}

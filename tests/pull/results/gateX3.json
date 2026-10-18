@@ -1,0 +1,21 @@
+{
+    "gate":  "X3",
+    "pass":  true,
+    "implicit":  {
+                     "ran":  true,
+                     "steps":  1000,
+                     "rows":  101,
+                     "columns":  "step,time_ps,spring_nm,extension_nm,z_pulled_nm,force_pN,work_kJ_mol",
+                     "time_monotonic":  true,
+                     "extension0_nm":  3.73843,
+                     "native_distance_nm":  3.7063,
+                     "abs_diff_nm":  0.0321
+                 },
+    "explicit":  {
+                     "built":  true,
+                     "atoms":  74215,
+                     "steps":  50,
+                     "ran":  true
+                 },
+    "platform":  "OpenMM 8.6.1 CPU"
+}

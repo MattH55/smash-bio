@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-spt-results.schema.json",
+  "title": "SMASH-BIO single-particle-tracking results",
+  "description": "Derived single-particle-tracking measurements and the TrajectorySet sidecar that maps trajectory files or movies to standard columns. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["results"],
+  "properties": {
+    "results": {"type": "array", "items": {"$ref": "#/$defs/Result"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Result": {
+      "allOf": [
+        {"$ref": "../smash-common.schema.json#/$defs/Result"},
+        {
+          "type": "object",
+          "properties": {
+            "quantity": {"$ref": "#/$defs/Observable"},
+            "state": {"type": "string"},
+            "model": {"enum": ["MSD", "Spot_On", "vbSPT", "saSPT", "HMM", "jump_distance", "residence_time_survival", "other"]},
+            "conditions": {
+              "type": "object",
+              "properties": {
+                "temperature_K": {"type": "number"},
+                "context": {"type": "string"},
+                "lag_time_ms": {"type": "number"},
+                "localization": {"type": "string"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TrajectorySet": {
+      "type": "object",
+      "required": ["id", "format", "columns"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "files": {"type": "array", "items": {"type": "string"}},
+        "format": {"enum": ["csv", "trackmate_xml", "matlab", "spot_on_csv", "hdf5", "ome_tiff", "other"]},
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "unit"],
+            "properties": {
+              "name": {"enum": ["track_id", "x", "y", "z", "t", "frame", "intensity", "other"]},
+              "unit": {"type": "string"},
+              "path_in_file": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        },
+        "coordinate_unit": {"type": "string"},
+        "n_tracks": {"type": "integer", "minimum": 1},
+        "time_step": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "movie_files": {"type": "array", "items": {"type": "string"}},
+        "movie_format": {"enum": ["tiff", "ome_tiff", "nd2", "czi", "other"]},
+        "repository_id": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "Observable": {
+      "enum": [
+        "diffusion_coefficient_um2_s-1",
+        "anomalous_exponent_alpha",
+        "bound_fraction",
+        "residence_time_s",
+        "confinement_radius_nm",
+        "velocity_nm_s-1",
+        "run_length_nm",
+        "step_size_nm",
+        "localization_precision_nm",
+        "mean_track_length_frames",
+        "n_diffusive_states",
+        "other"
+      ]
+    }
+  }
+}

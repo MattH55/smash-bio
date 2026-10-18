@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | SMASH-BIO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>About SMASH-BIO</h1>
+      <p>Single Molecule Analysis and Spectroscopy Hub — connecting force spectroscopy to the wider biosciences through annotated, findable data.</p>
+    </div>
+  </header>
+  <main class="container docs-layout">
+    <nav class="docs-nav" aria-label="About sections">
+      <a href="#mission">Mission</a><a href="#background">Background</a><a href="#scope">What counts as force spectroscopy</a><a href="#simulations">Simulations (beta)</a><a href="#method">How the hub is built</a>
+      <a href="#limits">Coverage &amp; limitations</a><a href="#cite">How to cite</a><a href="#licence">Licence</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>
+    </nav>
+    <article class="prose">
+      <h2 id="mission">Mission</h2>
+      <p>The creation of data resources in biophysics enables the integration of biophysics into broader biosciences. SMASH-BIO provides a centralised index of single-molecule force spectroscopy (SMFS) experiments with biological annotations. By attaching identifiers for the molecules, organisms and cells studied — and recording whether, where and in what form the data were shared — we aim to enable meta-analysis of SMFS data for more general insights into protein and nucleic-acid folding, molecular motors, bonds and cell mechanics.</p>
+
+      <h2 id="background">Background</h2>
+      <p>Single-molecule unfolding experiments have been a mainstay of optical tweezers, magnetic tweezers and other methods, including nanopore unfolding and flow-induced stretching. While the way force is generated and measured differs, the experimental observable is the same: a force applied to a polymer and the resulting distance, from which structure, energetics and kinetics are inferred.</p>
+      <div class="grid-2">
+        <div class="card"><h3>Proteins</h3><p class="muted small" style="margin:0">Conformational changes of mechanoproteins are central to their function; unfolding reveals cryptic states and short-lived intermediates.</p></div>
+        <div class="card"><h3>Nucleic acids</h3><p class="muted small" style="margin:0">Unfolding of riboswitches, pseudoknots and transcription/translation regulatory elements; DNA elasticity, supercoiling and protein binding.</p></div>
+        <div class="card"><h3>Molecular interactions</h3><p class="muted small" style="margin:0">Rupture forces and bond lifetimes underpin immune recognition, adhesion and molecular-complex formation.</p></div>
+        <div class="card"><h3>Motors &amp; cells</h3><p class="muted small" style="margin:0">Stall forces, steps and processivity of motors; rheology of membranes, cytoplasm and whole cells.</p></div>
+      </div>
+
+      <h2 id="scope">What counts as force spectroscopy</h2>
+      <p>Any technique that applies a controlled force between two ends of a biological system: optical tweezers (including angular/torque traps), magnetic and magnetic-torque tweezers, acoustic force spectroscopy, centrifuge force microscopy, nanopore tweezers (e.g. SPRNT), hydrodynamic/flow stretching and DNA curtains, AFM-based single-molecule and single-cell force spectroscopy, biomembrane force probes, micropipette assays, glass microneedles, and molecular tension sensors such as tension gauge tethers and DNA-origami force clamps. AFM imaging and indentation-only studies, optical sorting and Raman tweezers are not force spectroscopy and are excluded.</p>
+
+      <h2 id="simulations">Simulations (beta)</h2>
+      <p>Pulling simulations of proteins and nucleic acids are indexed in a <a href="sim/index.html">separate Simulations section</a>, which is a beta feature. A simulation record uses its own identifier (<code>SIM-######</code>), schema and downloads, and it is labelled <span class="sim-tag">Simulation</span> wherever it appears. Simulation records are counted separately from experimental records. A publication that reports both experiments and simulations can still appear in both sections: an October 2026 audit found 39 of 117 simulation DOIs also among the experimental records. A text screen also flagged 141 experimental records as possibly computation-only, and these are being reviewed. When a simulation and an experiment concern the same molecule, the system page shows them side by side with a match level. A homolog link means the names share a token; it does not mean the construct or the pulling geometry is the same.</p>
+
+      <h2 id="method">How the hub is built</h2>
+      <p>Records are generated by an automated pipeline developed by the SMASH-BIO project, and then curated. The pipeline's code is not yet public. The steps are:</p>
+      <ol>
+        <li>Europe PMC is searched with technique-specific vocabulary (title, abstract, keywords); DataCite is searched for repository deposits.</li>
+        <li>A transparent rule-based classifier keeps biological studies with evidence of force applied between two ends, plus SMFS methods papers.</li>
+        <li>Datasets and code are linked using DataCite related identifiers, OpenAIRE ScholeXplorer, Europe PMC data-links and text-mined accessions, and data-availability statements parsed from open-access full text (via NCBI PMC).</li>
+        <li>Biological systems are matched to a curated dictionary and resolved to UniProt (reviewed, organism-aware), Rfam, GenBank, ChEBI and Cell Ontology; Table 3 parameters are extracted from Methods text and results from abstracts — each with its evidence snippet.</li>
+        <li>Hand-curated records override automatic values. See the <a href="schema.html#pipeline">schema page</a> for details.</li>
+      </ol>
+
+      <h2 id="limits">Coverage &amp; limitations</h2>
+      <ul>
+        <li><b>Literature coverage</b> is bounded by Europe PMC (PubMed, PMC, preprints). Physics-journal papers not indexed there may be missing.</li>
+        <li><b>Data statements</b> can only be read for open-access papers; for others the status is “Not checked”, although registry links (DataCite, Scholix) are still searched.</li>
+        <li><b>Automatic extraction</b> is approximate: a value marked <span class="ev-tag">methods text</span> or <span class="ev-tag">abstract</span> should be verified against the paper.</li>
+        <li><b>Default orthologs are low-confidence.</b> When a paper does not state the organism, the protein is assigned a default ortholog. This applies to about a quarter of entity mentions (25.4% in the October 2026 audit). Treat these UniProt links as low-confidence.</li>
+        <li><b>No accuracy figures yet.</b> A gold-standard set of 150 studies and 300 deposits has been drawn for measuring precision and recall, but it has not yet been annotated. Precision figures will be published once it is.</li>
+        <li><b>Completeness scores</b> reflect what could be recovered, not what was measured.</li>
+      </ul>
+      <div class="callout"><i class="fas fa-pen"></i><div>Found an error? Every record has a <b>Suggest a correction</b> button that pre-fills the submission form.</div></div>
+
+      <h2 id="cite">How to cite</h2>
+      <p>The metadata standard is described in:</p>
+      <div class="statement">Halma MTJ, Kumar S, van Eck J, Abeln S, Gates A, Wuite GJL. FAIR data for optical tweezers experiments. <i>Biophysical Journal</i> 124(8):1255–1272 (2025). <a href="https://doi.org/10.1016/j.bpj.2025.03.005" target="_blank" rel="noopener" class="ext">doi:10.1016/j.bpj.2025.03.005</a></div>
+      <p style="margin-top:12px">Please cite this paper and the SMASH-BIO index version (build date in the page footer) when using the hub.</p>
+
+      <h2 id="licence">Licence</h2>
+      <p>The SMASH-BIO index and its downloads are released under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="ext">Creative Commons Attribution 4.0 International licence (CC BY 4.0)</a>. This covers the records, the annotations, the system pages and the CSV/JSON exports, and only requires that you cite SMASH-BIO as above.</p>
+      <p>Linked articles and datasets remain under their own licences. Traces shown in the <a href="viewer.html">data viewer</a> come from public deposits whose licences allow redistribution; each is shown with its source, its licence and its original authors, who should be cited.</p>
+
+      <h2 id="privacy">Privacy</h2>
+      <p>Most pages of this site load Google Analytics (Google tag G-F9TN1HCQ2E) to count visits and see which pages are used. Google may set cookies and process your IP address for this purpose; you can block it with a content blocker without losing any function of the site.</p>
+      <p>The pulling simulator (<a href="pull/index.html">SMASH-Pull</a>) carries no analytics. Files you open in the simulator or the data viewer are processed in your browser and are never uploaded.</p>
+
+      <h2 id="contact">Contact</h2>
+      <p>Contact: <a href="mailto:mhalma@opensourcemed.info">mhalma@opensourcemed.info</a></p>
+    </article>
+  </main>
+  <footer id="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+   Compiling pull-engine v0.1.0 (C:\Users\matth\OneDrive\Documents\PhD\SMASH-BIO\pull-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.28s
+     Running unittests src\lib.rs (target\debug\deps\pull_engine-aff3f38382266584.exe)
+
+running 31 tests
+test error::tests::display_includes_code_and_detail ... ok
+test json::tests::bad_json_is_an_error_not_a_panic ... ok
+test error::tests::json_error_converts ... ok
+test json::tests::num_output_is_json_safe ... ok
+test json::tests::quote_escapes ... ok
+test json::tests::read_roundtrip ... ok
+test nucleic::tests::bad_input_is_rejected_not_silently_zeroed ... ok
+test nucleic::tests::gc_stem_is_stronger_than_at_stem ... ok
+test nucleic::tests::hairpin_stem_requires_a_single_wc_helix ... ok
+test nucleic::tests::half_force_lands_inside_the_reported_window ... ok
+test nucleic::tests::known_stack_dg_matches_published_37c_values ... ok
+test nucleic::tests::hairpin_delta_lc_is_two_singles_per_bp ... ok
+test nucleic::tests::rna_u_input_is_read_as_t ... ok
+test nucleic::tests::salt_is_neutral_at_one_molar_and_destabilises_dilute_salt ... ok
+test nucleic::tests::rna_stacks_are_the_xia_1998_set ... ok
+test nucleic::tests::unstable_stem_is_nan_not_zero ... ok
+test rng::tests::different_seeds_differ ... ok
+test nucleic::tests::declared_stem_ranking_is_nucleic_validation_gate_one ... ok
+test wlc::tests::high_force_approaches_but_never_reaches_contour ... ok
+test rng::tests::same_seed_same_stream ... ok
+test nucleic::tests::symmetry_flip_finds_unpublished_spellings ... ok
+test tests::version_is_available ... ok
+test nucleic::tests::steps_are_reported_per_stack_for_the_audit_trail ... ok
+test wlc::tests::inversion_round_trips_through_the_marko_siggia_force ... ok
+test wlc::tests::kT_scales_linearly_with_temperature ... ok
+test wlc::tests::low_force_extension_is_small_and_monotonic ... ok
+test wlc::tests::negative_force_clamps_to_zero_extension ... ok
+test wlc::tests::work_is_cumulative_and_offsets_by_one_sample ... ok
+test rng::tests::uniform_in_range ... ok
+test nucleic::tests::mean_open_increases_with_force ... ok
+test rng::tests::gaussian_moments ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests\parity.rs (target\debug\deps\parity-17cd554de7ce70ae.exe)
+
+running 9 tests
+test wlc_extension_agrees_with_reference ... ok
+test stem_free_energies_agree_with_reference ... ok
+test occupancy_mean_agrees_with_reference ... FAILED
+test nn_tables_agree_with_reference ... ok
+test hairpin_stem_extraction_agrees_with_reference ... ok
+test half_forces_agree_with_reference ... FAILED
+test integrated_work_endpoints_agree_with_reference ... ok
+test contour_lengths_agree_with_reference ... ok
+test constants_agree_with_reference ... ok
+
+failures:
+
+---- occupancy_mean_agrees_with_reference stdout ----
+
+thread 'occupancy_mean_agrees_with_reference' (54904) panicked at tests\parity.rs:207:9:
+mean_open ATATATATATATATATATAT at 1 pN: engine 0.21091829441750645 vs reference 0.3790342595814084
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- half_forces_agree_with_reference stdout ----
+
+thread 'half_forces_agree_with_reference' (75088) panicked at tests\parity.rs:44:5:
+cost: engine 130.76992204650014 vs reference 97.77946336650004
+
+
+failures:
+    half_forces_agree_with_reference
+    occupancy_mean_agrees_with_reference
+
+test result: FAILED. 7 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+error: test failed, to rerun pass `--test parity`

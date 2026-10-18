@@ -1,0 +1,49 @@
+# Environments, build output, caches
+.venv/
+venv/
+node_modules/
+target/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+.env.*
+*.pdb.tmp
+
+# Crawl caches and generated bulk outputs (regenerable)
+hub/cache/
+hub/out/
+smashbio-pipeline/out/
+smashbio-pipeline/cache/
+**/export_test/
+
+# Root-level workspace clutter: papers/PDFs, large data, scratch, logs, archives
+/*.pdf
+/*.zip
+/*.png
+/*.csv
+/*.nbib
+/*.log
+/*_out.txt
+/*_err.txt
+/cryoem_affiliations_sorted.txt
+/ot_affiliations_sorted.txt
+/_*.py
+/_*.pdb
+/*_cache.yaml
+/citing_papers_found.yaml
+/citation_comparison.yaml
+/extracted_params.json
+/parity-export-log.txt
+/figure1_bibliometrics/
+/doi_metadata/
+/extracted_metadata/
+/publications_metadata/
+/force_transitions/
+/legacy_site_v2/
+/Meeta Analysis/
+/Grok_Build_Instructions*.md
+/smash-*-brief*.md
+/smashbio-pipeline/

@@ -1,0 +1,149 @@
+{
+  "publication": {
+    "doi": "10.1016/j.molcel.2024.07.032"
+  },
+  "curation": {
+    "notes": "Mainly a genomics/biochemistry paper (eCLIP, UV-RIP-seq, TOP1cc-seq, EMSA, BLI); the SMFS part is a magnetic-tweezers supercoil-relaxation assay in which 30 positive turns are introduced into a pFOS1 DNA tether at 0.5 pN and relaxation by recombinant TOP1 (1-4 nM) is monitored with or without MYC eRNA or M. tuberculosis tRNA-Ile. Source organism of recombinant TOP1 is not stated in the methods (the study concerns human TOP1); the 25 °C temperature and 3 µm beads in the auto record came from BLI and reference beads respectively.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "magnetic": {
+      "bead_product": "M270 streptavidin-coated magnetic beads",
+      "rotation_control": true
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_protein_interaction",
+      "nucleic_acid_mechanics"
+    ],
+    "bead_geometry": "bead_surface",
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin"
+    ],
+    "trap_control": [
+      "rotation",
+      "constant_force"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_protein_interaction",
+      "nucleic_acid_mechanics"
+    ],
+    "entities": [
+      {
+        "name": "Linearized pFOS1 plasmid DNA, digoxigenin/biotin end-labelled (torsionally constrained tether)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The DNA template used in the magnetic tweezers experiments was constructed by ligating the ends of a linearized pFOS1 plasmid with either digoxigenin or biotin functionalized ends.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA topoisomerase I (TOP1), recombinant",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P11387",
+            "verified": false
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Recombinant TOP1 was diluted in TOP1 dilution buffer to a concentration of 1-4 nM and incubated with the MYC eRNA or Isoleucine tRNA from Mycobacterium tuberculosis.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "MYC enhancer RNA (eRNA)",
+        "entity_type": "rna",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "incubated with the MYC eRNA or Isoleucine tRNA from Mycobacterium tuberculosis",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "tRNA-Ile",
+        "entity_type": "rna",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Mycobacterium tuberculosis",
+          "ncbi_taxon": 1773
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Full-length Mycobacterium tuberculosis tRNAIle was produced in vitro by run-off transcription using recombinant T7 RNA polymerase",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES-KOH",
+    "pH": 7.6,
+    "components": [
+      {
+        "name": "HEPES-KOH",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "EDTA",
+        "concentration": {
+          "value": 0.1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glycerol",
+        "concentration": {
+          "value": 10,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "DTT",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.1,
+          "unit": "%"
+        }
+      }
+    ]
+  }
+}

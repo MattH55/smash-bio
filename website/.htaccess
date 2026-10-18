@@ -1,0 +1,31 @@
+# SMASH-BIO - compression and caching for the static hub (Apache / cPanel)
+DirectoryIndex index.html
+
+# one canonical host: www.smash-bio.org -> smash-bio.org (keeps sitemap URLs inside one Search Console property)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.smash-bio\.org$ [NC]
+  RewriteRule ^(.*)$ https://smash-bio.org/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json text/csv image/svg+xml
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/gzip .gz
+  AddType application/schema+json .schema.json
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType text/javascript "access plus 1 day"
+</IfModule>
+
+# don't let browsers sniff downloads as something else
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>

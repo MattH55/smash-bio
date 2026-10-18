@@ -1,0 +1,14 @@
+{
+  "record_id": "SPT-000002",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/spt.example.motor", "title": "Processive stepping of a kinesin motor tracked with quantum dots", "year": 2019},
+  "technique": {"primary": "SPT", "variant": "quantum_dot_tracking", "dimensions": "2D"},
+  "biological_system": {"entities": [{"name": "Kinesin-1", "type": "protein", "identifiers": [{"scheme": "uniprot", "id": "P33176", "verified": true}]}, {"name": "microtubule", "type": "complex"}]},
+  "probe": {"type": "quantum_dot", "name": "QD655", "labeling_strategy": "Halo_tag"},
+  "sample": {"context": "in_vitro_surface", "organism": "Homo sapiens"},
+  "hardware": {"illumination": "TIRF", "camera_type": "EMCCD", "frame_rate": {"value": 25, "unit": "Hz"}},
+  "tracking": {"software": ["custom MATLAB"], "min_track_length": 5},
+  "results": [{"quantity": "step_size_nm", "value": 8.0, "unit": "nm", "statistic": "mean", "n_events": 540, "model": "jump_distance"}, {"quantity": "velocity_nm_s-1", "value": 640.0, "unit": "nm/s", "statistic": "mean"}, {"quantity": "run_length_nm", "value": 810.0, "unit": "nm", "statistic": "mean"}],
+  "data_availability": {"status": "not_stated"},
+  "data_flags": {"has_trajectories": false, "has_raw_movies": false}
+}

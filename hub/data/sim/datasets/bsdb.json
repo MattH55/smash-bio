@@ -1,0 +1,46 @@
+{
+ "id": "bsdb",
+ "name": "BSDB, the Biomolecule Stretching Database (Sikora, Sulkowska, Witkowski & Cieplak)",
+ "kind": "database",
+ "source_url": "http://jowisz.ifpan.edu.pl/BSDB/",
+ "citation": "Nucleic Acids Res 2011; PLoS Comput Biol 2009 5:e1000422",
+ "license": "not stated on the reachable pages",
+ "redistributable": false,
+ "retrieved": "2026-10-11",
+ "status": "unreachable",
+ "probes": [
+  {
+   "url": "http://jowisz.ifpan.edu.pl/BSDB/",
+   "http_status": 404,
+   "final_url": "http://jowisz.ifpan.edu.pl/BSDB/",
+   "bytes": 203
+  },
+  {
+   "url": "https://jowisz.ifpan.edu.pl/BSDB/",
+   "http_status": null,
+   "final_url": "ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the ",
+   "bytes": 0
+  },
+  {
+   "url": "http://info.ifpan.edu.pl/BSDB/",
+   "http_status": 404,
+   "final_url": "http://jowisz.ifpan.edu.pl/BSDB",
+   "bytes": 202
+  }
+ ],
+ "internet_archive": {
+  "available": true,
+  "url": "http://web.archive.org/web/20250314085413/http://jowisz.ifpan.edu.pl/BSDB/",
+  "timestamp": "20250314085413",
+  "http_body_bytes": 11605,
+  "mentions": [
+   "download",
+   "mechanical clamp",
+   "protein",
+   "stretching"
+  ],
+  "snippet": "window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={\"autoplay\":\"on\",\"unmuteOverlay\":\"hidden\",\"showSwfDownload\":true}; __wm.init(\"http://web.archive.org/web\"); __wm.wombat(\"http://jowisz.ifpan.edu.pl/BSDB/\",\"20250314085413\",\"http://web.archive.org/\",\"web\",\"https://web-static.archi"
+ },
+ "notes": "Cα-Gō peak forces and mechanical-clamp annotations for ~17,134 model proteins, in reduced units with the authors' stated conversion. Nothing is copied: the licence is unstated, so only this metadata record and links are kept. See REPORT-sim.md for the question to put to the Cieplak group.",
+ "unit_system": "reduced_with_stated_conversion (ε and σ as published)"
+}

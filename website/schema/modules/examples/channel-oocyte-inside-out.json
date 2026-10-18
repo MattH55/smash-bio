@@ -1,0 +1,14 @@
+{
+  "record_id": "SC-000003",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/sc.example.oocyte", "title": "Ligand activation of a Cys-loop receptor in inside-out patches", "year": 2020, "open_access": true},
+  "technique": {"primary": "SC", "configuration": "inside_out"},
+  "biological_system": {"entities": [{"name": "GABA-A receptor alpha1", "type": "receptor", "mutation": "R615C", "identifiers": [{"scheme": "uniprot", "id": "P14867", "verified": true}]}]},
+  "expression_system": {"system": "xenopus_oocyte"},
+  "hardware": {"amplifier": "Axopatch 200B", "sampling_rate": {"value": 10, "unit": "kHz"}, "filter_cutoff": {"value": 2, "unit": "kHz"}, "pipette_resistance": {"value": 6, "unit": "MOhm"}, "holding_potential": {"value": -60, "unit": "mV"}},
+  "solutions": {"pipette": {"ions": [{"ion": "Cl-", "concentration": {"value": 140, "unit": "mM"}}]}, "bath": {"ions": [{"ion": "Cl-", "concentration": {"value": 140, "unit": "mM"}}]}, "ligands": [{"name": "GABA", "concentration": {"value": 10, "unit": "uM"}, "identifier": {"scheme": "chebi", "id": "16865", "verified": true}}]},
+  "analysis": {"software": ["HJCFIT"], "idealization": "HMM", "kinetic_model_type": "Markov", "n_open_states": 2, "n_closed_states": 3},
+  "results": [{"quantity": "ec50_M", "value": 1.2e-05, "unit": "M", "statistic": "fit_parameter", "conditions": {"ligand": "GABA"}}, {"quantity": "mean_closed_time_ms", "value": 15.4, "unit": "ms", "statistic": "fit_parameter"}, {"quantity": "n_open_states", "value": 2.0, "unit": "1", "conditions": {"ligand_concentration_M": 1e-05}}],
+  "data_availability": {"status": "journal_supplement", "has_any_data": true},
+  "data_flags": {"has_raw_current_traces": false, "has_raw_movies": false}
+}

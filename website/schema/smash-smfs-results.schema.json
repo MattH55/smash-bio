@@ -1,0 +1,479 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/smash-smfs-results.schema.json",
+  "title": "SMASH-BIO force spectroscopy results",
+  "description": "Representation of derived results from single-molecule force spectroscopy, and of the raw time-series they come from. A Result is one reported number (or distribution) for one observable on one molecular entity/transition under stated conditions, with the model used to obtain it and provenance. The TraceSet describes raw force/extension/time data in a technique-neutral way so data from optical, magnetic, acoustic, centrifugal, nanopore, AFM and flow experiments can be pooled.",
+  "$defs": {
+    "Result": {
+      "type": "object",
+      "required": [
+        "quantity",
+        "unit"
+      ],
+      "properties": {
+        "quantity": {
+          "$ref": "#/$defs/Observable"
+        },
+        "label": {
+          "type": "string",
+          "description": "free-text name as written by the authors"
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "number"
+        },
+        "uncertainty_type": {
+          "enum": [
+            "SD",
+            "SEM",
+            "CI95",
+            "fit_error",
+            "range",
+            "unspecified"
+          ]
+        },
+        "statistic": {
+          "enum": [
+            "mean",
+            "median",
+            "mode",
+            "most_probable",
+            "fit_parameter",
+            "single_value",
+            "range"
+          ]
+        },
+        "n_molecules": {
+          "type": "integer"
+        },
+        "n_events": {
+          "type": "integer"
+        },
+        "applies_to": {
+          "type": "object",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "description": "name of the MolecularEntity in the record"
+            },
+            "region": {
+              "type": "string"
+            },
+            "transition": {
+              "type": "string",
+              "examples": [
+                "N->U",
+                "U->N",
+                "bound->unbound",
+                "B->S (overstretching)",
+                "hairpin open->closed"
+              ]
+            },
+            "state": {
+              "type": "string"
+            }
+          }
+        },
+        "conditions": {
+          "type": "object",
+          "properties": {
+            "force_pN": {
+              "type": "number"
+            },
+            "loading_rate_pN_per_s": {
+              "type": "number"
+            },
+            "pulling_speed_nm_per_s": {
+              "type": "number"
+            },
+            "temperature_K": {
+              "type": "number"
+            },
+            "torque_pN_nm": {
+              "type": "number"
+            },
+            "supercoiling_density": {
+              "type": "number"
+            },
+            "ligand": {
+              "type": "string"
+            },
+            "ligand_concentration_nM": {
+              "type": "number"
+            },
+            "nucleotide": {
+              "type": "string"
+            },
+            "salt_mM": {
+              "type": "number"
+            },
+            "pH": {
+              "type": "number"
+            }
+          }
+        },
+        "model": {
+          "type": "string",
+          "examples": [
+            "WLC",
+            "eWLC",
+            "tWLC",
+            "FJC",
+            "eFJC",
+            "Bell",
+            "Bell-Evans",
+            "Dudko-Hummer-Szabo",
+            "Kramers",
+            "Crooks",
+            "Jarzynski",
+            "HMM",
+            "step_finding",
+            "Michaelis-Menten",
+            "Arrhenius",
+            "two-state",
+            "none",
+            "other"
+          ],
+          "description": "Analysis model; prefer one of: WLC, eWLC, tWLC, FJC, eFJC, Bell, Bell-Evans, Dudko-Hummer-Szabo, Kramers, Crooks, Jarzynski, HMM, step_finding, Michaelis-Menten, Arrhenius, two-state, none, other"
+        },
+        "method": {
+          "type": "string",
+          "description": "how the number was derived (histogram fit, dwell-time fit, PSD, ...)"
+        },
+        "data_ref": {
+          "type": "object",
+          "properties": {
+            "dataset_doi": {
+              "type": "string"
+            },
+            "file": {
+              "type": "string"
+            },
+            "figure": {
+              "type": "string"
+            },
+            "table": {
+              "type": "string"
+            }
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "enum": [
+                "abstract",
+                "results_text",
+                "methods",
+                "table",
+                "figure",
+                "supplement",
+                "dataset"
+              ]
+            },
+            "snippet": {
+              "type": "string"
+            },
+            "extraction": {
+              "enum": [
+                "auto_regex",
+                "manual",
+                "author_submitted"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Observable": {
+      "description": "Controlled vocabulary of SMFS observables. Canonical units in parentheses.",
+      "enum": [
+        "unfolding_force",
+        "refolding_force",
+        "rupture_force",
+        "unbinding_force",
+        "unzipping_force",
+        "overstretching_force",
+        "equilibrium_force",
+        "detachment_force",
+        "stall_force",
+        "buckling_force",
+        "tether_force",
+        "adhesion_force",
+        "contour_length",
+        "contour_length_increment",
+        "persistence_length",
+        "kuhn_length",
+        "stretch_modulus",
+        "twist_persistence_length",
+        "torsional_modulus",
+        "torque",
+        "buckling_torque",
+        "supercoiling_density",
+        "step_size",
+        "velocity",
+        "processivity_run_length",
+        "dwell_time",
+        "pause_frequency",
+        "pause_duration",
+        "rate_constant_zero_force",
+        "unfolding_rate",
+        "folding_rate",
+        "binding_rate_kon",
+        "unbinding_rate_koff",
+        "dissociation_constant_Kd",
+        "bond_lifetime",
+        "catch_bond_peak_force",
+        "distance_to_transition_state",
+        "activation_free_energy",
+        "folding_free_energy",
+        "binding_free_energy",
+        "work",
+        "energy_landscape",
+        "diffusion_coefficient",
+        "molecular_stiffness",
+        "cell_stiffness",
+        "elastic_modulus",
+        "storage_modulus",
+        "loss_modulus",
+        "viscosity",
+        "membrane_tension",
+        "bending_rigidity",
+        "loading_rate",
+        "number_of_steps_or_intermediates",
+        "other"
+      ]
+    },
+    "ObservableUnits": {
+      "const": {
+        "unfolding_force": "pN",
+        "refolding_force": "pN",
+        "rupture_force": "pN",
+        "unbinding_force": "pN",
+        "unzipping_force": "pN",
+        "overstretching_force": "pN",
+        "equilibrium_force": "pN",
+        "detachment_force": "pN",
+        "stall_force": "pN",
+        "buckling_force": "pN",
+        "tether_force": "pN",
+        "adhesion_force": "pN",
+        "contour_length": "nm",
+        "contour_length_increment": "nm",
+        "persistence_length": "nm",
+        "kuhn_length": "nm",
+        "stretch_modulus": "pN",
+        "twist_persistence_length": "nm",
+        "torsional_modulus": "pN nm^2",
+        "torque": "pN nm",
+        "buckling_torque": "pN nm",
+        "supercoiling_density": "1",
+        "step_size": "nm",
+        "velocity": "nm/s",
+        "processivity_run_length": "nm",
+        "dwell_time": "s",
+        "pause_frequency": "1/s",
+        "pause_duration": "s",
+        "rate_constant_zero_force": "1/s",
+        "unfolding_rate": "1/s",
+        "folding_rate": "1/s",
+        "binding_rate_kon": "1/(M.s)",
+        "unbinding_rate_koff": "1/s",
+        "dissociation_constant_Kd": "nM",
+        "bond_lifetime": "s",
+        "catch_bond_peak_force": "pN",
+        "distance_to_transition_state": "nm",
+        "activation_free_energy": "kBT",
+        "folding_free_energy": "kBT",
+        "binding_free_energy": "kBT",
+        "work": "kBT",
+        "diffusion_coefficient": "um^2/s",
+        "molecular_stiffness": "pN/nm",
+        "cell_stiffness": "pN/nm",
+        "elastic_modulus": "Pa",
+        "storage_modulus": "Pa",
+        "loss_modulus": "Pa",
+        "viscosity": "Pa.s",
+        "membrane_tension": "pN/um",
+        "bending_rigidity": "kBT",
+        "loading_rate": "pN/s"
+      }
+    },
+    "TraceSet": {
+      "type": "object",
+      "description": "Technique-neutral description of raw data files (one per molecule/tether/cycle set). Recommended container: HDF5 or CSV + this JSON sidecar.",
+      "required": [
+        "channels",
+        "sampling_rate_Hz"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string"
+        },
+        "format": {
+          "enum": [
+            "lumicks_h5",
+            "hdf5",
+            "tdms",
+            "csv",
+            "tsv",
+            "npy",
+            "mat",
+            "ibw",
+            "jpk-force",
+            "nanoscope",
+            "abf",
+            "fast5",
+            "other"
+          ]
+        },
+        "molecule_id": {
+          "type": "string"
+        },
+        "sampling_rate_Hz": {
+          "type": "number"
+        },
+        "downsampled_from_Hz": {
+          "type": "number"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "unit"
+            ],
+            "properties": {
+              "name": {
+                "enum": [
+                  "time",
+                  "force",
+                  "force_x",
+                  "force_y",
+                  "force_z",
+                  "extension",
+                  "trap_separation",
+                  "bead_position_x",
+                  "bead_position_y",
+                  "bead_z",
+                  "magnet_height",
+                  "magnet_rotation",
+                  "cantilever_deflection",
+                  "piezo_position",
+                  "ionic_current",
+                  "voltage",
+                  "flow_rate",
+                  "fluorescence_intensity",
+                  "kymograph",
+                  "rotation_angle",
+                  "torque",
+                  "other"
+                ]
+              },
+              "unit": {
+                "type": "string"
+              },
+              "path_in_file": {
+                "type": "string"
+              },
+              "calibrated": {
+                "type": "boolean"
+              },
+              "calibration": {
+                "type": "object",
+                "properties": {
+                  "stiffness_pN_per_nm": {
+                    "type": "number"
+                  },
+                  "distance_response_um_per_V": {
+                    "type": "number"
+                  },
+                  "force_response_pN_per_V": {
+                    "type": "number"
+                  },
+                  "method": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "protocol_segments": {
+          "type": "array",
+          "description": "segmentation of the trace into protocol steps",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start_s": {
+                "type": "number"
+              },
+              "end_s": {
+                "type": "number"
+              },
+              "mode": {
+                "type": "string",
+                "examples": [
+                  "pull",
+                  "relax",
+                  "force_clamp 10 pN",
+                  "passive",
+                  "rotate +20 turns"
+                ]
+              }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "description": "annotated transitions (unfolding rips, steps, ruptures)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "t_s": {
+                "type": "number"
+              },
+              "force_pN": {
+                "type": "number"
+              },
+              "delta_extension_nm": {
+                "type": "number"
+              },
+              "delta_contour_length_nm": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

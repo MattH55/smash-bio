@@ -1,0 +1,9 @@
+wrote C:\Users\matth\OneDrive\Documents\PhD\SMASH-BIO\tests\pull\parity\expected_protein.json (0.44 MB)
+  synthetic helix12: n=12 contacts=8 E=-7.999170 zeroT_peak=-0.000040
+  synthetic sheet10: n=10 contacts=0 E=+0.000000 zeroT_peak=-0.000040
+  synthetic collapsed9: n=9 contacts=15 E=-15.000000 zeroT_peak=-0.000040
+  synthetic straight6: n=6 contacts=0 E=+0.000160 zeroT_peak=-0.000040
+  pdb 1UBQ: 1UBQ:A 1-76 n=76 contacts=151 notes=1 zeroT_peak=-0.000040
+  pdb 1BRF: 1BRF:A 1-53 n=53 contacts=97 notes=1 zeroT_peak=-0.000040
+  pdb 1TIT: 1TIT:A 1-89 n=89 contacts=237 notes=0 zeroT_peak=-0.000040
+  pdb 1UBQ-domain40: 1UBQ:A 2-41 n=40 contacts=53 notes=2 zeroT_peak=-0.000040

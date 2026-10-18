@@ -1,0 +1,23 @@
+{
+ "publication": {"doi": "10.1016/j.ohx.2023.e00428"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Open-hardware instrument paper: a low-cost (~€9) glass microfluidic flow cell with a piezo actuator that acoustically traps 1.5 μm polystyrene beads (7.5 MHz, 23.7 Vpp) at ~50 μm depth in a 100 μm channel. Only bead trapping/calibration is shown; tethered-DNA force spectroscopy is stated as future intent, so no biomolecular construct is measured."},
+ "technique": {"primary": "acoustic_force_spectroscopy", "secondary": [], "force_application_geometry": "other", "correlative_modalities": []},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "optical": {
+   "trap_stiffness": {"value": 0.0006, "unit": "pN/nm", "note": "acoustic trap stiffness, reported as approximately 0.6 pN/μm", "evidence": {"method": "llm_review", "snippet": "The trap located at 50 ± 0.1 μm depth was measured to have a stiffness of approximately 0.6 pN/μm.", "confidence": "high"}}
+  }
+ },
+ "assay": {
+  "experiment_class": ["methods_calibration"],
+  "bead_size": {"value": 1500, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "Beads with 1.5 μm diameter flowing in a 100 μm deep channel were trapped at 7.5 MHz using a 23.7 peak-to-peak voltage (Vpp) sinusoidal input.", "confidence": "high"}},
+  "bead_material": "polystyrene"
+ },
+ "biological_system": {
+  "system_class": ["methods_calibration"],
+  "entities": []
+ },
+ "results": []
+}

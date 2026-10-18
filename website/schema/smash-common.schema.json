@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/smash-common.schema.json",
+  "title": "SMASH-BIO shared schema definitions",
+  "description": "Modality-neutral definitions shared by SMASH-BIO schemas. Version 1.0.0 is additive and does not alter the SMFS 3.1.0 schemas.",
+  "$defs": {
+    "Quantity": {
+      "type": "object",
+      "required": ["unit"],
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "unit": {"type": "string", "minLength": 1},
+        "uncertainty": {"type": ["number", "null"], "minimum": 0},
+        "uncertainty_type": {"enum": ["SD", "SEM", "CI95", "fit_error", "range", "unspecified"]},
+        "note": {"type": "string"}
+      },
+      "anyOf": [
+        {"required": ["value"]},
+        {"required": ["min"]},
+        {"required": ["max"]},
+        {"required": ["note"]}
+      ]
+    },
+    "Identifier": {
+      "type": "object",
+      "required": ["scheme", "id"],
+      "properties": {
+        "scheme": {"type": "string", "minLength": 1, "description": "Prefer an identifiers.org namespace."},
+        "id": {"type": "string", "minLength": 1},
+        "verified": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Evidence": {
+      "type": "object",
+      "required": ["field", "method", "confidence"],
+      "properties": {
+        "field": {"type": "string", "minLength": 1},
+        "method": {
+          "enum": ["author_submitted", "manual_curation", "llm_review", "regex_title_abstract", "regex_fulltext_methods", "europepmc_textmining", "gazetteer", "datacite", "scholix", "europepmc_datalinks", "fulltext_statement", "repository_api", "inferred"]
+        },
+        "section": {"type": "string"},
+        "snippet": {"type": "string", "maxLength": 400},
+        "confidence": {"enum": ["high", "medium", "low"]}
+      },
+      "additionalProperties": false
+    },
+    "Provenance": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/Evidence"}
+    },
+    "DatasetLink": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "scheme": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "title": {"type": ["string", "null"]},
+        "repository": {"type": "string"},
+        "license": {"type": ["string", "null"]},
+        "file_formats": {"type": "array", "items": {"type": "string"}},
+        "content": {"enum": ["raw_traces", "processed", "figure_source_data", "code", "mixed", "unknown"]}
+      },
+      "additionalProperties": false
+    },
+    "DataAvailability": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["public_repository", "source_data_supplement", "journal_supplement", "code_only", "on_request", "not_available", "not_stated", "fulltext_checked_none", "unknown_no_fulltext"]},
+        "has_linked_dataset": {"type": "boolean"},
+        "has_any_data": {"type": "boolean"},
+        "statement": {"type": "string"},
+        "datasets": {"type": "array", "items": {"$ref": "#/$defs/DatasetLink"}},
+        "code": {"type": "array", "items": {"$ref": "#/$defs/DatasetLink"}},
+        "accessions": {"type": "array", "items": {"$ref": "#/$defs/Identifier"}},
+        "supplementary_files": {"type": "array", "items": {"type": "string"}},
+        "raw_traces_available": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "FairCompleteness": {
+      "type": "object",
+      "properties": {
+        "publication": {"type": "number", "minimum": 0, "maximum": 1},
+        "hardware": {"type": "number", "minimum": 0, "maximum": 1},
+        "assay": {"type": "number", "minimum": 0, "maximum": 1},
+        "construct": {"type": "number", "minimum": 0, "maximum": 1},
+        "solution": {"type": "number", "minimum": 0, "maximum": 1},
+        "analysis": {"type": "number", "minimum": 0, "maximum": 1},
+        "data": {"type": "number", "minimum": 0, "maximum": 1},
+        "overall": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "ObserverEffect": {
+      "type": "object",
+      "required": ["assessed"],
+      "properties": {
+        "assessed": {"type": "boolean"},
+        "photobleaching_lifetime": {"$ref": "#/$defs/Quantity"},
+        "photoblinking_observed": {"type": "boolean"},
+        "photodamage_control": {"type": "string"},
+        "label_perturbation_control": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "TraceSet": {
+      "type": "object",
+      "required": ["channels"],
+      "properties": {
+        "id": {"type": "string"},
+        "files": {"type": "array", "items": {"type": "string"}},
+        "format": {"type": "string"},
+        "channels": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "sampling_rate": {"$ref": "#/$defs/Quantity"},
+        "n_molecules": {"type": "integer", "minimum": 1},
+        "n_traces": {"type": "integer", "minimum": 1},
+        "processed": {"type": "boolean"},
+        "repository_id": {"$ref": "#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "Result": {
+      "type": "object",
+      "required": ["quantity", "unit"],
+      "properties": {
+        "quantity": {"type": "string", "minLength": 1},
+        "label": {"type": "string"},
+        "value": {"type": ["number", "null"]},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "unit": {"type": "string", "minLength": 1},
+        "uncertainty": {"type": "number", "minimum": 0},
+        "uncertainty_type": {"enum": ["SD", "SEM", "CI95", "fit_error", "range", "unspecified"]},
+        "statistic": {"enum": ["mean", "median", "mode", "most_probable", "fit_parameter", "single_value", "range"]},
+        "n_molecules": {"type": "integer", "minimum": 1},
+        "n_events": {"type": "integer", "minimum": 1},
+        "model": {"type": "string"},
+        "conditions": {"type": "object"},
+        "trace_set": {"$ref": "#/$defs/TraceSet"},
+        "provenance": {"$ref": "#/$defs/Provenance"}
+      }
+    }
+  }
+}

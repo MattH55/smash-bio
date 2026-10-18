@@ -1,0 +1,22 @@
+{
+  "record_id": "FRET-000002",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.tirf", "title": "TIRF smFRET of a riboswitch aptamer", "authors": ["Example C"], "journal": "Example Journal", "year": 2023, "open_access": true},
+  "technique": {"primary": "smfret_tirf_widefield", "excitation_scheme": "continuous", "detection": "camera", "geometry": "TIRF_immobilized", "time_resolution": {"value": 100, "unit": "ms"}},
+  "biological_system": {"molecule_types": ["RNA"], "entities": [{"name": "SAM riboswitch aptamer", "type": "RNA", "length_nt": 78, "identifiers": [{"scheme": "rfam", "id": "RF00162", "verified": true}]}]},
+  "construct": {"labels": [{"name": "Cy3", "role": "donor", "labeling_site": "A12", "labeling_chemistry": "hybridization"}, {"name": "Cy5", "role": "acceptor", "labeling_site": "U66", "labeling_chemistry": "hybridization"}], "immobilization": "PEG_biotin_streptavidin"},
+  "fret_assays": [{
+    "assay_id": "aptamer-SAM",
+    "fluorophores": [{"role": "donor", "name": "Cy3", "labeling_site": "A12"}, {"role": "acceptor", "name": "Cy5", "labeling_site": "U66"}],
+    "solution": {"buffer": "50 mM HEPES, 100 mM KCl, 5 mM MgCl2", "pH": 7.4, "ligand": "SAM", "ligand_concentration": {"value": 100, "unit": "uM"}, "photostabilization": {"oxygen_scavenging": "GODCAT"}},
+    "hardware": {"widefield": {"illumination": "TIRF", "camera_type": "EMCCD", "frame_time": {"value": 100, "unit": "ms"}, "pixel_size": {"value": 160, "unit": "nm"}}},
+    "acquisition": {"sampling_rate": {"value": 10, "unit": "Hz"}},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": true, "detection_efficiency": true},
+    "analysis": {"accurate_vs_apparent_E": "accurate", "software": ["MATLAB", "vbFRET"], "state_detection": "HMM", "kinetic_model": "HMM"},
+    "trace_sets": [{"id": "movie-1", "format": "TIFF", "channels": ["donor_intensity", "acceptor_intensity", "fret_efficiency", "time"], "n_molecules": 120, "n_traces": 120, "processed": true}]
+  }],
+  "results": [{"quantity": "fret_efficiency_accurate", "value": 0.61, "unit": "1", "statistic": "mean", "n_molecules": 120, "state": "bound", "conditions": {"ligand": "SAM", "ligand_concentration_nM": 100000}, "trace_set": {"id": "movie-1", "channels": ["donor_intensity", "acceptor_intensity", "fret_efficiency"]}}, {"quantity": "population_fraction", "value": 0.78, "unit": "1", "state": "bound", "population_fraction": 0.78}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "raw_traces_available": true, "datasets": [{"id": "10.0000/example.tirf.data", "scheme": "doi", "repository": "Zenodo", "content": "raw_traces"}]},
+  "data_flags": {"has_raw_traces": true, "has_raw_photon_data": false, "has_raw_movies": true},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.7, "assay": 1.0, "construct": 0.6, "solution": 0.8, "analysis": 0.8, "data": 1.0, "overall": 0.84}
+}

@@ -1,0 +1,100 @@
+{
+  "publication": {"doi": "10.1126/sciadv.adx0005"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Ultrafast force-clamp (UFFC) spectroscopy in a custom dual-trap optical tweezers: a microtubule dumbbell held between two trapped beads is oscillated over a pedestal bead coated with human Ndc80 complex (Bonsai, Broccoli, Bronsai and mutants), measuring force-dependent bidirectional sliding (catch vs slip behavior). Kinesin/dynein pedestals were used only to determine microtubule polarity."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "three_bead_assay",
+    "correlative_modalities": ["widefield_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["QPD", "BFP_interferometry"],
+    "objective_lens": {"make": "Zeiss", "magnification": 100, "numerical_aperture": 1.46, "immersion": "oil"},
+    "temperature": {
+      "value": 305.15, "unit": "K",
+      "evidence": {"method": "llm_review", "snippet": "Assembly of the microtubule dumbbells All experiments were performed at 32°C.", "confidence": "high"}
+    },
+    "acquisition_rate": {
+      "value": 66.7, "unit": "kHz",
+      "note": "bead coordinates collected every 15 µs; pedestal QPD sampled separately at 1 kHz",
+      "evidence": {"method": "llm_review", "snippet": "Dumbbell beads’ coordinates were collected every 15 μs, and force acting on each dumbbell bead was updated every 30 μs; the estimated response time of our system was ~60 μs (34).", "confidence": "high"}
+    },
+    "optical": {
+      "laser_wavelength": {
+        "value": 1064, "unit": "nm",
+        "evidence": {"method": "llm_review", "snippet": "a beam of the 1064-nm laser (IPG Photonics, YLR-10-1064-LP) was passed through an AOD (IntraAction Corp., DTD-274HA6 2-AXIS) and spilt into two separate beams via a polarizing beam-splitter cube.", "confidence": "high"}
+      },
+      "detection_laser_wavelengths_nm": [780, 830],
+      "spatial_laser_control": ["AOD", "piezo_stage"],
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.045, "max": 0.1, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "The stiffnesses of optical traps ranged from 0.045 to 0.1 pN/nm, with two traps having nearly identical stiffness.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion"],
+    "bead_geometry": "two_bead_dumbbell_plus_pedestal",
+    "bead_size": {
+      "min": 510, "max": 540, "unit": "nm",
+      "note": "trapped dumbbell beads; pedestal beads 1.87 µm",
+      "evidence": {"method": "llm_review", "snippet": "In the first method, 0.54-μm-diameter streptavidin-coated polystyrene beads (Spherotech, catalog no. SVP-05-10) were incubated with biotinylated anti-sheep antibodies", "confidence": "high"}
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin + biotinylated anti-sheep / sheep anti-DIG", "carboxyl (EDC/NHS) + anti-DIG Fab", "pedestal: streptavidin + SNAP-GBP or biotinylated anti-GFP"],
+    "attachment_chemistry": ["digoxigenin–anti-digoxigenin", "biotin–streptavidin", "GFP–GFP-binding protein (SNAP-tag/benzylguanine)", "antibody–antigen (anti-GFP)"],
+    "trap_control": ["force_clamp", "oscillatory"]
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion"],
+    "organisms": [
+      {"name": "Homo sapiens", "ncbi_taxon": 9606},
+      {"name": "Bos taurus", "ncbi_taxon": 9913}
+    ],
+    "entities": [
+      {"name": "Ndc80 complex (Bonsai Ndc80-GFP)", "entity_type": "protein_complex", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "O14777", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "mutations": ["Hec1 ΔTail (N-terminal 80 aa deleted)", "Hec1 K166D", "Nuf2 K33D/K41D/K115D (3D)"],
+       "fluorescent_labels": [{"identifier": "GFP"}],
+       "evidence": {"method": "llm_review", "snippet": "Mutant Ndc80c Bonsai proteins (ΔTail with a deletion of 80 amino acids at the N terminus of Hec1 chain, Hec1 K166D, and 3D Nuf2 containing K33D, K41D, and K115D substitutions in the Nuf2 subunit)", "confidence": "high"}},
+      {"name": "Ndc80 complex (Broccoli and Bronsai Ndc80-GFP)", "entity_type": "protein_complex", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "Human Ndc80c Bonsai Ndc80-GFP, referred to as WT, was purified as in (32) and human “Broccoli” Ndc80-GFP as in (63).", "confidence": "high"}},
+      {"name": "Taxol-stabilized microtubule (bovine brain tubulin, DIG/rhodamine labeled)", "entity_type": "cytoskeletal_filament", "role": "track",
+       "organism": {"name": "Bos taurus", "ncbi_taxon": 9913},
+       "fluorescent_labels": [{"identifier": "rhodamine"}],
+       "evidence": {"method": "llm_review", "snippet": "Microtubules were polymerized using a mixture of bovine tubulins: unlabeled (7.1 mg/ml), DIG-labeled (0.9 mg/ml), and rhodamine-labeled (0.3 mg/ml).", "confidence": "high"}},
+      {"name": "Kinesin-1 K560-GFP", "entity_type": "protein", "role": "motor",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "Human kinesin-1 K560-GFP protein with the C-terminal 6-His tag was attached via biotinylated anti-His antibody", "confidence": "medium"}},
+      {"name": "Cytoplasmic dynein (cow brain)", "entity_type": "protein_complex", "role": "motor",
+       "organism": {"name": "Bos taurus", "ncbi_taxon": 9913},
+       "evidence": {"method": "llm_review", "snippet": "the beads were incubated with dynein purified from cow brain (provided by E. Holzbaur)", "confidence": "medium"}}
+    ],
+    "cytoskeleton": {"structure_type": "microtubule"}
+  },
+  "solution": {
+    "buffer": "Mg-BRB80 (PIPES)",
+    "pH": 6.9,
+    "components": [
+      {"name": "PIPES", "concentration": {"value": 80, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "MgCl2", "concentration": {"value": 4, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 4, "unit": "mg/ml"}},
+      {"name": "DTT", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "glucose", "concentration": {"value": 6, "unit": "mg/ml"}},
+      {"name": "β-mercaptoethanol", "concentration": {"value": 0.5, "unit": "%"}}
+    ],
+    "oxygen_scavenging": "glucose oxidase (0.1 mg/ml), catalase (20 µg/ml), glucose",
+    "small_molecules": [{"name": "taxol", "concentration": {"value": 15, "unit": "µM"}}]
+  },
+  "results": []
+}

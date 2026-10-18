@@ -1,0 +1,3150 @@
+{
+ "constants": {
+  "DS_RISE_NM": 0.34,
+  "KT_PN_NM_298": 4.114,
+  "SALT_N_PHOSPHATE_SLOPE": 0.114,
+  "SS_LP_NM": 0.75,
+  "SS_RISE_NM": 0.59,
+  "T_NN_K": 310.15,
+  "dna_nn": {
+   "AA/TT": [
+    -7.9,
+    -22.2
+   ],
+   "AT/TA": [
+    -7.2,
+    -20.4
+   ],
+   "CA/GT": [
+    -8.5,
+    -22.7
+   ],
+   "CG/GC": [
+    -10.6,
+    -27.2
+   ],
+   "CT/GA": [
+    -7.8,
+    -21.0
+   ],
+   "GA/CT": [
+    -8.2,
+    -22.2
+   ],
+   "GC/CG": [
+    -9.8,
+    -24.4
+   ],
+   "GG/CC": [
+    -8.0,
+    -19.9
+   ],
+   "GT/CA": [
+    -8.4,
+    -22.4
+   ],
+   "TA/AT": [
+    -7.2,
+    -21.3
+   ]
+  },
+  "kT": {
+   "298.15": 4.114,
+   "310.15": 4.279581083347308
+  },
+  "rna_nn": {
+   "AA/TT": [
+    -6.82,
+    -19.0
+   ],
+   "AT/TA": [
+    -9.38,
+    -26.7
+   ],
+   "CA/GT": [
+    -10.44,
+    -26.9
+   ],
+   "CG/GC": [
+    -10.64,
+    -26.7
+   ],
+   "CT/GA": [
+    -10.48,
+    -27.1
+   ],
+   "GA/CT": [
+    -12.44,
+    -32.5
+   ],
+   "GC/CG": [
+    -14.88,
+    -36.9
+   ],
+   "GG/CC": [
+    -13.39,
+    -32.7
+   ],
+   "GT/CA": [
+    -11.4,
+    -29.5
+   ],
+   "TA/AT": [
+    -7.69,
+    -20.5
+   ]
+  }
+ },
+ "contour": [
+  {
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "n_open": 20
+  },
+  {
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "n_open": 6
+  },
+  {
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "n_open": 6
+  },
+  {
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "n_open": 10
+  },
+  {
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "n_open": 10
+  }
+ ],
+ "extension": [
+  {
+   "extension_nm": 0.07148805752554849,
+   "force_pn": 0.05,
+   "temperature_k": 298.15
+  },
+  {
+   "extension_nm": 1.344042274129543,
+   "force_pn": 1.0,
+   "temperature_k": 298.15
+  },
+  {
+   "extension_nm": 4.950559197675206,
+   "force_pn": 5.0,
+   "temperature_k": 298.15
+  },
+  {
+   "extension_nm": 8.489685435691003,
+   "force_pn": 20.0,
+   "temperature_k": 298.15
+  },
+  {
+   "extension_nm": 10.221360769611232,
+   "force_pn": 80.0,
+   "temperature_k": 298.15
+  },
+  {
+   "extension_nm": 0.06873025163127909,
+   "force_pn": 0.05,
+   "temperature_k": 310.15
+  },
+  {
+   "extension_nm": 1.2954734737357148,
+   "force_pn": 1.0,
+   "temperature_k": 310.15
+  },
+  {
+   "extension_nm": 4.831360860761276,
+   "force_pn": 5.0,
+   "temperature_k": 310.15
+  },
+  {
+   "extension_nm": 8.417066589618427,
+   "force_pn": 20.0,
+   "temperature_k": 310.15
+  },
+  {
+   "extension_nm": 10.188640787079073,
+   "force_pn": 80.0,
+   "temperature_k": 310.15
+  }
+ ],
+ "hairpin_stem": [
+  {
+   "dot_bracket": "((((...))))",
+   "sequence": "GGCCTTTGGCC",
+   "stem": "GGCC"
+  },
+  {
+   "dot_bracket": "((((...))))",
+   "sequence": "GGCATTTGGCC",
+   "stem": null
+  },
+  {
+   "dot_bracket": "((((...))))..",
+   "sequence": "GGCCTTTGGCCGG",
+   "stem": null
+  },
+  {
+   "dot_bracket": ".(((...)))",
+   "sequence": "AGGCTTTGGCT",
+   "stem": null
+  },
+  {
+   "dot_bracket": "(((...))",
+   "sequence": "GGCTTTGCC",
+   "stem": null
+  },
+  {
+   "dot_bracket": "(..)",
+   "sequence": "AGCT",
+   "stem": null
+  }
+ ],
+ "half_force": [
+  {
+   "F_half_pN": 10.650000000000002,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 97.77946336650004
+  },
+  {
+   "F_half_pN": 13.3,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 97.77946336650004
+  },
+  {
+   "F_half_pN": 14.750000000000002,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 159.63921351750025
+  },
+  {
+   "F_half_pN": 18.700000000000003,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 159.63921351750025
+  },
+  {
+   "F_half_pN": 8.55,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 69.23023932236417
+  },
+  {
+   "F_half_pN": 10.600000000000001,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 69.23023932236417
+  },
+  {
+   "F_half_pN": 12.900000000000002,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 131.08998947336437
+  },
+  {
+   "F_half_pN": 16.3,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 131.08998947336437
+  },
+  {
+   "F_half_pN": 5.05,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 28.477554974523674
+  },
+  {
+   "F_half_pN": 6.15,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 28.477554974523674
+  },
+  {
+   "F_half_pN": 10.100000000000001,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 90.33730512552387
+  },
+  {
+   "F_half_pN": 12.600000000000001,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "ATATATATATATATATATAT",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 90.33730512552387
+  },
+  {
+   "F_half_pN": 17.200000000000003,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 199.14022291350008
+  },
+  {
+   "F_half_pN": 21.950000000000003,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 199.14022291350008
+  },
+  {
+   "F_half_pN": 22.500000000000004,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 288.64209228450005
+  },
+  {
+   "F_half_pN": 29.05,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 288.64209228450005
+  },
+  {
+   "F_half_pN": 15.450000000000001,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 170.5909988693642
+  },
+  {
+   "F_half_pN": 19.650000000000002,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 170.5909988693642
+  },
+  {
+   "F_half_pN": 20.85,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 260.0928682403641
+  },
+  {
+   "F_half_pN": 26.8,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 260.0928682403641
+  },
+  {
+   "F_half_pN": 12.8,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 129.8383145215237
+  },
+  {
+   "F_half_pN": 16.150000000000002,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 129.8383145215237
+  },
+  {
+   "F_half_pN": 18.400000000000002,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 219.34018389252367
+  },
+  {
+   "F_half_pN": 23.6,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 219.34018389252367
+  },
+  {
+   "F_half_pN": 22.6,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 290.404689036
+  },
+  {
+   "F_half_pN": 29.200000000000003,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 290.404689036
+  },
+  {
+   "F_half_pN": 28.000000000000004,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 386.19210785850015
+  },
+  {
+   "F_half_pN": 36.449999999999996,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 386.19210785850015
+  },
+  {
+   "F_half_pN": 20.950000000000003,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 261.8554649918641
+  },
+  {
+   "F_half_pN": 26.950000000000003,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 261.8554649918641
+  },
+  {
+   "F_half_pN": 26.400000000000002,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 357.64288381436427
+  },
+  {
+   "F_half_pN": 34.3,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 357.64288381436427
+  },
+  {
+   "F_half_pN": 18.5,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 221.10278064402362
+  },
+  {
+   "F_half_pN": 23.750000000000004,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 221.10278064402362
+  },
+  {
+   "F_half_pN": 24.1,
+   "deltaLc_nm": 23.599999999999998,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 316.89019946652377
+  },
+  {
+   "F_half_pN": 31.200000000000003,
+   "deltaLc_nm": 16.799999999999997,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 316.89019946652377
+  },
+  {
+   "F_half_pN": 20.55,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 76.59741982200003
+  },
+  {
+   "F_half_pN": 26.450000000000003,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 76.59741982200003
+  },
+  {
+   "F_half_pN": 25.85,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 104.38491966450007
+  },
+  {
+   "F_half_pN": 33.55,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 104.38491966450007
+  },
+  {
+   "F_half_pN": 19.05,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 69.08446612617479
+  },
+  {
+   "F_half_pN": 24.450000000000003,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 69.08446612617479
+  },
+  {
+   "F_half_pN": 24.450000000000003,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 96.87196596867484
+  },
+  {
+   "F_half_pN": 31.650000000000002,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 96.87196596867484
+  },
+  {
+   "F_half_pN": 16.900000000000002,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 58.36007550832203
+  },
+  {
+   "F_half_pN": 21.6,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 58.36007550832203
+  },
+  {
+   "F_half_pN": 22.400000000000002,
+   "deltaLc_nm": 7.08,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 86.1475753508221
+  },
+  {
+   "F_half_pN": 28.950000000000003,
+   "deltaLc_nm": 5.039999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 86.1475753508221
+  },
+  {
+   "F_half_pN": 21.700000000000003,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 137.68521102600005
+  },
+  {
+   "F_half_pN": 28.000000000000004,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 137.68521102600005
+  },
+  {
+   "F_half_pN": 27.05,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 184.90125914850015
+  },
+  {
+   "F_half_pN": 35.199999999999996,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 184.90125914850015
+  },
+  {
+   "F_half_pN": 20.150000000000002,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 124.16189437351464
+  },
+  {
+   "F_half_pN": 25.900000000000002,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 124.16189437351464
+  },
+  {
+   "F_half_pN": 25.55,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 171.37794249601473
+  },
+  {
+   "F_half_pN": 33.15,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 171.37794249601473
+  },
+  {
+   "F_half_pN": 17.85,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 104.85799126137967
+  },
+  {
+   "F_half_pN": 22.85,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 104.85799126137967
+  },
+  {
+   "F_half_pN": 23.35,
+   "deltaLc_nm": 11.799999999999999,
+   "geometry": "hairpin",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 152.07403938387975
+  },
+  {
+   "F_half_pN": 30.250000000000004,
+   "deltaLc_nm": 8.399999999999999,
+   "geometry": "duplex_unzip",
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "stem": "GCGCGCGCGC",
+   "temperature_k": 298.15,
+   "unfold_cost_pNnm": 152.07403938387975
+  }
+ ],
+ "mean_open": [
+  {
+   "force_pn": 1.0,
+   "mean_open": 0.3790342595814084,
+   "n_states": 21,
+   "p_closed": 0.7407187413832923,
+   "p_fully_open": 4.923609899513084e-11,
+   "stem": "ATATATATATATATATATAT"
+  },
+  {
+   "force_pn": 5.0,
+   "mean_open": 0.6453129415572232,
+   "n_states": 21,
+   "p_closed": 0.6295974991579787,
+   "p_fully_open": 2.9107451841476592e-08,
+   "stem": "ATATATATATATATATATAT"
+  },
+  {
+   "force_pn": 10.0,
+   "mean_open": 5.2883850737212565,
+   "n_states": 21,
+   "p_closed": 0.162357449747857,
+   "p_fully_open": 0.02030938066022874,
+   "stem": "ATATATATATATATATATAT"
+  },
+  {
+   "force_pn": 20.0,
+   "mean_open": 19.92655209039732,
+   "n_states": 21,
+   "p_closed": 1.942040622741676e-16,
+   "p_fully_open": 0.9408161196710361,
+   "stem": "ATATATATATATATATATAT"
+  },
+  {
+   "force_pn": 40.0,
+   "mean_open": 19.999397525435036,
+   "n_states": 21,
+   "p_closed": 7.591579477074035e-55,
+   "p_fully_open": 0.999399100347019,
+   "stem": "ATATATATATATATATATAT"
+  },
+  {
+   "force_pn": 1.0,
+   "mean_open": 0.2191416087309429,
+   "n_states": 21,
+   "p_closed": 0.7977970690197514,
+   "p_fully_open": 1.0577240674198514e-21,
+   "stem": "ATGCATGCATGCATGCATGC"
+  },
+  {
+   "force_pn": 5.0,
+   "mean_open": 0.29713704633978416,
+   "n_states": 21,
+   "p_closed": 0.7336138978081745,
+   "p_fully_open": 6.764853412635943e-19,
+   "stem": "ATGCATGCATGCATGCATGC"
+  },
+  {
+   "force_pn": 10.0,
+   "mean_open": 0.5779029004667232,
+   "n_states": 21,
+   "p_closed": 0.5363239271932564,
+   "p_fully_open": 1.3381391538536698e-12,
+   "stem": "ATGCATGCATGCATGCATGC"
+  },
+  {
+   "force_pn": 20.0,
+   "mean_open": 19.344881635731852,
+   "n_states": 21,
+   "p_closed": 8.062088395223973e-06,
+   "p_fully_open": 0.7790110934873112,
+   "stem": "ATGCATGCATGCATGCATGC"
+  },
+  {
+   "force_pn": 40.0,
+   "mean_open": 19.999369169253956,
+   "n_states": 21,
+   "p_closed": 3.8060663968400555e-44,
+   "p_fully_open": 0.9993849804797961,
+   "stem": "ATGCATGCATGCATGCATGC"
+  },
+  {
+   "force_pn": 1.0,
+   "mean_open": 0.024137618177659147,
+   "n_states": 21,
+   "p_closed": 0.9764940129898781,
+   "p_fully_open": 3.004793101661412e-31,
+   "stem": "GCGCGCGCGCGCGCGCGCGC"
+  },
+  {
+   "force_pn": 5.0,
+   "mean_open": 0.033866814651046476,
+   "n_states": 21,
+   "p_closed": 0.9673600620459002,
+   "p_fully_open": 2.0703512467564997e-28,
+   "stem": "GCGCGCGCGCGCGCGCGCGC"
+  },
+  {
+   "force_pn": 10.0,
+   "mean_open": 0.07432515900120445,
+   "n_states": 21,
+   "p_closed": 0.9312814516156034,
+   "p_fully_open": 5.392871814211275e-22,
+   "stem": "GCGCGCGCGCGCGCGCGCGC"
+  },
+  {
+   "force_pn": 20.0,
+   "mean_open": 0.9397218194105403,
+   "n_states": 21,
+   "p_closed": 0.5218640403213509,
+   "p_fully_open": 1.1703573790188255e-05,
+   "stem": "GCGCGCGCGCGCGCGCGCGC"
+  },
+  {
+   "force_pn": 40.0,
+   "mean_open": 19.99936837787307,
+   "n_states": 21,
+   "p_closed": 1.6398767494884702e-34,
+   "p_fully_open": 0.9993847199782482,
+   "stem": "GCGCGCGCGCGCGCGCGCGC"
+  },
+  {
+   "force_pn": 1.0,
+   "mean_open": 0.024137669672882802,
+   "n_states": 7,
+   "p_closed": 0.9764940045743054,
+   "p_fully_open": 8.852744651493783e-09,
+   "stem": "GCGCGC"
+  },
+  {
+   "force_pn": 5.0,
+   "mean_open": 0.033867177344293946,
+   "n_states": 7,
+   "p_closed": 0.9673600032289581,
+   "p_fully_open": 6.247262439101192e-08,
+   "stem": "GCGCGC"
+  },
+  {
+   "force_pn": 10.0,
+   "mean_open": 0.07435461741516838,
+   "n_states": 7,
+   "p_closed": 0.9312768202591258,
+   "p_fully_open": 5.115232715021566e-06,
+   "stem": "GCGCGC"
+  },
+  {
+   "force_pn": 20.0,
+   "mean_open": 1.9673934093150203,
+   "n_states": 7,
+   "p_closed": 0.4148312466553597,
+   "p_fully_open": 0.215806568477051,
+   "stem": "GCGCGC"
+  },
+  {
+   "force_pn": 40.0,
+   "mean_open": 5.9993683778740134,
+   "n_states": 7,
+   "p_closed": 5.666193430098415e-12,
+   "p_fully_open": 0.9993847199783827,
+   "stem": "GCGCGC"
+  },
+  {
+   "force_pn": 1.0,
+   "mean_open": 0.02413761817769185,
+   "n_states": 11,
+   "p_closed": 0.9764940129898749,
+   "p_fully_open": 3.3673511529378123e-15,
+   "stem": "GCGCGCGCGC"
+  },
+  {
+   "force_pn": 5.0,
+   "mean_open": 0.03386681465189971,
+   "n_states": 11,
+   "p_closed": 0.9673600620458173,
+   "p_fully_open": 8.797563723492705e-14,
+   "stem": "GCGCGCGCGC"
+  },
+  {
+   "force_pn": 10.0,
+   "mean_open": 0.07432516034528658,
+   "n_states": 11,
+   "p_closed": 0.9312814514894673,
+   "p_fully_open": 1.393146710150944e-10,
+   "stem": "GCGCGCGCGC"
+  },
+  {
+   "force_pn": 20.0,
+   "mean_open": 1.0691992820989593,
+   "n_states": 11,
+   "p_closed": 0.5143593378739861,
+   "p_fully_open": 0.015142358350699405,
+   "stem": "GCGCGCGCGC"
+  },
+  {
+   "force_pn": 40.0,
+   "mean_open": 9.999368377873068,
+   "n_states": 11,
+   "p_closed": 2.0593284920113865e-18,
+   "p_fully_open": 0.9993847199782482,
+   "stem": "GCGCGCGCGC"
+  }
+ ],
+ "thermo": [
+  {
+   "dg_1M_kcal": -14.073645000000006,
+   "dg_fold_kcal": -14.073645000000006,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -22.977275000000034,
+   "dg_fold_kcal": -22.977275000000034,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -14.073645000000006,
+   "dg_fold_kcal": -9.964483112737188,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -22.977275000000034,
+   "dg_fold_kcal": -18.868113112737216,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -14.073645000000006,
+   "dg_fold_kcal": -4.098846377149801,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -0.5938050000000006,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -22.977275000000034,
+   "dg_fold_kcal": -13.00247637714983,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "ATATATATATATATATATAT",
+   "stem": "ATATATATATATATATATAT",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.331925000000001,
+     "step": "TA/AT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -28.66275500000001,
+   "dg_fold_kcal": -28.66275500000001,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.544985000000004,
+   "dg_fold_kcal": -41.544985000000004,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -28.66275500000001,
+   "dg_fold_kcal": -24.553593112737193,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.544985000000004,
+   "dg_fold_kcal": -37.43582311273718,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -28.66275500000001,
+   "dg_fold_kcal": -18.687956377149806,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -0.8729400000000007,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -1.459595000000001,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.544985000000004,
+   "dg_fold_kcal": -31.5701863771498,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "ATGCATGCATGCATGCATGC",
+   "stem": "ATGCATGCATGCATGCATGC",
+   "steps": [
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "CA/GT"
+    },
+    {
+     "dg_kcal": -1.0989950000000022,
+     "step": "AT/TA"
+    },
+    {
+     "dg_kcal": -2.096964999999999,
+     "step": "TG/AC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.79868,
+   "dg_fold_kcal": -41.79868,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -55.58560500000002,
+   "dg_fold_kcal": -55.58560500000002,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.79868,
+   "dg_fold_kcal": -37.689518112737176,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -55.58560500000002,
+   "dg_fold_kcal": -51.4764431127372,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "salt_correction_kcal": 4.109161887262819,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -41.79868,
+   "dg_fold_kcal": -31.823881377149792,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -55.58560500000002,
+   "dg_fold_kcal": -45.610806377149814,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 20,
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "salt_correction_kcal": 9.974798622850205,
+   "sequence": "GCGCGCGCGCGCGCGCGCGC",
+   "stem": "GCGCGCGCGCGCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -11.024860000000004,
+   "dg_fold_kcal": -11.024860000000004,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -15.024385000000011,
+   "dg_fold_kcal": -15.024385000000011,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -11.024860000000004,
+   "dg_fold_kcal": -9.943501608615051,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "salt_correction_kcal": 1.0813583913849525,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -15.024385000000011,
+   "dg_fold_kcal": -13.943026608615058,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "salt_correction_kcal": 1.0813583913849525,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -11.024860000000004,
+   "dg_fold_kcal": -8.399912993986792,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "salt_correction_kcal": 2.6249470060132123,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -15.024385000000011,
+   "dg_fold_kcal": -12.3994379939868,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 6,
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "salt_correction_kcal": 2.6249470060132123,
+   "sequence": "GCGCGC",
+   "stem": "GCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -19.817380000000007,
+   "dg_fold_kcal": -19.817380000000007,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 1.0,
+   "polymer": "DNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -26.613305000000018,
+   "dg_fold_kcal": -26.613305000000018,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 1.0,
+   "polymer": "RNA",
+   "salt_correction_kcal": -0.0,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -19.817380000000007,
+   "dg_fold_kcal": -17.870934895507094,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 0.15,
+   "polymer": "DNA",
+   "salt_correction_kcal": 1.9464451044929143,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -26.613305000000018,
+   "dg_fold_kcal": -24.666859895507105,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 0.15,
+   "polymer": "RNA",
+   "salt_correction_kcal": 1.9464451044929143,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -19.817380000000007,
+   "dg_fold_kcal": -15.092475389176226,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 0.01,
+   "polymer": "DNA",
+   "salt_correction_kcal": 4.724904610823781,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.163919999999999,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -2.2323400000000015,
+     "step": "GC/CG"
+    }
+   ]
+  },
+  {
+   "dg_1M_kcal": -26.613305000000018,
+   "dg_fold_kcal": -21.888400389176237,
+   "loop": "omitted_unimolecular_stacks_only",
+   "n_bp": 10,
+   "na_molar": 0.01,
+   "polymer": "RNA",
+   "salt_correction_kcal": 4.724904610823781,
+   "sequence": "GCGCGCGCGC",
+   "stem": "GCGCGCGCGC",
+   "steps": [
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    },
+    {
+     "dg_kcal": -2.358995000000002,
+     "step": "CG/GC"
+    },
+    {
+     "dg_kcal": -3.4354650000000024,
+     "step": "GC/CG"
+    }
+   ]
+  }
+ ],
+ "work": [
+  {
+   "first": 0.0053506456531832725,
+   "grid_force_at_1": 0.1,
+   "last": 702.666969851667,
+   "middle": 306.1755188806794,
+   "temperature_k": 298.15
+  },
+  {
+   "first": 0.005144644091353597,
+   "grid_force_at_1": 0.1,
+   "last": 698.089044687382,
+   "middle": 303.15705585793074,
+   "temperature_k": 310.15
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM single-molecule force spectroscopy of the polytopic membrane protein MelB (S. typhimurium, 42-aa polyGly C-terminal extension) in E. coli polar-lipid proteoliposomes, with and without co-reconstituted E. coli insertase YidC. MelB is fully or partially unfolded and extracted with the cantilever, then re-inserted into the membrane at a new location (folding times 0.5-5 s) to score folding/misfolding; FD-based AFM imaging (Nanoscope Multimode 8) localised protein-rich patches and SMFS used JPK NanoWizard II / II Ultra."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "NanoWizard II / NanoWizard II Ultra (SMFS); Nanoscope Multimode 8 (FD-based AFM imaging)",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Protein containing lipid patches were localized by AFM imaging (NanoWizard II Ultra/NanoWizard II, JPK Instruments) in SMFS buffer at ≈ 25 °C (Figure S1B,C).",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 2,
+      "unit": "kHz",
+      "note": "PeakForce tapping oscillation frequency used for imaging, not SMFS",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "AFM topographs were recorded by applying imaging forces of 100 – 120 pN at 2 kHz oscillation frequency, with a vertical oscillation amplitude of 30 nm",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "equipartition"
+    ],
+    "afm": {
+      "cantilever_model": "OMCL-RC800PSA (Olympus) for SMFS; ScanAsyst-Fluid+ (Bruker) for imaging",
+      "spring_constant": {
+        "value": 700,
+        "unit": "pN/nm",
+        "note": "nominal spring constant of the imaging cantilever; the SMFS cantilever value is not stated numerically",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "AFM topographs were recorded using cantilevers (ScanAsyst-Fluid+, Bruker Nano Inc.) having a nominal spring constant of 0.7 N m–1",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 700,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the cantilever tip was pushed onto the membrane with a force of 700 pN for 0.5 s and retracted 250 nm with a velocity of 700 nm s–1",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein",
+      "membrane_mechanics"
+    ],
+    "attachment_chemistry": [
+      "non-specific tip attachment to polyGly-extended C terminus",
+      "proteoliposome adsorption to mica"
+    ],
+    "trap_control": [
+      "constant_velocity",
+      "force_jump"
+    ],
+    "pulling_speed": {
+      "value": 700,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "retracted 250 nm with a velocity of 700 nm s–1",
+        "confidence": "high"
+      }
+    },
+    "setpoint_force": {
+      "value": 700,
+      "unit": "pN",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "the cantilever tip was pushed onto the membrane with a force of 700 pN for 0.5 s",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein",
+      "membrane_mechanics"
+    ],
+    "organisms": [
+      {
+        "name": "Salmonella typhimurium",
+        "ncbi_taxon": 90371
+      },
+      {
+        "name": "Escherichia coli",
+        "ncbi_taxon": 562
+      }
+    ],
+    "entities": [
+      {
+        "name": "Melibiose permease MelB (polyGly extension, 9xHis)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Salmonella typhimurium",
+          "ncbi_taxon": 90371
+        },
+        "length": {
+          "value": 526,
+          "unit": "aa",
+          "evidence": {
+            "method": "llm_review",
+            "snippet": "The contour lengths of the elongated MelB (526 aa ≙ 190 nm) and YidC (559 aa ≙ 200 nm) polypeptides were calculated by assuming an amino acid backbone length of 0.36 nm aa–1.",
+            "confidence": "high"
+          }
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The plasmid pK95ΔAH/MelBST/polyGly/CHis9 encoding S. typhimurium MelB with a 42 aa polyGly linker and a 9xHis tag has previously been described.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Insertase YidC (10xHis-tagged)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Escherichia coli",
+          "ncbi_taxon": 562
+        },
+        "identifiers": [
+          {
+            "scheme": "refseq",
+            "id": "NP_418161.1",
+            "verified": false
+          }
+        ],
+        "length": {
+          "value": 559,
+          "unit": "aa",
+          "evidence": {
+            "method": "llm_review",
+            "snippet": "The contour lengths of the elongated MelB (526 aa ≙ 190 nm) and YidC (559 aa ≙ 200 nm) polypeptides were calculated by assuming an amino acid backbone length of 0.36 nm aa–1.",
+            "confidence": "high"
+          }
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "pMS119 encoding for 10xHis-tagged YidC58 was used in this study. YidC was expressed in E. coli strain C43(DE3)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "E. coli polar lipid extract proteoliposome",
+        "entity_type": "lipid",
+        "role": "sample",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "E. coli polar lipid extract (Avanti Polar lipids) was prepared at 40 mg ml−1 in 1.2% (w:v) octyl-β-D-glucoside (OG, Anatrace).",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "melibiose",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "melibiose",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      }
+    ]
+  },
+  "results": [],
+  "publication": {
+    "doi": "10.1016/j.str.2023.08.012"
+  }
+}

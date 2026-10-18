@@ -1,0 +1,73 @@
+{
+  "publication": {"doi": "10.1093/nar/gkag192"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Multiplexed magnetic tweezers rotation-extension measurements on torsionally constrained 20.6 kbp (and 7.9 kbp control) dsDNA to measure salt-dependent DNA twist in up to 12 M LiCl, NaCl, KCl and CsCl, complemented by CD spectroscopy and all-atom MD simulations. Rotation curves at F = 0.25 pN from at least 11 molecules (LiCl) and typically 10–20 molecules per condition."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["camera_CMOS"],
+    "camera_model": "Teledyne DALSA 12M Falcon2",
+    "objective_lens": {"make": "Olympus", "magnification": 40, "immersion": "oil"},
+    "acquisition_rate": {"value": 0.058, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "A frame grabber (PCIe 1433; National Instruments) collects images recorded at 58 Hz.", "confidence": "high"}},
+    "calibration_technique": ["equipartition"],
+    "magnetic": {
+      "magnet_type": "permanent_pair",
+      "bead_product": "Dynabeads MyOne Streptavidin C1",
+      "camera_frame_rate": {"value": 58, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "At each step of five applied turns, the extension of the tether is recorded for 6–10 s (at a camera rate of 58 Hz), and the mean extension is calculated.", "confidence": "high"}},
+      "magnet_gap": {"value": 1, "unit": "mm", "evidence": {"method": "llm_review", "snippet": "we employ a pair of permanent magnets (5 × 5 × 5 mm3, Supermagnete, Switzerland) arranged in vertical geometry [47] with a gap of 1 mm", "confidence": "high"}},
+      "rotation_control": true
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_mechanics"],
+    "bead_geometry": "bead_surface",
+    "bead_size": {"value": 1000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "to bind 1.0 μm diameter streptavidin-coated magnetic beads (Dynabeads MyOne Streptavidin C1, Thermo Fisher Scientific Baltics UAB, LT) and the flow cell surface, respectively.", "confidence": "high"}},
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": ["streptavidin"],
+    "surface_functionalization": ["anti-digoxigenin"],
+    "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+    "trap_control": ["constant_force", "rotation"],
+    "applied_force": {"value": 0.25, "unit": "pN", "evidence": {"method": "llm_review", "snippet": "We recorded extension–rotation curves by changing the magnet rotation, and thus the linking number ∆Lk, in steps of five turns at low force (F = 0.25 pN, unless stated otherwise).", "confidence": "high"}},
+    "handle_sequences": [{"length_bp": 600, "annotations": "PCR-generated DNA fragments (~600 bp) labeled with multiple biotin or digoxigenin groups were ligated to the DNA (20.6 kbp or 7.9 kbp)"}]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_mechanics"],
+    "entities": [
+      {"name": "dsDNA (20.6 kbp, lambda-phage-based sequence, 46% GC)", "entity_type": "nucleic_acid", "role": "tethered_construct",
+       "length": {"value": 20600, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "Our MT measurements used a 20.6 kbp DNA construct, based on the λ-phage DNA sequence, with a GC content of 46% and prepared as described previously [42, 43], unless stated otherwise.", "confidence": "high"}},
+      {"name": "dsDNA control construct (7.9 kbp, 56% GC)", "entity_type": "nucleic_acid", "role": "tethered_construct",
+       "length": {"value": 7900, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "Control measurements used a 7.9 kbp DNA construct with 56% GC content that was employed previously for similar measurements [6, 44].", "confidence": "high"}},
+      {"name": "Biotin- / digoxigenin-labeled attachment fragments (~600 bp)", "entity_type": "nucleic_acid", "role": "handle",
+       "length": {"value": 600, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "PCR-generated DNA fragments (~600 bp) labeled with multiple biotin or digoxigenin groups were ligated to the DNA (20.6 kbp or 7.9 kbp)", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 7.0,
+    "components": [
+      {"name": "Tris", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "KCl (reference condition)", "concentration": {"value": 100, "unit": "mM"}},
+      {"name": "LiCl", "concentration": {"min": 0.1, "max": 12, "unit": "M"}},
+      {"name": "NaCl", "concentration": {"min": 0.1, "max": 5, "unit": "M"}},
+      {"name": "KCl", "concentration": {"min": 0.1, "max": 4, "unit": "M"}},
+      {"name": "CsCl", "concentration": {"min": 0.1, "max": 7, "unit": "M"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "A 0.1–5 M concentration of NaCl (99.5%, p.a., ACS, ISO; Carl Roth), 0.1–4 M KCl (99.5%, p.a., ACS, ISO; Carl Roth), 0.1–12 M LiCl (99%, p.a., ACS; Carl Roth), and 0.1–7 M CsCl (99.999%, p.a., Ultra Quality; Carl Roth) were prepared using 10 mM Tris (pH 7.0)", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "other", "max": 0.9, "unit": "deg/bp", "applies_to": {"entity": "dsDNA", "transition": "change in helical twist vs 100 mM KCl (LiCl, largest increase)"},
+     "source": {"location": "abstract", "snippet": "LiCl causes the largest twist increase, by ≤ 0.9° bp-1, compared with physiological salt, still far below the suggested C-form values of 2-3° bp-1.", "extraction": "manual", "confidence": "high"}}
+  ]
+}

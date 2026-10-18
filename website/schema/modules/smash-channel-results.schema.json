@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-channel-results.schema.json",
+  "title": "SMASH-BIO single-channel recording results",
+  "description": "Derived single-channel electrophysiology measurements plus the CurrentTraceSet sidecar. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["results"],
+  "properties": {
+    "results": {"type": "array", "items": {"$ref": "#/$defs/Result"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Result": {
+      "allOf": [
+        {"$ref": "../smash-common.schema.json#/$defs/Result"},
+        {
+          "type": "object",
+          "properties": {
+            "quantity": {"$ref": "#/$defs/Observable"},
+            "state": {"type": "string"},
+            "transition": {"type": "string"},
+            "conditions": {
+              "type": "object",
+              "properties": {
+                "voltage_mV": {"type": "number"},
+                "temperature_K": {"type": "number"},
+                "ligand": {"type": "string"},
+                "ligand_concentration_M": {"type": "number"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "CurrentTraceSet": {
+      "type": "object",
+      "required": ["id", "format", "channels"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "files": {"type": "array", "items": {"type": "string"}},
+        "format": {"enum": ["abf", "heka_dat", "nwb", "qub_qdf", "ldt", "csv", "other"]},
+        "channels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "unit"],
+            "properties": {
+              "name": {"enum": ["current", "voltage", "time", "conductance", "other"]},
+              "unit": {"type": "string"},
+              "gain": {"type": "number"},
+              "filter_cutoff": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+              "path_in_file": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        },
+        "sampling_rate": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "n_traces": {"type": "integer", "minimum": 1},
+        "filter_type": {"type": "string"},
+        "repository_id": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "Observable": {
+      "enum": [
+        "unitary_conductance_pS",
+        "unitary_current_pA",
+        "open_probability",
+        "mean_open_time_ms",
+        "mean_closed_time_ms",
+        "burst_duration_ms",
+        "n_open_states",
+        "n_closed_states",
+        "transition_rate_s-1",
+        "subconductance_level_pS",
+        "ec50_M",
+        "reversal_potential_mV",
+        "dwell_time_ms",
+        "other"
+      ]
+    }
+  }
+}

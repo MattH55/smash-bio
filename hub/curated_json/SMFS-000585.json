@@ -1,0 +1,62 @@
+{
+  "publication": {"doi": "10.1038/s41467-025-65821-w"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM imaging (PeakForce Tapping) plus AFM force spectroscopy and dynamic-mechanical-analysis microrheology on native human mitotic chromosomes isolated from U2OS TRF1-BirA H2B-eGFP cells, adsorbed on poly-L-lysine glass in polyamine buffer. Two instruments are used: a Bruker Bioscope Catalyst for imaging/indentation (DNPS10 probes) and a Bruker NanoWizard V for microrheology with a 870 nm-radius cylindrical probe oscillated at 2, 20 and 200 Hz. Indentation of a chromatin assembly, not stretching of a single molecule."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": ["widefield_fluorescence", "high_speed_AFM_imaging"]
+  },
+  "hardware": {
+    "make_of_setup": "Bruker",
+    "model_number": "Bioscope Catalyst (imaging and force spectroscopy); NanoWizard V BioAFM (microrheology)",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "calibration_technique": ["thermal_noise_cantilever"],
+    "objective_lens": {"make": "Nikon", "magnification": 10},
+    "afm": {
+      "cantilever_model": "Bruker DNPS10 cantilever C (force spectroscopy); Olympus BLAC40TS (imaging); modified PFQNM-LC-A-CAL / SAA-SPH-1UM (microrheology)",
+      "spring_constant": {
+        "value": 240, "unit": "pN/nm",
+        "note": "nominal, DNPS10 cantilever C used for all AFM-FS; imaging probe 0.1 N/m; microrheology probe 0.137 N/m",
+        "evidence": {"method": "llm_review", "snippet": "DNPS10 probes (cantilever C, nominal tip radius 10 nm, nominal elastic constant 0.24 N/m, from Bruker, Camarillo, CA, USA), calibrated with the thermal noise method44 were used for all the AFM-FS measurements.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["chromatin_mechanics"],
+    "attachment_chemistry": ["poly-L-lysine coated glass coverslip (electrostatic adsorption)"],
+    "trap_control": ["force_ramp", "oscillatory"],
+    "n_molecules": 19
+  },
+  "biological_system": {
+    "system_class": ["chromatin_mechanics"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "Native human mitotic chromosome (U2OS TRF1-BirA H2B-eGFP)", "entity_type": "chromatin", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "fluorescent_labels": [{"identifier": "eGFP", "sequence_location": "H2B-eGFP"}],
+       "evidence": {"method": "llm_review", "snippet": "Briefly, U2OS TRF1-BirA H2B-eGFP cells were cultured in high glucose GlutaMAX DMEM (Gibco), containing 10% FBS (Gibco) and penicillin-streptomycin (Gibco) at 37 °C, 5% CO2.", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "U2OS (chromosomes isolated from metaphase-arrested cells)"}
+  },
+  "solution": {
+    "buffer": "Polyamine (PA) buffer, TRIS",
+    "pH": 8.0,
+    "components": [
+      {"name": "TRIS", "concentration": {"value": 15, "unit": "mM"}},
+      {"name": "EDTA", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 80, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "Tween20", "concentration": {"value": 0.2, "unit": "%"}},
+      {"name": "spermidine", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "spermine", "concentration": {"value": 0.2, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

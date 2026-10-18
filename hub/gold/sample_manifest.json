@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "created": "2026-10-10",
+  "seed": 20261010,
+  "requested_rows": {
+    "studies": 150,
+    "deposits": 300,
+    "files": 0
+  },
+  "deposit_member_population": 4486,
+  "sources": {
+    "records.jsonl": {
+      "sha256": "3e8227c571a955f8dcd0826d8699a741ee7cf40e1e32a87c0d319a85ed0e65bd"
+    },
+    "datasets_hub.jsonl": {
+      "sha256": "b4df8bda1e55c1597ce8333f3eb8c503b75405db83885174b4b02d59059aac0e"
+    }
+  },
+  "batches": {
+    "studies.csv": {
+      "rows": 150,
+      "sha256_at_generation": "fad8c01f67c0aa511c2a49a7fd76ce767fd8011de63a241b459ec7216a1aa796",
+      "source_fields": [
+        "source_record_id",
+        "publication_doi",
+        "technique",
+        "publication_year"
+      ],
+      "source_sha256": "624a646cc6bbe77371834321acf85ef17afbf911b52b1bd2a0a62e2a8b8956d1"
+    },
+    "deposits.csv": {
+      "rows": 300,
+      "sha256_at_generation": "dc658f6895d0c6754294e97be9f4bad09199a263c89b0a1002fca8e78a6355fa",
+      "source_fields": [
+        "source_deposit_id",
+        "doi_or_url",
+        "repository",
+        "linked_study_record_id"
+      ],
+      "source_sha256": "f9ce707d30291dd90ae3e71039af03bc754e3d0ec156218804dd09d3fe072bbb"
+    },
+    "files.csv": {
+      "rows": 0,
+      "sha256_at_generation": "44fadfef0a1bde9e86e91eabad5683c4156722ac06b877d7d5cf6ca8a9b9312f",
+      "source_fields": [
+        "source_file_id",
+        "source_deposit_id",
+        "family_id",
+        "file_url",
+        "filename",
+        "content_tier_sampled"
+      ],
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limitations": [
+    "files.csv is header-only because stable file IDs and file URLs are not retained by the pipeline",
+    "human, reviewer, and adjudication fields are intentionally blank at generation time"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-47634-5"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Mainly a cell-biology/photocatalysis study; the SMFS component is custom magnetic tweezers repetitive force scanning (1–50–1 pN) of DNA-handled E. coli GlpG intramembrane protease in DMPC/CHAPSO bicelles, before and after injection of the amphiphilic photocatalyst BTP under blue-light illumination, to measure oxidative destabilisation of membrane protein folding."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "magnetic": {"magnet_type": "permanent_pair"}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_protein"],
+    "bead_geometry": "bead_surface",
+    "bead_material": "superparamagnetic",
+    "attachment_chemistry": ["DNA handle"],
+    "trap_control": ["force_ramp"]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_protein"],
+    "organisms": [{"name": "Escherichia coli", "ncbi_taxon": 562}],
+    "entities": [
+      {"name": "GlpG intramembrane rhomboid protease in DMPC/CHAPSO bicelles", "entity_type": "protein", "role": "tethered_construct",
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "evidence": {"method": "llm_review", "snippet": "The pTrcHisA vector containing the gene for E. coli GlpG membrane protein was transformed into BL21-Gold (DE3) pLysS (Agilent)30.", "confidence": "high"}},
+      {"name": "DNA handles", "entity_type": "dna", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "Sample preparation of DNA-handled GlpG and a robust single-molecule system assembly for the force application was previously reported57,58.", "confidence": "high"}},
+      {"name": "DMPC/CHAPSO bicelle (2.5:1)", "entity_type": "membrane", "role": "other",
+       "evidence": {"method": "llm_review", "snippet": "The lipid bilayer environment for the membrane protein was reconstituted with a bicelle nanostructure, a lipid bilayer disc composed of DMPC lipid and CHAPSO detergent at a 2.5:1 molar ratio.", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 7.5,
+    "components": [
+      {"name": "Tris", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "bicelle (DMPC/CHAPSO)", "concentration": {"value": 2.0, "unit": "%"}}
+    ],
+    "small_molecules": [
+      {"name": "BTP (amphiphilic photocatalyst), with 450 nm blue light", "concentration": {"min": 10, "max": 20, "unit": "µM"}}
+    ]
+  },
+  "results": []
+}

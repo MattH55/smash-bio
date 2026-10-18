@@ -1,0 +1,97 @@
+{
+  "publication": {"doi": "10.1038/s41467-025-62427-0"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM-SMFS (JPK ForceRobot) of the human Izumo1:Juno sperm-egg adhesion complex, with constant-speed (800–6400 nm/s) and force-clamp modes, revealing a multi-state catch bond; constructs site-specifically immobilized via ybbR/Sfp and SpyTag/SpyCatcher with ELP linkers and ddFLN4 fingerprint. Includes point mutants (e.g. infertility-associated JunoH177Q), mouse orthologs, steered MD and Monte Carlo simulations; flow-cytometry bead binding used for KD."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "ForceRobot 300",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "calibration_technique": ["other"],
+    "afm": {
+      "cantilever_model": "Biolever Mini AC40TS (Olympus)",
+      "spring_constant": {
+        "min": 60, "max": 140, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "The contact-free method was used to calibrate cantilever spring constants, ranging from 0.06 to 0.14 N·m−1.", "confidence": "high"}
+      },
+      "pulling_speed": {
+        "min": 800, "max": 6400, "unit": "nm/s",
+        "evidence": {"method": "llm_review", "snippet": "subsequently retracted at constant speeds of 800, 1600, 3200, and 6400 nm·s−1.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion"],
+    "attachment_chemistry": ["aminosilane / sulfo-SMCC maleimide–coenzyme A", "ybbR-tag / Sfp (CoA)", "SpyTag/SpyCatcher"],
+    "trap_control": ["constant_velocity", "force_clamp"],
+    "pulling_speed": {
+      "min": 800, "max": 6400, "unit": "nm/s",
+      "evidence": {"method": "llm_review", "snippet": "subsequently retracted at constant speeds of 800, 1600, 3200, and 6400 nm·s−1.", "confidence": "high"}
+    }
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion"],
+    "organisms": [
+      {"name": "Homo sapiens", "ncbi_taxon": 9606},
+      {"name": "Mus musculus", "ncbi_taxon": 10090},
+      {"name": "Dictyostelium discoideum", "ncbi_taxon": 44689}
+    ],
+    "entities": [
+      {"name": "Izumo1 ectodomain", "entity_type": "protein", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "Q8IYV9", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "region": "ectodomain, C-terminal His10-SpyTag-LPETGG",
+       "mutations": ["E71A", "K150A", "H157A", "R160A"],
+       "evidence": {"method": "llm_review", "snippet": "For both Izumo1 and Juno point mutants, the numbering is based on the consensus sequence provided by UniProt (Izumo1: Q8IYV9, Juno: A6ND01).", "confidence": "high"}},
+      {"name": "Juno ectodomain", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "A6ND01", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "region": "ectodomain, C-terminal His10-SpyTag-LPETGG",
+       "mutations": ["H177Q"],
+       "evidence": {"method": "llm_review", "snippet": "We find that this enhanced mechanostability is impaired in the infertility-associated mutant, JunoH177Q.", "confidence": "high"}},
+      {"name": "Mouse Izumo1 and Juno", "entity_type": "protein", "role": "tethered_construct",
+       "organism": {"name": "Mus musculus", "ncbi_taxon": 10090},
+       "evidence": {"method": "llm_review", "snippet": "For mouse Izumo1 and Juno constructs, an N-terminal Binding Immunoglobulin Protein (BiP) secretion signal peptide was added.", "confidence": "medium"}},
+      {"name": "ybbR-His6-ELP-(MV7E2)3-ddFLN4-SpyCatcher", "entity_type": "protein", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "The construct (N-to C-terminus) used for surface functionalization in the constant speed AFM-SMFS and flow cytometry binding studies was ybbR-His6-ELP-(MV7E2)3-ddFLN4-SpyCatcher47.", "confidence": "high"}},
+      {"name": "ybbR-His6-ELP-(MV7E2)3-SpyCatcher", "entity_type": "protein", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "The construct (N-to C-terminus) used for surface functionalization in force clamp AFM-SMFS was ybbR-His6-ELP-(MV7E2)3-SpyCatcher.", "confidence": "high"}},
+      {"name": "ddFLN4 (4th filamin domain) fingerprint", "entity_type": "protein", "role": "handle",
+       "identifiers": [{"scheme": "uniprot", "id": "P13466", "verified": false}],
+       "organism": {"name": "Dictyostelium discoideum", "ncbi_taxon": 44689},
+       "region": "residues 549–649", "mutations": ["C18S"],
+       "evidence": {"method": "llm_review", "snippet": "the cysteine residue at position 18 in wild-type Dictyostelium discoideum 4th filamin domain (ddFLN4, UniProt: P13466, residues 549–649) has previously been mutated to C18S", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "pH": 7.4,
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 137, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 2.7, "unit": "mM"}},
+      {"name": "Na2HPO4", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "KH2PO4", "concentration": {"value": 1.8, "unit": "mM"}}
+    ]
+  },
+  "results": [
+    {"quantity": "rupture_force", "value": 600, "unit": "pN",
+     "applies_to": {"entity": "Izumo1:Juno (human, wild type)"},
+     "conditions": {"note": "upper bound of mechanostability ('up to 600 pN')"},
+     "source": {"location": "abstract", "snippet": "Our findings reveal a multi-state catch bond capable of withstanding forces up to 600 pN- mechanostability rarely observed among eukaryotic protein complexes.", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "rupture_force", "min": 20, "max": 700, "unit": "pN",
+     "applies_to": {"entity": "Izumo1:Juno"},
+     "source": {"location": "methods", "snippet": "due to the broad range of Izumo1:Juno rupture events (20–700 pN)", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "contour_length_increment", "value": 32, "unit": "nm",
+     "applies_to": {"entity": "ddFLN4 fingerprint (two domains)"},
+     "source": {"location": "methods", "snippet": "The unfolding of the two ddFLN4 domains contributed an additional 32 nm in contour length across four characteristic sawtooth-like peaks in the 50–80 pN range.", "extraction": "manual", "confidence": "high"}}
+  ]
+}

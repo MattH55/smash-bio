@@ -1,0 +1,42 @@
+{
+ "publication": {"doi": "10.1038/s41565-023-01462-8"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Electro-osmotic capture and directional co-translocational unfolding of thioredoxin (Trx-linker) polyproteins (dimer to nonamer, >1,200 residues) through an engineered charge-selective (NN-113R)7 nanopore in a planar lipid bilayer, read out by ionic current; nonamers carry single phosphorylation, glutathionylation or glycosylation sites. No beads or external force transducer are used."},
+ "technique": {"primary": "nanopore_force", "secondary": [], "force_application_geometry": "nanopore_translocation", "correlative_modalities": ["electrophysiology"]},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "detection_device": ["ionic_current"],
+  "temperature": {"value": 297.15, "unit": "K", "uncertainty": 1, "evidence": {"method": "llm_review", "snippet": "Ionic currents were measured at 24 ± 1 °C by using Ag/AgCl electrodes connected to the headstage of an Axopatch 200B amplifier.", "confidence": "high"}},
+  "acquisition_rate": {"value": 50, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Signals were low-pass filtered at 10 kHz and sampled at 50 kHz with a Digidata 1440A digitizer (Molecular Devices).", "confidence": "high"}},
+  "filter_frequency": {"value": 10000, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "Signals were low-pass filtered at 10 kHz and sampled at 50 kHz with a Digidata 1440A digitizer (Molecular Devices).", "confidence": "high"}}
+ },
+ "assay": {
+  "experiment_class": ["unfolding_protein"]
+ },
+ "biological_system": {
+  "system_class": ["unfolding_protein"],
+  "entities": [
+   {"name": "Thioredoxin-linker concatemers (Trx-linker)n, n = 2, 4, 6, 8, 9", "entity_type": "protein", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "N-terminal cysteine-glycine codons were included to give the final concatemer constructs: His6-SUMO-CysGly-(Trx-linker)n (n = 2, 4, 6) and His6-SUMO-CysGly-(Trx-linker)7Trx.", "confidence": "high"}},
+   {"name": "Trx-linker nonamer with central RRASAC site (phosphorylated, glutathionylated or glycosylated)", "entity_type": "protein", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "subsequently cloned in between the KpnI and AvrII sites within the Trx-linker octamer to give (Trx-linker)4-Trx-linker(RRASAC)-(Trx-linker)4.", "confidence": "high"}},
+   {"name": "(NN-113R)7 engineered nanopore", "entity_type": "protein", "role": "other",
+    "evidence": {"method": "llm_review", "snippet": "After a single (NN-113R)7 pore had inserted into the bilayer, the solution was replaced with a fresh buffer by manual pipetting, to prevent further insertions.", "confidence": "high"}}
+  ]
+ },
+ "solution": {
+  "buffer": "HEPES", "pH": 7.2,
+  "components": [
+   {"name": "KCl", "concentration": {"value": 750, "unit": "mM"}},
+   {"name": "HEPES", "concentration": {"value": 10, "unit": "mM"}},
+   {"name": "TCEP", "concentration": {"value": 5, "unit": "mM"}}
+  ],
+  "small_molecules": [
+   {"name": "guanidinium chloride (GdnHCl)", "concentration": {"min": 375, "max": 3000, "unit": "mM"}},
+   {"name": "urea", "concentration": {"value": 2.0, "unit": "M"}}
+  ],
+  "notes": "Recording buffers: 750 mM GdnHCl, 1.5 M GdnHCl, 3.0 M GdnHCl, 2.0 M urea/750 mM KCl or 750 mM KCl, 10 mM HEPES, 5 mM TCEP pH 7.2 (dimer-octamer); 375 mM GdnHCl/375 mM KCl, 10 mM HEPES pH 7.2 (nonamers). Lipid: DPhPC bilayer."
+ },
+ "results": []
+}

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-spt-record.schema.json",
+  "title": "SMASH-BIO single-particle-tracking record",
+  "description": "One publication-level single-particle-tracking record. Keeps the Table 3 backbone (hardware, assay, construct, solution, data availability) so cross-technique pages work. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["record_id", "schema_version", "publication", "technique", "sample", "data_availability"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^SPT-[0-9]{6}$"},
+    "schema_version": {"const": "1.0.0"},
+    "publication": {"$ref": "#/$defs/Publication"},
+    "technique": {"$ref": "#/$defs/Technique"},
+    "biological_system": {"$ref": "#/$defs/BiologicalSystem"},
+    "probe": {"$ref": "#/$defs/Probe"},
+    "sample": {"$ref": "#/$defs/Sample"},
+    "hardware": {"$ref": "#/$defs/Hardware"},
+    "tracking": {"$ref": "#/$defs/Tracking"},
+    "trajectory_sets": {"type": "array", "items": {"$ref": "smash-spt-results.schema.json#/$defs/TrajectorySet"}},
+    "results": {"type": "array", "items": {"$ref": "smash-spt-results.schema.json#/$defs/Result"}},
+    "data_availability": {"$ref": "../smash-common.schema.json#/$defs/DataAvailability"},
+    "data_flags": {"$ref": "#/$defs/DataFlags"},
+    "fair_completeness": {"$ref": "../smash-common.schema.json#/$defs/FairCompleteness"},
+    "provenance": {"$ref": "../smash-common.schema.json#/$defs/Provenance"},
+    "correlative": {"type": "array", "uniqueItems": true, "items": {"enum": ["optical_tweezers", "magnetic_tweezers", "afm_smfs", "smfret", "mass_photometry", "electrophysiology", "fluorescence_imaging", "other"]}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Publication": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "doi": {"type": "string"},
+        "pmid": {"type": "string"},
+        "pmcid": {"type": "string"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "journal": {"type": "string"},
+        "year": {"type": "integer", "minimum": 1900},
+        "abstract": {"type": "string"},
+        "open_access": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Technique": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {"const": "SPT"},
+        "variant": {"enum": ["single_particle_tracking", "spt_palm_tracker", "quantum_dot_tracking", "gold_nanoparticle_tracking", "spot_on_style", "other"]},
+        "dimensions": {"enum": ["2D", "3D", "2D_plus_z", "other"]},
+        "time_resolution": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "BiologicalSystem": {
+      "type": "object",
+      "required": ["entities"],
+      "properties": {
+        "entities": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/MolecularEntity"}}
+      },
+      "additionalProperties": false
+    },
+    "MolecularEntity": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["protein", "DNA", "RNA", "complex", "vesicle", "virus", "receptor", "other"]},
+        "description": {"type": "string"},
+        "identifiers": {"type": "array", "items": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}},
+        "evidence": {"$ref": "../smash-common.schema.json#/$defs/Evidence"}
+      },
+      "additionalProperties": false
+    },
+    "Probe": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["fluorescent_protein", "organic_dye", "quantum_dot", "gold_nanoparticle", "other"]},
+        "name": {"type": "string"},
+        "identifier": {"$ref": "../smash-common.schema.json#/$defs/Identifier"},
+        "labeling_strategy": {"enum": ["sparse_labelling", "PA_FP", "PC_FP", "Halo_tag", "SNAP_tag", "other", "unspecified"]},
+        "labeling_density": {"type": "number", "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "Sample": {
+      "type": "object",
+      "required": ["context"],
+      "properties": {
+        "context": {"enum": ["in_vitro_surface", "supported_bilayer", "DNA_curtain", "live_cell_nucleus", "live_cell_cytoplasm", "live_cell_membrane", "organism", "other"]},
+        "cell_line": {
+          "type": "object",
+          "properties": {"name": {"type": "string"}, "cellosaurus_id": {"type": "string"}},
+          "additionalProperties": false
+        },
+        "organism": {"type": "string"},
+        "taxon_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "Hardware": {
+      "type": "object",
+      "properties": {
+        "microscope": {"type": "string"},
+        "illumination": {"enum": ["epi", "HILO", "TIRF", "light_sheet", "other"]},
+        "camera_model": {"type": "string"},
+        "camera_type": {"enum": ["EMCCD", "sCMOS", "CCD", "other"]},
+        "frame_rate": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "pixel_size": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "objective_na": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "Tracking": {
+      "type": "object",
+      "properties": {
+        "software": {"type": "array", "items": {"type": "string"}},
+        "software_versions": {"type": "array", "items": {"type": "string"}},
+        "max_jump": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "gap_frames": {"type": "integer", "minimum": 0},
+        "min_track_length": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "DataFlags": {
+      "type": "object",
+      "properties": {
+        "has_trajectories": {"type": "boolean"},
+        "has_raw_movies": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

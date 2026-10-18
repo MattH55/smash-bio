@@ -1,0 +1,85 @@
+{
+  "publication": {"doi": "10.7554/elife.109012"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Custom single-beam optical trap (fixed-trap stall and AOD force-feedback assays) on human kinesin-1 (full-length KIF5B and K560) walking on sea urchin sperm axonemes, comparing a conventional high z-force geometry (bead directly on motor) with a low z-force geometry using a long lambda-DNA handle; multi-motor experiments use 2- and 3-motor DNA chassis. TIRF motility assays and mass photometry are complementary."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": ["brightfield_video"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["PSD", "BFP_interferometry"],
+    "objective_lens": {"make": "Nikon", "magnification": 100, "numerical_aperture": 1.49, "immersion": "oil"},
+    "acquisition_rate": {"value": 5, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "In all measurements, the bead position was acquired at 5 kHz, and the motor concentration was reduced until less than 30% of beads demonstrated motility within 100 s", "confidence": "high"}},
+    "calibration_technique": ["power_spectrum_passive", "other"],
+    "calibration_notes": "PSD response calibrated by raster scanning trapped beads with AODs; stiffness from Lorentzian fit of power spectrum.",
+    "optical": {
+      "laser_wavelength": {"value": 1064, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "A 20 W, 1064 nm ytterbium linear polarized CW laser (IPG Photonics) was used to trap beads.", "confidence": "high"}},
+      "laser_power_at_source": {"value": 20000, "unit": "mW", "note": "nominal laser rating; power adjusted with motorized half-wave plate", "evidence": {"method": "llm_review", "snippet": "A 20 W, 1064 nm ytterbium linear polarized CW laser (IPG Photonics) was used to trap beads.", "confidence": "medium"}},
+      "spatial_laser_control": ["AOD"],
+      "number_of_traps": 1,
+      "trap_stiffness": {"min": 0.08, "max": 0.10, "unit": "pN/nm", "note": "single motor; 0.1 pN/nm for two motors and 0.2 pN/nm for three motors", "evidence": {"method": "llm_review", "snippet": "In fixed trap assays, typical trap stiffnesses were 0.08–0.10 pN/nm for single motor, 0.1 pN/nm for two motors, and 0.2 pN/nm for three motors.", "confidence": "high"}},
+      "feedback_update_rate": {"value": 100, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "The desired force was achieved by tuning the trap stiffness accordingly, and the trap position was updated at 100 Hz.", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["force_generation_motor"],
+    "bead_geometry": "single_bead_surface",
+    "bead_size": {"value": 860, "unit": "nm", "note": "860 nm beads (Spherotech) for K560 and multi-motor chassis; 510 nm beads (Bangs Labs) for full-length KIF5B with DNA handle", "evidence": {"method": "llm_review", "snippet": "When trapping single K560 motors, biotinylated K560 was added to 0.2% w/v 860-nm-diameter streptavidin-functionalized polystyrene beads (Spherotech) for 10 min.", "confidence": "high"}},
+    "bead_sizes_mentioned_nm": [860, 510],
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin", "SNAP-tag (BG-oligo / BG-biotin)", "DNA hybridization (handle overhang to motor oligo)"],
+    "trap_control": ["constant_distance", "force_clamp"],
+    "handle_sequences": [{"annotations": "A PCR reaction was performed with 2 μl of 500 μg/mL lambda phage DNA (NEB), 15 μL each of Bio Forward and Kinesin Reverse primers (Table 1)"}]
+  },
+  "biological_system": {
+    "system_class": ["force_generation_motor"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "Kinesin-1 KIF5B full-length (ZZ-KIF5B-GFP-SNAP)", "entity_type": "protein", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "P33176", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "fluorescent_labels": [{"identifier": "GFP"}],
+       "evidence": {"method": "llm_review", "snippet": "Human full-length (ZZ-KIF5B-GFP-SNAP) and truncated (ZZ-KIF5B(1-560)-GFP-SNAP) kinesin-1 plasmids were encoded into a pOmnibac backbone", "confidence": "high"}},
+      {"name": "Kinesin-1 K560 (KIF5B 1–560)-GFP-SNAP", "entity_type": "protein", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "P33176", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606}, "region": "1–560",
+       "evidence": {"method": "llm_review", "snippet": "Human full-length (ZZ-KIF5B-GFP-SNAP) and truncated (ZZ-KIF5B(1-560)-GFP-SNAP) kinesin-1 plasmids were encoded into a pOmnibac backbone", "confidence": "high"}},
+      {"name": "Long dsDNA handle (lambda DNA PCR, 5'-biotin, ligated ssDNA overhang)", "entity_type": "nucleic_acid", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "Here, we substantially lowered the z-force by using a long DNA handle between the motor and the trapped bead", "confidence": "high"}},
+      {"name": "DNA chassis for two- and three-motor assemblies", "entity_type": "synthetic", "role": "scaffold",
+       "evidence": {"method": "llm_review", "snippet": "Four versions of the DNA chassis were used for multiple motor experiments.", "confidence": "high"}},
+      {"name": "Axonemes (sea urchin sperm)", "entity_type": "cytoskeletal_filament", "role": "track",
+       "evidence": {"method": "llm_review", "snippet": "Axonemes purified from sea urchin sperm were used as microtubule tracks to assay for motility.", "confidence": "high"}}
+    ],
+    "cytoskeleton": {"structure_type": "axoneme"}
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.4,
+    "components": [
+      {"name": "HEPES", "concentration": {"value": 30, "unit": "mM"}},
+      {"name": "MgSO4", "concentration": {"value": 5, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "glycerol", "concentration": {"value": 10, "unit": "%"}},
+      {"name": "casein", "concentration": {"value": 1.25, "unit": "mg/mL"}},
+      {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "D-glucose", "concentration": {"value": 0.8, "unit": "%"}},
+      {"name": "glucose oxidase", "concentration": {"value": 0.1, "unit": "mg/mL"}},
+      {"name": "catalase", "concentration": {"value": 0.02, "unit": "mg/mL"}},
+      {"name": "ATP", "concentration": {"value": 2, "unit": "mM"}}
+    ],
+    "nucleotides": ["ATP"],
+    "oxygen_scavenging": "glucose oxidase, catalase, D-glucose",
+    "notes": "For multi-motor measurements MBC and SB additionally contained 100 mM NaCl and 1 mg/mL BSA.",
+    "evidence": {"method": "llm_review", "snippet": "Axonemes were diluted 1:10 in motor buffer (MB: 30 mM HEPES, 5 mM MgSO4, 1 mM EGTA, 10% glycerol, pH 7.4) for 3 min. The chamber was then washed with MBC (MB supplemented with 1.25 mg/mL casein and 1 mM DTT).", "confidence": "high"}
+  },
+  "results": []
+}

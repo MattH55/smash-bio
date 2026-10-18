@@ -1,0 +1,183 @@
+{
+  "publication": {
+    "doi": "10.1021/acsphyschemau.5c00109"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "LUMICKS C-Trap dual-trap optical tweezers, constant-trap-position (passive) folding/unfolding equilibrium measurements of the theophylline RNA aptamer (WT and U24C mutant) with DNA handles, with and without theophylline; dwell times classified by an autoregressive HMM. Ligand slows unfolding without changing folding rates."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "acquisition_rate": {
+      "value": 78.125,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data is recorded at 78.125 kHz and then downsampled by a factor of 100.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "number_of_traps": 2
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 2080,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Streptavidin- (SVP-20–5) 2.14 μm and antidigoxigenin-coated (DIGP-20–2) 2.08 μm polystyrene microspheres are purchased from Spherotech.",
+        "confidence": "high"
+      }
+    },
+    "bead_size_streptavidin": {
+      "value": 2140,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Streptavidin- (SVP-20–5) 2.14 μm and antidigoxigenin-coated (DIGP-20–2) 2.08 μm polystyrene microspheres are purchased from Spherotech.",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin",
+      "DNA hybridization handle"
+    ],
+    "trap_control": [
+      "passive_mode",
+      "constant_distance"
+    ],
+    "handle_sequences": [
+      {
+        "annotations": "DNA handles and T4 ligase come from the hairpin labeling and tethering kit (Lumicks 0016) ... (LUMICKS Hairpin Labeling and Tethering Kit – Long Handles)"
+      }
+    ],
+    "n_molecules_min_per_condition": 3
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "entities": [
+      {
+        "name": "Theophylline RNA aptamer (WT and U24C mutant)",
+        "entity_type": "rna",
+        "role": "tethered_construct",
+        "mutations": [
+          "U24C"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The WT and U24C mutant RNA aptamers were chemically synthesized by Arrakis Therapeutics.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA handles (LUMICKS hairpin kit, long handles; biotin / digoxigenin)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "DNA handles labeled with biotin or digoxigenin on one end and a sticky end on the other are annealed with the RNA aptamer construct",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Theophylline (TPL)",
+        "entity_type": "small_molecule",
+        "role": "ligand",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we use optical tweezers single-molecule force spectroscopy to measure the folding dynamics of the theophylline aptamer in the presence and absence of ligand",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 3,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "theophylline (various concentrations)"
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "folding_free_energy",
+      "value": 3.6,
+      "unit": "kBT",
+      "applies_to": {
+        "entity": "theophylline aptamer",
+        "transition": "ligand-induced stabilization of folded state (ΔΔG)"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "significantly slows unfolding by stabilizing the aptamer by ∼3.6 k B T, or ∼2.1 kcal/mol",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    },
+    {
+      "quantity": "folding_free_energy",
+      "value": 2.1,
+      "unit": "kcal/mol",
+      "applies_to": {
+        "entity": "theophylline aptamer",
+        "transition": "ligand-induced stabilization of folded state (ΔΔG)"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "significantly slows unfolding by stabilizing the aptamer by ∼3.6 k B T, or ∼2.1 kcal/mol",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    }
+  ]
+}

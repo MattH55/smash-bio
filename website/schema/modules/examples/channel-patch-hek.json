@@ -1,0 +1,16 @@
+{
+  "record_id": "SC-000001",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/sc.example.patch", "title": "Single-channel kinetics of a voltage-gated potassium channel in HEK293 cells", "authors": ["Example A"], "journal": "Example Journal", "year": 2023, "open_access": true},
+  "technique": {"primary": "SC", "configuration": "cell_attached", "time_resolution": {"value": 50, "unit": "us"}},
+  "biological_system": {"entities": [{"name": "Kv1.2", "type": "ion_channel", "identifiers": [{"scheme": "uniprot", "id": "P16389", "verified": true}, {"scheme": "gtopdb", "id": "Kv1.2", "verified": false}]}]},
+  "expression_system": {"system": "HEK293", "cell_line": {"name": "HEK293", "cellosaurus_id": "CVCL_0045"}},
+  "hardware": {"amplifier": "Axopatch 200B", "sampling_rate": {"value": 20, "unit": "kHz"}, "filter_type": "Bessel", "filter_cutoff": {"value": 5, "unit": "kHz"}, "pipette_resistance": {"value": 4, "unit": "MOhm"}, "holding_potential": {"value": -80, "unit": "mV"}, "temperature": {"value": 295, "unit": "K"}},
+  "solutions": {"pipette": {"ions": [{"ion": "K+", "concentration": {"value": 140, "unit": "mM"}}]}, "bath": {"ions": [{"ion": "K+", "concentration": {"value": 5, "unit": "mM"}}]}, "pH": 7.4},
+  "analysis": {"software": ["QuB", "Clampfit"], "idealization": "HMM", "kinetic_model_type": "Markov", "n_open_states": 1, "n_closed_states": 3, "dead_time": {"value": 50, "unit": "us"}},
+  "current_trace_sets": [{"id": "trace-1", "format": "abf", "channels": [{"name": "current", "unit": "pA"}, {"name": "voltage", "unit": "mV"}, {"name": "time", "unit": "s"}], "sampling_rate": {"value": 20, "unit": "kHz"}, "n_traces": 46, "filter_type": "Bessel"}],
+  "results": [{"quantity": "unitary_conductance_pS", "value": 12.5, "unit": "pS", "uncertainty": 0.4, "uncertainty_type": "SEM", "statistic": "mean", "conditions": {"voltage_mV": -80}}, {"quantity": "open_probability", "value": 0.28, "unit": "1", "statistic": "mean", "conditions": {"voltage_mV": -80}}, {"quantity": "mean_open_time_ms", "value": 3.1, "unit": "ms", "statistic": "fit_parameter"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "raw_traces_available": true, "datasets": [{"id": "10.0000/sc.example.patch.data", "scheme": "doi", "repository": "DANDI", "content": "raw_traces", "file_formats": ["nwb"]}]},
+  "data_flags": {"has_raw_current_traces": true, "has_raw_movies": false},
+  "fair_completeness": {"publication": 1.0, "hardware": 1.0, "assay": 0.8, "construct": 0.7, "solution": 0.8, "analysis": 0.9, "data": 1.0, "overall": 0.89}
+}

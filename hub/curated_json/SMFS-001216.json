@@ -1,0 +1,39 @@
+{
+ "publication": {"doi": "10.1371/journal.pone.0282511"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Electromagnet-based magnetic microrheometer applies sinusoidal (0.05 Hz) forces to ~30 μm and ~100 μm iron oxide/PLA spheres embedded in 3D-culture matrices (agarose, GrowDex, GrowDex–collagen, fibrin) to measure local |G| and phase angle, with Bayesian multilevel heterogeneity modelling. Not optical tweezers and not single-molecule; the 6 μm non-magnetic spheres are only position references. Validated against parallel-plate rheometry."},
+ "technique": {"primary": "magnetic_tweezers", "secondary": [], "force_application_geometry": "other", "correlative_modalities": ["brightfield_video"]},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "calibration_technique": ["stokes_drag"],
+  "magnetic": {"magnet_type": "electromagnet_pair", "bead_product": "Micromod GmbH 12-00-304 (30 μm) / 12-00-105 (100 μm)", "rotation_control": false}
+ },
+ "assay": {
+  "experiment_class": ["rheology_material"],
+  "bead_size": {"min": 30000, "max": 100000, "unit": "nm", "note": "two magnetic sphere sizes: nominal 30 μm (heterogeneity quantification) and 100 μm (stiff agarose)", "evidence": {"method": "llm_review", "snippet": "had mean nominal diameters of either 30 μm (Micromod GmbH, 12–00-304), or 100 μm (Micromod GmbH, 12–00-105), which we refer to as ‘the 30 μm magnetic spheres’ and ‘the 100 μm magnetic spheres’", "confidence": "high"}},
+  "bead_material": "iron oxide / poly(lactic acid) (superparamagnetic)",
+  "bead_functionalization": ["uncoated", "NH2 (agarose only)"],
+  "trap_control": ["oscillatory"]
+ },
+ "biological_system": {
+  "system_class": ["rheology_material"],
+  "entities": [
+   {"name": "Agarose matrix (0.5–1.35%)", "entity_type": "material", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "The warm solution was immediately mixed with the required amounts of the sphere suspension to achieve the desired final concentration of agarose: 0.5%, 0.9%, 1.0%, 1.1%, 1.25%, and 1.35%.", "confidence": "high"}},
+   {"name": "GrowDex nanofibrillar cellulose (1.25%)", "entity_type": "material", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "GrowDex matrices were prepared using a 1.5% GrowDex product (UPM Kymmene Oyj, 100103002) by diluting the product to a concentration of 1.25%.", "confidence": "high"}},
+   {"name": "GrowDex–rat-tail collagen type I double network", "entity_type": "material", "role": "tethered_construct",
+    "organism": {"name": "Rattus norvegicus", "ncbi_taxon": 10116},
+    "evidence": {"method": "llm_review", "snippet": "Double-network GrowDex–collagen matrices were prepared using a 1.5% GrowDex product and a rat-tail collagen type I product (Corning, 354236) that were diluted to a 0.45% solution and a 2.0 mg/mL concentration", "confidence": "high"}},
+   {"name": "Fibrin (human plasma fibrinogen + thrombin)", "entity_type": "material", "role": "tethered_construct",
+    "identifiers": [{"scheme": "uniprot", "id": "P02671", "verified": false}],
+    "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+    "evidence": {"method": "llm_review", "snippet": "chilled solutions of human plasma fibrinogen (Sigma-Aldrich, F3879) in PBS–Tris buffer (0.5xPBS, 507 mM Tris, pH 8.8) and human plasma thrombin (Sigma-Aldrich, T6884)", "confidence": "high"}}
+  ]
+ },
+ "results": [
+  {"quantity": "elastic_modulus", "max": 10, "unit": "kPa", "applies_to": {"entity": "Agarose matrix (0.5–1.35%)"},
+   "source": {"location": "abstract", "snippet": "Thus, we show pointwise microscale viscoelasticity measurements within agarose matrices up to Young's moduli of 10 kPa.", "extraction": "manual", "confidence": "medium"}}
+ ]
+}

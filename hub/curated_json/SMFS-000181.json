@@ -1,0 +1,143 @@
+{
+  "publication": {
+    "doi": "10.1038/s44319-026-00715-6"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Biomembrane force probe (biotinylated human RBC + streptavidin bead coated with recombinant PD-L1/PD-L2 ectodomains) probing PD-1 on Jurkat cells; force-clamp bond lifetime measurements reveal PD-1/PD-L1 and PD-1/PD-L2 catch-slip bonds, plus adhesion-frequency assays (20 pN impingement, 0.2 s contact). Multiple PD-L1 point mutants tested; SMD simulations, DNA tension-gauge-tether beads, T-cell functional assays and mouse tumour studies are complementary, non-SMFS parts."
+  },
+  "technique": {
+    "primary": "biomembrane_force_probe",
+    "secondary": [],
+    "force_application_geometry": "biomembrane_force_probe",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "AVI-tag enzymatic biotinylation",
+      "biotin-PEG3500-SGA on RBC"
+    ],
+    "trap_control": [
+      "force_clamp"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      },
+      {
+        "name": "Mus musculus",
+        "ncbi_taxon": 10090
+      }
+    ],
+    "entities": [
+      {
+        "name": "PD-1 (human, expressed on Jurkat cells)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "mutations": [
+          "L128A",
+          "E136R"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "An hPD1-expressing Jurkat cell was aspirated by another micropipette driven by a piezoelectric translator.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "PD-L1 extracellular domain (human, 8xHis-AVI tagged)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "4ZQK",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "region": "extracellular domain",
+        "mutations": [
+          "R113S",
+          "R113E",
+          "R125S",
+          "R125E",
+          "I54A",
+          "Q66A",
+          "K75A"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The extracellular domain of PD-1 and PD-L1 genes were obtained from Generay Biotech and subcloned into the pET28a vector with a C-terminal AVI-Tag.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "PD-L2 extracellular domain (human, 8xHis-AVI tagged)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "6UMT",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Using the biomembrane force probe (BFP), we measure catch-slip bond behavior between PD-1 and PD-L1/PD-L2 under force.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Mouse PD-L1 (mPDL1, WT and CR gain-of-function mutant)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Mus musculus",
+          "ncbi_taxon": 10090
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Tumor growth studies using a gain of function mutant based on the catch-bond mechanism confirm the anti-cancer activity of soluble PD-L1.",
+          "confidence": "medium"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "Jurkat (PD-1 expressing); human red blood cell as BFP force transducer"
+    }
+  },
+  "results": []
+}

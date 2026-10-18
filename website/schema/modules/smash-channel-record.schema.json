@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-channel-record.schema.json",
+  "title": "SMASH-BIO single-channel electrophysiology record",
+  "description": "One publication-level single-channel recording record (patch clamp, planar bilayer or droplet interface bilayer). Keeps the Table 3 backbone so cross-technique pages work. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["record_id", "schema_version", "publication", "technique", "biological_system", "data_availability"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^SC-[0-9]{6}$"},
+    "schema_version": {"const": "1.0.0"},
+    "publication": {"$ref": "#/$defs/Publication"},
+    "technique": {"$ref": "#/$defs/Technique"},
+    "biological_system": {"$ref": "#/$defs/BiologicalSystem"},
+    "expression_system": {"$ref": "#/$defs/ExpressionSystem"},
+    "hardware": {"$ref": "#/$defs/Hardware"},
+    "solutions": {"$ref": "#/$defs/Solutions"},
+    "analysis": {"$ref": "#/$defs/Analysis"},
+    "current_trace_sets": {"type": "array", "items": {"$ref": "smash-channel-results.schema.json#/$defs/CurrentTraceSet"}},
+    "results": {"type": "array", "items": {"$ref": "smash-channel-results.schema.json#/$defs/Result"}},
+    "data_availability": {"$ref": "../smash-common.schema.json#/$defs/DataAvailability"},
+    "data_flags": {"$ref": "#/$defs/DataFlags"},
+    "fair_completeness": {"$ref": "../smash-common.schema.json#/$defs/FairCompleteness"},
+    "provenance": {"$ref": "../smash-common.schema.json#/$defs/Provenance"},
+    "correlative": {"type": "array", "uniqueItems": true, "items": {"enum": ["smfret", "optical_tweezers", "afm_smfs", "fluorescence_imaging", "whole_cell_electrophysiology", "other"]}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Publication": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "doi": {"type": "string"},
+        "pmid": {"type": "string"},
+        "pmcid": {"type": "string"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "journal": {"type": "string"},
+        "year": {"type": "integer", "minimum": 1900},
+        "abstract": {"type": "string"},
+        "open_access": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Technique": {
+      "type": "object",
+      "required": ["primary", "configuration"],
+      "properties": {
+        "primary": {"const": "SC"},
+        "configuration": {"enum": ["cell_attached", "inside_out", "outside_out", "planar_lipid_bilayer", "droplet_interface_bilayer", "other"]},
+        "time_resolution": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "BiologicalSystem": {
+      "type": "object",
+      "required": ["entities"],
+      "properties": {
+        "entities": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/MolecularEntity"}}
+      },
+      "additionalProperties": false
+    },
+    "MolecularEntity": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["ion_channel", "transporter", "pore_forming_toxin", "receptor", "other"]},
+        "mutation": {"type": "string", "description": "HGVS-style notation, e.g. R615C"},
+        "description": {"type": "string"},
+        "identifiers": {"type": "array", "items": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}, "description": "UniProt plus IUPHAR/BPS Guide to Pharmacology (scheme 'gtopdb')."},
+        "evidence": {"$ref": "../smash-common.schema.json#/$defs/Evidence"}
+      },
+      "additionalProperties": false
+    },
+    "ExpressionSystem": {
+      "type": "object",
+      "properties": {
+        "system": {"enum": ["HEK293", "CHO", "xenopus_oocyte", "native_tissue", "reconstituted_proteoliposome", "other"]},
+        "cell_line": {
+          "type": "object",
+          "properties": {"name": {"type": "string"}, "cellosaurus_id": {"type": "string"}},
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Hardware": {
+      "type": "object",
+      "properties": {
+        "amplifier": {"type": "string"},
+        "sampling_rate": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "filter_type": {"type": "string"},
+        "filter_cutoff": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "pipette_resistance": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "holding_potential": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "test_potential": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "temperature": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "Solutions": {
+      "type": "object",
+      "properties": {
+        "pipette": {"$ref": "#/$defs/IonicComposition"},
+        "bath": {"$ref": "#/$defs/IonicComposition"},
+        "ligands": {"type": "array", "items": {"$ref": "#/$defs/Ligand"}},
+        "pH": {"type": "number", "minimum": 0, "maximum": 14}
+      },
+      "additionalProperties": false
+    },
+    "IonicComposition": {
+      "type": "object",
+      "properties": {
+        "ions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["ion", "concentration"],
+            "properties": {
+              "ion": {"type": "string"},
+              "concentration": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Ligand": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "concentration": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "identifier": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "Analysis": {
+      "type": "object",
+      "properties": {
+        "software": {"type": "array", "items": {"type": "string"}},
+        "idealization": {"enum": ["half_amplitude_threshold", "HMM", "segmental_k_means", "other", "none"]},
+        "kinetic_model_type": {"type": "string"},
+        "n_open_states": {"type": "integer", "minimum": 0},
+        "n_closed_states": {"type": "integer", "minimum": 0},
+        "model_topology": {"type": "string"},
+        "dead_time": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "DataFlags": {
+      "type": "object",
+      "properties": {
+        "has_raw_current_traces": {"type": "boolean"},
+        "has_raw_movies": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Tethered-ligand single-molecule force spectroscopy of the SARS-CoV-1 and SARS-CoV-2 RBD:ACE2 interaction using two complementary custom-built instruments: AFM at constant loading rate (sawtooth pattern of interface opening, partial RBD unfolding and stepwise ACE2 unfolding, anchored by an ultrastable ClfA:Fg-gamma handle) and magnetic tweezers at constant force for equilibrium measurements, complemented by steered MD. Constructs based on PDB 2ajf and 6m0j with 85-aa (31 nm) or 115-aa (42 nm) interdomain linkers; soluble ACE2 used as a blocking agent."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [
+      "magnetic_tweezers"
+    ],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "temperature": {
+      "value": 295.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Measurements of tethered ligand constructs in AFM and MT were performed in TBS (25 mM Tris, 72 mM NaCl, 1 mM CaCl2 at pH 7.2 and 22 °C).",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "equipartition",
+      "dna_force_extension_reference"
+    ],
+    "afm": {
+      "pulling_speed": {
+        "value": 800,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "AFM force-extension trace of the SARS-CoV-2 RBD:ACE2 tethered ligand construct (raw data in light green, total variation denoised in dark green, recorded at 800 nm/s retraction velocity).",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion",
+      "unfolding_protein"
+    ],
+    "attachment_chemistry": [
+      "ClfA–fibrinogen gamma peptide ultrastable handle",
+      "His-tag affinity tags"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_force",
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "value": 800,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "recorded at 800 nm/s retraction velocity",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "annotations": "a longer linker (115 amino acids [aa] corresponding to 42 nm contour length, instead of 85 aa or 31 nm) between the two domains"
+      }
+    ],
+    "n_molecules": 127
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion",
+      "unfolding_protein"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "SARS-CoV-2 RBD:ACE2 tethered ligand fusion construct",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "6m0j",
+            "verified": false
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "SARS-CoV-1 and SARS-CoV-2 RBD:ACE2 tethered ligand constructs were designed based on available crystal structures PDB ID 2ajf (32) and PDB ID 6m0j (31).",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "SARS-CoV-1 RBD:ACE2 tethered ligand fusion construct",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "2ajf",
+            "verified": false
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "SARS-CoV-1 and SARS-CoV-2 RBD:ACE2 tethered ligand constructs were designed based on available crystal structures PDB ID 2ajf (32) and PDB ID 6m0j (31).",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Human ACE2 (GLN18-SER740, C-terminal His-tag), soluble blocking agent",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "region": "GLN18-SER740",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q9BYF1",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "To test blocking, recombinant human ACE2 (GLN18-SER740, C-terminal His-tag) from RayBiotech (∼3.8 µM in measurement buffer, # 230-30165-100) was flushed into the flow cell and briefly incubated before the measurement.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "ClfA:fibrinogen gamma peptide anchoring pair",
+        "entity_type": "protein",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The last (rightmost) peak exhibits forces well within the range previously established for the ultrastrong ClfA:Fgɣ interaction (18), clearly indicating specific attachment of the protein construct.",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "TBS (Tris-buffered saline)",
+    "pH": 7.2,
+    "components": [
+      {
+        "name": "Tris",
+        "concentration": {
+          "value": 25,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 72,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "CaCl2",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "recombinant human ACE2 (blocking)",
+        "concentration": {
+          "value": 3.8,
+          "unit": "uM"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "unbinding_force",
+      "value": 26,
+      "unit": "pN",
+      "approximate": true,
+      "applies_to": {
+        "entity": "SARS-CoV-1 RBD:ACE2 fusion construct",
+        "transition": "first peak: RBD:ACE2 interface opening with partial RBD unfolding"
+      },
+      "conditions": {
+        "pulling_speed_nm_per_s": 800
+      },
+      "model": "Bell-Evans",
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "an initial (leftmost) peak typically at lower forces around 26 pN for the SARS-CoV-1 fusion construct and about twice as high forces for the SARS-CoV-2 fusion construct (around 57 pN; Fig. 2 A, Inset)"
+      }
+    },
+    {
+      "quantity": "unbinding_force",
+      "value": 57,
+      "unit": "pN",
+      "approximate": true,
+      "applies_to": {
+        "entity": "SARS-CoV-2 RBD:ACE2 fusion construct",
+        "transition": "first peak: RBD:ACE2 interface opening with partial RBD unfolding"
+      },
+      "conditions": {
+        "pulling_speed_nm_per_s": 800
+      },
+      "model": "Bell-Evans",
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "an initial (leftmost) peak typically at lower forces around 26 pN for the SARS-CoV-1 fusion construct and about twice as high forces for the SARS-CoV-2 fusion construct (around 57 pN; Fig. 2 A, Inset)"
+      }
+    },
+    {
+      "quantity": "unfolding_force",
+      "value": 40,
+      "unit": "pN",
+      "approximate": true,
+      "applies_to": {
+        "entity": "ACE2 domain",
+        "transition": "trident-shaped three-peak stepwise ACE2 unfolding"
+      },
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "medium",
+        "snippet": "This initial peak is followed by a trident-shaped, three-peak pattern at around 40 pN."
+      }
+    },
+    {
+      "quantity": "contour_length_increment",
+      "value": 53,
+      "unit": "nm",
+      "applies_to": {
+        "entity": "SARS-CoV RBD:ACE2 construct with 31 nm (85 aa) linker",
+        "transition": "first peak"
+      },
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "The contour length increments of the first peaks (53 and 66 nm for the short and long linkers, respectively), are, however, larger than what is expected from interface opening only"
+      }
+    },
+    {
+      "quantity": "contour_length_increment",
+      "value": 66,
+      "unit": "nm",
+      "applies_to": {
+        "entity": "SARS-CoV RBD:ACE2 construct with 42 nm (115 aa) linker",
+        "transition": "first peak"
+      },
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "The contour length increments of the first peaks (53 and 66 nm for the short and long linkers, respectively), are, however, larger than what is expected from interface opening only"
+      }
+    },
+    {
+      "quantity": "rupture_force",
+      "value": 1500,
+      "unit": "pN",
+      "comparator": ">",
+      "applies_to": {
+        "entity": "ClfA:Fg-gamma anchoring handle",
+        "transition": "final rupture"
+      },
+      "source": {
+        "location": "results",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "The final ClfA:Fgɣ rupture at >1,500 pN is not shown, for clarity."
+      }
+    }
+  ],
+  "publication": {
+    "doi": "10.1073/pnas.2114397119"
+  }
+}

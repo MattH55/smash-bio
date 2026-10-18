@@ -1,0 +1,196 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-024-51813-9"
+  },
+  "curation": {
+    "notes": "Dual-trap optical tweezers (LUMICKS C-Trap) with laminar-flow microfluidics: an RNA toehold hairpin tethered between two beads via 545-bp DNA handles is exposed to trigger (invader) strands, and toehold-mediated strand displacement is observed by stretch-relax cycles and passive-mode (constant trap distance) measurements; supported by oxDNA simulations. DNA-DNA, RNA-RNA and DNA-invading-RNA variants and mismatch-containing triggers are compared.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Measurement temperatures were ~ 25 °C.",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 78.125,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The sampling rate was 78.125 kHz and was down-sampled by a factor of 3 for data analysis",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.25,
+        "max": 0.4,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The trap stiffness used in all measurements was between 0.25 pN nm−1 and 0.40 pN nm−1.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 1000,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "incubated them for 10 min with 1 µm-sized streptavidin-coated beads (Bangs Laboratories, Inc.)",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "silica",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin",
+      "DNA hybridization handle"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "passive_mode"
+    ],
+    "handle_sequences": [
+      {
+        "length_bp": 545,
+        "annotations": "We PCR-amplified the DNA handle strands (545 bp) from Lambda phage DNA using modified primers"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "entities": [
+      {
+        "name": "RNA toehold hairpin",
+        "entity_type": "rna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Toehold hairpins and trigger RNA molecules were produced by in vitro transcription from plasmids",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Trigger (invader) strand",
+        "entity_type": "rna",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The trigger phase included 0.1 μM of purified trigger strand",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dsDNA handles (545 bp, lambda DNA, biotin / digoxigenin labelled)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 545,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "We PCR-amplified the DNA handle strands (545 bp) from Lambda phage DNA using modified primers",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.2,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 300,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glucose oxidase",
+        "concentration": {
+          "value": 26,
+          "unit": "U/mL"
+        }
+      },
+      {
+        "name": "catalase",
+        "concentration": {
+          "value": 17000,
+          "unit": "U/mL"
+        }
+      },
+      {
+        "name": "glucose",
+        "concentration": {
+          "value": 0.65,
+          "unit": "%"
+        }
+      }
+    ],
+    "oxygen_scavenging": "glucose oxidase, catalase, glucose"
+  },
+  "results": [
+    {
+      "quantity": "dwell_time",
+      "value": 1,
+      "unit": "µs",
+      "applies_to": {
+        "entity": "Toehold hairpin / trigger",
+        "transition": "single base-pair step of strand displacement under load"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "We find TMSD proceeds very rapidly under load with single step times of 1 µs.",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

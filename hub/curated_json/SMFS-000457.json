@@ -1,0 +1,39 @@
+{
+  "publication": {"doi": "10.1073/pnas.2514125122"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "High-throughput DNA-curtain TIRF assay tracking fluorescently labeled T7 RNAP transcribing on lipid-anchored DNA aligned at nanofabricated chromium barriers; DNA is extended by buffer flow but no forces are applied or measured, so this is a marginal SMFS record. Only a short methods summary was available (details in SI)."
+  },
+  "technique": {
+    "primary": "hydrodynamic_stretching",
+    "secondary": [],
+    "correlative_modalities": ["TIRF"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "acquisition_rate": {"value": 0.02, "unit": "kHz", "note": "50 ms frame time (20 Hz camera frame rate)", "evidence": {"method": "llm_review", "snippet": "Videos were recorded at 50 ms frame time and continuous illumination.", "confidence": "high"}}
+  },
+  "assay": {
+    "experiment_class": ["translation_transcription_replication"],
+    "attachment_chemistry": ["lipid-anchored DNA", "ybbR-tag fluorescent labeling (Sfp/CoA)"]
+  },
+  "biological_system": {
+    "system_class": ["translation_transcription_replication"],
+    "organisms": [{"name": "Escherichia phage T7", "ncbi_taxon": 10760}],
+    "entities": [
+      {"name": "T7 RNA polymerase (ybbR-tagged, fluorescently labeled)", "entity_type": "protein", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "P00573", "verified": false}],
+       "organism": {"name": "Escherichia phage T7", "ncbi_taxon": 10760},
+       "fluorescent_labels": [{"identifier": "fluorophore via terminal ybbR-tag", "sequence_location": "terminus"}],
+       "evidence": {"method": "llm_review", "snippet": "T7 RNAP was recombinantly expressed in E. coli, purified, and fluorescently labeled using a terminal ybbr-tag.", "confidence": "high"}},
+      {"name": "Template DNA with T7 promoter sites (lipid-anchored, DNA curtain)", "entity_type": "nucleic_acid", "role": "track",
+       "evidence": {"method": "llm_review", "snippet": "We introduced two different promoter sites on the template DNA and found that transcription initiation is directly influenced by the DNA shape parameters of the initiation region", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "small_molecules": [{"name": "dimethyl sulfoxide"}]
+  },
+  "results": []
+}

@@ -1,0 +1,230 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Magnetic tweezers assay measuring the mechanical stability and kinetics of human PARP1 and PARP2 bridging the two ends of a DNA double-strand break in a PEG-DNA construct tethered between a coverslip and an M-280 streptavidin Dynabead. Rotating magnet configuration allows supercoiling to test restoration of torsional continuity; different DSB overhang types compared. No AFM is used despite the auto-assigned secondary technique."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": [
+      "brightfield_video"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "camera_CMOS"
+    ],
+    "objective_lens": {
+      "make": "Nikon",
+      "magnification": 60,
+      "immersion": "oil",
+      "note": "40x or 60x Nikon oil-immersion objective"
+    },
+    "temperature": {
+      "value": 295.15,
+      "unit": "K",
+      "uncertainty": 1,
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All experiments were conducted at room temperature (22 ± 1) °C.",
+        "confidence": "high"
+      }
+    },
+    "magnetic": {
+      "magnet_type": "permanent_pair",
+      "bead_product": "Dynabeads M-280 streptavidin",
+      "rotation_control": true,
+      "camera_frame_rate": {
+        "value": 20,
+        "unit": "Hz",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The magnetic beads were tracked in real time at 20 frames per second using a previously described video image analysis algorithm (46) with custom C++ and LabVIEW (National Instruments) software.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_protein_interaction",
+      "nucleic_acid_mechanics"
+    ],
+    "bead_geometry": "bead_on_surface_magnetic",
+    "bead_size": {
+      "value": 2800,
+      "unit": "nm",
+      "note": "nominal diameter of the named M-280 bead product; not stated numerically in the text",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Superparamagnetic beads (M-280 streptavidin Dynabeads, ThermoFisher) were incubated with gel-purified DNA constructs before introducing into the flow-cell.",
+        "confidence": "medium"
+      }
+    },
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin",
+      "azide–DBCO click chemistry"
+    ],
+    "trap_control": [
+      "constant_force",
+      "rotation"
+    ],
+    "handle_sequences": [
+      {
+        "annotations": "a 20 kDa bis-azide PEG was reacted overnight with a Dibenzocyclooctyne (DBCO) modified oligonucleotide before agarose gel purification"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_protein_interaction",
+      "nucleic_acid_mechanics"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "PEG-DNA double-strand-break construct",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The full-length DNA construct was then generated in a golden-gate assembly reaction (44) with PCR amplicons before a final agarose gel purification.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "PARP1",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P09874",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Human PARP1 and PARP2 proteins were made using a baculovirus expression system and purified by Immobilized Metal Affinity Chromatography (IMAC) affinity and size-exclusion chromatography",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "PARP2",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "We find that PARP2 forms a remarkably stable mechanical link (rupture force ~85 pN) across blunt-end 5'-phosphorylated DSBs and restores torsional continuity allowing DNA supercoiling.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T4 DNA ligase",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Tests of T4 DNA ligase (Fig. 3) were performed in 1× NEB CutSmart (−ATP buffer) or 1× NEB T4 ligase buffer (+ATP buffer) with a concentration of 10 U/μL.",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 150,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 2,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "TCEP",
+        "concentration": {
+          "value": 0.5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 1,
+          "unit": "mg/mL"
+        }
+      },
+      {
+        "name": "beta-casein",
+        "concentration": {
+          "value": 1,
+          "unit": "mg/mL"
+        }
+      }
+    ],
+    "nucleotides": [
+      "ATP"
+    ]
+  },
+  "results": [
+    {
+      "quantity": "rupture_force",
+      "value": 85,
+      "unit": "pN",
+      "approximate": true,
+      "applies_to": {
+        "entity": "PARP2",
+        "transition": "PARP2 bridge across blunt-end 5'-phosphorylated DSB"
+      },
+      "source": {
+        "location": "abstract",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "We find that PARP2 forms a remarkably stable mechanical link (rupture force ~85 pN) across blunt-end 5'-phosphorylated DSBs and restores torsional continuity allowing DNA supercoiling."
+      }
+    }
+  ],
+  "publication": {
+    "doi": "10.1073/pnas.2214209120"
+  }
+}

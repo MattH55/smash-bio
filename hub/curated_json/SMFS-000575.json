@@ -1,0 +1,56 @@
+{
+  "publication": {"doi": "10.1016/j.xpro.2025.104189"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "STAR Protocols methods paper describing how to measure whole-cell mechanical properties with a LUMICKS C-Trap: 3.15 µm polystyrene beads are optically trapped and pushed into adherent cells (one trap) or suspended cells (two traps, one indenting and one stabilizing) under constant-force feedback (50-100 pN, up to 31.3 Hz feedback) to obtain force-deformation curves. Cell-scale indentation rather than single-molecule manipulation; no specific cell line or results given."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": ["brightfield_video"]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.2, "max": 0.25, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "Aim for a trap stiffness around 0.20–0.25 pN/nm.", "confidence": "high"}
+      }
+    },
+    "filter_frequency": {
+      "value": 31.3, "unit": "Hz",
+      "note": "maximum force-feedback update frequency of the C-Trap, not a filter",
+      "evidence": {"method": "llm_review", "snippet": "It is advised to use the maximum possible feedback frequency. For the LUMICKS C-Trap, the maximum frequency is 31.3 Hz.", "confidence": "high"}
+    }
+  },
+  "assay": {
+    "experiment_class": ["rheology_cell"],
+    "bead_size": {
+      "value": 3150, "unit": "nm",
+      "evidence": {"method": "llm_review", "snippet": "Prepare the bead solution by diluting the stock solution polystyrene beads (5% w/v, 3.15 μm average diameter) 1:200 in sterile PBS.", "confidence": "high"}
+    },
+    "bead_material": "polystyrene",
+    "attachment_chemistry": ["fibronectin-coated flow cell (10 µg/ml)", "poly-L-lysine coating (alternative)"],
+    "trap_control": ["constant_force", "force_clamp"]
+  },
+  "biological_system": {
+    "system_class": ["rheology_cell"],
+    "entities": [
+      {"name": "Living cells (adherent or suspended; cell type not specified)", "entity_type": "cell", "role": "tethered_construct",
+       "evidence": {"method": "llm_review", "snippet": "we present a protocol to quantify these properties on living cells by applying piconewton-range forces with optically trapped microspheres", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "DMEM GlutaMAX + 10% FBS + 1% penicillin-streptomycin, supplemented with HEPES (live cell medium)",
+    "components": [
+      {"name": "HEPES", "concentration": {"value": 25, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

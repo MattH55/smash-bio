@@ -1,0 +1,69 @@
+{
+  "publication": {"doi": "10.1093/nar/gkag762"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "LUMICKS C-Trap dual-trap optical tweezers with two-colour confocal fluorescence: a 12.3-kbp RNA–DNA hybrid (RDH) tethered between streptavidin beads is exposed to EXD2-eGFP (human EXD2 61–621) to follow binding, digestion under tension, and co-condensation at low force; Cy3-labeled yeast RNase H1 is used to introduce RNA nicks/gaps. Cell imaging (HeLa) complements the single-molecule work."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": ["confocal_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "detection_device": ["BFP_interferometry"],
+    "temperature": {"value": 298.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "Single-molecule optical-tweezer assays were performed at 25°C on an instrument combining two-colour confocal fluorescence microscopy with dual optical traps (LUMICKS C-trap, Netherlands).", "confidence": "high"}},
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {
+      "spatial_laser_control": ["piezo_mirror"],
+      "number_of_traps": 2,
+      "trap_stiffness": {"value": 0.6, "unit": "pN/nm", "evidence": {"method": "llm_review", "snippet": "The trap stiffness was typically set around 0.6 pN/nm and calibrated by measuring the effect of the optical trap on the Brownian motion of the trapped microsphere [37].", "confidence": "high"}},
+      "fluorescence_excitation_wavelength": {"value": 488, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "For EXD2-eGFP imaging, a 488 nm excitation laser was employed, the confocal pixel size was set at 75 nm, and the pixel dwell time was 50 ms.", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_protein_interaction"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {"value": 1760, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "an RDH molecule was initially captured between two streptavidin-coated polystyrene beads (1.76 μm in diameter, Spherotech).", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin"],
+    "trap_control": ["constant_distance", "force_clamp", "constant_velocity"],
+    "pulling_speed": {"value": 100, "unit": "nm/s", "note": "RDH relaxation/stretching assays; force-extension characterisation at 0.2 μm/s (200 nm/s)", "evidence": {"method": "llm_review", "snippet": "In the RDH relaxation and stretching assays, the RDH was stretched at a constant rate of 0.1 μm/s [37, 38].", "confidence": "high"}},
+    "pulling_speeds_mentioned_nm_per_s": [100, 200]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "RNA–DNA hybrid (12.3 kbp, lambda-derived, biotinylated ssDNA strand; intact, nicked or gapped)", "entity_type": "nucleic_acid", "role": "tethered_construct",
+       "length": {"value": 12300, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "The template typically consists of a two-sided biotinylated single-stranded (ss)DNA and a paired ssRNA. A dsDNA segment was PCR-amplified from the lambda DNA", "confidence": "high"}},
+      {"name": "EXD2 (residues 61–621), His6-tagged, eGFP C-terminal fusion", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "Q9NVH0", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606}, "region": "61–621",
+       "fluorescent_labels": [{"identifier": "eGFP", "sequence_location": "C-terminus"}],
+       "evidence": {"method": "llm_review", "snippet": "Recombinant EXD2 (61–621) was used for protein expression because of its improved solubility and yield [21, 33]. The EXD2 gene was amplified by PCR using Homo sapiens complementary DNA as a template", "confidence": "high"}},
+      {"name": "Yeast RNase H1 (LPETG-tagged, Cy3-labeled via sortase A)", "entity_type": "protein", "role": "binding_partner",
+       "fluorescent_labels": [{"identifier": "Cy3", "sequence_location": "N-terminus (sortase LPETG)"}],
+       "evidence": {"method": "llm_review", "snippet": "The plasmid designed for the expression of Yeast RNase H1 was constructed by synthesizing open reading frames and integrating them into pET28a [34, 35].", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 25, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 100, "unit": "mM"}},
+      {"name": "MnCl2", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 0.05, "unit": "mg/mL"}},
+      {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "Unless otherwise specified, all experiments were performed in a reaction buffer containing 25 mM Tris–HCl (pH 7.5), 100 mM NaCl, 1 mM MnCl2, 0.05 mg/ml bovine serum albumin (BSA), and 1 mM dithiothreitol (DTT).", "confidence": "high"}
+  },
+  "results": []
+}

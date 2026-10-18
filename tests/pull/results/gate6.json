@@ -1,0 +1,32 @@
+{
+ "gate": "6",
+ "chrome": "Chrome/155.0.8059.40",
+ "timings": [
+  {
+   "structure": "1TIT",
+   "protocol": "standard",
+   "seconds": 168.726,
+   "workers": 12,
+   "status": "Done: 30 trajectories in 168.6 s.",
+   "loaded": "Loaded 1TIT:A 1-89 from RCSB PDB: 89 residues, 237 native contacts."
+  },
+  {
+   "structure": "2L7A",
+   "protocol": "standard",
+   "seconds": 372.216,
+   "workers": 12,
+   "status": "Done: 30 trajectories in 371.9 s.",
+   "loaded": "Loaded 2L7A:A 781-911 from RCSB PDB: 131 residues, 264 native contacts."
+  },
+  {
+   "structure": "1TIT",
+   "protocol": "quick",
+   "seconds": 15.557,
+   "workers": 12,
+   "status": "Done: 3 trajectories in 15.4 s.",
+   "loaded": "Loaded 1TIT:A 1-89 from RCSB PDB: 89 residues, 237 native contacts."
+  }
+ ],
+ "pass": false,
+ "detail": "I27 standard (30 trajectories): 168.7 s with 12 workers in Chrome 155.0.8059.40; talin R3 (2L7A, 125 residues) standard: 372.2 s; I27 quick: 15.6 s."
+}

@@ -1,0 +1,66 @@
+{
+  "publication": {"doi": "10.1371/journal.pone.0330071"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "FluidFM-based AFM single-cell force spectroscopy measuring detachment of RPE-1 LifeAct-mCherry cells from fibronectin after treatment with the actin stabilizer miuraenamide A (MiuA) vs DMSO. SCFS is one of several assays (focal adhesion staining, contractility screening, microchannel migration); only the SCFS part is force spectroscopy."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_cell_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "Nanowizard IV XP with CellHesion 200 head; Cytosurge FluidFM V2 Platinum",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "temperature": {
+      "value": 310.15, "unit": "K",
+      "evidence": {"method": "llm_review", "snippet": "We performed single-cell force measurements at 37 °C using a Nanowizard IV XP AFM with a CellHesion 200 Head (Bruker-JPK, Santa Barbara, CA, USA)", "confidence": "high"}
+    },
+    "afm": {
+      "cantilever_model": "Cytosurge FluidFM micropipette (aperture 4 µm)",
+      "spring_constant": {
+        "value": 2000, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "Cytosurge FluidFM micropipette (aperture 4 µm, stiffness 2 N/m)", "confidence": "high"}
+      },
+      "pulling_speed": {
+        "value": 800, "unit": "nm/s",
+        "evidence": {"method": "llm_review", "snippet": "We then detached the cells from the fibronectin by retracting the micropipette (z-length 50 µm, z-velocity 0.8 µm/s).", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion"],
+    "attachment_chemistry": ["FluidFM vacuum aspiration of cell to micropipette (−500 mbar)", "fibronectin-coated dish surface"],
+    "trap_control": ["constant_velocity"],
+    "pulling_speed": {
+      "value": 800, "unit": "nm/s",
+      "evidence": {"method": "llm_review", "snippet": "We then detached the cells from the fibronectin by retracting the micropipette (z-length 50 µm, z-velocity 0.8 µm/s).", "confidence": "high"}
+    }
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion"],
+    "entities": [
+      {"name": "RPE-1 LifeAct mCherry cell", "entity_type": "cell", "role": "tethered_construct",
+       "fluorescent_labels": [{"identifier": "mCherry", "sequence_location": "LifeAct-mCherry"}],
+       "evidence": {"method": "llm_review", "snippet": "To measure the adhesion forces of RPE-1LifeAct mCherry cells to fibronectin", "confidence": "high"}},
+      {"name": "Fibronectin", "entity_type": "protein", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "coated them with fibronectin (25 µg/ml) and incubated them for 1 hour at room temperature", "confidence": "high"}},
+      {"name": "Miuraenamide A (MiuA)", "entity_type": "small_molecule", "role": "ligand",
+       "evidence": {"method": "llm_review", "snippet": "we used the recently synthesized actin stabilizer miuraenamide A (MiuA)", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "hTERT RPE-1 (LifeAct mCherry)"},
+    "cytoskeleton": {"structure_type": "microfilament_actin"}
+  },
+  "solution": {
+    "buffer": "Cell medium (DMEM/F12, 10% FBS) supplemented with HEPES",
+    "components": [
+      {"name": "Fibronectin (surface coating)", "concentration": {"value": 25, "unit": "µg/ml"}}
+    ],
+    "small_molecules": [{"name": "Miuraenamide A (MiuA) or DMSO control"}]
+  },
+  "results": []
+}

@@ -1,0 +1,118 @@
+{
+  "publication": {
+    "doi": "10.1038/s41565-024-01742-x"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Synthetic (non-biological) chemomechanical system: directional base-triggered disassembly of VsA amphiphile microcrystalline fibres pulls adsorbed polystyrene microspheres; force measured with a LUMICKS C-Trap in dual-trap mode (stall force 2.3 pN). Not single-molecule in the strict sense (bead-fibre multivalent contact). AFM colloidal-probe adhesion spectroscopy in air is a secondary force measurement; Raman, XRD, GIWAXS, cryo-EM are characterisation only."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [
+      "afm_smfs"
+    ],
+    "force_application_geometry": "other",
+    "correlative_modalities": [
+      "brightfield_video"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "detection_device": [
+      "PSD"
+    ],
+    "acquisition_rate": {
+      "value": 78,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The force was measured by a position-sensitive detector in two dimensions on both beads with an acquisition rate of 78 kHz.",
+        "confidence": "high"
+      }
+    },
+    "filter_frequency": {
+      "value": 150,
+      "unit": "Hz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "To analyse and store the force-trace data, the force acquisition frequency was downsampled to 150 Hz using the pylake Python package47.",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "power_spectrum_passive"
+    ],
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "value": 0.0165,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The force resolution of this calibration was estimated to be 100.0 fN at 150 Hz, with a theoretical limit of 0.4 fN for a typical trap stiffness of 16.5 fN nm–1 at room temperature.",
+          "confidence": "medium"
+        }
+      }
+    },
+    "afm": {
+      "cantilever_model": "PT.PS.NH3 (Novascan) colloidal probe",
+      "spring_constant": {
+        "value": 30,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The force spectroscopy measurements were carried out using NH3-functionalized polystyrene microspherical probes (diameter, d = 1.0 μm) with spring constant k = 0.03 N m–1 (PT.PS.NH3, Novascan).",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "force_generation_polymerization"
+    ],
+    "bead_material": "polystyrene",
+    "attachment_chemistry": [
+      "non-specific adsorption (weak multivalent interactions)"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "force_generation_polymerization"
+    ],
+    "entities": [
+      {
+        "name": "VsA amphiphile microcrystalline fibres (coumarin-based pH switch)",
+        "entity_type": "synthetic",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "An amphiphilic monomer self-assembles into rigid, high-aspect-ratio microcrystalline fibres. The assembly process is regulated by a coumarin-based pH switching motif.",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "stall_force",
+      "value": 2.3,
+      "unit": "pN",
+      "uncertainty": 0.1,
+      "applies_to": {
+        "entity": "VsA microfibre disassembly ratchet"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "quantifying a stall force of 2.3 pN (±0.1 pN) exerted by the ratcheting mechanism produced by the disassembly of the microfibres.",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

@@ -1,0 +1,728 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://smash-bio.org/schemas/optical-tweezers-metadata-v1.0.json",
+  "title": "Optical Tweezers Experiment Metadata",
+  "description": "FAIR-compliant metadata schema for optical tweezers measurements of biological systems based on Heller et al. 2025 Biophysical Journal",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["experiment_id", "hardware", "sample", "experimental_conditions", "measurements"],
+  
+  "properties": {
+    "experiment_id": {
+      "type": "string",
+      "description": "Unique identifier for the experiment"
+    },
+    
+    "metadata_version": {
+      "type": "string",
+      "default": "1.0.0",
+      "description": "Version of this metadata schema"
+    },
+    
+    "created_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the experiment was performed"
+    },
+    
+    "last_modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of last modification"
+    },
+    
+    "citation": {
+      "type": "object",
+      "description": "Publication information",
+      "properties": {
+        "title": {"type": "string"},
+        "authors": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "journal": {"type": "string"},
+        "year": {"type": "integer"},
+        "volume": {"type": "string"},
+        "pages": {"type": "string"},
+        "doi": {"type": "string"},
+        "pubmed_id": {"type": "string"}
+      }
+    },
+    
+    "hardware": {
+      "type": "object",
+      "description": "Hardware conditions and instrument configuration",
+      "required": ["trap_stiffness", "bead_diameter"],
+      "properties": {
+        "instrument": {
+          "type": "object",
+          "properties": {
+            "manufacturer": {"type": "string", "description": "Instrument manufacturer"},
+            "model": {"type": "string", "description": "Instrument model name"},
+            "system_type": {
+              "type": "string",
+              "enum": ["commercial", "custom"],
+              "description": "Commercial or custom-built system"
+            }
+          }
+        },
+        
+        "optical_traps": {
+          "type": "object",
+          "properties": {
+            "number_of_traps": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4,
+              "description": "Number of optical traps"
+            },
+            "trap_configuration": {
+              "type": "string",
+              "enum": ["single-trap-surface", "single-trap-micropipette", "dual-trap", "quadruple-trap"],
+              "description": "Trap configuration type"
+            },
+            "laser_wavelength_nm": {
+              "type": "number",
+              "minimum": 750,
+              "maximum": 1200,
+              "description": "Trapping laser wavelength in nanometers"
+            },
+            "laser_power_mW": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Laser power at specimen plane in milliwatts"
+            }
+          }
+        },
+        
+        "trap_stiffness": {
+          "type": "object",
+          "required": ["value", "unit"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Trap stiffness value"
+            },
+            "unit": {
+              "type": "string",
+              "default": "pN/nm",
+              "description": "Unit of trap stiffness"
+            },
+            "per_trap_values": {
+              "type": "array",
+              "items": {"type": "number"},
+              "description": "Individual trap stiffness values if multiple traps"
+            }
+          }
+        },
+        
+        "bead_diameter": {
+          "type": "object",
+          "required": ["value", "unit"],
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 0.1,
+              "maximum": 10,
+              "description": "Bead diameter value"
+            },
+            "unit": {
+              "type": "string",
+              "default": "μm",
+              "description": "Unit of bead diameter"
+            }
+          }
+        },
+        
+        "bead_properties": {
+          "type": "object",
+          "properties": {
+            "material": {
+              "type": "string",
+              "enum": ["polystyrene", "silica", "melamine", "other"],
+              "description": "Bead material"
+            },
+            "surface_chemistry": {
+              "type": "string",
+              "enum": ["streptavidin", "anti-digoxigenin", "protein-G", "carboxyl", "amine", "PEG", "other"],
+              "description": "Bead surface coating/chemistry"
+            },
+            "manufacturer": {"type": "string"},
+            "catalog_number": {"type": "string"}
+          }
+        },
+        
+        "objective": {
+          "type": "object",
+          "properties": {
+            "numerical_aperture": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 1.5,
+              "description": "Objective numerical aperture"
+            },
+            "magnification": {"type": "number"},
+            "immersion": {
+              "type": "string",
+              "enum": ["water", "oil", "air"]
+            }
+          }
+        },
+        
+        "detection": {
+          "type": "object",
+          "properties": {
+            "position_detector_type": {
+              "type": "string",
+              "enum": ["QPD", "PSD", "camera", "other"],
+              "description": "Position sensing detector type"
+            },
+            "position_resolution_nm": {
+              "type": "number",
+              "description": "Position resolution in nanometers"
+            },
+            "force_resolution_pN": {
+              "type": "number",
+              "description": "Force resolution in piconewtons"
+            },
+            "data_acquisition_rate_Hz": {
+              "type": "number",
+              "description": "Sampling frequency in Hertz"
+            }
+          }
+        },
+        
+        "fluorescence": {
+          "type": "object",
+          "properties": {
+            "capability": {
+              "type": "string",
+              "enum": ["none", "wide-field", "TIRF", "confocal", "STED", "spinning-disk"],
+              "description": "Fluorescence microscopy capability"
+            },
+            "excitation_wavelengths_nm": {
+              "type": "array",
+              "items": {"type": "number"},
+              "description": "Excitation laser wavelengths in nanometers"
+            },
+            "emission_filters": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Emission filter specifications"
+            },
+            "detector_type": {
+              "type": "string",
+              "enum": ["EMCCD", "sCMOS", "APD", "PMT", "other"]
+            }
+          }
+        },
+        
+        "microfluidics": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean"},
+            "number_of_channels": {"type": "integer"},
+            "channel_configuration": {"type": "string"},
+            "flow_control": {
+              "type": "string",
+              "enum": ["pressure", "syringe", "gravity", "none"]
+            }
+          }
+        }
+      }
+    },
+    
+    "sample": {
+      "type": "object",
+      "description": "Sample information",
+      "required": ["biological_system_type"],
+      "properties": {
+        "biological_system_type": {
+          "type": "string",
+          "enum": ["DNA", "RNA", "protein", "DNA-protein", "chromatin", "cell", "membrane", "cytoskeleton", "motor-protein", "pathogen", "other"],
+          "description": "Type of biological system studied"
+        },
+        
+        "source": {
+          "type": "object",
+          "properties": {
+            "organism": {"type": "string"},
+            "cell_line": {"type": "string"},
+            "tissue": {"type": "string"},
+            "commercial_source": {"type": "string"},
+            "preparation_method": {"type": "string"}
+          }
+        },
+        
+        "nucleic_acid": {
+          "type": "object",
+          "description": "DNA or RNA substrate information",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["dsDNA", "ssDNA", "dsRNA", "ssRNA", "DNA-RNA-hybrid", "other"]
+            },
+            "name": {"type": "string", "description": "e.g., lambda DNA, pUC19"},
+            "sequence": {"type": "string"},
+            "sequence_reference": {"type": "string", "description": "GenBank accession or reference"},
+            "length_bp": {"type": "integer"},
+            "length_kb": {"type": "number"},
+            "topology": {
+              "type": "string",
+              "enum": ["linear", "circular", "supercoiled", "relaxed"]
+            },
+            "modifications": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Chemical modifications, labels, damage sites"
+            }
+          }
+        },
+        
+        "handles": {
+          "type": "object",
+          "description": "Molecular handles for attachment",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["dsDNA", "ssDNA", "PEG", "none", "other"]
+            },
+            "length_bp": {"type": "integer"},
+            "length_nm": {"type": "number"},
+            "attachment_5prime": {
+              "type": "string",
+              "enum": ["biotin", "digoxigenin", "thiol", "amine", "click-chemistry", "other"]
+            },
+            "attachment_3prime": {
+              "type": "string",
+              "enum": ["biotin", "digoxigenin", "thiol", "amine", "click-chemistry", "other"]
+            }
+          }
+        },
+        
+        "protein": {
+          "type": "object",
+          "description": "Protein sample information",
+          "properties": {
+            "name": {"type": "string"},
+            "abbreviation": {"type": "string"},
+            "uniprot_id": {"type": "string"},
+            "molecular_weight_kDa": {"type": "number"},
+            "oligomeric_state": {"type": "string"},
+            "expression_system": {
+              "type": "string",
+              "enum": ["E. coli", "insect", "mammalian", "yeast", "cell-free", "native", "other"]
+            },
+            "purification_method": {"type": "string"},
+            "concentration_nM": {"type": "number"},
+            "concentration_uM": {"type": "number"},
+            "storage_conditions": {"type": "string"},
+            "mutations": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "tags": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "His-tag, GST, SUMO, etc."
+            },
+            "fluorescent_label": {
+              "type": "object",
+              "properties": {
+                "fluorophore": {"type": "string"},
+                "labeling_site": {"type": "string"},
+                "labeling_efficiency": {"type": "number"}
+              }
+            }
+          }
+        },
+        
+        "chromatin": {
+          "type": "object",
+          "description": "Chromatin/nucleosome information",
+          "properties": {
+            "nucleosome_source": {"type": "string"},
+            "histone_octamer_source": {"type": "string"},
+            "reconstitution_method": {
+              "type": "string",
+              "enum": ["salt-gradient", "chaperone-assisted", "native", "other"]
+            },
+            "nucleosome_density": {"type": "string"},
+            "histone_modifications": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "labeled_histones": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        
+        "cell": {
+          "type": "object",
+          "description": "Cell sample information",
+          "properties": {
+            "cell_type": {"type": "string"},
+            "cell_line": {"type": "string"},
+            "passage_number": {"type": "integer"},
+            "culture_conditions": {"type": "string"},
+            "treatments": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    
+    "experimental_conditions": {
+      "type": "object",
+      "description": "Experimental conditions",
+      "properties": {
+        "buffer": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "composition": {"type": "string", "description": "Full buffer recipe"},
+            "pH": {"type": "number", "minimum": 0, "maximum": 14},
+            "ionic_strength_mM": {"type": "number"}
+          }
+        },
+        
+        "salts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "concentration_mM": {"type": "number"}
+            }
+          }
+        },
+        
+        "temperature_C": {
+          "type": "number",
+          "description": "Experimental temperature in Celsius"
+        },
+        
+        "nucleotides": {
+          "type": "object",
+          "properties": {
+            "ATP_mM": {"type": "number"},
+            "ATPgammaS_mM": {"type": "number"},
+            "ADP_mM": {"type": "number"},
+            "GTP_mM": {"type": "number"},
+            "dNTPs_mM": {"type": "number"},
+            "NTPs_mM": {"type": "number"},
+            "other": {"type": "string"}
+          }
+        },
+        
+        "oxygen_scavenging": {
+          "type": "object",
+          "properties": {
+            "system": {
+              "type": "string",
+              "enum": ["glucose-oxidase-catalase", "PCA-PCD", "ROXS", "none", "other"]
+            },
+            "components": {"type": "string"}
+          }
+        },
+        
+        "surface_passivation": {
+          "type": "string",
+          "description": "e.g., BSA, Pluronic, PEG, casein"
+        },
+        
+        "crowding_agents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "concentration": {"type": "string"}
+            }
+          }
+        },
+        
+        "other_additives": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "concentration": {"type": "string"},
+              "purpose": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    
+    "measurements": {
+      "type": "object",
+      "description": "Measurement parameters",
+      "required": ["operation_mode"],
+      "properties": {
+        "operation_mode": {
+          "type": "string",
+          "enum": ["passive", "force-clamp", "force-ramp", "force-jump", "position-clamp", "rotation", "torque-wrench"],
+          "description": "Optical tweezers operation mode"
+        },
+        
+        "force_range": {
+          "type": "object",
+          "properties": {
+            "minimum_pN": {"type": "number"},
+            "maximum_pN": {"type": "number"}
+          }
+        },
+        
+        "loading_rate": {
+          "type": "object",
+          "properties": {
+            "value": {"type": "number"},
+            "unit": {
+              "type": "string",
+              "enum": ["pN/s", "nm/s", "μm/s"]
+            }
+          }
+        },
+        
+        "clamp_force_pN": {
+          "type": "number",
+          "description": "Force setpoint for force-clamp mode"
+        },
+        
+        "tension_pN": {
+          "type": "number",
+          "description": "Applied tension during imaging"
+        },
+        
+        "extension_range": {
+          "type": "object",
+          "properties": {
+            "minimum_nm": {"type": "number"},
+            "maximum_nm": {"type": "number"}
+          }
+        },
+        
+        "measurement_duration_s": {
+          "type": "number",
+          "description": "Total observation time per molecule"
+        },
+        
+        "number_of_molecules": {
+          "type": "integer",
+          "description": "Total number of molecules analyzed"
+        },
+        
+        "number_of_measurements_per_molecule": {
+          "type": "integer",
+          "description": "Replicates per molecule"
+        },
+        
+        "fluorescence_imaging": {
+          "type": "object",
+          "properties": {
+            "enabled": {"type": "boolean"},
+            "acquisition_mode": {
+              "type": "string",
+              "enum": ["continuous", "time-lapse", "kymograph", "z-stack"]
+            },
+            "frame_rate_Hz": {"type": "number"},
+            "exposure_time_ms": {"type": "number"},
+            "laser_power_uW": {"type": "number"}
+          }
+        }
+      }
+    },
+    
+    "calibration": {
+      "type": "object",
+      "description": "Calibration information",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["power-spectrum", "step-response", "drag-force", "DNA-unzipping", "thermal-noise", "other"],
+          "description": "Calibration method used"
+        },
+        
+        "calibration_bead_diameter_um": {
+          "type": "number"
+        },
+        
+        "drag_coefficient_pN_s_nm": {
+          "type": "number",
+          "description": "Hydrodynamic drag coefficient"
+        },
+        
+        "corner_frequency_Hz": {
+          "type": "number",
+          "description": "Corner frequency from power spectrum fit"
+        },
+        
+        "calibration_temperature_C": {
+          "type": "number"
+        },
+        
+        "calibration_buffer": {
+          "type": "string"
+        },
+        
+        "position_sensitivity_nm_per_V": {
+          "type": "number",
+          "description": "Volts-to-nanometers conversion factor"
+        },
+        
+        "calibration_date": {
+          "type": "string",
+          "format": "date"
+        },
+        
+        "calibration_file": {
+          "type": "string",
+          "description": "Reference to calibration data file"
+        }
+      }
+    },
+    
+    "data_processing": {
+      "type": "object",
+      "description": "Data analysis and processing information",
+      "properties": {
+        "analysis_software": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "version": {"type": "string"},
+            "url": {"type": "string"}
+          }
+        },
+        
+        "filtering": {
+          "type": "object",
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": ["none", "low-pass", "median", "Savitzky-Golay", "other"]
+            },
+            "cutoff_frequency_Hz": {"type": "number"},
+            "window_size": {"type": "integer"}
+          }
+        },
+        
+        "fitting_model": {
+          "type": "object",
+          "properties": {
+            "model_name": {
+              "type": "string",
+              "enum": ["WLC", "FJC", "eWLC", "Marko-Siggia", "custom", "other"],
+              "description": "Force-extension fitting model"
+            },
+            "persistence_length_nm": {"type": "number"},
+            "contour_length_nm": {"type": "number"},
+            "stretch_modulus_pN": {"type": "number"}
+          }
+        },
+        
+        "statistical_analysis": {
+          "type": "object",
+          "properties": {
+            "methods": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "confidence_level": {"type": "number"},
+            "sample_size": {"type": "integer"}
+          }
+        },
+        
+        "analysis_scripts": {
+          "type": "object",
+          "properties": {
+            "repository_url": {"type": "string"},
+            "script_files": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    
+    "results": {
+      "type": "object",
+      "description": "Key experimental results",
+      "properties": {
+        "primary_measurements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "parameter": {"type": "string"},
+              "value": {"type": "number"},
+              "error": {"type": "number"},
+              "unit": {"type": "string"},
+              "n": {"type": "integer", "description": "Sample size"}
+            }
+          }
+        },
+        
+        "key_findings": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    
+    "data_files": {
+      "type": "object",
+      "description": "Associated data files",
+      "properties": {
+        "raw_data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {"type": "string"},
+              "format": {"type": "string"},
+              "size_bytes": {"type": "integer"},
+              "checksum": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        
+        "processed_data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {"type": "string"},
+              "format": {"type": "string"},
+              "description": {"type": "string"}
+            }
+          }
+        },
+        
+        "repository": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "url": {"type": "string"},
+            "doi": {"type": "string"},
+            "accession_number": {"type": "string"}
+          }
+        }
+      }
+    },
+    
+    "notes": {
+      "type": "string",
+      "description": "Additional notes or comments"
+    }
+  }
+}

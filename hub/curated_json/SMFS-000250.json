@@ -1,0 +1,245 @@
+{
+  "publication": {
+    "doi": "10.1126/sciadv.adx4089"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "TIRF imaging of bacteriophage T7 replisomes (gp4 helicase, LD655-gp5/trx polymerase, gp2.5 SSB) on surface-tethered ~27 kb forked DNA, with linear and new transverse DNA flow-stretching configurations resolving parental, leading and lagging strands and replisome rotation; topologically unconstrained (single biotin) vs constrained (multi-biotin handle) substrates. Forces on DNA arches and the replisome are estimated from extensions with a WLC model (A = 50 nm, T = 296.15 K) rather than measured directly."
+  },
+  "technique": {
+    "primary": "hydrodynamic_stretching",
+    "secondary": [],
+    "force_application_geometry": "flow_tethered_end",
+    "correlative_modalities": [
+      "TIRF"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "Mad City Labs",
+    "model_number": "micromirror TIRF microscope (custom modified)",
+    "custom_built": true,
+    "detection_device": [
+      "camera_sCMOS",
+      "camera_EMCCD"
+    ],
+    "objective_lens": {
+      "make": "Olympus",
+      "magnification": 60,
+      "numerical_aperture": 1.49,
+      "immersion": "oil"
+    },
+    "temperature": {
+      "value": 295.65,
+      "unit": "K",
+      "uncertainty": 0.5,
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All experiments were performed in a temperature-controlled room at 22.5° ± 0.5°C.",
+        "confidence": "high"
+      }
+    },
+    "hydrodynamic": {
+      "flow_rate": {
+        "min": 17,
+        "max": 20,
+        "unit": "μl/min",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "For the linear flow cell configuration, 5 pM of forked, biotinylated DNA was introduced at a flow rate of 17 μl/min for 24 min in reaction buffer",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "translation_transcription_replication",
+      "nucleic_acid_mechanics"
+    ],
+    "bead_functionalization": [],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "ybbR/Sfp (CoA)"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "translation_transcription_replication",
+      "nucleic_acid_mechanics"
+    ],
+    "organisms": [
+      {
+        "name": "Escherichia phage T7",
+        "ncbi_taxon": 10760
+      }
+    ],
+    "entities": [
+      {
+        "name": "Preprimed forked DNA substrate (~27 kb pMSuperCos backbone; unconstrained single-biotin or constrained multi-biotin handle)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Both substrates were created from the same 27-kb plasmid backbone in addition to different DNA modules.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Multi-biotin DNA handle (Biotin-11-dUTP, PCR from lambda DNA)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "For creating topologically constrained DNA substrates, handles with multiple biotins interacting with the slide surface were assembled. DNA sequence was amplified from lambda DNA via a PCR reaction.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T7 gp4 helicase-primase (hexamer)",
+        "entity_type": "protein",
+        "role": "motor",
+        "organism": {
+          "name": "Escherichia phage T7",
+          "ncbi_taxon": 10760
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "a solution containing 2.5 nM gp4 (hexamer), 20 nM LD655-gp5/trx, and 750 nM gp2.5 in reaction buffer",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T7 DNA polymerase gp5/thioredoxin (LD655-labelled via internal ybbR tag)",
+        "entity_type": "protein_complex",
+        "role": "motor",
+        "organism": {
+          "name": "Escherichia phage T7",
+          "ncbi_taxon": 10760
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "LD655",
+            "sequence_location": "ybbR tag inserted between isoleucine-464 and threonine-465 of gp5"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The YBBR tag (DSLEFIASKLA) was introduced between isoleucine-464 and threonine-465.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T7 gp2.5 single-stranded DNA-binding protein",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Escherichia phage T7",
+          "ncbi_taxon": 10760
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Recombinant gp2.5 proteins were overexpressed and purified using established protocols with the necessary modifications (57).",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA gyrase",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "For experiments with DNA gyrase, 5 nM was added to the T7 replication mix.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "fluorescent_labels": [
+      {
+        "identifier": "LD655"
+      },
+      {
+        "identifier": "SYTOX Orange"
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 40,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "potassium glutamate",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.1,
+          "unit": "mg/ml"
+        }
+      },
+      {
+        "name": "DTT",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      }
+    ],
+    "nucleotides": [
+      "ATP",
+      "CTP",
+      "dNTPs"
+    ],
+    "small_molecules": [
+      {
+        "name": "SYTOX Orange",
+        "concentration": {
+          "value": 150,
+          "unit": "nM"
+        }
+      },
+      {
+        "name": "chloroquine (during DNA tethering)",
+        "concentration": {
+          "value": 200,
+          "unit": "µM"
+        }
+      },
+      {
+        "name": "ATP/CTP",
+        "concentration": {
+          "value": 300,
+          "unit": "µM"
+        }
+      },
+      {
+        "name": "dNTPs",
+        "concentration": {
+          "value": 600,
+          "unit": "µM"
+        }
+      }
+    ]
+  },
+  "results": []
+}

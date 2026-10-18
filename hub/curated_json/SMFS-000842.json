@@ -1,0 +1,51 @@
+{
+  "publication": {"doi": "10.1021/jacsau.3c00829"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM-SMFS unfolding of the trimeric integral membrane enzyme diacylglycerol kinase (DGK) reconstituted in POPC, either deposited on mica or thiol-linked to gold, picked up site-specifically by DBCO–azide click chemistry to a PEG-azide-functionalized cantilever; combined with Upside and metadynamics MD simulations and packing-defect mutants. The ~42 pN/nm spring and ~106 nm/s velocity in the auto record are simulation parameters, not experimental."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Asylum Research / Oxford Instruments",
+    "model_number": "Cypher ES",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "afm": {
+      "cantilever_model": "BioLever mini (AC40TS, Olympus)"
+    }
+  },
+  "assay": {
+    "experiment_class": ["unfolding_protein"],
+    "attachment_chemistry": ["cysteine–maleimide", "click chemistry", "covalent PEG linker", "thiol–gold", "physisorption"],
+    "trap_control": ["constant_velocity"]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_protein"],
+    "entities": [
+      {"name": "Diacylglycerol kinase (DGK), single-cysteine variants N3C-DGK / C122-DGK (cWT) and packing-defect mutants, reconstituted in POPC", "entity_type": "protein", "role": "tethered_construct",
+       "mutations": ["C46A", "C113A", "N3C", "L48C"],
+       "evidence": {"method": "llm_review", "snippet": "The construct harbors a His6 tag at the N terminus for purification and one cysteine at either the N-terminal (N3C-DGK) or the C-terminal (C122-DGK) end for site-specific modification. All internal cysteines of DGK were mutated (C46A, C113A).", "confidence": "high"}},
+      {"name": "PEG linker (silane-PEGn-azide on cantilever, MW 600 or 3400 Da; DBCO-PEG4/PEGn-maleimide on protein)", "entity_type": "other", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "We then incubated the cantilevers in the toluene solution of silane-PEGn-azide (0.15 mg/mL) at 60 °C for 3 h. Two different lengths of PEG linkers were used (MW = 600 or 3400 Da).", "confidence": "high"}},
+      {"name": "POPC lipid bilayer", "entity_type": "membrane", "role": "other",
+       "evidence": {"method": "llm_review", "snippet": "purified cWT DGK or its variants were mixed with 1-palmitoyl-2-oleoyl-sn-glycero-3-phosphocholine (POPC) micelles containing 50 mM POPC and 200 mM dodecylphosphocholine (DPC)", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "pH": 7.2,
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 137, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 2.7, "unit": "mM"}},
+      {"name": "Na2HPO4", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "KH2PO4", "concentration": {"value": 1.8, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

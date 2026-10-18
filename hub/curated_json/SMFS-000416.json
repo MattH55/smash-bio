@@ -1,0 +1,98 @@
+{
+  "publication": {
+    "doi": "10.1073/pnas.2515786122"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Optical-trap three-bead assay on porcine ventricular (beta-cardiac) myosin interacting with an actin filament, measuring working stroke and attachment kinetics with and without the myotrope danicamtiv; complemented by stopped-flow kinetics, in vitro motility with regulated thin filaments and FiberSim modelling. Instrument details are only in the SI (not provided)."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "three_bead_assay",
+    "correlative_modalities": []
+  },
+  "hardware": {},
+  "assay": {
+    "experiment_class": [
+      "force_generation_motor"
+    ],
+    "bead_geometry": "three_bead"
+  },
+  "biological_system": {
+    "system_class": [
+      "force_generation_motor"
+    ],
+    "organisms": [
+      {
+        "name": "Sus scrofa",
+        "ncbi_taxon": 9823
+      },
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "Porcine ventricular (cardiac) myosin",
+        "entity_type": "protein",
+        "role": "motor",
+        "organism": {
+          "name": "Sus scrofa",
+          "ncbi_taxon": 9823
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Porcine ventricular actin and myosin were purified from tissue, and human troponin and tropomyosin were recombinantly expressed in Escherichia coli",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Porcine ventricular actin filament",
+        "entity_type": "protein_complex",
+        "role": "track",
+        "organism": {
+          "name": "Sus scrofa",
+          "ncbi_taxon": 9823
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Optical trapping was done using the three-bead assay in which an actin filament is stretched between two optically trapped beads and lowered on to a pedestal bead that is sparsely coated with myosin",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Human cardiac troponin and tropomyosin (thin-filament regulatory proteins)",
+        "entity_type": "protein_complex",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Thin filament regulation was reconstituted by adding calcium and the regulatory proteins troponin and tropomyosin.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cytoskeleton": {
+      "structure_type": "actin_filament"
+    }
+  },
+  "solution": {
+    "nucleotides": [
+      "ATP"
+    ],
+    "small_molecules": [
+      {
+        "name": "danicamtiv"
+      }
+    ]
+  },
+  "results": []
+}

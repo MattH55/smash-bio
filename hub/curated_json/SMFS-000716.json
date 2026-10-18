@@ -1,0 +1,102 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-47126-6"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "COMBI-Tweez methods paper: custom single-beam optical trap holding a 3 µm magnetic bead plus Helmholtz-coil electromagnetic tweezers for bead rotation, with Slimfield/TIRF fluorescence. A ~15 kbp DNA (14.6 kb lambda fragment + 515 bp biotin/digoxigenin handles; also 48.5 kbp lambda) is tethered between the trapped bead and a surface-immobilised 5 µm anchor bead, force-clamped and supercoiled to visualise plectonemes (SYBR Gold, cy3b-SSB); complemented by MD simulations."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": ["magnetic_tweezers"],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": ["widefield_fluorescence", "TIRF", "brightfield_video"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["QPD", "BFP_interferometry", "camera_EMCCD"],
+    "objective_lens": {"make": "Nikon", "magnification": 100, "numerical_aperture": 1.45, "immersion": "oil"},
+    "acquisition_rate": {"value": 50, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "QPD (2 axes), current (2 coils), nanostage (3 axes) and camera fire signal were sampled at 50 kHz.", "confidence": "high"}},
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {
+      "laser_wavelength": {"value": 1064, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "with NIR trapping laser (opus 1064, Laser Quantum), to overfill objective aperture (100×, NA 1.45, oil immersion, MRD01095, Nikon Instruments Inc.)", "confidence": "medium"}},
+      "number_of_traps": 1,
+      "trap_stiffness": {"value": 0.01, "unit": "pN/nm", "evidence": {"method": "llm_review", "snippet": "dynamically repositioning the nanostage by the difference between set and measured force divided by trap stiffness (10 pN/µm), using PID optimisation to prevent overshooting/discontinuities.", "confidence": "high"}}
+    },
+    "magnetic": {
+      "magnet_type": "electromagnet (Helmholtz coils)",
+      "bead_product": "Micromer-M (Micromod)",
+      "rotation_control": true
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_mechanics"],
+    "bead_geometry": "bead_surface",
+    "bead_size": {"value": 3000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "the imaging buffer comprised PBS, 1 mg/mL 3 μm NeutrAvidin-functionalised Micromer-m beads, 6% glucose, 1 mM Trolox, 833 ng/mL glucose oxidase, 166 ng/mL catalase, 25 nM SYBR Gold.", "confidence": "high"}},
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": ["neutravidin", "anti-digoxigenin"],
+    "attachment_chemistry": ["biotin–neutravidin", "digoxigenin–anti-digoxigenin"],
+    "trap_control": ["force_clamp", "rotation", "oscillatory"],
+    "handle_sequences": [
+      {"length_bp": 515, "annotations": "Two PCR reactions were performed using primers NgoMIV forward/NheI reverse, amplifying a 498 bp region of plasmid pBS(KS + ) generating a 515 bp handle."}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_mechanics"],
+    "organisms": [{"name": "Escherichia phage lambda", "ncbi_taxon": 10710}],
+    "entities": [
+      {
+        "name": "~15 kbp DNA construct (14.6 kb lambda fragment with biotin/digoxigenin handles)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 15, "unit": "kbp"},
+        "evidence": {"method": "llm_review", "snippet": "A ~15 kbp DNA construct was synthesised by ligating functionalized handles, containing biotin-16-dUTP or digoxigenin-11-dUTP (Roche, 1093070910/11277065910 respectively), to a λ DNA fragment (Supplementary Fig. 8).", "confidence": "high"}
+      },
+      {
+        "name": "lambda DNA (48.5 kbp)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 48.5, "unit": "kbp"},
+        "evidence": {"method": "llm_review", "snippet": "48.5 kbp λ DNA was also created using a previously reported protocol26", "confidence": "high"}
+      },
+      {
+        "name": "Biotin-16-dUTP / digoxigenin-11-dUTP labelled handles (pBS(KS+))",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {"value": 515, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "amplifying a 498 bp region of plasmid pBS(KS + ) generating a 515 bp handle.", "confidence": "high"}
+      },
+      {
+        "name": "cy3b-SSB",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "fluorescent_labels": [{"identifier": "Cy3B"}],
+        "evidence": {"method": "llm_review", "snippet": "Tether preparation was as before with addition of 10 nM cy3b-SSB to the imaging buffer, and alternating 488 nm/561 nm wavelength laser excitation76, 1 mW/10 mW respectively.", "confidence": "high"}
+      },
+      {
+        "name": "hRPA-eGFP",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "fluorescent_labels": [{"identifier": "eGFP"}],
+        "evidence": {"method": "llm_review", "snippet": "Surface-immobilized 100nt ssDNA-cy5 and ssDNA binding proteins (cy3b-SSB73and hRPA-eGFP74) were imaged on PEG passivated slides", "confidence": "medium"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "components": [
+      {"name": "glucose", "concentration": {"value": 6, "unit": "%"}},
+      {"name": "Trolox", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "glucose oxidase", "concentration": {"value": 833, "unit": "ng/mL"}},
+      {"name": "catalase", "concentration": {"value": 166, "unit": "ng/mL"}}
+    ],
+    "oxygen_scavenging": "glucose oxidase, catalase, Trolox",
+    "small_molecules": [{"name": "SYBR Gold", "concentration": {"value": 25, "unit": "nM"}}],
+    "evidence": {"method": "llm_review", "snippet": "For fluorescence, the imaging buffer comprised PBS, 1 mg/mL 3 μm NeutrAvidin-functionalised Micromer-m beads, 6% glucose, 1 mM Trolox, 833 ng/mL glucose oxidase, 166 ng/mL catalase, 25 nM SYBR Gold.", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "other", "value": 1100, "unit": "pN·nm/rad",
+     "applies_to": {"entity": "3 µm magnetic bead in electromagnetic tweezers", "transition": "angular trap stiffness"},
+     "source": {"location": "methods", "snippet": "Data were fitted using linear regression to yield gradient −0.429 rad Hz−1, angular stiffness", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

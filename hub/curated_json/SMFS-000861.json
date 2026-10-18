@@ -1,0 +1,102 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-50430-w"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Vertical magnetic tweezers measuring force-dependent lifetimes of single-chain-linked α-actinin spectrin-repeat (SR) rod dimers (ACTN1, ACTN4 homo/hetero-dimers, truncated SR dimers, Entamoeba histolytica SR1-SR2) in shear and unzip geometries; constructs tethered via SpyTag003/SpyCatcher to the surface and AviTag-biotin to M270 beads, optionally with a 572-bp DNA handle. Bell-model fits give k0 and transition distance."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "custom_built": true,
+    "detection_device": ["other"],
+    "temperature": {
+      "value": 295.15, "unit": "K", "uncertainty": 1,
+      "evidence": {"method": "llm_review", "snippet": "All in vitro protein stretching experiments were conducted in a solution containing 1× PBS, 1% BSA, 1 mM DTT, and 10 mM sodium l-ascorbate at a temperature of 22 ± 1 °C.", "confidence": "high"}
+    },
+    "acquisition_rate": {
+      "value": 0.2, "unit": "kHz",
+      "evidence": {"method": "llm_review", "snippet": "The temporal and spatial resolution of the magnetic tweezers setup were 200 Hz and 1 nm, respectively.", "confidence": "high"}
+    },
+    "magnetic": {
+      "bead_product": "Dynabeads M-270",
+      "camera_frame_rate": {
+        "value": 200, "unit": "Hz",
+        "evidence": {"method": "llm_review", "snippet": "The temporal and spatial resolution of the magnetic tweezers setup were 200 Hz and 1 nm, respectively.", "confidence": "medium"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion", "unfolding_protein"],
+    "bead_geometry": "bead_surface",
+    "bead_size": {
+      "value": 2800, "unit": "nm",
+      "evidence": {"method": "llm_review", "snippet": "The streptavidin or neutravidin coated super-paramagnetic beads (2.8 μm in diameter, Invitrogen M270)", "confidence": "high"}
+    },
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": ["streptavidin", "neutravidin"],
+    "attachment_chemistry": ["SpyTag/SpyCatcher", "biotin–streptavidin", "glutaraldehyde/APTES", "DNA handle"],
+    "trap_control": ["constant_force", "force_ramp", "force_jump"],
+    "loading_rate": {
+      "min": 0.1, "max": 10, "unit": "pN/s",
+      "evidence": {"method": "llm_review", "snippet": "During force-increase/decrease scans at loading rates of 0.1–10 pN s−1, the force change during the stepwise bead height change", "confidence": "high"}
+    },
+    "handle_sequences": [{"length_bp": 572, "annotations": "Prepared superparamagnetic beads (2.8 m in diameter, Invitrogen M270) linked with biotinylated 572-bp double-stranded DNA"}]
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion", "unfolding_protein"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}, {"name": "Entamoeba histolytica", "ncbi_taxon": 5759}],
+    "entities": [
+      {"name": "α-actinin-1 (ACTN1) SR1–SR4 rod homodimer, single-chain linked (Spy003–SR1-4–GS linker–AviTag–SR1-4)", "entity_type": "protein", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "region": "spectrin repeats SR1–SR4; truncations SR2–SR4:SR1–SR3, SR2–SR3:SR2–SR3, SR1:SR4",
+       "evidence": {"method": "llm_review", "snippet": "Here, we directly quantify the force-dependent lifetimes of homo- and hetero-dimers of human α-actinins", "confidence": "high"}},
+      {"name": "α-actinin-4 (ACTN4) SR1–SR4 rod homodimer and ACTN1:ACTN4 heterodimer", "entity_type": "protein", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "pET151–Spy003–(SR1–SR2–SR3–SR4)ACTN4–(GS Linker)–AviTag- (SR1–SR2–SR3–SR4)ACTN4", "confidence": "high"}},
+      {"name": "Entamoeba histolytica α-actinin SR1–SR2 dimer", "entity_type": "protein", "role": "tethered_construct",
+       "organism": {"name": "Entamoeba histolytica", "ncbi_taxon": 5759},
+       "evidence": {"method": "llm_review", "snippet": "pET151–Spy003–(SR1–SR2)Entamoebahistolytica–(GS Linker)–AviTag–(SR1–SR2)Entamoebahistolytica", "confidence": "high"}},
+      {"name": "SpyCatcher-Cys (surface anchor)", "entity_type": "protein", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "it was incubated with SpyCatcher-cys (0.05 mg mL−1 in 1× PBS) for 6 h at the same temperature.", "confidence": "high"}},
+      {"name": "572-bp biotinylated dsDNA handle", "entity_type": "dna", "role": "handle",
+       "length": {"value": 572, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "Prepared superparamagnetic beads (2.8 m in diameter, Invitrogen M270) linked with biotinylated 572-bp double-stranded DNA", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "components": [
+      {"name": "PBS", "concentration": {"value": 1, "unit": "×"}},
+      {"name": "BSA", "concentration": {"value": 1, "unit": "%"}},
+      {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "sodium L-ascorbate", "concentration": {"value": 10, "unit": "mM"}}
+    ]
+  },
+  "results": [
+    {"quantity": "bond_lifetime", "min": 100, "unit": "s",
+     "applies_to": {"entity": "human α-actinin homo- and hetero-dimers (full SR rod)", "transition": "dimer rupture"},
+     "conditions": {"force_max_pN": 40, "geometry": "shear"},
+     "source": {"location": "abstract", "snippet": "revealing an ultra-high mechanical stability of the dimers associated with > 100 seconds lifetime within 40 pN forces under shear-stretching geometry", "extraction": "manual", "confidence": "high"}},
+    {"quantity": "rupture_force", "value": 65, "unit": "pN", "note": "approximate",
+     "applies_to": {"entity": "full SR rod dimer", "transition": "dimer rupture"},
+     "conditions": {"geometry": "shear"},
+     "source": {"location": "methods", "snippet": "This force is roughly 17 times smaller than the rupture force of the dimer (approximately 65 pN) under shear–force geometry in our experiments.", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "rupture_force", "value": 40, "unit": "pN", "note": "approximate",
+     "applies_to": {"entity": "three SR dimer (ACTN1)", "transition": "dimer rupture"},
+     "conditions": {"geometry": "shear"},
+     "source": {"location": "methods", "snippet": "which is about 15 times smaller than the rupture force of the dimer (approximately 40 pN) under shear–force geometry in our experiments", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "rupture_force", "value": 3, "unit": "pN", "note": "approximate",
+     "applies_to": {"entity": "two SR dimer (ACTN1 SR2–SR3:SR2–SR3)", "transition": "dimer rupture"},
+     "conditions": {"geometry": "shear"},
+     "source": {"location": "methods", "snippet": "which is approximately 2 times smaller than the rupture force of the dimer (approximately 3 pN) under shear–force geometry in our experiments", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "rupture_force", "value": 5, "unit": "pN", "note": "approximate",
+     "applies_to": {"entity": "full SR rod dimer", "transition": "dimer rupture"},
+     "conditions": {"geometry": "unzip"},
+     "source": {"location": "methods", "snippet": "This force is roughly 50 times smaller than the rupture force of the dimer (approximately 5 pN) under the unzip-force geometry in our experiments.", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

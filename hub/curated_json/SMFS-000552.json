@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1073/pnas.2510654122"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: stochastic-thermodynamics study of a single 2.73 µm SiO2 colloid dragged by a single 532 nm optical trap between nonequilibrium steady states in a water-glycerol or CPyCl/NaSal wormlike-micelle fluid; no biomolecule is tethered or stretched (optical tweezers used for colloidal control/microrheology only)."
+  }
+}

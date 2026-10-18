@@ -1,0 +1,145 @@
+{
+  "publication": {
+    "doi": "10.1126/sciadv.adp8756"
+  },
+  "curation": {
+    "notes": "Dual-trap optical tweezers (LUMICKS C-trap) force-extension cycles at 250 nm/s on a ssDNA/dsDNA hybrid carrying two attC hairpins plus a spacer (double-attC) between 2.5-kbp handles; the catalytically inactive integrase IntI1 Y312F forms a synaptic complex whose disassembly force is measured, identified by a designed 71-nm contour-length fingerprint. Seven attC-site combinations are compared and correlated with in vivo recombination efficiency. Beads differ in size: 2.09 µm anti-digoxigenin and 1.76 µm streptavidin polystyrene.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "acquisition_rate": {
+      "value": 78,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "high-frequency force, as well as piezo distance data (78 kHz), was downsampled by a factor of 300",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.4,
+        "max": 0.5,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The traps were calibrated to have a stiffness of 0.4 to 0.5 pN/nm.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_protein_interaction",
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 2090,
+      "unit": "nm",
+      "note": "anti-digoxigenin bead; the streptavidin bead is 1.76 µm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "the DNA construct was incubated with 2.09-μm anti-digoxigenin–coated polystyrene beads (0.1% w/v, Biozol, Germany)",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin",
+      "DNA hybridization handle"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "value": 250,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "We then pull on the synaptic complex by moving one bead further away with a constant velocity of 250 nm/s.",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "length_bp": 2500,
+        "annotations": "DNA handles (2.5 kbp) were produced using PCR from λ-DNA (Promega, United States) with a primer carrying either a 5′ biotin or 5′ triple-digoxigenin modification"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_protein_interaction",
+      "unfolding_nucleic_acid"
+    ],
+    "entities": [
+      {
+        "name": "double-attC ssDNA insert (two attC hairpins + 110-nt spacer)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "min": 280,
+          "max": 420,
+          "unit": "nt"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "In brief, the insert is from 280 to 420 nt long, including two attC sequences flanked on both sites by short and long spacer sequences as well as overhangs for annealing to dsDNA handles",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dsDNA handles (2.5 kbp, λ-DNA, biotin / triple-digoxigenin)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 2500,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "DNA handles (2.5 kbp) were produced using PCR from λ-DNA (Promega, United States)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Integron integrase IntI1 Y312F (MBP-fusion construct used for expression)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "mutations": [
+          "Y312F"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we have decided to use an IntI1 mutation, which substitutes the attacking tyrosine with a phenylalanine (IntI1Y312F), termed thereafter IntI1",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "oxygen_scavenging": "pyranose oxidase, catalase"
+  }
+}

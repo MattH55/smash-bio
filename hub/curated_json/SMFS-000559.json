@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1016/j.bpj.2024.12.010"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: bulk-material magnetic microrheometry (10 µm magnetic probes driven by electromagnets at 0.05 Hz, 0.3 nN) of collagen type 1 gels and 3D breast cancer-associated fibroblast cultures with Bayesian spatial modeling; no single molecule is manipulated, and optical tweezers (auto-assigned technique) were not used."
+  }
+}

@@ -1,0 +1,62 @@
+{
+ "publication": {"doi": "10.1073/pnas.2221309120"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Dual-beam single-trap optical tweezers (bead in trap + streptavidin bead on suction micropipette) hold a 6,256 bp lambda DNA tether in Xenopus high-speed egg extract (metaphase or interphase; mock, ASF1-, H1.8- or condensin-depleted) and track chromatin fiber compaction at ~1.5 pN and force-induced disassembly at 15 pN in force-feedback mode. Fluorescence imaging was only used to test extract activity on sperm nuclei, not correlatively."},
+ "technique": {"primary": "optical_tweezers", "secondary": ["micropipette"], "force_application_geometry": "micropipette_bead", "correlative_modalities": []},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "optical": {"number_of_traps": 1}
+ },
+ "assay": {
+  "experiment_class": ["chromatin_mechanics", "nucleic_acid_protein_interaction"],
+  "bead_size": {"value": 2000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "The DNA was deposited on 2 µm polystyrene beads (Spherotech) coated with anti-dig antibody.", "confidence": "high"}},
+  "bead_material": "polystyrene",
+  "bead_functionalization": ["anti-digoxigenin", "streptavidin"],
+  "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+  "trap_control": ["force_clamp", "constant_force", "force_ramp"]
+ },
+ "biological_system": {
+  "system_class": ["chromatin_mechanics", "nucleic_acid_protein_interaction"],
+  "organisms": [{"name": "Xenopus laevis", "ncbi_taxon": 8355}, {"name": "Escherichia phage lambda", "ncbi_taxon": 10710}],
+  "entities": [
+   {"name": "6,256 bp lambda DNA tether (5'-biotin / 5'-digoxigenin)", "entity_type": "dna", "role": "tethered_construct",
+    "organism": {"name": "Escherichia phage lambda", "ncbi_taxon": 10710},
+    "length": {"value": 6256, "unit": "bp"},
+    "evidence": {"method": "llm_review", "snippet": "The 6.2 kb DNA tether was amplified by PCR from lambda phage genomic DNA using a 5′-biotinylated primer (5’-biotin-gaacagacagaggacgccg), and a 5′-digoxigenin labeled primer (5’-dig-ggccatgttgttgctgtatgc) (IDT).", "confidence": "high"}},
+   {"name": "Xenopus laevis high-speed egg extract (metaphase / interphase)", "entity_type": "other", "role": "binding_partner",
+    "organism": {"name": "Xenopus laevis", "ncbi_taxon": 8355},
+    "evidence": {"method": "llm_review", "snippet": "We developed a physiological, cell-free system using high-speed Xenopus egg extracts and optical tweezers to investigate real-time mitotic chromatin fiber formation and force-induced disassembly on single DNA molecules.", "confidence": "high"}},
+   {"name": "Condensin (immunodepleted via CAP-E, CAP-G, CAP-D3)", "entity_type": "complex", "role": "binding_partner",
+    "identifiers": [{"scheme": "uniprot", "id": "P50533", "verified": false}],
+    "organism": {"name": "Xenopus laevis", "ncbi_taxon": 8355},
+    "evidence": {"method": "llm_review", "snippet": "For condensin, 10 μg each of affinity-purified antibodies against CAP-E, CAP-G, and CAP-D3 was coupled to 100 μL protein A Dynabeads (20).", "confidence": "medium"}},
+   {"name": "Linker histone H1.8 (immunodepleted)", "entity_type": "protein", "role": "binding_partner",
+    "organism": {"name": "Xenopus laevis", "ncbi_taxon": 8355},
+    "evidence": {"method": "llm_review", "snippet": "For H1.8, 50 μg affinity-purified anti-H1M antibody was coupled to 200 μL protein A Dynabeads (Thermo Fisher) as described (7).", "confidence": "high"}},
+   {"name": "Histone chaperone ASF1 (immunodepleted)", "entity_type": "protein", "role": "binding_partner",
+    "organism": {"name": "Xenopus laevis", "ncbi_taxon": 8355},
+    "evidence": {"method": "llm_review", "snippet": "Depletion of the core histone chaperone ASF1, which inhibits nucleosome assembly, decreased the final degree of metaphase fiber compaction by 29%", "confidence": "high"}}
+  ]
+ },
+ "solution": {
+  "buffer": "EB buffer + high-speed egg extract (1:1) + 1/20 vol energy mix", "pH": 7.3,
+  "components": [
+   {"name": "β-glycerophosphate", "concentration": {"value": 80, "unit": "mM"}},
+   {"name": "MgCl2", "concentration": {"value": 15, "unit": "mM"}},
+   {"name": "EGTA", "concentration": {"value": 20, "unit": "mM"}}
+  ],
+  "nucleotides": ["ATP"],
+  "notes": "EB buffer composition before 1:1 mixing with extract; energy mix = 150 mM creatine phosphate, 20 mM ATP, 2 mM EGTA, 20 mM MgCl2."
+ },
+ "results": [
+  {"quantity": "persistence_length", "value": 34, "unit": "nm", "statistic": "mean", "applies_to": {"entity": "6,256 bp lambda DNA tether (5'-biotin / 5'-digoxigenin)"}, "model": "eWLC",
+   "source": {"location": "methods", "snippet": "The traces yielded an average persistence length of 34 nm and stretch modulus of 1,300 pN.", "extraction": "manual", "confidence": "high"}},
+  {"quantity": "stretch_modulus", "value": 1300, "unit": "pN", "statistic": "mean", "applies_to": {"entity": "6,256 bp lambda DNA tether (5'-biotin / 5'-digoxigenin)"}, "model": "eWLC",
+   "source": {"location": "methods", "snippet": "The traces yielded an average persistence length of 34 nm and stretch modulus of 1,300 pN.", "extraction": "manual", "confidence": "high"}},
+  {"quantity": "other", "value": 60, "unit": "%", "applies_to": {"entity": "6,256 bp lambda DNA tether (5'-biotin / 5'-digoxigenin)", "transition": "DNA compaction (degree) in interphase extract"},
+   "source": {"location": "abstract", "snippet": "Compared to interphase extract, which compacted DNA by ~60%, metaphase extract reduced DNA length by over 90%", "extraction": "manual", "confidence": "medium"}},
+  {"quantity": "other", "min": 90, "unit": "%", "applies_to": {"entity": "6,256 bp lambda DNA tether (5'-biotin / 5'-digoxigenin)", "transition": "DNA compaction (degree) in metaphase extract"},
+   "source": {"location": "abstract", "snippet": "Compared to interphase extract, which compacted DNA by ~60%, metaphase extract reduced DNA length by over 90%", "extraction": "manual", "confidence": "medium"}}
+ ]
+}

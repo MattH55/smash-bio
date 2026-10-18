@@ -1,0 +1,10 @@
+{
+ "gate": "X4",
+ "status": "not_run",
+ "static_check": {
+  "keys_checked": 112,
+  "problems": [],
+  "clean": true
+ },
+ "note": "GROMACS not installed on the test machine; static check only, does not count as a pass"
+}

@@ -1,0 +1,94 @@
+{
+  "publication": {"doi": "10.1038/s41563-024-01975-0"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Dual-trap optical tweezers with widefield fluorescence: single isolated human mitotic chromosomes (U2OS and HCT116, telomere-biotinylated via TRF1-BirA) held between two streptavidin beads and probed by stretch curves, oscillatory rheology, force clamp, polyamine/PEG/salt condensation and in situ high-salt histone depletion. Performed on both a LUMICKS C-Trap and a similarly equipped academic set-up."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": ["widefield_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "detection_device": ["PSD"],
+    "objective_lens": {"make": "Nikon", "magnification": 60, "numerical_aperture": 1.2, "immersion": "water"},
+    "temperature": {
+      "value": 300.15, "unit": "K",
+      "evidence": {"method": "llm_review", "snippet": "Experiments were carried out at around 27 °C, slightly above room temperature.", "confidence": "high"}
+    },
+    "acquisition_rate": {
+      "value": 0.02, "unit": "kHz",
+      "evidence": {"method": "llm_review", "snippet": "Forces were determined using a position-sensitive detector and they were binned to match the frame rate used for distance detection (~20 Hz).", "confidence": "medium"}
+    },
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {
+      "laser_wavelength": {
+        "value": 1064, "unit": "nm",
+        "evidence": {"method": "llm_review", "snippet": "a 20 W trapping laser (1,064 nm; YLR-20-LP, IPG Photonics)", "confidence": "high"}
+      },
+      "laser_power_at_source": {
+        "value": 20000, "unit": "mW", "note": "rated laser power, not operating power",
+        "evidence": {"method": "llm_review", "snippet": "a 20 W trapping laser (1,064 nm; YLR-20-LP, IPG Photonics)", "confidence": "medium"}
+      },
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "value": 0.5, "unit": "pN/nm", "note": "typical value",
+        "evidence": {"method": "llm_review", "snippet": "Trap stiffnesses were calibrated using the thermal noise method before each experiment and were usually around 0.5 pN nm−1.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["chromatin_mechanics"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "min": 4470, "max": 4880, "unit": "nm",
+      "evidence": {"method": "llm_review", "snippet": "All experiments were performed using streptavidin-coated polystyrene beads (4.47 or 4.88 μm diameter, Spherotech).", "confidence": "high"}
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin"],
+    "trap_control": ["constant_velocity", "oscillatory", "force_clamp"],
+    "pulling_speed": {
+      "value": 200, "unit": "nm/s",
+      "evidence": {"method": "llm_review", "snippet": "Stretch curves were recorded with a pulling velocity of 0.2 μm s−1 to a maximum force of between 250 and 350 pN.", "confidence": "high"}
+    }
+  },
+  "biological_system": {
+    "system_class": ["chromatin_mechanics"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "Mitotic chromosome (U2OS TRF1-BirA ± H2B-eGFP; HCT116 TOP2A-mAID H2B-eGFP CDK1as TRF1-BirA)", "entity_type": "other", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "fluorescent_labels": [{"identifier": "eGFP", "sequence_location": "H2B-eGFP"}],
+       "evidence": {"method": "llm_review", "snippet": "For most experiments, chromosomes were isolated from U2OS TRF1-BirA cells with or without H2B-eGFP as described previously22.", "confidence": "high"}},
+      {"name": "Core histones", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "We combine these experiments with high-salt histone depletion and theory to show that chromosomal elasticity originates from the chromatin fibre behaving as a flexible polymer", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "U2OS; HCT116"}
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 8,
+    "components": [
+      {"name": "Tris", "concentration": {"value": 15, "unit": "mM"}},
+      {"name": "EDTA", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 80, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "EGTA", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "Tween 20", "concentration": {"value": 0.2, "unit": "%"}}
+    ],
+    "small_molecules": [
+      {"name": "spermidine (polyamine buffer)", "concentration": {"value": 0.5, "unit": "mM"}},
+      {"name": "spermine (polyamine buffer)", "concentration": {"value": 0.2, "unit": "mM"}},
+      {"name": "PEG 8000 (PEG buffer)", "concentration": {"value": 9, "unit": "% w/v"}},
+      {"name": "NaCl (histone depletion buffer)", "concentration": {"value": 920, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

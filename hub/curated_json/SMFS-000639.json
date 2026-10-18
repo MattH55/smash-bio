@@ -1,0 +1,76 @@
+{
+  "publication": {"doi": "10.1038/s44318-025-00551-9"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Single-molecule fluorescence-force spectroscopy (single-trap optical tweezers + confocal smFRET): a Cy3/Cy5-labelled P. berghei CSP repeat peptide (WT or scrambled) is conjugated to DNA oligos, surface-anchored via biotin-neutravidin and pulled via a lambda-DNA handle and anti-digoxigenin bead; FRET is recorded vs force. Most of the paper is parasite cell biology (motility, RICM, infectivity)."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": ["confocal_fluorescence", "smFRET"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["QPD"],
+    "optical": {
+      "laser_wavelength": {"value": 1064, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "Microscope setup consisted of a trapping laser (1064 nm, 800 mW, Spectra Physics) to catch a bead.", "confidence": "high"}},
+      "laser_power_at_source": {"value": 800, "unit": "mW", "evidence": {"method": "llm_review", "snippet": "Microscope setup consisted of a trapping laser (1064 nm, 800 mW, Spectra Physics) to catch a bead.", "confidence": "high"}},
+      "number_of_traps": 1
+    }
+  },
+  "assay": {
+    "experiment_class": ["unfolding_protein"],
+    "bead_geometry": "bead_surface",
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["anti-digoxigenin"],
+    "attachment_chemistry": ["biotin–neutravidin", "digoxigenin–anti-digoxigenin", "cysteine–maleimide"],
+    "trap_control": ["constant_velocity"],
+    "pulling_speed": {"value": 445, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "To apply tension, the stage was moved between 14 and 16.8 µm at a constant rate of 445 nm/s as Cy3/Cy5 emission profiles were measured with an exposure time of 20 milliseconds.", "confidence": "high"}},
+    "handle_sequences": [
+      {"annotations": "5′-biotin-TGGCGACGGCAGCGAGGC-Cy5-3′"},
+      {"annotations": "5′-GGGCGGCGACCTGCTGGGTAGTC-Cy3-3′"},
+      {"annotations": "5′-AGGTCGCCGCCCTTT- digoxygenin-3′"}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_protein"],
+    "organisms": [{"name": "Plasmodium berghei", "ncbi_taxon": 5821}],
+    "entities": [
+      {
+        "name": "CSP repeat peptide (WT, C-NANDPAPPNANDPAPPNANDPAPP-C; Scrambled, C-NNNAPDDNAAANPPANPPPPPD-C)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {"name": "Plasmodium berghei", "ncbi_taxon": 5821},
+        "region": "central repeat region of circumsporozoite protein",
+        "fluorescent_labels": [{"identifier": "Cy3", "sequence_location": "DNA oligo at one end"}, {"identifier": "Cy5", "sequence_location": "biotinylated DNA oligo at other end"}],
+        "evidence": {"method": "llm_review", "snippet": "Peptides with terminal cysteines were synthesized by GenScript and diluted to 200 µM in T150 buffer: WT (C-NANDPAPPNANDPAPPNANDPAPP-C) or Scrambled (C-NNNAPDDNAAANPPANPPPPPD-C).", "confidence": "high"}
+      },
+      {
+        "name": "lambda-DNA handle",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {"method": "llm_review", "snippet": "anti-digoxygenin-coated polystyrene beads (Polysciences) were conjugated to the peptide construct through λ-DNA of the peptide construct", "confidence": "high"}
+      },
+      {
+        "name": "Maleimide (SMCC)-conjugated DNA oligonucleotide ACCGCTGCCGTCGCTCCG",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {"method": "llm_review", "snippet": "the DNA-oligonucleotide, ACCGCTGCCGTCGCTCCG with a 5′ amine modification, was incubated with 200× molar excess of succinimidyl 4-[N-maleimidomethyl]cyclo-hexane-1-carboxylate", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 150, "unit": "mM"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "by incubation in a buffer containing 10 mM Tris HCl pH 7.5 and 150 mM NaCl for 30 min.", "confidence": "medium"},
+    "note": "Bead-conjugation buffer; the imaging buffer during pulling is not explicitly stated."
+  },
+  "results": []
+}

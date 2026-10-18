@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights | SMASH-BIO</title>
+  <meta name="description" content="How open is force spectroscopy data? Data availability by year and technique, Table 3 reporting coverage, biological systems, instruments and repositories.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>Insights</h1>
+      <p>What the hub reveals about the force spectroscopy literature: how often data are shared, which Table&nbsp;3 parameters papers report, and which biological systems and instruments dominate.</p>
+    </div>
+  </header>
+  <main class="container" style="padding-bottom:60px">
+    <div class="stat-row" id="kpis" style="margin-bottom:18px"></div>
+    <div class="chart-grid">
+      <div class="chart-card wide"><h3>Data availability by publication year</h3><div class="chart-sub">Primary research and methods papers, 2000 onward. “Not checked” means no open full text was available to read a data statement.</div><div id="c-status-year"></div></div>
+      <div class="chart-card"><h3>Share deposited in a public repository</h3><div class="chart-sub">Among papers whose full text could be checked (years with ≥10 papers)</div><div id="c-repo-share"></div></div>
+      <div class="chart-card"><h3>Data availability by technique</h3><div class="chart-sub">Share of primary studies per status</div><div id="c-status-tech"></div></div>
+      <div class="chart-card wide"><h3>Table 3 reporting coverage</h3><div class="chart-sub">Share of records where each field could be populated — all records vs. those with open-access methods text</div><div id="c-coverage"></div></div>
+      <div class="chart-card"><h3>Most-studied biological systems</h3><div class="chart-sub">Records mentioning each system in title or abstract</div><div id="c-entities"></div></div>
+      <div class="chart-card"><h3>Experiment classes</h3><div class="chart-sub">Table 3 columns refined into sub-classes</div><div id="c-classes"></div></div>
+      <div class="chart-card"><h3>Organisms</h3><div class="chart-sub">Source organism of the studied system</div><div id="c-orgs"></div></div>
+      <div class="chart-card"><h3>Instrument make</h3><div class="chart-sub">Commercial vendor or custom-built, from methods text</div><div id="c-vendors"></div></div>
+      <div class="chart-card"><h3>Repositories</h3><div class="chart-sub">Where linked datasets and code are hosted</div><div id="c-repos"></div></div>
+      <div class="chart-card"><h3>Deposited file formats</h3><div class="chart-sub">From Zenodo/Figshare file listings of linked datasets</div><div id="c-formats"></div></div>
+      <div class="chart-card"><h3>Studies per technique over time</h3><div class="chart-sub">All indexed records</div><div id="c-tech-year"></div></div>
+      <div class="chart-card"><h3>Extracted results</h3><div class="chart-sub">Observables in the results vocabulary found in abstracts</div><div id="c-obs"></div></div>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/stats.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/stats.js"></script>
+</body>
+</html>

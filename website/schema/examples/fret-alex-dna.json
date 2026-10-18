@@ -1,0 +1,21 @@
+{
+  "record_id": "FRET-000003",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.alex", "title": "ALEX smFRET of a Holliday junction", "authors": ["Example D"], "journal": "Example Journal", "year": 2022, "open_access": true},
+  "technique": {"primary": "smfret_confocal_scanning_immobilized", "excitation_scheme": "ALEX", "detection": "point_detector", "geometry": "confocal_immobilized", "time_resolution": {"value": 1, "unit": "ms"}},
+  "biological_system": {"molecule_types": ["DNA"], "entities": [{"name": "DNA Holliday junction", "type": "DNA", "length_nt": 64, "description": "Four-way junction immobilized on PEG."}]},
+  "construct": {"labels": [{"name": "ATTO 550", "role": "donor", "labeling_site": "arm R1"}, {"name": "ATTO 647N", "role": "acceptor", "labeling_site": "arm R2"}], "immobilization": "PEG_biotin_streptavidin"},
+  "fret_assays": [{
+    "assay_id": "junction-2mM-Mg",
+    "fluorophores": [{"role": "donor", "name": "ATTO 550", "labeling_site": "arm R1"}, {"role": "acceptor", "name": "ATTO 647N", "labeling_site": "arm R2"}],
+    "solution": {"buffer": "20 mM Tris, 100 mM NaCl, 2 mM MgCl2", "pH": 8.0},
+    "hardware": {"confocal": {"laser_lines": [{"value": 532, "unit": "nm"}, {"value": 640, "unit": "nm"}], "objective_na": 1.2, "detectors": ["APD"], "polarization_resolved": false}},
+    "acquisition": {"sampling_rate": {"value": 1, "unit": "kHz"}, "excitation_period": {"value": 100, "unit": "us"}},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": true, "detection_efficiency": true, "gamma_factor": 0.95},
+    "analysis": {"accurate_vs_apparent_E": "accurate", "software": ["iSMS", "MATLAB"], "state_detection": "threshold", "kinetic_model": "dwell_time"}
+  }],
+  "results": [{"quantity": "fret_efficiency_accurate", "value": 0.35, "unit": "1", "statistic": "single_value", "state": "open", "n_molecules": 88}, {"quantity": "stoichiometry", "value": 1.02, "unit": "1", "statistic": "mean", "n_molecules": 88}],
+  "data_availability": {"status": "not_stated", "has_linked_dataset": false},
+  "data_flags": {"has_raw_traces": false, "has_raw_photon_data": false, "has_raw_movies": false},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.7, "assay": 0.8, "construct": 0.5, "solution": 0.6, "analysis": 0.7, "data": 0.0, "overall": 0.61}
+}

@@ -1,0 +1,13 @@
+{
+  "record_id": "MP-000002",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/mp.example.aav", "title": "Rapid quantification of AAV full and empty capsids by mass photometry", "year": 2024, "open_access": true},
+  "technique": {"primary": "MP", "variant": "mass_photometry"},
+  "biological_system": {"entities": [{"name": "AAV8 capsid", "type": "AAV", "description": "adeno-associated virus serotype 8"}]},
+  "instrument": {"manufacturer": "Refeyn", "model": "SamuxMP", "frame_rate": {"value": 400, "unit": "Hz"}},
+  "calibration": {"standards": ["BSA", "thyroglobulin"], "calibration_type": "standards"},
+  "assay": {"surface": "glass", "method": "buffer_free_focus", "concentration": {"value": 5, "unit": "nM"}, "software": ["DiscoverMP"]},
+  "results": [{"quantity": "aav_full_fraction", "value": 0.81, "unit": "1", "statistic": "mean", "n_events": 2100}, {"quantity": "molecular_mass_kDa", "value": 3600.0, "unit": "kDa", "statistic": "most_probable", "species": "full"}, {"quantity": "molecular_mass_kDa", "value": 2400.0, "unit": "kDa", "statistic": "most_probable", "species": "empty"}],
+  "data_availability": {"status": "code_only", "has_any_data": false},
+  "data_flags": {"has_event_lists": false, "has_raw_movies": false}
+}

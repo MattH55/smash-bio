@@ -1,0 +1,24 @@
+{
+ "id": "mechanoprodb",
+ "name": "MechanoProDB simulation entries (Mesbah, Habermann & Rico, Database 2024)",
+ "kind": "database",
+ "source_url": "https://mechanoprodb.ibdm.univ-amu.fr",
+ "doi": "10.1093/database/baae047",
+ "license": "MIT",
+ "license_url": "https://mechanoprodb.ibdm.univ-amu.fr/terms.html",
+ "redistributable": true,
+ "retrieved": "2026-10-11",
+ "status": "ingested",
+ "local_export": {
+  "path": "Meeta Analysis\\mechanoprodb-reanalysis\\data\\processed\\entries.parquet",
+  "sha256": "1f456ae266810f5bac0c593131a45a6cce22f314cfa6d0c6b064be2c15641ba7",
+  "n_entries": 82,
+  "terms_sha256": "8bc490480a482514e265f757eeea138ad596e58376a69650f88898ab6bfc0673"
+ },
+ "counts": {
+  "simulation": 14,
+  "experiment": 68
+ },
+ "notes": "Only the steered-MD rows (source == 'simulation') become SIM records, as 'database' sources that keep the original publication (doi_pulling) on each entry. The MIT terms page permits redistribution with attribution.",
+ "unit_system": "physical"
+}

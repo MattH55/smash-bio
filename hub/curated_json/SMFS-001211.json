@@ -1,0 +1,39 @@
+{
+ "publication": {"doi": "10.1073/pnas.2304666120"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Home-built single-trap optical tweezers active microrheology: microbeads embedded in collagen and fibrin gels are dragged at 1 μm/s to obtain local nonlinear force-displacement responses, and 4.5 μm beads are dragged near MDA-MB-231 cells (± blebbistatin) to map local matrix stiffness and the nonlinear length scale R*. Flat-punch indentation (Bruker Hysitron BioSoft), confocal PIV and simulations are separate complementary methods."},
+ "technique": {"primary": "optical_tweezers", "secondary": [], "force_application_geometry": "other", "correlative_modalities": []},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "calibration_technique": ["power_spectrum_passive"],
+  "optical": {
+   "number_of_traps": 1,
+   "trap_stiffness": {"value": 0.015, "unit": "pN/nm", "evidence": {"method": "llm_review", "snippet": "The tweezers are calibrated in phosphate-buffered saline solution. The power spectrum density method is used (47). The trap stiffness is 15 pN/μm.", "confidence": "high"}}
+  }
+ },
+ "assay": {
+  "experiment_class": ["rheology_material", "rheology_cell"],
+  "bead_size": {"min": 2000, "max": 4500, "unit": "nm", "note": "two bead sizes used: 2 μm and 4.5 μm (4.5 μm beads for measurements around cells)", "evidence": {"method": "llm_review", "snippet": "Microparticles (2 μm, C37278, ThermoFisher, and 4.5 μm carboxylate microspheres, Polyscience) are embedded in the gel prior to polymerization.", "confidence": "high"}},
+  "bead_functionalization": ["carboxylate"],
+  "trap_control": ["constant_velocity"],
+  "pulling_speed": {"value": 1000, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "Home-built optical tweezers are used (47). The laser beam is moved at a constant velocity of 1 μm s−1.", "confidence": "high"}}
+ },
+ "biological_system": {
+  "system_class": ["rheology_material", "rheology_cell"],
+  "entities": [
+   {"name": "Collagen gel (4 mg/mL)", "entity_type": "material", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "To make 1 mL 4 mg mL−1 collagen gels, 400 μL 10 mg mL−1 collagen solution (Advance Biomatrix, Cat# 5133) is mixed with 460 μL Dulbecco’s Modified Eagle Medium (DMEM)", "confidence": "high"}},
+   {"name": "Fibrin gel (3 mg/mL)", "entity_type": "material", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "To make 1 mL 3 mg mL−1 fibrin gels, 500 μL 6 mg mL−1 fibrinogen (F8630-1G, Sigma-Aldrich) solution is mixed with 500 μL 4 U mL−1 thrombin (T4648-1KU, Sigma-Aldrich).", "confidence": "high"}},
+   {"name": "MDA-MB-231 cells embedded in collagen", "entity_type": "cell", "role": "other",
+    "evidence": {"method": "llm_review", "snippet": "We mixed 4.5-μm-diameter beads (Polysciences, 17140-5) with cells in the collagen solution prepared with the same protocol described above.", "confidence": "high"}}
+  ],
+  "cell": {"cell_identity": "MDA-MB-231"}
+ },
+ "solution": {
+  "buffer": "DMEM / PBS (collagen gel polymerization mix)",
+  "small_molecules": [{"name": "blebbistatin", "concentration": {"value": 40, "unit": "μM"}}]
+ },
+ "results": []
+}

@@ -1,0 +1,100 @@
+{
+  "record_id": "SIM-900001",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {
+    "kind": "dataset",
+    "title": "ForceGen steered-MD dataset (Ni, Kaplan & Buehler)",
+    "url": "https://github.com/lamm-mit/ProteinMechanicsDiffusionDesign",
+    "accession": "arXiv:2310.10605",
+    "license": "MIT",
+    "license_url": "https://github.com/lamm-mit/ProteinMechanicsDiffusionDesign/blob/main/LICENSE",
+    "redistributable": true,
+    "retrieved": "2026-10-11",
+    "notes": "Hand-made schema example (see curation). Metadata is indexed and linked; the per-protein force-extension records are not copied.",
+    "evidence": [
+      {"field": "source.license", "method": "repository_api", "confidence": "high",
+       "snippet": "GitHub repository API reports spdx_id: MIT"}
+    ]
+  },
+  "system": {
+    "molecule_type": "protein",
+    "name": "Single-domain protein (ForceGen set)",
+    "construct": {
+      "residue_range": "1-128",
+      "description": "proteins up to 128 residues with no structural gaps, as defined by the dataset",
+      "evidence": [
+        {"field": "system.construct", "method": "repository_api", "confidence": "medium",
+         "snippet": "about 7,000 proteins selected from BSDB, each up to 128 residues, no structural gaps"}
+      ]
+    },
+    "structure_source": "PDB",
+    "evidence": [
+      {"field": "system.name", "method": "repository_api", "confidence": "medium",
+       "snippet": "all-atom steered MD of about 7,000 proteins selected from BSDB"}
+    ]
+  },
+  "model": {
+    "family": "all_atom_implicit_solvent",
+    "family_group": "protein",
+    "force_field": "CHARMM",
+    "solvent": "implicit",
+    "software": [{"name": "NAMD"}],
+    "unit_system": "physical",
+    "evidence": [
+      {"field": "model.family", "method": "repository_api", "confidence": "medium",
+       "snippet": "NAMD, CHARMM force field, generalized Born implicit solvent, 310 K"}
+    ]
+  },
+  "protocol": {
+    "mode": "constant_velocity",
+    "temperature": {"value": 310, "unit": "K"},
+    "geometry": {
+      "force_application_geometry": "other",
+      "description": "one end fixed and the other pulled through a spring at constant velocity",
+      "pull_direction": "end-to-end",
+      "anchor_a": {"description": "one end fixed", "end": "N_terminus"},
+      "anchor_b": {"description": "the other end pulled by a spring", "end": "C_terminus"},
+      "evidence": [
+        {"field": "protocol.geometry", "method": "repository_api", "confidence": "medium",
+         "snippet": "one end fixed and the other pulled through a spring at constant velocity"}
+      ]
+    },
+    "evidence": [
+      {"field": "protocol.mode", "method": "repository_api", "confidence": "medium",
+       "snippet": "constant-velocity steered MD"}
+    ]
+  },
+  "results": [
+    {"quantity": "unfolding_force", "label": "strength", "value": 150, "unit": "pN",
+     "unit_system": "physical", "statistic": "mean",
+     "provenance": [{"field": "results[0]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation; the dataset reports force-extension curves"}]},
+    {"quantity": "toughness", "value": 250, "unit": "pN nm", "unit_system": "physical",
+     "statistic": "mean",
+     "provenance": [{"field": "results[1]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation"}]}
+  ],
+  "data_availability": {
+    "status": "code_only",
+    "has_linked_dataset": false,
+    "has_any_data": true,
+    "code": [
+      {"id": "https://github.com/lamm-mit/ProteinMechanicsDiffusionDesign",
+       "url": "https://github.com/lamm-mit/ProteinMechanicsDiffusionDesign",
+       "repository": "GitHub", "license": "MIT", "content": "code"}
+    ],
+    "trajectories": {"available": false,
+                     "statement": "Force-extension curves and toughness are in the dataset; trajectories are not deposited."}
+  },
+  "curation": {
+    "status": "manually_reviewed",
+    "curator": "schema-example",
+    "date": "2026-10-11",
+    "notes": "Hand-made example for schema validation, not a corpus record. The setup follows the published dataset description; the numeric results are illustrative."
+  },
+  "fair_completeness": {
+    "publication": 0.833, "system": 0.75, "model": 0.8, "protocol": 0.5,
+    "results": 1.0, "data": 0.0, "overall": 0.647
+  }
+}

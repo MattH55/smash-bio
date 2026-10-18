@@ -1,0 +1,46 @@
+{
+  "publication": {"doi": "10.1039/d4ra00738g"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM force-spectroscopy indentation of free-standing pore-spanning lipid bilayers mimicking plasma-membrane composition (cholesterol, sphingomyelin varied); breakthrough force, pre-stress and elasticity extracted with a clamped-membrane point-load model. Membrane-level (not single-molecule) measurement; FGF2 adsorption studied by AFM imaging only."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Bruker",
+    "model_number": "Dimension FastScanBio",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "temperature": {
+      "value": 293.15, "unit": "K",
+      "evidence": {"method": "llm_review", "snippet": "All experiments were performed at room temperature (controlled at ca. 20 °C).", "confidence": "high"}
+    },
+    "calibration_technique": ["thermal_noise_cantilever"],
+    "afm": {
+      "cantilever_model": "MSNL-D",
+      "spring_constant": {
+        "value": 30, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "MSNL-D probes (silicon nitride, spring constant 0.03 N m−1, resonance frequency 15 kHz, nominal tip radius 2 nm) were used for indentation experiments", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["membrane_mechanics"],
+    "trap_control": ["constant_velocity"]
+  },
+  "biological_system": {
+    "system_class": ["membrane_mechanics"],
+    "entities": [
+      {"name": "Pore-spanning lipid bilayer of plasma-membrane-mimicking composition (with/without cholesterol and sphingomyelin)", "entity_type": "membrane", "role": "tethered_construct",
+       "evidence": {"method": "llm_review", "snippet": "In this study, we prepare pore-spanning membranes that mimic the composition of plasma membranes and perform force spectroscopy indentation measurements to unravel mechanistic insights depending on lipid composition.", "confidence": "high"}},
+      {"name": "Fibroblast growth factor 2 (FGF2)", "entity_type": "protein", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "we investigate the adsorption and movement of a peripheral protein, the fibroblast growth factor 2, on the complex membrane.", "confidence": "high"}}
+    ]
+  },
+  "results": []
+}

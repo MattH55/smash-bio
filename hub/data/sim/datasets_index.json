@@ -1,0 +1,134 @@
+{
+ "built": "2026-10-11T15:02:25Z",
+ "datasets": [
+  {
+   "id": "forcegen",
+   "name": "ForceGen steered-MD dataset (Ni, Kaplan & Buehler)",
+   "kind": "dataset",
+   "source_url": "https://github.com/lamm-mit/ProteinMechanicsDiffusionDesign",
+   "arxiv": "arXiv:2310.10605",
+   "license": "MIT",
+   "license_url": "https://api.github.com/licenses/mit",
+   "redistributable": true,
+   "retrieved": "2026-10-11",
+   "status": "reachable",
+   "notes": "All-atom steered MD of ~7,000 proteins selected from BSDB (NAMD, CHARMM, generalized-Born implicit solvent). Metadata indexed only: the per-protein force-extension records are large and are not copied here.",
+   "repo": {
+    "description": null,
+    "pushed_at": "2024-02-10T11:52:17Z",
+    "default_branch": "main",
+    "top_level_entries": [
+     ".gitignore",
+     "LICENSE",
+     "PD_pLMProbXDiff",
+     "README.md",
+     "documents",
+     "notebook_for_colab"
+    ]
+   },
+   "unit_system": "physical (kcal/mol/A force field units, reported forces in pN)"
+  },
+  {
+   "id": "bsdb",
+   "name": "BSDB, the Biomolecule Stretching Database (Sikora, Sulkowska, Witkowski & Cieplak)",
+   "kind": "database",
+   "source_url": "http://jowisz.ifpan.edu.pl/BSDB/",
+   "citation": "Nucleic Acids Res 2011; PLoS Comput Biol 2009 5:e1000422",
+   "license": "not stated on the reachable pages",
+   "redistributable": false,
+   "retrieved": "2026-10-11",
+   "status": "unreachable",
+   "probes": [
+    {
+     "url": "http://jowisz.ifpan.edu.pl/BSDB/",
+     "http_status": 404,
+     "final_url": "http://jowisz.ifpan.edu.pl/BSDB/",
+     "bytes": 203
+    },
+    {
+     "url": "https://jowisz.ifpan.edu.pl/BSDB/",
+     "http_status": null,
+     "final_url": "ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the ",
+     "bytes": 0
+    },
+    {
+     "url": "http://info.ifpan.edu.pl/BSDB/",
+     "http_status": 404,
+     "final_url": "http://jowisz.ifpan.edu.pl/BSDB",
+     "bytes": 202
+    }
+   ],
+   "internet_archive": {
+    "available": true,
+    "url": "http://web.archive.org/web/20250314085413/http://jowisz.ifpan.edu.pl/BSDB/",
+    "timestamp": "20250314085413",
+    "http_body_bytes": 11605,
+    "mentions": [
+     "download",
+     "mechanical clamp",
+     "protein",
+     "stretching"
+    ],
+    "snippet": "window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={\"autoplay\":\"on\",\"unmuteOverlay\":\"hidden\",\"showSwfDownload\":true}; __wm.init(\"http://web.archive.org/web\"); __wm.wombat(\"http://jowisz.ifpan.edu.pl/BSDB/\",\"20250314085413\",\"http://web.archive.org/\",\"web\",\"https://web-static.archi"
+   },
+   "notes": "Cα-Gō peak forces and mechanical-clamp annotations for ~17,134 model proteins, in reduced units with the authors' stated conversion. Nothing is copied: the licence is unstated, so only this metadata record and links are kept. See REPORT-sim.md for the question to put to the Cieplak group.",
+   "unit_system": "reduced_with_stated_conversion (ε and σ as published)"
+  },
+  {
+   "id": "mykuliak-2020",
+   "name": "Steered MD vs boxed MD benchmark (Mykuliak et al., Biophys J 2020)",
+   "kind": "dataset",
+   "source_url": "https://etsin.fairdata.fi/dataset/c71a62be-550d-4e7c-9fc1-8fc008148aed",
+   "doi": "10.23729/e4805d6f-e85e-4712-8481-948dfc7c6f0e",
+   "license": "Creative Commons Attribution 4.0 International",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+   "redistributable": true,
+   "retrieved": "2026-10-11",
+   "status": "reachable",
+   "datacite": {
+    "title": "Mechanical unfolding of proteins – a comparative non-equilibrium molecular dynamics study",
+    "publisher": "Tampere University, BioMediTech",
+    "published": "2020",
+    "resource_type": "Dataset"
+   },
+   "notes": "Small method benchmark released under CC BY 4.0 on Fairdata; indexed with a link. Files are fetched only if redistribution is later confirmed as wanted.",
+   "unit_system": "physical"
+  },
+  {
+   "id": "mechanoprodb",
+   "name": "MechanoProDB simulation entries (Mesbah, Habermann & Rico, Database 2024)",
+   "kind": "database",
+   "source_url": "https://mechanoprodb.ibdm.univ-amu.fr",
+   "doi": "10.1093/database/baae047",
+   "license": "MIT",
+   "license_url": "https://mechanoprodb.ibdm.univ-amu.fr/terms.html",
+   "redistributable": true,
+   "retrieved": "2026-10-11",
+   "status": "ingested",
+   "local_export": {
+    "path": "Meeta Analysis\\mechanoprodb-reanalysis\\data\\processed\\entries.parquet",
+    "sha256": "1f456ae266810f5bac0c593131a45a6cce22f314cfa6d0c6b064be2c15641ba7",
+    "n_entries": 82,
+    "terms_sha256": "8bc490480a482514e265f757eeea138ad596e58376a69650f88898ab6bfc0673"
+   },
+   "counts": {
+    "simulation": 14,
+    "experiment": 68
+   },
+   "notes": "Only the steered-MD rows (source == 'simulation') become SIM records, as 'database' sources that keep the original publication (doi_pulling) on each entry. The MIT terms page permits redistribution with attribution.",
+   "unit_system": "physical"
+  },
+  {
+   "id": "smash-sim-outputs",
+   "name": "SMASH-SIM harmonized outputs",
+   "kind": "smash_sim_generated",
+   "source_url": null,
+   "license": "n/a (generated by this project)",
+   "redistributable": true,
+   "retrieved": "2026-10-11",
+   "status": "not_found",
+   "found": [],
+   "notes": "No smash-sim/out/harmonized.parquet or summary.csv in this workspace, so there is nothing to ingest. The reader is in place for when the SMASH-SIM project produces them."
+  }
+ ]
+}

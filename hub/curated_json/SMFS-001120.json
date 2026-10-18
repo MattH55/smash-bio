@@ -1,0 +1,67 @@
+{
+ "publication": {"doi": "10.1093/nar/gkad868"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Custom magnetic tweezers measure condensation of a torsionally constrained 14 kb parS-containing DNA by B. subtilis ParB (WT and E111Q, S278C, T22C crosslinkable variants) by stepwise force reduction from 7 to 0.05 pN, plus a second MT assay of E. coli RNAP transcription through ParB-DNA condensates at constant 5 pN. Separate (non-correlative) flow-stretched DNA fluorescence imaging, FRAP, AFM imaging and MD simulations complement the force data."},
+ "technique": {"primary": "magnetic_tweezers", "secondary": [], "force_application_geometry": "bead_on_surface_magnetic", "correlative_modalities": []},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "detection_device": ["camera_CMOS"],
+  "objective_lens": {"make": "Nikon", "magnification": 50, "numerical_aperture": 0.9, "immersion": "oil"},
+  "acquisition_rate": {"value": 0.05, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "projected onto a 4-megapixel CMOS camera (#4M60, Falcon2; Teledyne Dalsa) with a sampling frequency of 50 Hz.", "confidence": "high"}},
+  "filter_frequency": {"value": 1, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "The data was filtered to 1 Hz (moving average) for analysis of all data sets.", "confidence": "high"}},
+  "magnetic": {"magnet_type": "permanent_pair", "bead_product": "Dynabeads MyOne Streptavidin (#65601, Invitrogen/Life Technologies)",
+   "camera_frame_rate": {"value": 50, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "projected onto a 4-megapixel CMOS camera (#4M60, Falcon2; Teledyne Dalsa) with a sampling frequency of 50 Hz.", "confidence": "high"}},
+   "rotation_control": true}
+ },
+ "assay": {
+  "experiment_class": ["nucleic_acid_protein_interaction", "chromatin_mechanics", "translation_transcription_replication"],
+  "bead_size": {"value": 1000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "streptavidin-coated superparamagnetic beads (diluted 1:400 in PBS buffer; MyOne #65601 Dynabeads, Invitrogen/Life Technologies) with a diameter of 1 μm", "confidence": "high"}},
+  "bead_material": "superparamagnetic",
+  "bead_functionalization": ["streptavidin"],
+  "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+  "trap_control": ["constant_force", "force_clamp"],
+  "handle_sequences": [
+   {"length_bp": 600, "annotations": "This resulted in handles of ∼600 bp in length with multi-biotin or multi-digoxigenin nucleotides present."}
+  ],
+  "n_molecules": 35
+ },
+ "biological_system": {
+  "system_class": ["nucleic_acid_protein_interaction", "chromatin_mechanics", "translation_transcription_replication"],
+  "organisms": [{"name": "Bacillus subtilis", "ncbi_taxon": 1423}, {"name": "Escherichia coli", "ncbi_taxon": 562}],
+  "entities": [
+   {"name": "14 kb linear DNAparS (single parS site)", "entity_type": "dna", "role": "tethered_construct",
+    "length": {"value": 14, "unit": "kb"},
+    "evidence": {"method": "llm_review", "snippet": "a torsionally constrained construct was made by ligating, using T4 DNA ligase (NEB), the 14 kb DNA fragment to multi-Biotin and multi-Digoxigenin handle in a 1:10 ratio.", "confidence": "high"}},
+   {"name": "Multi-biotin / multi-digoxigenin DNA handles", "entity_type": "dna", "role": "handle",
+    "length": {"value": 600, "unit": "bp"},
+    "evidence": {"method": "llm_review", "snippet": "This resulted in handles of ∼600 bp in length with multi-biotin or multi-digoxigenin nucleotides present.", "confidence": "high"}},
+   {"name": "ParB (Spo0J)", "entity_type": "protein", "role": "binding_partner",
+    "identifiers": [{"scheme": "uniprot", "id": "P26497", "verified": false}],
+    "organism": {"name": "Bacillus subtilis", "ncbi_taxon": 1423},
+    "mutations": ["E111Q", "S278C", "T22C"],
+    "evidence": {"method": "llm_review", "snippet": "For wild type ParB, ParBE111Q and ParBS278C we first incubated the proteins for 15 min in the flow cell at such high force and directly after, the force was gradually reduced in steps (see Figure 1B) from 7 pN to 0.05 pN", "confidence": "high"}},
+   {"name": "RNA polymerase holoenzyme (α2ββ′ω, σ70), biotinylated β′", "entity_type": "protein", "role": "motor",
+    "identifiers": [{"scheme": "uniprot", "id": "P0A8V2", "verified": false}],
+    "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+    "evidence": {"method": "llm_review", "snippet": "The RNAP contained a biotin-modification at the ß’-subunit (43) that served as an anchor to attach streptavidin-coated magnetic beads.", "confidence": "high"}},
+   {"name": "GreB", "entity_type": "protein", "role": "binding_partner",
+    "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+    "evidence": {"method": "llm_review", "snippet": "E. coli RNAP-biotin, GreB and σ70 purification", "confidence": "medium"}}
+  ]
+ },
+ "solution": {
+  "buffer": "Tris-HCl", "pH": 7.5,
+  "components": [
+   {"name": "Tris–HCl", "concentration": {"value": 40, "unit": "mM"}},
+   {"name": "KCl", "concentration": {"value": 65, "unit": "mM"}},
+   {"name": "MgCl2", "concentration": {"value": 2.5, "unit": "mM"}},
+   {"name": "CTP", "concentration": {"value": 1, "unit": "mM"}},
+   {"name": "BSA", "concentration": {"value": 0.25, "unit": "μg/ml"}},
+   {"name": "TCEP", "concentration": {"value": 1, "unit": "mM"}}
+  ],
+  "nucleotides": ["CTP", "ATP", "GTP", "UTP"],
+  "notes": "MT incubation buffer for condensation assays; RNAP transcription MT assays used Buffer A (20 mM Tris–HCl pH 7.9, 100 mM KCl, 10 mM MgCl2, 0.05% Tween 20) with 1 mM each NTP."
+ },
+ "results": []
+}

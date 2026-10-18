@@ -1,0 +1,55 @@
+{
+  "publication": {"doi": "10.1038/s41467-025-62104-2"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Single-molecule FRET-based molecular force sensor (MFS; spider-silk-derived (GPGGA)5 peptide spring with AF555/AF647) anchored via monovalent streptavidin-His6 to gel-phase (DPPC) or fluid (POPC) supported lipid bilayers and coupled to pMHC (IEk/MCC, IEk/AEP) or H57 scFv, imaged by TIRF under murine CD4+ T-cells (5c.c7 and AND TCR-transgenic). Also measures TCR:pMHC bond lifetimes by smFRET at 23 and 27 °C and calcium flux; no external force probe."
+  },
+  "technique": {
+    "primary": "tension_sensors",
+    "secondary": [],
+    "force_application_geometry": "cell_surface_tension_sensor",
+    "correlative_modalities": ["TIRF", "smFRET", "IRM"]
+  },
+  "hardware": {
+    "make_of_setup": "custom (Zeiss-based TIRF microscope)",
+    "custom_built": true,
+    "detection_device": ["camera_EMCCD"],
+    "objective_lens": {"make": "Zeiss", "magnification": 100, "numerical_aperture": 1.45, "immersion": "oil"},
+    "temperature": {"min": 296.15, "max": 300.15, "unit": "K", "note": "stated for smFRET bond-lifetime measurements; temperature for force measurements not stated", "evidence": {"method": "llm_review", "snippet": "Lifetimes were recorded at 23 °C and 27 °C for various receptor:ligand pairs.", "confidence": "high"}},
+    "calibration_technique": ["other"]
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion"],
+    "attachment_chemistry": ["His-tag/Ni-NTA (DGS-NTA(Ni) lipids)", "biotin–streptavidin (monovalent mSAv)", "click chemistry (azide–DBCO)", "cysteine–maleimide"],
+    "trap_control": ["passive_mode"]
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion"],
+    "organisms": [{"name": "Mus musculus", "ncbi_taxon": 10090}],
+    "entities": [
+      {"name": "Molecular force sensor spring peptide (biotin-GGCGS(GPGGA)5GGKYGGS-K(N3))", "entity_type": "peptide", "role": "tethered_construct",
+       "fluorescent_labels": [{"identifier": "Alexa Fluor 555", "sequence_location": "cysteine (maleimide)"}, {"identifier": "Alexa Fluor 647", "sequence_location": "lysine (succinimidyl ester)"}],
+       "evidence": {"method": "llm_review", "snippet": "MFS peptide (biotin-N-GGCGS(GPGGA)5GGKYGGS-K(ε-N3)), MFSC peptide (biotin-N-GGGGS(GPGGA)5GGKYCGS-K(ε-N3)), and MFS0 peptide (biotin-N-GGGGS (GPGGA)5 GGKYG GS-K(ε-N3))", "confidence": "high"}},
+      {"name": "pMHC class II IEk loaded with MCC 88-103 or AEP peptide", "entity_type": "protein_complex", "role": "binding_partner",
+       "organism": {"name": "Mus musculus", "ncbi_taxon": 10090},
+       "evidence": {"method": "llm_review", "snippet": "IEk α featuring an additional C-terminal cysteine residue and IEk β were expressed as inclusion bodies and refolded in the presence of MCC 88-103 peptide (with the sequence H-ANERADLIAYLKQATK-OH) or a recently described high affinity derivate of MCC (AEP", "confidence": "high"}},
+      {"name": "TCRβ-reactive H57 scFv", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "genbank", "id": "MH045460.1", "verified": false}],
+       "evidence": {"method": "llm_review", "snippet": "TCRβ-reactive H57 antibody single chain fragments with a C-terminal unpaired cysteine residue (J4, H57 cys scFV)", "confidence": "high"}},
+      {"name": "T-cell receptor (5c.c7 and AND TCR-transgenic CD4+ T-cells)", "entity_type": "protein_complex", "role": "binding_partner",
+       "organism": {"name": "Mus musculus", "ncbi_taxon": 10090},
+       "evidence": {"method": "llm_review", "snippet": "To obtain antigen-experienced 5c.c7 and AND murine T-cell blasts, 7.5 × 106/mL spleenocytes were stimulated with 2 µM C18 reverse-phase high-performance liquid chromatography (HPLC)-purified MCC (88-103) peptide", "confidence": "high"}},
+      {"name": "Monovalent streptavidin mSAv-3xHis6 (anchor unit)", "entity_type": "protein", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "In principle, as anchor unit we used a his-tagged monovalent streptavidin which can bind the biotinylated spring unit.", "confidence": "high"}},
+      {"name": "Supported lipid bilayer (DPPC gel-phase or POPC fluid, 2 mol-% DGS-NTA(Ni)) with ICAM-1 and B7-1", "entity_type": "membrane", "role": "surface",
+       "evidence": {"method": "llm_review", "snippet": "Gel-phase SLBs were created by using DPPC as carrier lipid, whereas fluid SLBs were created using POPC.", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "murine CD4+ T-cell blasts (5c.c7 / AND TCR-transgenic)"}
+  },
+  "solution": {
+    "buffer": "HBSS",
+    "components": [{"name": "FCS", "concentration": {"value": 2, "unit": "%"}}]
+  },
+  "results": []
+}

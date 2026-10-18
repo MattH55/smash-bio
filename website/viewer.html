@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data viewer | SMASH-BIO</title>
+  <meta name="description" content="View force-spectroscopy traces from public datasets, harmonised to common units, with and without drugs or ligands, and open your own data files locally in the browser.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="pull/css/pull.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>Data viewer</h1>
+      <p>Pulling curves from public datasets, read by the open SMASH-BIO pipeline and converted to common units (pN, nm, s). Conditions with and without a drug or ligand are overlaid. Every trace links back to its source file, and the original authors are credited. You can also open your own data file: it is read in your browser and never uploaded.</p>
+      <div class="tabs" role="tablist" style="margin-top:14px">
+        <button role="tab" aria-selected="true" data-tab="tab-ds">Public datasets</button>
+        <button role="tab" aria-selected="false" data-tab="tab-own">Your own file</button>
+      </div>
+    </div>
+  </header>
+  <main class="container" style="padding-bottom:60px">
+    <section id="tab-ds" class="tabpane">
+      <div class="pull-layout">
+        <aside class="pull-side" aria-label="Datasets">
+          <div class="panel"><h2 style="font-size:1rem">Datasets</h2><div id="ds-list"><p class="muted small">Loading…</p></div>
+            <p class="hint">Only datasets whose licence allows redistribution show traces. The others are listed with a link to the source. Traces are downsampled for display; the analysis uses full-resolution data.</p></div>
+        </aside>
+        <div class="pull-main">
+          <section class="panel" id="ds-head"><p class="muted">Choose a dataset.</p></section>
+          <section class="panel" id="ds-plot-panel" hidden>
+            <div class="chart-head"><h3 id="plot-title">Traces</h3>
+              <div class="chart-tools">
+                <div class="seg" role="group" aria-label="Plot axes" id="axes">
+                  <button type="button" data-v="fx" aria-pressed="true">Force vs extension</button><button type="button" data-v="ft" aria-pressed="false">Force vs time</button><button type="button" data-v="xt" aria-pressed="false">Extension vs time</button>
+                </div>
+                <button class="btn btn-sm btn-secondary" id="dl-csv">CSV</button>
+                <button class="btn btn-sm btn-ghost" data-svg="plot">SVG</button>
+              </div></div>
+            <div id="cond-toggles" class="chip-row" style="margin:6px 0 10px"></div>
+            <div class="chart" id="plot"></div>
+            <p class="hint" id="plot-note"></p>
+          </section>
+          <section class="panel" id="ds-prov" hidden><h3>Provenance</h3><div id="prov"></div></section>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-own" class="tabpane" hidden>
+      <div class="pull-layout">
+        <aside class="pull-side">
+          <div class="panel"><h2 style="font-size:1rem">Open a file</h2>
+            <div class="field"><label for="own-file">CSV / TXT / DAT</label><input type="file" id="own-file" accept=".csv,.txt,.dat,.tsv"></div>
+            <p class="hint">Read locally in your browser; nothing is uploaded. Columns are mapped automatically only when the header makes it unambiguous ("Force (pN)", "Distance (um)"). Otherwise, choose them below.</p>
+            <div id="own-map" hidden>
+              <div class="field"><label for="own-x">x column</label><select id="own-x"></select></div>
+              <div class="field-row"><div class="field"><label for="own-xu">x unit</label><select id="own-xu"></select></div>
+                <div class="field"><label for="own-yu">force unit</label><select id="own-yu"></select></div></div>
+              <div class="field"><label for="own-y">force column</label><select id="own-y"></select></div>
+              <button class="btn btn-secondary btn-sm" id="own-plot">Plot</button>
+            </div>
+            <div class="status" id="own-status" style="margin-top:8px"></div>
+          </div>
+        </aside>
+        <div class="pull-main"><section class="panel"><div class="chart" id="own-chart"><p class="muted">No file opened.</p></div></section></div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="pull/js/charts.js"></script>
+  <script src="js/viewer.js"></script>
+</body>
+</html>

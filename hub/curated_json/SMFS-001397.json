@@ -1,0 +1,273 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Correlative dual-trap optical tweezers plus confocal fluorescence (LUMICKS C-Trap G2) used to stretch lambda DNA or lambda nucleosome arrays between two beads at ~5 pN while single-particle tracking fluorescently labelled SWR1 remodeler (Swc7-labelled) or its Cy3-labelled Swc2 DNA-binding domain diffusing in 1D; dCas9 RNPs and nucleosomes serve as roadblocks. The force axis is used to hold DNA under tension rather than to measure rupture forces; output is diffusion coefficients."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": [
+      "confocal_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap (series G2)",
+    "custom_built": false,
+    "detection_device": [
+      "QPD"
+    ],
+    "calibration_technique": [
+      "manufacturer",
+      "dna_force_extension_reference"
+    ],
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "value": 0.8,
+        "unit": "pN/nm",
+        "note": "naked-DNA configuration; both traps",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "For SWR1 sliding on naked DNA, 4.2 µm polystyrene beads coated in streptavidin (Spherotech cat# SVP-40-5) were caught in each trap, and LUMICKS biotinylated lambda DNA was tethered. Both traps had trap stiffness of about 0.8 pN/nm.",
+          "confidence": "high"
+        }
+      },
+      "confocal_laser_wavelengths_nm": [
+        532,
+        640
+      ]
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "chromatin_mechanics",
+      "nucleic_acid_protein_interaction"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 4200,
+      "unit": "nm",
+      "note": "4.2 um streptavidin bead in both traps for naked DNA; 4.2 um plus 2.12 um anti-digoxigenin bead for nucleosome arrays",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "For SWR1 sliding on lambda nucleosome array, a 4.2-µm polystyrene bead coated in streptavidin was caught in trap 1, and a 2.12-µm polystyrene bead coated in anti-digoxigenin antibody (Spherotech cat# DIGP-20-2) was caught in trap 2",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin"
+    ],
+    "trap_control": [
+      "constant_force",
+      "constant_distance"
+    ],
+    "tension_applied": {
+      "value": 5,
+      "unit": "pN",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Lambda DNA tethered at its ends to two optically trapped beads was pulled to a tension of 5 pN, which resulted in a length approximately 92% of its contour length (15.2 µm).",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "chromatin_mechanics",
+      "nucleic_acid_protein_interaction"
+    ],
+    "entities": [
+      {
+        "name": "Lambda DNA (biotinylated, LUMICKS)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "4.2 µm polystyrene beads coated in streptavidin (Spherotech cat# SVP-40-5) were caught in each trap, and LUMICKS biotinylated lambda DNA was tethered",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Lambda DNA nucleosome array",
+        "entity_type": "nucleoprotein_complex",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The number of nucleosomes per array was estimated from the length of the lambda nucleosome array at 5 pN force before and after nucleosome unwrapping.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "SWR1 chromatin remodeling complex (Swc7-labelled)",
+        "entity_type": "protein_complex",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q05471",
+            "verified": false
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The SWR1 complex labeled only on Swc7 was constructed as has been previously documented (Poyton et al., 2022).",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Swc2 DNA-binding domain (residues 136-345), Cy3-labelled",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "region": "residues 136–345",
+        "fluorescent_labels": [
+          {
+            "identifier": "Cy3",
+            "sequence_location": "single cysteine placed directly before the N-terminus"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The DBD of Swc2 (residues 136–345) was cloned into a 6× his-tag expression vector with a single cysteine placed directly before the N-terminus of the protein for labeling purposes",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dCas9 ribonucleoprotein (Cy5-tracrRNA) roadblock",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "fluorescent_labels": [
+          {
+            "identifier": "Cy5",
+            "sequence_location": "tracrRNA"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "dCas9 was purchased from Integrated DNA Technologies (IDT), as Alt-R S.p.d Cas9 Protein V3 and stored at −80°C until Ribonucleoprotein (RNP) assembly.",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES (histone exchange reaction buffer)",
+    "pH": 7.6,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 25,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "EDTA",
+        "concentration": {
+          "value": 0.37,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glycerol",
+        "concentration": {
+          "value": 5,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "NP40",
+        "concentration": {
+          "value": 0.017,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 70,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 3.6,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.1,
+          "unit": "mg/mL"
+        }
+      },
+      {
+        "name": "2-mercaptoethanol",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "ATP",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      }
+    ],
+    "nucleotides": [
+      "ATP"
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 0.024,
+      "unit": "um^2/s",
+      "applies_to": {
+        "entity": "SWR1 on DNA",
+        "observable": "median 1D diffusion coefficient in the helical sliding regime"
+      },
+      "source": {
+        "location": "abstract",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "The median diffusion coefficient, 0.024 μm2/s, in the regime of helical sliding, would mediate rapid encounter of NDR-flanking nucleosomes at length scales found in cellular chromatin."
+      }
+    },
+    {
+      "quantity": "contour_length_increment",
+      "value": 34.6,
+      "unit": "nm",
+      "applies_to": {
+        "entity": "single nucleosome in lambda nucleosome array",
+        "transition": "nucleosome unwrapping"
+      },
+      "conditions": {
+        "force_pN": 5
+      },
+      "source": {
+        "location": "methods",
+        "extraction": "manual",
+        "confidence": "high",
+        "snippet": "On average, approximately 34.6 nm of lengthening at 5 pN corresponded to the unwrapping of a single nucleosome, therefore the difference in length before and after unwrapping was used to estimate the number of nucleosomes per array."
+      }
+    }
+  ],
+  "publication": {
+    "doi": "10.7554/elife.77352"
+  }
+}

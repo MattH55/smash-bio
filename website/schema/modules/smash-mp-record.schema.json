@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-mp-record.schema.json",
+  "title": "SMASH-BIO mass-photometry record",
+  "description": "One publication-level mass-photometry (iSCAT-based mass measurement) record. Keeps the Table 3 backbone so cross-technique pages work. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["record_id", "schema_version", "publication", "technique", "biological_system", "assay", "data_availability"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^MP-[0-9]{6}$"},
+    "schema_version": {"const": "1.0.0"},
+    "publication": {"$ref": "#/$defs/Publication"},
+    "technique": {"$ref": "#/$defs/Technique"},
+    "biological_system": {"$ref": "#/$defs/BiologicalSystem"},
+    "instrument": {"$ref": "#/$defs/Instrument"},
+    "calibration": {"$ref": "#/$defs/Calibration"},
+    "assay": {"$ref": "#/$defs/Assay"},
+    "event_sets": {"type": "array", "items": {"$ref": "smash-mp-results.schema.json#/$defs/EventListSet"}},
+    "movie_sets": {"type": "array", "items": {"$ref": "smash-mp-results.schema.json#/$defs/MovieSet"}},
+    "results": {"type": "array", "items": {"$ref": "smash-mp-results.schema.json#/$defs/Result"}},
+    "data_availability": {"$ref": "../smash-common.schema.json#/$defs/DataAvailability"},
+    "data_flags": {"$ref": "#/$defs/DataFlags"},
+    "fair_completeness": {"$ref": "../smash-common.schema.json#/$defs/FairCompleteness"},
+    "provenance": {"$ref": "../smash-common.schema.json#/$defs/Provenance"},
+    "correlative": {"type": "array", "uniqueItems": true, "items": {"enum": ["smfret", "single_particle_tracking", "optical_tweezers", "fluorescence_imaging", "other"]}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Publication": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "doi": {"type": "string"},
+        "pmid": {"type": "string"},
+        "pmcid": {"type": "string"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "journal": {"type": "string"},
+        "year": {"type": "integer", "minimum": 1900},
+        "abstract": {"type": "string"},
+        "open_access": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Technique": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {"const": "MP"},
+        "variant": {"enum": ["mass_photometry", "isac", "mspt", "other"]},
+        "time_resolution": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "BiologicalSystem": {
+      "type": "object",
+      "required": ["entities"],
+      "properties": {
+        "entities": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/MolecularEntity"}}
+      },
+      "additionalProperties": false
+    },
+    "MolecularEntity": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["protein", "protein_complex", "DNA", "RNA", "virus", "AAV", "membrane_protein", "other"]},
+        "description": {"type": "string"},
+        "identifiers": {"type": "array", "items": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}},
+        "evidence": {"$ref": "../smash-common.schema.json#/$defs/Evidence"}
+      },
+      "additionalProperties": false
+    },
+    "Instrument": {
+      "type": "object",
+      "properties": {
+        "manufacturer": {"type": "string"},
+        "model": {"type": "string"},
+        "field_of_view": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "frame_rate": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "acquisition_duration": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "Calibration": {
+      "type": "object",
+      "properties": {
+        "standards": {"type": "array", "items": {"type": "string"}},
+        "contrast_to_mass_slope": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "calibration_type": {"enum": ["standards", "in_situ", "none_reported"]}
+      },
+      "additionalProperties": false
+    },
+    "Assay": {
+      "type": "object",
+      "properties": {
+        "surface": {"enum": ["glass", "PLL_coated", "supported_bilayer", "other"]},
+        "method": {"enum": ["droplet_dilution", "buffer_free_focus", "flow", "MSPT", "other"]},
+        "concentration": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "incubation_time": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "software": {"type": "array", "items": {"type": "string"}},
+        "temperature": {"$ref": "../smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "DataFlags": {
+      "type": "object",
+      "properties": {
+        "has_event_lists": {"type": "boolean"},
+        "has_raw_movies": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

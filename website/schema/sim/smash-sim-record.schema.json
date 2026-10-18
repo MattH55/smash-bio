@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/sim/smash-sim-record.schema.json",
+  "title": "SMASH-SIM simulation record",
+  "description": "One simulated system, under one model and one pulling protocol, from one source (a publication or a dataset). Simulations are never experiments: they carry their own record type (SIM-######), their own pages (/sim/) and a visible label everywhere. Version 1.0.0. Shared definitions are referenced from the published SMFS 3.1.0 schemas; nothing there is modified.",
+  "type": "object",
+  "required": ["record_id", "schema_version", "source", "system", "model", "protocol", "data_availability"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^SIM-[0-9]{6}$"},
+    "schema_version": {"const": "1.0.0"},
+    "category": {
+      "const": "simulation",
+      "description": "Fixed label. Any consumer can branch on this without inspecting the record id."
+    },
+    "source": {"$ref": "#/$defs/Source"},
+    "system": {"$ref": "#/$defs/System"},
+    "model": {"$ref": "#/$defs/Model"},
+    "protocol": {"$ref": "#/$defs/Protocol"},
+    "results": {
+      "type": "array",
+      "items": {"$ref": "smash-sim-results.schema.json#/$defs/SimResult"}
+    },
+    "links": {"$ref": "#/$defs/Links"},
+    "data_availability": {"$ref": "#/$defs/SimDataAvailability"},
+    "fair_completeness": {"$ref": "#/$defs/SimCompleteness"},
+    "curation": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["auto_extracted", "manually_reviewed", "author_submitted"]},
+        "curator": {"type": "string"},
+        "date": {"type": "string"},
+        "notes": {"type": "string"}
+      }
+    },
+    "provenance": {"$ref": "#/$defs/Provenance"}
+  },
+  "$defs": {
+    "Provenance": {
+      "type": "array",
+      "items": {"$ref": "../smash-smfs-record.schema.json#/$defs/Evidence"}
+    },
+    "UnitSystem": {"$ref": "smash-sim-results.schema.json#/$defs/UnitSystem"},
+    "Source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {"enum": ["publication", "dataset", "database", "smash_sim_generated"]},
+        "doi": {"type": "string"},
+        "pmid": {"type": "string"},
+        "url": {"type": "string"},
+        "accession": {"type": "string"},
+        "title": {"type": "string"},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "year": {"type": "integer"},
+        "journal": {"type": "string"},
+        "version": {"type": "string"},
+        "license": {"type": ["string", "null"]},
+        "license_url": {"type": "string"},
+        "redistributable": {
+          "type": ["boolean", "null"],
+          "description": "true only when the licence clearly allows redistribution of the data itself."
+        },
+        "retrieved": {"type": "string", "description": "ISO date the source was retrieved."},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "notes": {"type": "string"},
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "System": {
+      "type": "object",
+      "required": ["molecule_type", "name"],
+      "properties": {
+        "molecule_type": {"enum": ["protein", "DNA", "RNA", "DNA_protein", "RNA_protein", "complex"]},
+        "name": {"type": "string", "minLength": 1},
+        "entities": {
+          "type": "array",
+          "items": {"$ref": "../smash-smfs-record.schema.json#/$defs/MolecularEntity"}
+        },
+        "construct": {
+          "type": "object",
+          "properties": {
+            "residue_range": {"type": "string"},
+            "nucleotide_range": {"type": "string"},
+            "mutations": {"type": "array", "items": {"type": "string"}},
+            "length": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "description": {"type": "string"},
+            "evidence": {"$ref": "#/$defs/Provenance"}
+          }
+        },
+        "structure_source": {"enum": ["PDB", "AlphaFold", "predicted_secondary_structure", "designed", "other"]},
+        "structures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["scheme", "id"],
+            "properties": {
+              "scheme": {"enum": ["pdb", "alphafold", "other"]},
+              "id": {"type": "string"},
+              "chain": {"type": "string"},
+              "residue_range": {"type": "string"},
+              "verified": {"type": "boolean"},
+              "evidence": {"$ref": "#/$defs/Provenance"}
+            }
+          }
+        },
+        "sequence": {"type": "string"},
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "Model": {
+      "type": "object",
+      "required": ["family", "unit_system"],
+      "properties": {
+        "family": {
+          "enum": [
+            "Go_CA", "Go_heavy_atom", "SOP", "AWSEM", "Martini",
+            "all_atom_explicit_solvent", "all_atom_implicit_solvent",
+            "oxDNA", "oxRNA", "TIS", "HiRE_RNA", "thermodynamic_nearest_neighbour",
+            "other"
+          ]
+        },
+        "family_group": {"enum": ["protein", "nucleic_acid", "other"]},
+        "force_field": {"type": "string"},
+        "parameter_set": {"type": "string"},
+        "solvent": {"enum": ["explicit", "implicit", "none", "other"]},
+        "software": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": {"type": "string"},
+              "version": {"type": "string"}
+            }
+          }
+        },
+        "unit_system": {"$ref": "#/$defs/UnitSystem"},
+        "unit_conversions": {
+          "type": "object",
+          "description": "Only populated when the source states the conversion from reduced units to physical units.",
+          "properties": {
+            "energy_epsilon": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "length_sigma": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "time_tau": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "force_scale": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "temperature": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+            "statement": {"type": "string"},
+            "evidence": {"$ref": "#/$defs/Provenance"}
+          }
+        },
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "Protocol": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": {"enum": ["constant_velocity", "constant_force", "force_ramp", "boxed_MD", "equilibrium_under_force", "other"]},
+        "pulling_speed": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+        "pulling_speed_m_per_s": {"type": "number", "description": "Only when the source states a physical speed."},
+        "spring_constant": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+        "temperature": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+        "n_trajectories": {"type": "integer", "minimum": 1},
+        "simulated_time_per_trajectory": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+        "force_range": {"$ref": "../smash-smfs-record.schema.json#/$defs/Quantity"},
+        "equilibration": {"type": "string"},
+        "thermostat": {"type": "string"},
+        "geometry": {
+          "type": "object",
+          "description": "Pulling geometry, using the experimental representation so simulation and experiment can be matched.",
+          "properties": {
+            "force_application_geometry": {
+              "$ref": "../smash-smfs-record.schema.json#/$defs/Technique/properties/force_application_geometry",
+              "description": "Same enum as the experimental SMFS records."
+            },
+            "pull_direction": {"type": "string"},
+            "separation_axis": {"type": "string"},
+            "anchor_a": {"$ref": "#/$defs/Anchor"},
+            "anchor_b": {"$ref": "#/$defs/Anchor"},
+            "description": {"type": "string"},
+            "evidence": {"$ref": "#/$defs/Provenance"}
+          }
+        },
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "Anchor": {
+      "type": "object",
+      "properties": {
+        "description": {"type": "string"},
+        "residue": {"type": "string"},
+        "residue_range": {"type": "string"},
+        "nucleotide": {"type": "string"},
+        "nucleotide_range": {"type": "string"},
+        "domain": {"type": "string"},
+        "end": {"enum": ["N_terminus", "C_terminus", "5_prime", "3_prime", "internal", "unspecified"]},
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "MatchLevel": {
+      "enum": ["same_construct_same_geometry", "same_molecule_different_geometry", "homolog"],
+      "description": "same_construct_same_geometry: shared resolver-checked identifier, identical pulling geometry in the experimental representation, and overlapping constructs. same_molecule_different_geometry: shared identifier, but the construct or the geometry is not confirmed identical (it differs, or the source does not state it). homolog: no shared identifier; matched on a distinctive molecule-name token only, and therefore the weakest level."
+    },
+    "Links": {
+      "type": "object",
+      "properties": {
+        "experimental_matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["record_id", "match_level"],
+            "properties": {
+              "record_id": {"type": "string"},
+              "source": {"enum": ["SMASH-BIO", "MechanoProDB"]},
+              "molecule": {"type": "string"},
+              "url": {"type": "string"},
+              "force_pN": {"type": "number"},
+              "match_level": {"$ref": "#/$defs/MatchLevel"},
+              "evidence": {"$ref": "#/$defs/Provenance"}
+            }
+          }
+        },
+        "related_simulations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "SimArtifact": {
+      "type": "object",
+      "required": ["available"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "count": {"type": "integer", "minimum": 0},
+        "formats": {"type": "array", "items": {"type": "string"}},
+        "locations": {"type": "array", "items": {"type": "string"}},
+        "statement": {"type": "string"},
+        "evidence": {"$ref": "#/$defs/Provenance"}
+      }
+    },
+    "SimDataAvailability": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "$ref": "../smash-smfs-record.schema.json#/$defs/DataAvailability/properties/status"
+        },
+        "has_linked_dataset": {"type": "boolean"},
+        "has_any_data": {"type": "boolean"},
+        "statement": {"type": "string"},
+        "datasets": {
+          "type": "array",
+          "items": {"$ref": "../smash-smfs-record.schema.json#/$defs/DatasetLink"}
+        },
+        "code": {
+          "type": "array",
+          "items": {"$ref": "../smash-smfs-record.schema.json#/$defs/DatasetLink"}
+        },
+        "trajectories": {"$ref": "#/$defs/SimArtifact"},
+        "force_extension_curves": {"$ref": "#/$defs/SimArtifact"},
+        "input_files": {"$ref": "#/$defs/SimArtifact"},
+        "scripts": {"$ref": "#/$defs/SimArtifact"}
+      }
+    },
+    "SimCompleteness": {
+      "type": "object",
+      "description": "Fraction of the category's own required fields populated per section (0-1) and overall.",
+      "properties": {
+        "publication": {"type": "number", "minimum": 0, "maximum": 1},
+        "system": {"type": "number", "minimum": 0, "maximum": 1},
+        "model": {"type": "number", "minimum": 0, "maximum": 1},
+        "protocol": {"type": "number", "minimum": 0, "maximum": 1},
+        "results": {"type": "number", "minimum": 0, "maximum": 1},
+        "data": {"type": "number", "minimum": 0, "maximum": 1},
+        "overall": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}

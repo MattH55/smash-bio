@@ -1,0 +1,62 @@
+{
+ "pdb:1WF0": {
+  "id": "1WF0",
+  "scheme": "pdb",
+  "verified": true
+ },
+ "pdb:7AHL": {
+  "id": "7AHL",
+  "scheme": "pdb",
+  "verified": true
+ },
+ "rfam:RF00005": {
+  "id": "RF00005",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "uniprot:P00441": {
+  "id": "P00441",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00648": {
+  "id": "P00648",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00720": {
+  "id": "P00720",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02549": {
+  "id": "P02549",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P06654": {
+  "id": "P06654",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0CG48": {
+  "id": "P0CG48",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0DP23": {
+  "id": "P0DP23",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P42212": {
+  "id": "P42212",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q8WZ42": {
+  "id": "Q8WZ42",
+  "scheme": "uniprot",
+  "verified": true
+ }
+}

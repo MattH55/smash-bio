@@ -1,0 +1,170 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-024-48828-7"
+  },
+  "curation": {
+    "notes": "Homemade magnetic tweezers stretching of titin N2B-us (flanked by 2xI27 on each side, SpyTag/SpyCatcher surface attachment, Avi-biotin to M270 bead) to detect a mechanically weak alpha/beta domain predicted by AlphaFold2, and force-dependent FHL2 binding; a second TIRF–magnetic tweezers setup (iLAS2 TIRF, 3-kbp DNA spacer, QD-labelled FHL2) images binding at 1 and 10 pN. Auto record misclassified the technique as unspecified.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": [
+      "TIRF"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "acquisition_rate": {
+      "value": 0.2,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Raw extension data were recorded at a sampling rate of 200 Hz",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "image_based_variance"
+    ],
+    "magnetic": {
+      "bead_product": "Dynabeads M-270 Streptavidin"
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein",
+      "receptor_ligand_adhesion"
+    ],
+    "bead_geometry": "bead_surface",
+    "bead_size": {
+      "value": 2800,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "2.8 μm diameter streptavidin-coated paramagnetic beads (M270 streptavidin, Dynabeads)",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "SpyTag–SpyCatcher",
+      "biotin–streptavidin (AviTag)",
+      "glutaraldehyde–amine (surface)"
+    ],
+    "trap_control": [
+      "force_clamp"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein",
+      "receptor_ligand_adhesion"
+    ],
+    "entities": [
+      {
+        "name": "6His-Avi-2I27-N2B-us-2I27-Spy (titin N2B unique sequence construct)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q8WZ42",
+            "verified": false
+          }
+        ],
+        "region": "N2B-us (572 aa); structural domain IPEEQRLN…GAKT; truncation/deletion variants also tested",
+        "length": {
+          "value": 572,
+          "unit": "aa"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The pET151-6His-Avi-2I27-N2B-2I27-Spy plasmid was prepared as previously described46.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Titin I27 domains (2 on each side, mechanical fingerprint/spacers)",
+        "entity_type": "protein",
+        "role": "handle",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q8WZ42",
+            "verified": false
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The pET151-6His-Avi-2I27-N2B-2I27-Spy plasmid was prepared as previously described46.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "FHL2 (four-and-a-half LIM domain protein 2), GST-tagged",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q14192",
+            "verified": false
+          }
+        ],
+        "fluorescent_labels": [
+          {
+            "identifier": "GSH CdS/ZnS quantum dot (450 nm)",
+            "sequence_location": "GST tag (TIRF-MT experiment)"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Recombinant GST-FHL2 protein was purchased from Abnova (H00002274-P01), which was expressed in Wheat Germ.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "3-kbp lambda DNA spacer handle (TIRF-MT)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 3000,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we introduced a 3-kbp DNA handle to act as a spacer between the magnetic bead and the surface",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "PBS",
+    "components": [
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 1,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "DTT",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      }
+    ]
+  }
+}

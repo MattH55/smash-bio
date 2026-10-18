@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/modules/smash-mp-results.schema.json",
+  "title": "SMASH-BIO mass-photometry results",
+  "description": "Derived mass-photometry measurements plus the EventListSet and MovieSet sidecars. Module schema version 1.0.0.",
+  "type": "object",
+  "required": ["results"],
+  "properties": {
+    "results": {"type": "array", "items": {"$ref": "#/$defs/Result"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Result": {
+      "allOf": [
+        {"$ref": "../smash-common.schema.json#/$defs/Result"},
+        {
+          "type": "object",
+          "properties": {
+            "quantity": {"$ref": "#/$defs/Observable"},
+            "species": {"type": "string"},
+            "oligomeric_state": {"type": "string"},
+            "conditions": {
+              "type": "object",
+              "properties": {
+                "buffer": {"type": "string"},
+                "concentration_nM": {"type": "number"},
+                "temperature_K": {"type": "number"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "EventListSet": {
+      "type": "object",
+      "required": ["id", "format"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "files": {"type": "array", "items": {"type": "string"}},
+        "format": {"enum": ["csv", "h5", "mp", "json", "other"]},
+        "columns": {"type": "array", "items": {"type": "string"}},
+        "n_events": {"type": "integer", "minimum": 1},
+        "repository_id": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "MovieSet": {
+      "type": "object",
+      "required": ["id", "format"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "files": {"type": "array", "items": {"type": "string"}},
+        "format": {"enum": ["tiff", "ome_tiff", "mp", "h5", "other"]},
+        "frame_rate": {"$ref": "../smash-common.schema.json#/$defs/Quantity"},
+        "repository_id": {"$ref": "../smash-common.schema.json#/$defs/Identifier"}
+      },
+      "additionalProperties": false
+    },
+    "Observable": {
+      "enum": [
+        "molecular_mass_kDa",
+        "relative_abundance",
+        "oligomeric_state",
+        "dissociation_constant_M",
+        "binding_stoichiometry",
+        "mass_resolution_kDa",
+        "event_count",
+        "aav_full_fraction",
+        "diffusion_coefficient_um2_s-1",
+        "other"
+      ]
+    }
+  }
+}

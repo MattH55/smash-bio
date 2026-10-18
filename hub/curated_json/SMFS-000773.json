@@ -1,0 +1,81 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-51603-3"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Magnetic tweezers transcription assay: biotinylated E. coli RNAP holoenzyme attached to a streptavidin magnetic bead, DNA template (T7A1 promoter, lac operator, terminator) anchored via digoxigenin to an anti-digoxigenin surface; low assisting or opposing forces applied to follow secondary transcription/sliding after termination. Wild-type and Δ-αCTD RNAP, with LacI roadblocks and NusG."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "detection_device": ["other"],
+    "acquisition_rate": {
+      "min": 0.03, "max": 0.12, "unit": "kHz",
+      "evidence": {"method": "llm_review", "snippet": "The real-time tracking was acquired at least 30 Hz and up to 120 Hz frame rate, depending on the number of tracked tethers in the camera view.", "confidence": "high"}
+    },
+    "magnetic": {
+      "bead_product": "Dynabeads MyOne Streptavidin T1",
+      "camera_frame_rate": {
+        "min": 30, "max": 120, "unit": "Hz",
+        "evidence": {"method": "llm_review", "snippet": "The real-time tracking was acquired at least 30 Hz and up to 120 Hz frame rate, depending on the number of tracked tethers in the camera view.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["translation_transcription_replication", "force_generation_motor", "nucleic_acid_protein_interaction"],
+    "bead_geometry": "bead_surface",
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+    "trap_control": ["constant_force"],
+    "handle_sequences": [
+      {"length_bp": 3000, "annotations": "For the opposing force experiments, primers D-A/JBOIDO1/5096 5′-dig-ATCGTTGGGAACCGGAG and S/JBOIDO1/2086 5′-AGCTTGTCTGTAAGCGGATG were used to generate a 3k bp amplicon with 1021 bp between the chamber surface anchor point and the transcription start site."},
+      {"length_bp": 4000, "annotations": "For the assisting force experiments, primers D-S/YY-400/103 5′-dig-GCTTGGTTATGCCGGTACTG and A/pUC18-nuB104/2043 5′-ACGACCTACACCGAACTGAG were used to generate a 4k bp amplicon with 2014 bp between the anchor point and transcription start site."}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["translation_transcription_replication", "force_generation_motor", "nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Escherichia coli", "ncbi_taxon": 562}],
+    "entities": [
+      {"name": "E. coli RNA polymerase σ70 holoenzyme (wild-type and Δ-αCTD α1-235)", "entity_type": "protein_complex", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "P0A8V2", "verified": false}],
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "mutations": ["α-CTD deletion (α1-235)"],
+       "evidence": {"method": "llm_review", "snippet": "Plasmids encoding wild-type E. coli core RNAP [pIA1202; α-β-β’[AVI][His]-ω) or Δ-αCTD RNAP [pIA1558; α1-235-β-β′[AVI][His]-ω) under control of the phage T7 promoter", "confidence": "high"}},
+      {"name": "Sigma factor 70 (σ70)", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "evidence": {"method": "llm_review", "snippet": "E. coli RNAP holoenzymes were formed by mixing core RNAP (2.5 μM) and a two-fold molar excess of σ70 (5 μM)", "confidence": "high"}},
+      {"name": "DNA transcription template (T7A1 promoter, lac O1 operator, terminator λT1/t500/trpA1-λT1)", "entity_type": "dna", "role": "track",
+       "evidence": {"method": "llm_review", "snippet": "The transcribed region had the following spacings: Promoter-713 bp-Lac operator-612 bp-Terminator", "confidence": "high"}},
+      {"name": "Lac repressor (LacI)", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "P03023", "verified": false}],
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "evidence": {"method": "llm_review", "snippet": "NusG and LacI proteins, when used, were added together with NTPs at 1 μM and 20 nM, respectively.", "confidence": "high"}},
+      {"name": "Elongation factor NusG", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "evidence": {"method": "llm_review", "snippet": "The addition of elongation factor NusG, which competes with σ70 for binding to RNAP, limited additional rounds of transcription.", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris glutamate",
+    "pH": 8,
+    "components": [
+      {"name": "Tris glutamate", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "potassium glutamate", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "magnesium glutamate", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "casein", "concentration": {"value": 0.2, "unit": "mg/ml"}},
+      {"name": "NTPs", "concentration": {"value": 1, "unit": "mM"}}
+    ],
+    "nucleotides": ["ATP", "UTP", "GTP", "CTP"],
+    "small_molecules": [
+      {"name": "NusG", "concentration": {"value": 1, "unit": "μM"}},
+      {"name": "LacI", "concentration": {"value": 20, "unit": "nM"}}
+    ]
+  },
+  "results": []
+}

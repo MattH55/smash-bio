@@ -1,0 +1,45 @@
+{
+  "publication": {"doi": "10.1039/d5sc00253b"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Polymer mechanochemistry: AFM-SMFS (homemade AFM, toluene, ambient) pulling of synthetic polymers bearing cyclobutene mechanophores, whose force-triggered disrotatory ring-opening appears as a plateau; contour lengths before/after the plateau fitted with an extended FJC model and compared with CoGEF calculations. No biological molecule is involved and no controlled experiment_class fits (covalent mechanochemistry), so experiment_class is left empty."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["cantilever_deflection"]
+  },
+  "assay": {
+    "experiment_class": []
+  },
+  "biological_system": {
+    "system_class": [],
+    "entities": [
+      {
+        "name": "Cyclobutene mechanophore-containing polymers (Me and trimethylsilyl alkyne substituted variants)",
+        "entity_type": "synthetic",
+        "role": "tethered_construct",
+        "evidence": {"method": "llm_review", "snippet": "All pulls that reached forces up to 2 nN exhibited a characteristic plateau region in the force curve, wherein the polymer lengthens as a result of the irreversible ring-opening of cyclobutene mechanophores.", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "toluene (organic solvent)",
+    "evidence": {"method": "llm_review", "snippet": "pulling experiments were conducted in toluene under ambient conditions using a homemade AFM.", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "other", "min": 1.5, "max": 2, "unit": "kcal/mol",
+     "applies_to": {"entity": "cyclobutene mechanophore", "transition": "disrotatory ring opening; stabilization per Me substituent on scissile C-C bond"},
+     "source": {"location": "abstract", "snippet": "Theory and experiment reveal that the formally forbidden reaction is more sensitive to substituents on the scissile carbon-carbon bond than on the alkene, with each of two Me substituents providing approximately 1.5-2 kcal mol-1 of stabilization", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "other", "min": 4.5, "max": 6.5, "unit": "kcal/mol",
+     "applies_to": {"entity": "cyclobutene mechanophore", "transition": "disrotatory ring opening; stabilization by trimethylsilyl alkyne substituent"},
+     "source": {"location": "abstract", "snippet": "with each of two Me substituents providing approximately 1.5-2 kcal mol-1 of stabilization and a trimethylsilyl alkyne substituent approximately 4.5-6.5 kcal mol-1.", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

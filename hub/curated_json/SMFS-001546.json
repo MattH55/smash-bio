@@ -1,0 +1,54 @@
+{
+  "publication": {"doi": "10.1016/j.molmet.2022.101561"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Multi-omics study of KDM inhibition (MC3324) in prostate cancer; the force-spectroscopy part is acoustic force spectroscopy creep measurements on confluent PC3 cells using 7.9 um silica beads, fitted with a standard linear liquid model at 3, 6 and 24 h of treatment. Bruker was the NMR spectrometer vendor, not the force instrument; no numeric mechanical results are given in the text."
+  },
+  "technique": {
+    "primary": "acoustic_force_spectroscopy",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_acoustic",
+    "correlative_modalities": ["brightfield_video"]
+  },
+  "hardware": {
+    "detection_device": ["other"],
+    "camera_model": "IDS UI-324CP (1.3 MP)",
+    "objective_lens": {"make": "Nikon", "magnification": 20, "numerical_aperture": 0.75, "immersion": "air"},
+    "temperature": {"value": 310.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "All measurements were performed at 37 °C with a peak-to-peak driving voltage of 30 Vpp at 14.51 MHz frequency.", "confidence": "high"}},
+    "acquisition_rate": {"value": 0.06, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Images were acquired with a bright-field inverted microscope equipped with a 1.3 MP camera recording at 60 Hz (IDS, UI-324CP) in combination with an air 20 × 0.75 NA objective (Nikon, CFI Plan APO, VC 20×, MRD70200).", "confidence": "high"}},
+    "calibration_technique": ["stokes_drag"],
+    "acoustic": {
+      "resonance_frequency": {"value": 14.51, "unit": "MHz", "evidence": {"method": "llm_review", "snippet": "All measurements were performed at 37 °C with a peak-to-peak driving voltage of 30 Vpp at 14.51 MHz frequency.", "confidence": "high"}},
+      "driving_voltage": {"value": 30, "unit": "Vpp", "evidence": {"method": "llm_review", "snippet": "with a peak-to-peak driving voltage of 30 Vpp at 14.51 MHz frequency", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["rheology_cell"],
+    "bead_geometry": "bead_on_cell",
+    "bead_size": {"value": 7900, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "Then, 40 μL of 7.9 μm-diameter silica beads were washed and re-suspended in 80 μL medium.", "confidence": "high"}},
+    "bead_material": "silica",
+    "trap_control": ["constant_force"],
+    "applied_force": {"min": 1026, "max": 1467, "unit": "pN", "evidence": {"method": "llm_review", "snippet": "To measure the non-linear creep response of cells, a constant force (ranging from 1.026 nN to 1.467 nN), was applied for 20 s.", "confidence": "high"}}
+  },
+  "biological_system": {
+    "system_class": ["rheology_cell"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "PC3 prostate cancer cells", "entity_type": "cell", "role": "tethered_construct",
+       "evidence": {"method": "llm_review", "snippet": "To quantify the viscoelastic properties of PC3 cell line, the standard linear liquid (SLL) model was utilized", "confidence": "high"}},
+      {"name": "MC3324 (dual LSD1/UTX KDM inhibitor)", "entity_type": "small_molecule", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "To measure the effect of MC3324 on PC3 cell mechanics, creep responses were measured at 3 h, 6 h, and 24 h of incubation.", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "PC3"}
+  },
+  "solution": {
+    "buffer": "RPMI culture medium",
+    "components": [
+      {"name": "fetal bovine serum", "concentration": {"value": 10, "unit": "%"}},
+      {"name": "L-glutamine", "concentration": {"value": 2, "unit": "mM"}}
+    ],
+    "small_molecules": [{"name": "MC3324", "concentration": {"value": 25, "unit": "μM"}}]
+  },
+  "results": []
+}

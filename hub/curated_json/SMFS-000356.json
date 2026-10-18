@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1073/pnas.2425982122"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: purely computational study (enhanced-sampling molecular dynamics with OPES-MetaD/OPES-flooding in PLUMED) of vinculin tail–actin unbinding under simulated forces; no experimental single-molecule force spectroscopy was performed (results are only compared with prior single-molecule studies)."
+  }
+}

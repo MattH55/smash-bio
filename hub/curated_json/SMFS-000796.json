@@ -1,0 +1,51 @@
+{
+  "publication": {"doi": "10.1186/s12964-024-01722-7"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Borderline: primarily an extracellular-vesicle cardioprotection study; the only force measurement is whole-cell AFM (cantilever resting on a beating hiPSC-derived cardiomyocyte) to record contraction force and frequency, combined with Fluo-4 calcium imaging. Not single-molecule; curated as cell-level AFM force measurement. A separate Bruker Bioscope AFM tapping-mode imaging of EVs is not force spectroscopy."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_cell_surface",
+    "correlative_modalities": ["widefield_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "Bruker",
+    "model_number": "Bioscope Catalyst",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection", "camera_CMOS"],
+    "objective_lens": {"magnification": 20, "numerical_aperture": 0.3, "immersion": "air"},
+    "temperature": {
+      "value": 310.15, "unit": "K",
+      "evidence": {"method": "llm_review", "snippet": "During the analysis, the cells were kept at 37°C.", "confidence": "high"}
+    },
+    "calibration_technique": ["manufacturer", "other"],
+    "afm": {
+      "cantilever_model": "MLCT-bio",
+      "spring_constant": {
+        "value": 10, "unit": "pN/nm",
+        "evidence": {"method": "llm_review", "snippet": "An MLCT-bio probe with a nominal spring constant of 0.01 N/m was selected for analysis.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["rheology_cell"],
+    "trap_control": ["constant_distance"]
+  },
+  "biological_system": {
+    "system_class": ["rheology_cell"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "hiPSC-derived cardiomyocytes (hiPS-CMs)", "entity_type": "cell", "role": "tethered_construct",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "fluorescent_labels": [{"identifier": "Fluo-4"}],
+       "evidence": {"method": "llm_review", "snippet": "Functional analysis of CMs was performed using combined atomic force and fluorescence microscopy (Bioscope Catalyst AFM mounted on a Zeiss inverted optical microscope). Prior to analysis, Fluo-4 probe was added to the cells and incubated for 30 min.", "confidence": "high"}},
+      {"name": "hiPSC-derived extracellular vesicles (EV-N, EV-H5, EV-H3)", "entity_type": "other", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "In this work we used EVs derived from human induced pluripotent stem cells (hiPSCs; hiPS-EVs) cultured under different oxygen concentrations (21, 5 and 3% O2) to dissect the molecular mechanisms responsible for cardioprotection.", "confidence": "high"}}
+    ],
+    "cell": {"cell_identity": "hiPSC-derived cardiomyocyte", "cell_ontology": {"scheme": "cl", "id": "CL:0000746", "verified": false}}
+  },
+  "results": []
+}

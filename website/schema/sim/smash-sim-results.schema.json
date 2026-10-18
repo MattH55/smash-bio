@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/sim/smash-sim-results.schema.json",
+  "title": "SMASH-SIM results vocabulary",
+  "description": "Observable vocabulary for simulated forcing (pulling / force-driven unfolding) of biomolecules. It reuses the published SMFS Result structure and observable vocabulary and adds a required unit_system to every value so reduced-unit results can never be mistaken for physical ones. Version 1.0.0.",
+  "$defs": {
+    "UnitSystem": {
+      "enum": ["physical", "reduced", "reduced_with_stated_conversion"],
+      "description": "physical: real units as given; reduced: model units with no stated conversion; reduced_with_stated_conversion: reduced units but the source states the conversion (see model.unit_conversions)."
+    },
+    "Observable": {
+      "description": "Simulation observables. A subset of the SMFS Observable vocabulary plus toughness.",
+      "enum": [
+        "unfolding_force",
+        "rupture_force",
+        "unbinding_force",
+        "unzipping_force",
+        "overstretching_force",
+        "equilibrium_force",
+        "contour_length",
+        "contour_length_increment",
+        "persistence_length",
+        "distance_to_transition_state",
+        "activation_free_energy",
+        "folding_free_energy",
+        "rate_constant_zero_force",
+        "unfolding_rate",
+        "dwell_time",
+        "number_of_steps_or_intermediates",
+        "toughness",
+        "work",
+        "loading_rate",
+        "velocity",
+        "molecular_stiffness",
+        "other"
+      ]
+    },
+    "ObservableUnits": {
+      "description": "Canonical *physical* unit for each observable, for reference only. It is not enforced, because a reduced-unit result legitimately carries a reduced unit instead.",
+      "const": {
+        "unfolding_force": "pN",
+        "rupture_force": "pN",
+        "unbinding_force": "pN",
+        "unzipping_force": "pN",
+        "overstretching_force": "pN",
+        "equilibrium_force": "pN",
+        "contour_length": "nm",
+        "contour_length_increment": "nm",
+        "persistence_length": "nm",
+        "distance_to_transition_state": "nm",
+        "activation_free_energy": "kBT",
+        "folding_free_energy": "kBT",
+        "rate_constant_zero_force": "1/s",
+        "unfolding_rate": "1/s",
+        "dwell_time": "s",
+        "number_of_steps_or_intermediates": "1",
+        "toughness": "pN nm",
+        "work": "kBT",
+        "loading_rate": "pN/s",
+        "velocity": "nm/s",
+        "molecular_stiffness": "pN/nm",
+        "other": "1"
+      }
+    },
+    "SimResult": {
+      "description": "One simulated value. The field set mirrors the published SMFS Result exactly (so consumers can read both with one code path) and adds a mandatory unit_system plus optional pathway fields. It is mirrored rather than $ref'd for one concrete reason: the published Result pins quantity to the SMFS Observable enum, which has no toughness, and the published schemas must not be modified.",
+      "type": "object",
+      "required": ["quantity", "unit", "unit_system"],
+      "properties": {
+        "quantity": {"$ref": "#/$defs/Observable"},
+        "label": {"type": "string", "description": "free-text name as written by the authors"},
+        "value": {"type": ["number", "null"]},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "unit": {"type": "string"},
+        "uncertainty": {"type": "number", "minimum": 0},
+        "uncertainty_type": {"enum": ["SD", "SEM", "CI95", "fit_error", "range", "unspecified"]},
+        "statistic": {"enum": ["mean", "median", "mode", "most_probable", "fit_parameter", "single_value", "range"]},
+        "n_molecules": {"type": "integer", "minimum": 1},
+        "n_events": {"type": "integer", "minimum": 1},
+        "model": {"type": "string"},
+        "applies_to": {
+          "type": "object",
+          "properties": {
+            "entity": {"type": "string"},
+            "region": {"type": "string"},
+            "transition": {"type": "string"},
+            "state": {"type": "string"}
+          }
+        },
+        "conditions": {"type": "object"},
+        "method": {"type": "string",
+                   "description": "how the number was derived (histogram fit, dwell-time fit, PSD, ...)"},
+        "data_ref": {
+          "type": "object",
+          "properties": {
+            "dataset_doi": {"type": "string"},
+            "file": {"type": "string"},
+            "figure": {"type": "string"},
+            "table": {"type": "string"}
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "location": {"enum": ["abstract", "results_text", "methods", "table", "figure",
+                                  "supplement", "dataset"]},
+            "snippet": {"type": "string"},
+            "extraction": {"enum": ["auto_regex", "manual", "author_submitted"]},
+            "confidence": {"enum": ["high", "medium", "low"]}
+          }
+        },
+        "provenance": {
+          "type": "array",
+          "description": "Simulation-category extension: the published Result carries `source` instead; both are kept so every value can be audited.",
+          "items": {"$ref": "../smash-smfs-record.schema.json#/$defs/Evidence"}
+        },
+        "unit_system": {"$ref": "#/$defs/UnitSystem"},
+        "model_family": {"type": "string"},
+        "unfolding_order": {
+          "type": "array",
+          "description": "Order in which structural elements unfold, as named by the authors.",
+          "items": {"type": "string"}
+        },
+        "n_intermediates": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

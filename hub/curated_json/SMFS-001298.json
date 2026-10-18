@@ -1,0 +1,12 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "NOT SMFS: hybrid BAW/SAW acoustic tweezers platform that confines single cilia-driven Chlamydomonas reinhardtii swimmer cells for high-resolution imaging of ciliary beating and helical swimming. Acoustic trapping is used for positional confinement and mechanical perturbation of whole cells; no tethered molecule, force-extension measurement or force observable is reported."
+  },
+  "publication": {
+    "doi": "10.1073/pnas.2218951120"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "publication": {
+    "doi": "10.1364/boe.585788"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Dual-trap homemade laser tweezers used to trap pairs of human red blood cells directly (no beads) and measure RBC aggregation force, disaggregation force and characteristic aggregation time in the presence of nanodiamonds, magnetic nanodiamonds and ZnO nanoparticles; laser aggregometry (RheoScan) used in parallel on whole blood. Cell-level force measurement rather than single-molecule; Raman, XRD and DLS were used only for nanoparticle characterisation."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": [
+      "brightfield_video"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "camera_CMOS"
+    ],
+    "objective_lens": {
+      "magnification": 100,
+      "numerical_aperture": 1.0,
+      "immersion": "water"
+    },
+    "calibration_technique": [
+      "stokes_drag"
+    ],
+    "optical": {
+      "laser_wavelength": {
+        "value": 1064,
+        "unit": "nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Nd:YAG diode pumped laser (1064 nm, 1 W)",
+          "confidence": "high"
+        }
+      },
+      "laser_power_at_source": {
+        "value": 1000,
+        "unit": "mW",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Nd:YAG diode pumped laser (1064 nm, 1 W)",
+          "confidence": "high"
+        }
+      },
+      "number_of_traps": 2
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "rheology_cell"
+    ],
+    "trap_control": [
+      "custom"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "rheology_cell"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "Red blood cell (human, single healthy donor)",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "cl",
+            "id": "CL:0000232",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Laser tweezers were used to measure pairwise RBC interactions, including aggregation forces and characteristic aggregation time",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Nanodiamonds, magnetic nanodiamonds and ZnO nanoparticles",
+        "entity_type": "other",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Magnetic and non-magnetic nanodiamonds, as well as zinc oxide nanoparticles, were tested at various concentrations in human whole blood.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "Red blood cell"
+    }
+  },
+  "solution": {
+    "buffer": "autologous platelet-poor plasma (EDTA-anticoagulated blood)",
+    "small_molecules": [
+      {
+        "name": "nanodiamonds (non-magnetic), no significant effect up to",
+        "concentration": {
+          "value": 40,
+          "unit": "µg/mL"
+        }
+      },
+      {
+        "name": "magnetic nanodiamonds, no significant effect up to",
+        "concentration": {
+          "value": 80,
+          "unit": "µg/mL"
+        }
+      },
+      {
+        "name": "ZnO nanoparticles, no significant effect up to",
+        "concentration": {
+          "value": 20,
+          "unit": "µg/mL"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 40,
+      "unit": "µg/mL",
+      "applies_to": {
+        "entity": "non-magnetic nanodiamonds"
+      },
+      "conditions": {
+        "note": "maximum concentration without statistically significant change in RBC aggregation parameters"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "up to 40 μg/mL for non-magnetic nanodiamonds, 80 μg/mL for magnetic nanodiamonds, and 20 μg/mL for ZnO",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    },
+    {
+      "quantity": "other",
+      "value": 80,
+      "unit": "µg/mL",
+      "applies_to": {
+        "entity": "magnetic nanodiamonds"
+      },
+      "conditions": {
+        "note": "maximum concentration without statistically significant change in RBC aggregation parameters"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "up to 40 μg/mL for non-magnetic nanodiamonds, 80 μg/mL for magnetic nanodiamonds, and 20 μg/mL for ZnO",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    },
+    {
+      "quantity": "other",
+      "value": 20,
+      "unit": "µg/mL",
+      "applies_to": {
+        "entity": "ZnO nanoparticles"
+      },
+      "conditions": {
+        "note": "maximum concentration without statistically significant change in RBC aggregation parameters"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "up to 40 μg/mL for non-magnetic nanodiamonds, 80 μg/mL for magnetic nanodiamonds, and 20 μg/mL for ZnO",
+        "extraction": "manual",
+        "confidence": "medium"
+      }
+    }
+  ]
+}

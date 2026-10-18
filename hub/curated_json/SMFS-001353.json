@@ -1,0 +1,66 @@
+{
+  "publication": {"doi": "10.1038/s41467-023-36701-y"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Optical tweezers (MiniTweezers) force-ramp unfolding/refolding of Drosophila cryptochrome (dCRY, 542 aa) tethered via N-terminal biotinylated Avi tag and C-terminal ybbR-linked 350 bp digoxigenin DNA handle, as a function of FAD and FAD-moiety cofactors. Not a cell-rheology study; >150 trajectories from at least 6 molecules per condition."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "model_number": "MiniTweezers",
+    "custom_built": true,
+    "acquisition_rate": {"value": 0.2, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Force ramp experiments were performed at a constant pulling rate of 75 nm/s sampled at 200 Hz to a maximum unfolding force of 45 pN.", "confidence": "high"}}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_protein"],
+    "bead_functionalization": ["streptavidin", "anti-digoxigenin"],
+    "attachment_chemistry": ["biotin–streptavidin (biotinylated Avi tag)", "digoxigenin–anti-digoxigenin", "ybbR/Sfp (CoA-oligo)", "DNA ligation of handle"],
+    "trap_control": ["force_ramp", "constant_force"],
+    "pulling_speed": {"value": 75, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "Force ramp experiments were performed at a constant pulling rate of 75 nm/s sampled at 200 Hz to a maximum unfolding force of 45 pN.", "confidence": "high"}},
+    "handle_sequences": [{"length_bp": 350, "annotations": "The dsOligo-CoA was further ligated to a digoxigenin-modified 350-base pair long DNA handle following protocols published in our laboratory"}]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_protein"],
+    "organisms": [{"name": "Drosophila melanogaster", "ncbi_taxon": 7227}],
+    "entities": [
+      {"name": "Drosophila cryptochrome (dCRY), Avi-tag (N-term) / ybbR-tag (C-term)", "entity_type": "protein", "role": "tethered_construct",
+       "identifiers": [{"scheme": "pdb", "id": "4GU5", "verified": false}],
+       "organism": {"name": "Drosophila melanogaster", "ncbi_taxon": 7227},
+       "length": {"value": 542, "unit": "aa"},
+       "evidence": {"method": "llm_review", "snippet": "For single-molecule study it was also engineered to have an Avi tag at the N-terminus and an ybbR tag at the C-terminus of the protein.", "confidence": "high"}},
+      {"name": "Digoxigenin-modified DNA handle (350 bp)", "entity_type": "nucleic_acid", "role": "handle",
+       "length": {"value": 350, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "ligated to a digoxigenin-modified 350-base pair long DNA handle", "confidence": "high"}},
+      {"name": "FAD (flavin adenine dinucleotide) and moieties (riboflavin, FMN, adenosine, AMP, ADP, ATP)", "entity_type": "small_molecule", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "We investigated the effect of riboflavin, FMN, adenosine, AMP, ADP, ATP in the degree of folding of dCRY.", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 8.0,
+    "components": [
+      {"name": "Tris", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "DTT", "concentration": {"value": 10, "unit": "mM"}}
+    ],
+    "small_molecules": [
+      {"name": "FAD", "concentration": {"min": 0, "max": 25, "unit": "μM"}},
+      {"name": "riboflavin / FMN / adenosine / AMP / ADP / ATP", "concentration": {"value": 0.1, "unit": "mM"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "Optical tweezers experiments were performed in a MiniTweezers instrument83 in dCRY buffer (50 mM Tris pH 8.0, 150 mM NaCl, 10 mM DTT) supplemented with the desired final concentration of FAD or other cofactors", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "dissociation_constant_Kd", "value": 0.3, "unit": "nM", "applies_to": {"entity": "dCRY–FAD (apparent, from folded fraction)"},
+     "model": "single-site binding isotherm",
+     "source": {"location": "methods", "snippet": "Each of these refolding time points were done in the presence of 0 M (<< Kd,app), 0.3 nM (~ Kd,app) and 10 nM (>> Kd,app)", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "other", "value": 30, "unit": "s", "applies_to": {"entity": "dCRY", "transition": "U->F(FAD), average first-passage folding time"}, "conditions": {"FAD_nM": 10},
+     "source": {"location": "methods", "snippet": "When [FAD] = 10 nM, the average folding time is 30 s.", "extraction": "manual", "confidence": "high"}},
+    {"quantity": "other", "value": 1.0, "unit": "degree of folding", "uncertainty": 0.01, "uncertainty_type": "SEM", "applies_to": {"entity": "dCRY", "transition": "folding intermediate clusters at 0.26, 0.52, 0.80, 1.0"},
+     "source": {"location": "methods", "snippet": "identified four distinct clusters with degrees of folding centered at 0.26 ± 0.01, 0.52 ± 0.01, 0.80 ± 0.01 and 1.0 ± 0.01 (mean ± standard error).", "extraction": "manual", "confidence": "high"}}
+  ]
+}

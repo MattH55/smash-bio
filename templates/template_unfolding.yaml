@@ -1,0 +1,125 @@
+# SMASH-BIO Metadata Template: UNFOLDING EXPERIMENTS
+# For nucleic acid or protein unfolding studies
+# Based on Table 3 from "FAIR data for optical tweezers experiments"
+
+experiment_id: ""  # e.g., "UNFOLD-2025-001"
+experiment_type: "unfolding"
+schema_version: "2.0.0"
+created_date: ""
+last_modified: ""
+
+# ============================================================================
+# PUBLICATION
+# ============================================================================
+publication:
+  title: ""
+  authors: []
+  journal: ""
+  year: null
+  volume: ""
+  pages: ""
+  doi: ""
+  pubmed_id: ""
+
+# ============================================================================
+# HARDWARE CONDITIONS
+# ============================================================================
+hardware:
+  setup:
+    make: ""  # e.g., "LUMICKS C-Trap", "Custom"
+    model_number: ""
+  
+  spatial_laser_control: ""  # AOD, EOD, mirror, SLM, none
+  detection_device: ""  # QPD, camera, PSD
+  
+  objective_lens:
+    make: ""
+    model: ""
+    numerical_aperture: null
+    magnification: null
+  
+  laser:
+    power_at_source_mW: null
+    power_at_objective_mW: null
+    wavelength_nm: null
+  
+  trap_parameters:
+    stiffness_pN_per_nm: null
+    stiffness_uncertainty_pN_per_nm: null
+    calibration_technique: ""  # active_power_spectrum, passive_power_spectrum, equipartition_theorem
+  
+  acquisition:
+    rate_kHz: null
+    line_scanning_rate_Hz: null
+    filter_frequency_Hz: null
+  
+  temperature_K: null
+
+# ============================================================================
+# ASSAY CONDITIONS
+# ============================================================================
+assay_conditions:
+  bead:
+    geometry: ""  # one-bead, two-bead, three-bead
+    size_nm: null
+    size_uncertainty_nm: null
+    functionalization: ""  # streptavidin, anti-digoxigenin, etc.
+  
+  trap_control:
+    mode: ""  # force_ramp, force_clamp, constant_force, constant_distance, force_jump
+  
+  handles:
+    sequences: ""  # FASTA with annotations
+  
+  microfluidics:
+    flow_pressure_mbar: null
+    linear_flow_speed_mm_per_s: null
+
+# ============================================================================
+# CONSTRUCT PARAMETERS (Unfolding-specific)
+# ============================================================================
+construct:
+  type: ""  # "nucleic_acid" or "protein"
+  
+  sequence_identity:
+    fasta_sequence: ""
+    pdb_id: ""  # if applicable
+    uniprot_id: ""  # for proteins
+  
+  fluorescent_labels:
+    - label_name: ""
+      sequence_location: ""
+      absorption_wavelength_nm: null
+      emission_wavelength_nm: null
+      quantum_yield_percent: null
+      labeling_efficiency_percent: null
+
+# ============================================================================
+# FACTORS IN SOLUTION
+# ============================================================================
+solution:
+  buffer:
+    name: ""
+    composition: ""
+    concentration_mM: null
+    pH: null
+  
+  small_molecules:
+    - name: ""
+      cas_number: ""
+      smiles: ""
+      concentration_nM: null
+  
+  proteins_peptides:
+    - name: ""
+      uniprot_id: ""
+      concentration_nM: null
+
+# ============================================================================
+# RESULTS & KEY FINDINGS
+# ============================================================================
+results:
+  primary_measurements: []
+  key_findings: []
+
+notes: ""

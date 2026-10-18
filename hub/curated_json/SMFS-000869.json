@@ -1,0 +1,60 @@
+{
+  "publication": {"doi": "10.1073/pnas.2404829121"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Custom high-speed optical trap: dimeric PCDH15 (wild-type and deafness mutant V507D) tethered between a SpyCatcher-coated 1.5 µm glass pedestal bead fixed to the coverslip and a streptavidin-coated 1 µm latex probe bead; a weak 1,064 nm beam (2 mW, 0.007 pN/nm) detects position on a QPD while a Pockels-cell-modulated 852 nm beam (up to 0.3 pN/nm) applies force. Ca2+-dependence of stiffness and unfolding/refolding studied; detailed methods are in the SI (not provided)."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "single_trap_surface_tether",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["QPD"],
+    "optical": {
+      "laser_wavelength": {
+        "value": 852, "unit": "nm", "note": "force-producing trap; a separate 1,064 nm beam is used for position sensing",
+        "evidence": {"method": "llm_review", "snippet": "The experimenter next activated a second beam of laser light with a wavelength of 852 nm and an intensity controlled by a Pockels cell modulator. This beam served as an optical trap with a stiffness adjustable up to 0.3 mN m−1.", "confidence": "high"}
+      },
+      "laser_power_at_objective": {
+        "value": 2, "unit": "mW", "note": "1,064 nm position-sensing beam at the focal plane, not the force-producing trap",
+        "evidence": {"method": "llm_review", "snippet": "With a power of 2 mW at the focal plane, the trapping stiffness of this beam was only 0.007 mN m−1, so it produced a force on the probe of 1 pN or less.", "confidence": "high"}
+      },
+      "spatial_laser_control": ["Pockels cell"],
+      "trap_stiffness": {
+        "max": 0.3, "unit": "pN/nm", "note": "852 nm force-producing trap; adjustable",
+        "evidence": {"method": "llm_review", "snippet": "This beam served as an optical trap with a stiffness adjustable up to 0.3 mN m−1.", "confidence": "high"}
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": ["unfolding_protein"],
+    "bead_geometry": "bead_on_pedestal",
+    "bead_size": {
+      "value": 1000, "unit": "nm", "note": "probe bead; pedestal bead is 1.5 µm glass",
+      "evidence": {"method": "llm_review", "snippet": "the surrounding solution was filled at a low density with spherical latex beads 1 µm in diameter and previously coated with streptavidin molecules.", "confidence": "high"}
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin", "SpyCatcher"],
+    "attachment_chemistry": ["SpyTag/SpyCatcher", "biotin–streptavidin"],
+    "trap_control": ["force_ramp"]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_protein"],
+    "entities": [
+      {"name": "Protocadherin 15 (PCDH15) dimer, wild-type and V507D", "entity_type": "protein", "role": "tethered_construct",
+       "mutations": ["V507D"],
+       "evidence": {"method": "llm_review", "snippet": "Using a high-speed optical trap to examine dimeric PCDH15, we find that the protein's mechanical properties are sensitive to Ca2+ and that the molecule exhibits limited unfolding at a physiological Ca2+ concentration.", "confidence": "high"}},
+      {"name": "SpyCatcher (on glass pedestal bead)", "entity_type": "protein", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "Each pedestal bore on its surface a small number of PCDH15 constructs that had been secured at their carboxyl termini, which included SpyTag sequences, to SpyCatcher molecules covalently bound to the bead.", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "small_molecules": [{"name": "Ca2+"}]
+  },
+  "results": []
+}

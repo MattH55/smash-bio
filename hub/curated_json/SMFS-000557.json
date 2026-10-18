@@ -1,0 +1,81 @@
+{
+  "publication": {"doi": "10.7554/elife.105545"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "High-resolution timeshared dual-trap optical tweezers transcription-elongation assay of Mycobacterium tuberculosis RNA polymerase (compared with E. coli RNAP) under assisting/opposing constant force and opposing passive mode, with the inhibitors D-IX216, streptolydigin and pseudouridimycin, plus transcription factors CarD and GreA. Biotinylated RNAP (β' C-terminus) on one bead, transcribed DNA template on the other."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "model_number": "timeshared dual-trap optical tweezers (Comstock et al., 2011)",
+    "custom_built": true,
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {"number_of_traps": 2}
+  },
+  "assay": {
+    "experiment_class": ["translation_transcription_replication"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_functionalization": ["anti-digoxigenin", "complementary oligonucleotide"],
+    "attachment_chemistry": ["digoxigenin–anti-digoxigenin", "biotin–neutravidin", "DNA ligation to bead oligo", "AviTag/BirA or sortase-mediated biotinylation of RNAP β'"],
+    "trap_control": ["constant_force", "passive_mode"],
+    "handle_sequences": [
+      {"annotations": "single-end digoxygenin-labeled DNA template amplified as approximately 4.2 kb (opposing force) or 2.8 kb (assisting force) from pUC19-del-Lac-AC50-MtbrpoBC"},
+      {"annotations": "molecular-ruler template from pSGUML1T1 with an 8 x repeat of a 63 bp pause c sequence"},
+      {"annotations": "biotin/neutravidin DNA handle made by PCR with a biotinylated primer"}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["translation_transcription_replication"],
+    "organisms": [
+      {"name": "Mycobacterium tuberculosis", "ncbi_taxon": 1773},
+      {"name": "Escherichia coli", "ncbi_taxon": 562}
+    ],
+    "entities": [
+      {"name": "M. tuberculosis RNA polymerase holoenzyme (σA), biotinylated on β' (rpoC)", "entity_type": "protein_complex", "role": "motor",
+       "organism": {"name": "Mycobacterium tuberculosis", "ncbi_taxon": 1773},
+       "evidence": {"method": "llm_review", "snippet": "We produced the holoenzyme of MtbRNAP with sigma factor A by co-expressing its subunits in E. coli (Gradia et al., 2017).", "confidence": "high"}},
+      {"name": "E. coli RNA polymerase (comparison)", "entity_type": "protein_complex", "role": "motor",
+       "identifiers": [{"scheme": "uniprot", "id": "P0A8V2", "verified": false}],
+       "organism": {"name": "Escherichia coli", "ncbi_taxon": 562},
+       "evidence": {"method": "llm_review", "snippet": "For both EcoRNAP and MtbRNAP, the attachment to biotin is done via its β' subunit.", "confidence": "medium"}},
+      {"name": "DNA transcription template (Mtb rpoB/rpoC region, AC50 promoter)", "entity_type": "dsDNA", "role": "track",
+       "length": {"value": 4.2, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "We made a single-end digoxygenin-labeled DNA template (without a ruler) using PCR by amplifying approximately 4.2 kb or 2.8 kb from plasmid pUC19-del-Lac-AC50-MtbrpoBC", "confidence": "high"}},
+      {"name": "Biotin/neutravidin DNA handle", "entity_type": "dsDNA", "role": "handle",
+       "evidence": {"method": "llm_review", "snippet": "DNA handles were created using PCR with a biotinylated primer along with another primer, either double-dig labeled or encoding a restriction enzyme site for generating sticky ends for later ligation.", "confidence": "high"}},
+      {"name": "MtbCarD", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Mycobacterium tuberculosis", "ncbi_taxon": 1773},
+       "evidence": {"method": "llm_review", "snippet": "we pre-incubated approximately 1 µM of biotinylated-MtbRNAP with around 10 µM of MtbCarD at 37 °C for 5 min", "confidence": "high"}},
+      {"name": "MtbGreA", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Mycobacterium tuberculosis", "ncbi_taxon": 1773},
+       "evidence": {"method": "llm_review", "snippet": "To obtain MtbGreA, we expressed it as a his-tagged protein in E. coli BL21(DE).", "confidence": "high"}},
+      {"name": "D-IX216 (Nα-aroyl-N-aryl-phenylalaninamide)", "entity_type": "small_molecule", "role": "ligand",
+       "evidence": {"method": "llm_review", "snippet": "N(α)-aroyl-N-aryl-phenylalaninamide (D-IX216), streptolydigin (Stl), and pseudouridimycin (PUM)", "confidence": "high"}},
+      {"name": "Streptolydigin (Stl)", "entity_type": "small_molecule", "role": "ligand",
+       "evidence": {"method": "llm_review", "snippet": "N(α)-aroyl-N-aryl-phenylalaninamide (D-IX216), streptolydigin (Stl), and pseudouridimycin (PUM)", "confidence": "high"}},
+      {"name": "Pseudouridimycin (PUM)", "entity_type": "small_molecule", "role": "ligand",
+       "evidence": {"method": "llm_review", "snippet": "N(α)-aroyl-N-aryl-phenylalaninamide (D-IX216), streptolydigin (Stl), and pseudouridimycin (PUM)", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "TB130 (Tris-HCl)",
+    "pH": 7.9,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "KCl", "concentration": {"value": 130, "unit": "mM"}},
+      {"name": "MgCl2", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "TCEP", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "NaN3", "concentration": {"value": 5, "unit": "mM"}}
+    ],
+    "nucleotides": ["rUTP", "rGTP", "rATP", "rCTP"],
+    "oxygen_scavenging": "sodium azide-based oxygen scavenger",
+    "small_molecules": [{"name": "D-IX216"}, {"name": "streptolydigin"}, {"name": "pseudouridimycin"}]
+  },
+  "results": []
+}

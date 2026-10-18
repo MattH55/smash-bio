@@ -1,0 +1,326 @@
+# =============================================================================
+# EXAMPLE: FANCD2-FANCI DNA SCANNING STUDY
+# =============================================================================
+# This is a filled example based on Passmore, Rueda et al. 2024 Nature study
+# "FANCD2-FANCI surveys DNA and recognizes double- to single-stranded junctions"
+# =============================================================================
+
+experiment_id: "FANCD2-2024-001"
+metadata_version: "1.0.0"
+created_date: "2024-07-15T10:00:00"
+last_modified: "2024-07-15T10:00:00"
+
+citation:
+  title: "FANCD2-FANCI surveys DNA and recognizes double- to single-stranded junctions"
+  authors:
+    - "Passmore, Lori A."
+    - "Rueda, David S."
+  journal: "Nature"
+  year: 2024
+  volume: ""
+  pages: ""
+  doi: "10.1038/s41586-024-07770-w"
+  pubmed_id: ""
+
+# =============================================================================
+# HARDWARE CONDITIONS
+# =============================================================================
+hardware:
+  instrument:
+    manufacturer: "LUMICKS"
+    model: "C-Trap"
+    system_type: "commercial"
+
+  optical_traps:
+    number_of_traps: 2
+    trap_configuration: "dual-trap"
+    laser_wavelength_nm: 1064.0
+    laser_power_mW: 
+
+  trap_stiffness:
+    value: 0.3
+    unit: "pN/nm"
+
+  bead_diameter:
+    value: 2.14
+    unit: "μm"
+
+  bead_properties:
+    material: "polystyrene"
+    surface_chemistry: "streptavidin"
+    manufacturer: "Spherotech"
+    catalog_number: ""
+
+  objective:
+    numerical_aperture: 1.2
+    magnification: 60
+    immersion: "water"
+
+  detection:
+    position_detector_type: "QPD"
+    position_resolution_nm: 0.5
+    force_resolution_pN: 0.1
+    data_acquisition_rate_Hz: 78125
+
+  fluorescence:
+    capability: "confocal"
+    excitation_wavelengths_nm:
+      - 561
+      - 647
+    emission_filters:
+      - "600/50"
+      - "700/75"
+    detector_type: "APD"
+
+  microfluidics:
+    enabled: true
+    number_of_channels: 5
+    channel_configuration: "laminar flow"
+    flow_control: "pressure"
+
+# =============================================================================
+# SAMPLE INFORMATION
+# =============================================================================
+sample:
+  biological_system_type: "DNA-protein"
+
+  source:
+    organism: "Homo sapiens"
+    cell_line: ""
+    tissue: ""
+    commercial_source: "Recombinant expression"
+    preparation_method: "Baculovirus/insect cell expression"
+
+  nucleic_acid:
+    type: "dsDNA"
+    name: "lambda DNA with ss-dsDNA junctions"
+    sequence: ""
+    sequence_reference: "NC_001416.1"
+    length_bp: 48502
+    length_kb: 48.5
+    topology: "linear"
+    modifications:
+      - "ss-dsDNA junctions introduced via specific processing"
+      - "Biotin at one end"
+      - "Digoxigenin at other end"
+
+  handles:
+    type: "dsDNA"
+    length_bp: 500
+    length_nm: 170
+    attachment_5prime: "biotin"
+    attachment_3prime: "digoxigenin"
+
+  protein:
+    name: "FANCD2-FANCI heterodimer"
+    abbreviation: "D2-I"
+    uniprot_id: "Q9BXW9 (FANCD2), Q9NVI1 (FANCI)"
+    molecular_weight_kDa: 370
+    oligomeric_state: "heterodimer"
+    expression_system: "insect"
+    purification_method: "Affinity chromatography, size exclusion"
+    concentration_nM: 10
+    concentration_uM: 0.01
+    storage_conditions: "-80°C in 50% glycerol"
+    mutations: []
+    tags:
+      - "Twin-Strep"
+    fluorescent_label:
+      fluorophore: "Cy5"
+      labeling_site: "N-terminus via SNAP-tag"
+      labeling_efficiency: 0.85
+
+# =============================================================================
+# EXPERIMENTAL CONDITIONS
+# =============================================================================
+experimental_conditions:
+  buffer:
+    name: "Imaging buffer"
+    composition: "25 mM Tris pH 7.5, 100 mM KCl, 5 mM MgCl2, 1 mM DTT, 0.1% BSA"
+    pH: 7.5
+    ionic_strength_mM: 130
+
+  salts:
+    - name: "KCl"
+      concentration_mM: 100
+    - name: "MgCl2"
+      concentration_mM: 5
+
+  temperature_C: 25.0
+
+  nucleotides:
+    ATP_mM: 1.0
+    ATPgammaS_mM: 
+    ADP_mM: 
+    GTP_mM: 
+    dNTPs_mM: 
+    NTPs_mM: 
+    other: ""
+
+  oxygen_scavenging:
+    system: "PCA-PCD"
+    components: "PCA 2.5 mM, PCD 50 nM, Trolox 1 mM"
+
+  surface_passivation: "BSA 0.1%"
+
+  crowding_agents: []
+
+  other_additives:
+    - name: "DTT"
+      concentration: "1 mM"
+      purpose: "reducing agent"
+
+# =============================================================================
+# MEASUREMENT PARAMETERS
+# =============================================================================
+measurements:
+  operation_mode: "force-clamp"
+
+  force_range:
+    minimum_pN: 5
+    maximum_pN: 10
+
+  loading_rate:
+    value: 
+    unit: ""
+
+  clamp_force_pN: 5.0
+  tension_pN: 5.0
+
+  extension_range:
+    minimum_nm: 10000
+    maximum_nm: 16000
+
+  measurement_duration_s: 300
+  number_of_molecules: 87
+  number_of_measurements_per_molecule: 3
+
+  fluorescence_imaging:
+    enabled: true
+    acquisition_mode: "kymograph"
+    frame_rate_Hz: 10
+    exposure_time_ms: 100
+    laser_power_uW: 50
+
+# =============================================================================
+# CALIBRATION
+# =============================================================================
+calibration:
+  method: "power-spectrum"
+  calibration_bead_diameter_um: 2.14
+  drag_coefficient_pN_s_nm: 
+  corner_frequency_Hz: 2500
+  calibration_temperature_C: 25.0
+  calibration_buffer: "PBS"
+  position_sensitivity_nm_per_V: 
+  calibration_date: "2024-07-01"
+  calibration_file: "calibration_20240701.h5"
+
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+data_processing:
+  analysis_software:
+    name: "Pylake"
+    version: "1.2.0"
+    url: "https://lumicks-pylake.readthedocs.io"
+
+  filtering:
+    method: "low-pass"
+    cutoff_frequency_Hz: 1000
+    window_size: 
+
+  fitting_model:
+    model_name: "WLC"
+    persistence_length_nm: 50
+    contour_length_nm: 16500
+    stretch_modulus_pN: 1200
+
+  statistical_analysis:
+    methods:
+      - "mean ± SEM"
+      - "single-molecule tracking"
+      - "dwell time analysis"
+    confidence_level: 0.95
+    sample_size: 87
+
+  analysis_scripts:
+    repository_url: "https://github.com/example/fancd2-analysis"
+    script_files:
+      - "tracking_analysis.py"
+      - "dwell_time_fitting.py"
+
+# =============================================================================
+# RESULTS
+# =============================================================================
+results:
+  primary_measurements:
+    - parameter: "diffusion coefficient"
+      value: 0.14
+      error: 0.07
+      unit: "μm²/s"
+      n: 87
+    - parameter: "mean sliding speed"
+      value: 0.81
+      error: 0.14
+      unit: "μm/s"
+      n: 87
+    - parameter: "persistent stall dwell time"
+      value: 50
+      error: 10
+      unit: "s"
+      n: 45
+    - parameter: "transient stall dwell time"
+      value: 7
+      error: 2
+      unit: "s"
+      n: 42
+
+  key_findings:
+    - "D2-I forms a sliding clamp around dsDNA and diffuses along it"
+    - "Mean diffusion coefficient ~0.14 ± 0.07 μm²/s on λ-DNA"
+    - "D2-I stalls at ss-dsDNA junctions with two types: persistent (~50s) and transient (~7s)"
+    - "KR helix in FANCD2 is critical for recognizing ss/ds boundary"
+    - "Monoubiquitination does not significantly alter diffusion speed"
+
+# =============================================================================
+# DATA FILES
+# =============================================================================
+data_files:
+  raw_data:
+    - filename: "FANCD2_lambda_DNA_exp001.h5"
+      format: "h5"
+      size_bytes: 524288000
+      checksum: "sha256:abc123..."
+      description: "Raw C-Trap data including force and fluorescence"
+
+  processed_data:
+    - filename: "tracking_results.csv"
+      format: "csv"
+      description: "Extracted trajectories and diffusion coefficients"
+    - filename: "dwell_times.csv"
+      format: "csv"
+      description: "Junction stall dwell time measurements"
+
+  repository:
+    name: "Zenodo"
+    url: "https://zenodo.org/record/XXXXXXX"
+    doi: "10.5281/zenodo.XXXXXXX"
+    accession_number: ""
+
+# =============================================================================
+# NOTES
+# =============================================================================
+notes: |
+  This experiment investigates how the FANCD2-FANCI (D2-I) complex surveys DNA
+  and recognizes double- to single-stranded junctions, which is critical for
+  the Fanconi Anemia DNA repair pathway.
+  
+  Key methodological notes:
+  - ss-dsDNA junctions were created to mimic stalled replication forks
+  - Both wild-type and monoubiquitinated D2-I were tested
+  - Cryo-EM was used in parallel for structural analysis
+  
+  Experimental controls:
+  - DNA-only controls for background fluorescence
+  - Catalytically inactive variants for comparison

@@ -1,0 +1,65 @@
+{
+ "publication": {"doi": "10.7554/elife.89467"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Novel dual laser trap assay: two custom single-trap instruments each hold a bead decorated with native yeast kinetochore particles on the plus end of a surface-anchored, growing bovine-brain microtubule; computer feedback couples both through a virtual Hookean 'kinetochore' spring at constant total force, showing mechanical coordination of microtubule pair growth. Re-analysis of earlier single-trap force-clamp recordings (N=356) supplies force-dependent pause rates for modelling."},
+ "technique": {"primary": "optical_tweezers", "secondary": [], "force_application_geometry": "single_trap_surface_tether", "correlative_modalities": []},
+ "hardware": {
+  "make_of_setup": "custom",
+  "model_number": "Nikon TE2000U-based",
+  "custom_built": true,
+  "detection_device": ["PSD"],
+  "temperature": {"value": 295.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "Experiments were performed at 22 ° C with trap stiffnesses of 0.35–0.91 pN·nm–1.", "confidence": "high"}},
+  "acquisition_rate": {"value": 40, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Bead-trap separation and stage position were sampled at 40 kHz, while stage position to maintain the desired bead-trap separation (and thus force) was updated at 50 Hz.", "confidence": "high"}},
+  "optical": {
+   "spatial_laser_control": ["piezo_stage"],
+   "number_of_traps": 2,
+   "trap_stiffness": {"min": 0.35, "max": 0.91, "unit": "pN/nm", "evidence": {"method": "llm_review", "snippet": "Experiments were performed at 22 ° C with trap stiffnesses of 0.35–0.91 pN·nm–1.", "confidence": "high"}}
+  }
+ },
+ "assay": {
+  "experiment_class": ["force_generation_polymerization"],
+  "bead_size": {"value": 440, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "streptavidin-coated polystyrene beads (0.44 µm in diameter, Spherotech) were incubated with biotinylated anti-5His antibodies (Qiagen)", "confidence": "high"}},
+  "bead_material": "polystyrene",
+  "bead_functionalization": ["streptavidin", "biotinylated anti-5His antibody"],
+  "attachment_chemistry": ["biotin–streptavidin", "His-tag–anti-His antibody", "biotin–avidin"],
+  "trap_control": ["force_clamp", "custom"],
+  "n_molecules": 93
+ },
+ "biological_system": {
+  "system_class": ["force_generation_polymerization"],
+  "organisms": [{"name": "Saccharomyces cerevisiae", "ncbi_taxon": 4932}, {"name": "Bos taurus", "ncbi_taxon": 9913}],
+  "entities": [
+   {"name": "Native kinetochore particles (Dsn1-6His-3Flag)", "entity_type": "complex", "role": "binding_partner",
+    "organism": {"name": "Saccharomyces cerevisiae", "ncbi_taxon": 4932},
+    "evidence": {"method": "llm_review", "snippet": "Native kinetochore particles were purified from asynchronously grown S. cerevisiae SBY8253 cells (Genotype: MATa DSN1-6His-3Flag:URA3)", "confidence": "high"}},
+   {"name": "Dynamic microtubule grown from GMPCPP-stabilized biotinylated seeds (bovine brain tubulin)", "entity_type": "cytoskeletal_filament", "role": "track",
+    "organism": {"name": "Bos taurus", "ncbi_taxon": 9913},
+    "evidence": {"method": "llm_review", "snippet": "incubated with kinetochore-decorated beads diluted approximately eightfold into growth buffer augmented with 1.5 mg·mL–1 purified bovine brain tubulin", "confidence": "high"}}
+  ],
+  "cytoskeleton": {"structure_type": "microtubule"}
+ },
+ "solution": {
+  "buffer": "BRB80", "pH": 6.9,
+  "components": [
+   {"name": "PIPES", "concentration": {"value": 80, "unit": "mM"}},
+   {"name": "MgCl2", "concentration": {"value": 1, "unit": "mM"}},
+   {"name": "EGTA", "concentration": {"value": 1, "unit": "mM"}},
+   {"name": "GTP", "concentration": {"value": 1, "unit": "mM"}},
+   {"name": "κ-casein", "concentration": {"value": 1, "unit": "mg/mL"}},
+   {"name": "biotinylated BSA", "concentration": {"value": 0.08, "unit": "mg/mL"}},
+   {"name": "tubulin", "concentration": {"value": 1.5, "unit": "mg/mL"}},
+   {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}},
+   {"name": "glucose", "concentration": {"value": 25, "unit": "mM"}}
+  ],
+  "nucleotides": ["GTP"],
+  "oxygen_scavenging": "glucose oxidase (500 µg/mL), catalase (60 µg/mL), glucose"
+ },
+ "results": [
+  {"quantity": "other", "value": -4.6, "unit": "pN", "applies_to": {"entity": "Dynamic microtubule", "transition": "pause entrance"},
+   "model": "exponential force dependence (force sensitivity F_EN)",
+   "source": {"location": "methods", "snippet": "we measured force sensitivities of FEN= –5.1 pN and FEX= 14.3 pN, compared to FEN= –4.6 pN and FEX= 14.1 pN with the 1 s minimum event duration.", "extraction": "manual", "confidence": "medium"}},
+  {"quantity": "other", "value": 14.1, "unit": "pN", "applies_to": {"entity": "Dynamic microtubule", "transition": "pause exit"},
+   "model": "exponential force dependence (force sensitivity F_EX)",
+   "source": {"location": "methods", "snippet": "we measured force sensitivities of FEN= –5.1 pN and FEX= 14.3 pN, compared to FEN= –4.6 pN and FEX= 14.1 pN with the 1 s minimum event duration.", "extraction": "manual", "confidence": "medium"}}
+ ]
+}

@@ -1,0 +1,63 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-55358-9"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM-SMFS (Bruker Bioscope Resolve) in height-clamp mode: SARS-CoV-2 spike membrane-binding peptides (primed MBP1, unprimed MBP2, an MBP1 mutant, and a membrane-proximal peptide control) or the spike S2 subunit grafted onto AC40 tips via APTES/NHS-PEG24 and sortase A, held ~6 nm above DOPC/cholesterol or DOPC/sphingomyelin supported bilayers for 10 s to record force-time binding events; bond lifetimes fitted with Bell and Dudko-Hummer-Szabo models. Biolayer interferometry, MD simulations and pseudovirus infectivity assays complement the SMFS."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Bruker",
+    "model_number": "Bioscope Resolve",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "calibration_technique": ["thermal_noise_cantilever"],
+    "afm": {"cantilever_model": "AC40 (Bruker)"}
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion", "membrane_mechanics"],
+    "attachment_chemistry": ["APTES aminosilane", "NHS-PEG24-Ph-aldehyde", "sortase A", "supported lipid bilayer on mica"],
+    "trap_control": ["constant_distance"]
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion", "membrane_mechanics"],
+    "organisms": [{"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049}],
+    "entities": [
+      {"name": "SARS-CoV-2 spike membrane-binding peptide MBP1 (TMPRSS2-primed form, spike residues 816-855)", "entity_type": "peptide", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "P0DTC2", "verified": false}],
+       "organism": {"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049},
+       "evidence": {"method": "llm_review", "snippet": "The membrane binding peptides (MBP1 and MBP2) of SARS-CoV-2 with a purity of >95% were purchased commercially from GenScript.", "confidence": "high"}},
+      {"name": "SARS-CoV-2 spike membrane-binding peptide MBP2 (unprimed form, spike residues 806-855)", "entity_type": "peptide", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "P0DTC2", "verified": false}],
+       "organism": {"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049},
+       "evidence": {"method": "llm_review", "snippet": "we examine both primed (TMPRSS2-cleaved) and unprimed versions of the MBP, as well as the influence of its conserved disulfide bridge on membrane binding", "confidence": "high"}},
+      {"name": "SARS-CoV-2 spike S2 subunit (His-tagged, Wuhan-1)", "entity_type": "protein", "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "P0DTC2", "verified": false}],
+       "organism": {"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049},
+       "evidence": {"method": "llm_review", "snippet": "the cantilevers were immersed in the 100 µL Gly10Lys peptide (1 mM) or S2 subunit (300 nM) (Wuhan-1, Accession#: YP_009724390, collected on 24 December 2019, R&D Systems) solution", "confidence": "high"}},
+      {"name": "Supported lipid bilayer, DOPC/cholesterol (70/30)", "entity_type": "lipid_bilayer", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "Aliquots of DOPC and SM or Chol solutions were mixed in DOPC/SM and DOPC/Chol in molar ratios (70/30) and poured into a glass vial.", "confidence": "high"}},
+      {"name": "Supported lipid bilayer, DOPC/brain sphingomyelin (70/30)", "entity_type": "lipid_bilayer", "role": "binding_partner",
+       "evidence": {"method": "llm_review", "snippet": "Aliquots of DOPC and SM or Chol solutions were mixed in DOPC/SM and DOPC/Chol in molar ratios (70/30) and poured into a glass vial.", "confidence": "high"}},
+      {"name": "TMPRSS2 (used to cleave/prime the S2 subunit)", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "O15393", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "To confirm the S2 subunit is cleaved by TMPRSS2 (Biozol), the 5 µl (1.5 µM in Tris buffer) purified S2 was incubated with 20 µl (5 µM) TMPRSS2 in 50 mM Tris buffer", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES (Buffer B)",
+    "pH": 7.4,
+    "components": [
+      {"name": "HEPES", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "CaCl2", "concentration": {"value": 2, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

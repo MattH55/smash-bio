@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMASH-BIO | Single Molecule Analysis and Spectroscopy Hub</title>
+  <meta name="description" content="An open, annotated index of single-molecule force spectroscopy studies: biological systems, instruments, Table 3 FAIR metadata and linked datasets across optical, magnetic, acoustic, centrifugal, nanopore, flow and AFM techniques.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><i class="fas fa-circle-nodes"></i> Single Molecule Analysis and Spectroscopy Hub</span>
+        <h1>Every molecule pulled, <span class="hl">indexed and linked to its data</span></h1>
+        <p class="lede">SMASH-BIO annotates single-molecule force spectroscopy studies with their biological system, instrument and assay using the FAIR Table&nbsp;3 standard — and tells you whether the data are actually available.</p>
+        <form class="hero-search" action="explore.html" method="get" role="search">
+          <div class="search-input"><i class="fas fa-magnifying-glass"></i>
+            <input type="search" name="q" placeholder="Try “titin”, “RecBCD”, “riboswitch”, “catch bond”…" aria-label="Search studies"></div>
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+        <div class="quick-links">Popular:
+          <a class="chip" href="explore.html?ds=1">Has public dataset</a>
+          <a class="chip" href="explore.html?raw=1">Raw traces</a>
+          <a class="chip" href="explore.html?cls=unfolding_protein">Protein unfolding</a>
+          <a class="chip" href="explore.html?cls=force_generation_motor">Motors</a>
+          <a class="chip" href="explore.html?tech=magnetic_tweezers">Magnetic tweezers</a>
+        </div>
+      </div>
+      <figure class="hero-figure" aria-label="Animation of a DNA hairpin being unzipped by optical tweezers">
+        <div class="fig-title">Unzipping a DNA hairpin</div>
+        <svg class="tether-svg" id="hero-anim" viewBox="0 0 360 230" role="img" aria-label="Two optically trapped beads pull on DNA handles attached to a DNA hairpin. As the force rises the hairpin unzips into a chevron and then a straight single strand, producing a rip in the force-extension curve, before refolding.">
+          <circle class="bead" cx="40" cy="62" r="22"/>
+          <path class="force" d="M16 62 h -12 m 5 -5 l -5 5 l 5 5"/>
+          <path class="dna" d="M62 62 L120 62"/>
+          <g class="rungs"><line class="bp" x1="121" y1="18" x2="137" y2="18"/><line class="bp" x1="121" y1="26" x2="137" y2="26"/><line class="bp" x1="121" y1="34" x2="137" y2="34"/><line class="bp" x1="121" y1="42" x2="137" y2="42"/><line class="bp" x1="121" y1="50" x2="137" y2="50"/><line class="bp" x1="121" y1="58" x2="137" y2="58"/>
+            <animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;0.15;0.21;0.95;0.99;1" dur="9s" repeatCount="indefinite"/></g>
+          <path class="hp" d="M120 62 L120 16 L124 6 L134 6 L138 16 L138 62">
+            <animate attributeName="d" values="M120 62 L120 16 L124 6 L134 6 L138 16 L138 62;M120 62 L120 16 L124 6 L134 6 L138 16 L138 62;M120 62 L146 30 L152 22 L160 22 L166 30 L192 62;M120 62 L150 62 L165 62 L175 62 L190 62 L228 62;M120 62 L150 62 L165 62 L175 62 L190 62 L228 62;M120 62 L120 16 L124 6 L134 6 L138 16 L138 62" keyTimes="0;0.15;0.4;0.6;0.8;1" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.5 0 .5 1;.4 0 .2 1;0 0 1 1;.5 0 .5 1"/></path>
+          <path class="dna" d="M138 62 L194 62">
+            <animate attributeName="d" values="M138 62 L194 62;M138 62 L194 62;M192 62 L248 62;M228 62 L284 62;M228 62 L284 62;M138 62 L194 62" keyTimes="0;0.15;0.4;0.6;0.8;1" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.5 0 .5 1;.4 0 .2 1;0 0 1 1;.5 0 .5 1"/></path>
+          <g>
+            <circle class="bead bead-2" cx="216" cy="62" r="22"/>
+            <path class="force" d="M240 62 h 14 m -5 -5 l 5 5 l -5 5"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0;0 0;54 0;90 0;90 0;0 0" keyTimes="0;0.15;0.4;0.6;0.8;1" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.5 0 .5 1;.4 0 .2 1;0 0 1 1;.5 0 .5 1"/>
+          </g>
+          <text class="lbl" x="22" y="100" text-anchor="middle">trap 1</text>
+          <text class="lbl stage" x="160" y="100" text-anchor="middle">folded hairpin<animate attributeName="opacity" values="1;0;1" keyTimes="0;0.2;0.9" calcMode="discrete" dur="9s" repeatCount="indefinite"/></text>
+          <text class="lbl stage" x="160" y="100" text-anchor="middle" opacity="0">unzipping<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.2;0.5" calcMode="discrete" dur="9s" repeatCount="indefinite"/></text>
+          <text class="lbl stage" x="160" y="100" text-anchor="middle" opacity="0">unfolded single strand<animate attributeName="opacity" values="0;1;0" keyTimes="0;0.5;0.9" calcMode="discrete" dur="9s" repeatCount="indefinite"/></text>
+          <line class="axis" x1="34" y1="214" x2="344" y2="214"/><line class="axis" x1="34" y1="124" x2="34" y2="214"/>
+          <path class="trace" id="fe-trace" d="M36 210 C 90 208, 140 196, 170 170 L 190 150 L 196 190 C 230 182, 270 160, 300 132 L 340 126"/>
+          <circle class="trace-dot" r="5">
+            <animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;0;0.5;1;1;0" keyTimes="0;0.15;0.4;0.6;0.8;1" calcMode="linear"><mpath href="#fe-trace"/></animateMotion></circle>
+          <text class="lbl" x="200" y="146">unzipping rip</text>
+          <text class="lbl" x="276" y="228">extension</text><text class="lbl" x="2" y="132">F</text>
+        </svg>
+        <script>
+          (function () { // respect reduced-motion: show the folded state, no animation
+            var svg = document.getElementById('hero-anim');
+            if (svg && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches && svg.pauseAnimations) { svg.pauseAnimations(); svg.setCurrentTime(0); }
+          })();
+        </script>
+      </figure>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="stat-row" id="stat-row" aria-live="polite">
+        <div class="stat-tile"><div class="label">Annotated studies</div><div class="value" id="s-records">–</div><div class="sub" id="s-years"></div></div>
+        <div class="stat-tile"><div class="label">Studies with a linked dataset</div><div class="value" id="s-ds">–</div><div class="sub" id="s-ds-sub"></div></div>
+        <div class="stat-tile"><div class="label">Repository deposits indexed</div><div class="value" id="s-dep">–</div><div class="sub" id="s-dep-sub"></div></div>
+        <div class="stat-tile"><div class="label">Results extracted</div><div class="value" id="s-res">–</div><div class="sub">forces, steps, lengths, energies</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>Browse by technique</h2><p>Any method that applies force between two ends of a biological system. The bar shows the share of studies with a linked public dataset.</p></div>
+        <a class="btn btn-secondary btn-sm" href="stats.html">See insights <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid" id="tech-grid"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>Browse by biological system</h2><p>Each system page gathers every study, the forces and lengths reported, and links to UniProt, AlphaFold, PDBe, Rfam and more.</p></div>
+        <a class="btn btn-secondary btn-sm" href="systems.html">All <span id="n-systems"></span> systems <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid" id="sys-grid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div><h2>Studies with open data</h2><p>Recent primary studies whose data are deposited in a public repository.</p></div>
+        <a class="btn btn-secondary btn-sm" href="explore.html?ds=1">All with data <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="result-list" id="featured"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p style="margin:0 0 8px"><span class="sim-tag">Simulation</span> <span class="sim-tag sim-tag-beta">Beta</span></p>
+          <h2>Pulling simulations, indexed separately</h2>
+          <p>Simulated unfolding and unbinding live in their own section, with their own records (<code>SIM-######</code>), schema and downloads. A simulation is never listed as an experiment. Where the molecule matches, the two are linked and the match level says how close the comparison is.</p>
+        </div>
+        <a class="btn btn-secondary btn-sm" href="sim/index.html">Open simulations (beta) <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3>Model, protocol and units</h3><p class="muted">Each record names the model family, the pulling protocol and the unit system the source wrote. A reduced-unit value stays in reduced units unless the paper states a conversion.</p></div>
+        <div class="card"><h3>Compared, not merged</h3><p class="muted">Links to SMASH-BIO and MechanoProDB experiments carry a match level. A homolog link is a molecule-name token only, and the two sets of numbers are shown side by side.</p><a class="btn btn-secondary btn-sm" href="sim/explore.html">Explore simulations (beta)</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="card">
+        <h3><i class="fas fa-table-list" style="color:var(--accent)"></i>&nbsp; One schema for all force techniques</h3>
+        <p class="muted">Hardware, assay, construct and solution fields from <em>FAIR data for optical tweezers experiments</em> (Halma, van Eck, Abeln et&nbsp;al., Biophys&nbsp;J 2025), extended with technique-specific blocks, a results vocabulary and a raw-trace format.</p>
+        <a href="schema.html" class="btn btn-secondary btn-sm">Read the schema</a>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-upload" style="color:var(--accent)"></i>&nbsp; Add or correct a record</h3>
+        <p class="muted">Every auto-extracted value carries its evidence snippet. Authors can submit a verified record as JSON that validates against the schema.</p>
+        <a href="submit.html" class="btn btn-secondary btn-sm">Submit a record</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="data/stats.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

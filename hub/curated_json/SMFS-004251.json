@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1371/journal.pcbi.1004607"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: computational inference (Bayesian MCMC model fitting) of relative forces on kinetochores from live-cell tracking of eGFP-CENP-A in HeLa-K cells; no force is applied or measured with a force-spectroscopy instrument (calibrated micro-needles are only cited as classic prior work)."
+  }
+}

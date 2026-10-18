@@ -1,0 +1,82 @@
+{
+  "publication": {"doi": "10.7554/elife.108837"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "No optical trap is used: a 3009 bp dsDNA entropic spring ('DNA tensiometer') links SNAP-tagged kinesin-1, Kif3A (kinesin-2) and Kif1A (kinesin-3) chimeras to biotinylated microtubules via neutravidin, and Qdot-labeled motors are tracked by custom TIRF to measure stall/detachment and reattachment kinetics under load parallel to the microtubule. The 0.05 pN/nm trap stiffness in the auto record is a literature comparison value; stochastic simulations complement the experiments."
+  },
+  "technique": {
+    "primary": "tension_sensors",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": ["TIRF"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["camera_sCMOS"],
+    "camera_model": "Photometrics Prime 95B",
+    "acquisition_rate": {"value": 0.025, "unit": "kHz", "min": 0.02, "max": 0.04, "evidence": {"method": "llm_review", "snippet": "Raw data were typically collected at 25 fps (range of 20–40 fps) on a Photometrics Prime 95B camera.", "confidence": "high"}}
+  },
+  "assay": {
+    "experiment_class": ["force_generation_motor"],
+    "bead_geometry": "none (DNA spring tether, Qdot reporter)",
+    "attachment_chemistry": ["biotin–neutravidin (dsDNA to biotinylated microtubule)", "SNAP-tag BG-oligonucleotide hybridized to dsDNA overhang", "GFP-binding protein (GBP)–EGFP for Qdot labeling", "rigor kinesin for microtubule surface attachment"],
+    "trap_control": ["passive_mode"],
+    "handle_sequences": [{"length_bp": 3009, "annotations": "were used to create a 3009 bp dsDNA by PCR from plasmid Mus musculus BicD2-sf-GFP (aa 25–425) in pet28a. The abasic Int 1’,2’-Dideoxyribose spacer (idSp) creates an overhang by terminating the polymerase."}]
+  },
+  "biological_system": {
+    "system_class": ["force_generation_motor"],
+    "organisms": [
+      {"name": "Drosophila melanogaster", "ncbi_taxon": 7227},
+      {"name": "Rattus norvegicus", "ncbi_taxon": 10116},
+      {"name": "Mus musculus", "ncbi_taxon": 10090},
+      {"name": "Bos taurus", "ncbi_taxon": 9913}
+    ],
+    "entities": [
+      {"name": "Kinesin-1-EGFP-SNAP-His6 (aa 1–406)", "entity_type": "protein", "role": "motor",
+       "organism": {"name": "Drosophila melanogaster", "ncbi_taxon": 7227}, "region": "aa 1–406",
+       "identifiers": [{"scheme": "addgene", "id": "129764", "verified": false}],
+       "evidence": {"method": "llm_review", "snippet": "Drosophila melanogaster Kinesin-1-EGFP-SNAP-His6 (aa 1–406) was expressed in Tuner (DE3) E. coli (Addgene #129764).", "confidence": "high"}},
+      {"name": "Kif1A (kinesin-3) – kinesin-1 coiled-coil chimera, EGFP-SNAP", "entity_type": "protein", "role": "motor",
+       "organism": {"name": "Rattus norvegicus", "ncbi_taxon": 10116}, "region": "Kif1A aa 1–351 + Kif1A NL (17 aa) + kinesin-1 coiled-coil aa 345–406",
+       "identifiers": [{"scheme": "addgene", "id": "229851", "verified": false}],
+       "evidence": {"method": "llm_review", "snippet": "Rattus norvegicus Kif1A (aa 1–351)-Kif1A neck linker (NL) (17aa)-Kinesin1 coiled-coil (aa 345–406)-EGFP-SNAP was expressed in Tuner (DE3) E. coli similarly to kinesin-1 (Addgene #229851).", "confidence": "high"}},
+      {"name": "Kif3A (kinesin-2) – kinesin-1 coiled-coil chimera, EGFP-SNAP", "entity_type": "protein", "role": "motor",
+       "organism": {"name": "Mus musculus", "ncbi_taxon": 10090}, "region": "Kif3A aa 1–342 + Kif3A NL (17 aa) + kinesin-1 coiled-coil aa 345–406",
+       "identifiers": [{"scheme": "addgene", "id": "229852", "verified": false}],
+       "evidence": {"method": "llm_review", "snippet": "Mus musculus Kif3A (aa 1–342)-Kif3A NL (17aa)-Kinesin1 coiled-coil (aa 345–406)-EGFP-SNAP was expressed in BL21(DE3) E. coli (Addgene # 229852).", "confidence": "high"}},
+      {"name": "dsDNA spring (3009 bp, 5'-biotin, Cy5-dCTP labeled, ssDNA overhang)", "entity_type": "nucleic_acid", "role": "handle",
+       "length": {"value": 3009, "unit": "bp"},
+       "fluorescent_labels": [{"identifier": "Cy5", "sequence_location": "dCTP-Cy5 incorporated during PCR"}],
+       "evidence": {"method": "llm_review", "snippet": "were used to create a 3009 bp dsDNA by PCR from plasmid Mus musculus BicD2-sf-GFP (aa 25–425) in pet28a.", "confidence": "high"}},
+      {"name": "Biotinylated taxol-stabilized microtubules (bovine brain tubulin, 10% biotinylated)", "entity_type": "cytoskeletal_filament", "role": "track",
+       "organism": {"name": "Bos taurus", "ncbi_taxon": 9913},
+       "evidence": {"method": "llm_review", "snippet": "For DNA tensiometer experiments, microtubules were polymerized with 10% biotinylated tubulin and functionalized by adding 8 nM neutravidin to the flow cell", "confidence": "high"}},
+      {"name": "Qdot-GBP (QDot ITK Amino (PEG) quantum dots with GBP-SNAP)", "entity_type": "synthetic", "role": "label",
+       "evidence": {"method": "llm_review", "snippet": "For labelling GFP motors, Qdots were functionalized with GFP-binding protein (GBP) as follows.", "confidence": "high"}}
+    ],
+    "cytoskeleton": {"structure_type": "microtubule"}
+  },
+  "solution": {
+    "buffer": "BRB80",
+    "components": [
+      {"name": "Taxol", "concentration": {"value": 10, "unit": "μM"}},
+      {"name": "casein", "concentration": {"value": 2, "unit": "mg/mL"}},
+      {"name": "MgATP", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "D-glucose", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "glucose oxidase", "concentration": {"value": 0.02, "unit": "mg/mL"}},
+      {"name": "catalase", "concentration": {"value": 0.008, "unit": "mg/mL"}},
+      {"name": "β-mercaptoethanol", "concentration": {"value": 0.5, "unit": "%"}},
+      {"name": "BSA", "concentration": {"value": 2, "unit": "mg/mL"}}
+    ],
+    "nucleotides": ["ATP"],
+    "oxygen_scavenging": "glucose oxidase, catalase, D-glucose",
+    "evidence": {"method": "llm_review", "snippet": "Imaging Solution (BRB80, 10 μM Taxol, 2 mg/ml Casein, 2 mM MgATP, 20 mM D-glucose, 0.02 mg/ml Glucose oxidase, 0.008 mg/mL Catalase, 0.5% BME, and 2 mg/mL BSA)", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "molecular_stiffness", "value": 0.2, "unit": "pN/nm", "applies_to": {"entity": "dsDNA spring (3009 bp)"}, "conditions": {"force_pN": 6, "extension_nm": 960},
+     "model": "theoretical force-extension curve", "notes": "Computed, not measured; <0.001 pN/nm below 650 nm extension.",
+     "source": {"location": "methods", "snippet": "In contrast, at the predicted stall force of 6 pN (960 nm extension), the dsDNA stiffness is ~0.2 pN/nm, which is stiffer than most optical traps", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

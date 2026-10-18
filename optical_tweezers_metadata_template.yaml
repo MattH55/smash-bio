@@ -1,0 +1,434 @@
+# =============================================================================
+# OPTICAL TWEEZERS EXPERIMENT METADATA TEMPLATE
+# =============================================================================
+# FAIR-compliant metadata schema for optical tweezers measurements
+# Based on Heller et al. 2025 Biophysical Journal (S0006-3495(25)00141-9)
+#
+# Instructions:
+#   1. Fill in the required fields (marked with REQUIRED)
+#   2. Add optional fields as needed
+#   3. Delete or comment out unused sections
+#   4. Use the allowed values listed in comments where applicable
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# EXPERIMENT IDENTIFICATION
+# -----------------------------------------------------------------------------
+experiment_id: "EXP-YYYY-MM-DD-001"  # REQUIRED: Unique identifier
+
+metadata_version: "1.0.0"
+created_date: "2026-01-31T12:00:00"
+last_modified: "2026-01-31T12:00:00"
+
+# -----------------------------------------------------------------------------
+# CITATION (if published)
+# -----------------------------------------------------------------------------
+citation:
+  title: ""
+  authors:
+    - "Last, First"
+    - "Last, First"
+  journal: ""
+  year: 2026
+  volume: ""
+  pages: ""
+  doi: ""
+  pubmed_id: ""
+
+# =============================================================================
+# HARDWARE CONDITIONS (REQUIRED)
+# =============================================================================
+hardware:
+  # ---------------------------------------------------------------------------
+  # Instrument
+  # ---------------------------------------------------------------------------
+  instrument:
+    manufacturer: ""  # e.g., LUMICKS, Impetux, JPK, custom
+    model: ""  # e.g., C-Trap, m-Trap
+    system_type: ""  # Allowed: commercial, custom
+
+  # ---------------------------------------------------------------------------
+  # Optical Traps
+  # ---------------------------------------------------------------------------
+  optical_traps:
+    number_of_traps: 2
+    trap_configuration: ""  # Allowed: single-trap-surface, single-trap-micropipette, dual-trap, quadruple-trap
+    laser_wavelength_nm: 1064.0
+    laser_power_mW: 
+
+  # ---------------------------------------------------------------------------
+  # Trap Stiffness (REQUIRED)
+  # ---------------------------------------------------------------------------
+  trap_stiffness:
+    value:   # REQUIRED: pN/nm
+    unit: "pN/nm"
+    per_trap_values:  # List if different per trap
+      # - 0.3
+      # - 0.25
+
+  # ---------------------------------------------------------------------------
+  # Bead Diameter (REQUIRED)
+  # ---------------------------------------------------------------------------
+  bead_diameter:
+    value:   # REQUIRED: μm
+    unit: "μm"
+
+  # ---------------------------------------------------------------------------
+  # Bead Properties
+  # ---------------------------------------------------------------------------
+  bead_properties:
+    material: ""  # Allowed: polystyrene, silica, melamine, other
+    surface_chemistry: ""  # Allowed: streptavidin, anti-digoxigenin, protein-G, carboxyl, amine, PEG, other
+    manufacturer: ""
+    catalog_number: ""
+
+  # ---------------------------------------------------------------------------
+  # Objective
+  # ---------------------------------------------------------------------------
+  objective:
+    numerical_aperture: 1.2
+    magnification: 60
+    immersion: ""  # Allowed: water, oil, air
+
+  # ---------------------------------------------------------------------------
+  # Detection System
+  # ---------------------------------------------------------------------------
+  detection:
+    position_detector_type: ""  # Allowed: QPD, PSD, camera, other
+    position_resolution_nm: 
+    force_resolution_pN: 
+    data_acquisition_rate_Hz: 
+
+  # ---------------------------------------------------------------------------
+  # Fluorescence Microscopy
+  # ---------------------------------------------------------------------------
+  fluorescence:
+    capability: ""  # Allowed: none, wide-field, TIRF, confocal, STED, spinning-disk
+    excitation_wavelengths_nm:
+      # - 488
+      # - 561
+      # - 647
+    emission_filters:
+      # - "525/50"
+      # - "600/50"
+    detector_type: ""  # Allowed: EMCCD, sCMOS, APD, PMT, other
+
+  # ---------------------------------------------------------------------------
+  # Microfluidics
+  # ---------------------------------------------------------------------------
+  microfluidics:
+    enabled: false
+    number_of_channels: 
+    channel_configuration: ""
+    flow_control: ""  # Allowed: pressure, syringe, gravity, none
+
+# =============================================================================
+# SAMPLE INFORMATION (REQUIRED)
+# =============================================================================
+sample:
+  # ---------------------------------------------------------------------------
+  # Biological System Type (REQUIRED)
+  # ---------------------------------------------------------------------------
+  biological_system_type: ""  # REQUIRED
+  # Allowed: DNA, RNA, protein, DNA-protein, chromatin, cell, membrane, 
+  #          cytoskeleton, motor-protein, pathogen, other
+
+  # ---------------------------------------------------------------------------
+  # Sample Source
+  # ---------------------------------------------------------------------------
+  source:
+    organism: ""
+    cell_line: ""
+    tissue: ""
+    commercial_source: ""
+    preparation_method: ""
+
+  # ---------------------------------------------------------------------------
+  # Nucleic Acid (if applicable)
+  # ---------------------------------------------------------------------------
+  nucleic_acid:
+    type: ""  # Allowed: dsDNA, ssDNA, dsRNA, ssRNA, DNA-RNA-hybrid, other
+    name: ""  # e.g., lambda DNA, pUC19
+    sequence: ""
+    sequence_reference: ""  # e.g., GenBank accession
+    length_bp: 
+    length_kb: 
+    topology: ""  # Allowed: linear, circular, supercoiled, relaxed
+    modifications:
+      # - "biotin at 5' end"
+      # - "8-oxoG at position X"
+
+  # ---------------------------------------------------------------------------
+  # Molecular Handles
+  # ---------------------------------------------------------------------------
+  handles:
+    type: ""  # Allowed: dsDNA, ssDNA, PEG, none, other
+    length_bp: 
+    length_nm: 
+    attachment_5prime: ""  # Allowed: biotin, digoxigenin, thiol, amine, click-chemistry, other
+    attachment_3prime: ""  # Allowed: biotin, digoxigenin, thiol, amine, click-chemistry, other
+
+  # ---------------------------------------------------------------------------
+  # Protein (if applicable)
+  # ---------------------------------------------------------------------------
+  protein:
+    name: ""
+    abbreviation: ""
+    uniprot_id: ""
+    molecular_weight_kDa: 
+    oligomeric_state: ""  # e.g., monomer, dimer, hexamer
+    expression_system: ""  # Allowed: E. coli, insect, mammalian, yeast, cell-free, native, other
+    purification_method: ""
+    concentration_nM: 
+    concentration_uM: 
+    storage_conditions: ""
+    mutations:
+      # - "K249Q"
+      # - "D1080A"
+    tags:
+      # - "His6"
+      # - "SUMO"
+    fluorescent_label:
+      fluorophore: ""  # e.g., Cy3, Alexa647, ATTO565
+      labeling_site: ""
+      labeling_efficiency: 
+
+  # ---------------------------------------------------------------------------
+  # Chromatin (if applicable)
+  # ---------------------------------------------------------------------------
+  chromatin:
+    nucleosome_source: ""
+    histone_octamer_source: ""
+    reconstitution_method: ""  # Allowed: salt-gradient, chaperone-assisted, native, other
+    nucleosome_density: ""
+    histone_modifications:
+      # - "H3K36me3"
+      # - "H4K16ac"
+    labeled_histones:
+      # - "H2A-Cy3"
+
+  # ---------------------------------------------------------------------------
+  # Cell (if applicable)
+  # ---------------------------------------------------------------------------
+  cell:
+    cell_type: ""
+    cell_line: ""
+    passage_number: 
+    culture_conditions: ""
+    treatments:
+      # - "Latrunculin B"
+
+# =============================================================================
+# EXPERIMENTAL CONDITIONS
+# =============================================================================
+experimental_conditions:
+  # ---------------------------------------------------------------------------
+  # Buffer
+  # ---------------------------------------------------------------------------
+  buffer:
+    name: ""
+    composition: ""  # Full recipe, e.g., "50 mM Tris pH 7.5, 100 mM KCl, 5 mM MgCl2"
+    pH: 
+    ionic_strength_mM: 
+
+  # ---------------------------------------------------------------------------
+  # Salts
+  # ---------------------------------------------------------------------------
+  salts:
+    - name: "KCl"
+      concentration_mM: 
+    - name: "MgCl2"
+      concentration_mM: 
+    # - name: "NaCl"
+    #   concentration_mM: 
+
+  # ---------------------------------------------------------------------------
+  # Temperature
+  # ---------------------------------------------------------------------------
+  temperature_C: 25.0
+
+  # ---------------------------------------------------------------------------
+  # Nucleotides
+  # ---------------------------------------------------------------------------
+  nucleotides:
+    ATP_mM: 
+    ATPgammaS_mM: 
+    ADP_mM: 
+    GTP_mM: 
+    dNTPs_mM: 
+    NTPs_mM: 
+    other: ""
+
+  # ---------------------------------------------------------------------------
+  # Oxygen Scavenging
+  # ---------------------------------------------------------------------------
+  oxygen_scavenging:
+    system: ""  # Allowed: glucose-oxidase-catalase, PCA-PCD, ROXS, none, other
+    components: ""  # e.g., "PCA 2.5 mM, PCD 50 nM, Trolox 1 mM"
+
+  # ---------------------------------------------------------------------------
+  # Surface Passivation
+  # ---------------------------------------------------------------------------
+  surface_passivation: ""  # e.g., BSA, Pluronic, PEG, casein
+
+  # ---------------------------------------------------------------------------
+  # Crowding Agents
+  # ---------------------------------------------------------------------------
+  crowding_agents:
+    # - name: "PEG 8000"
+    #   concentration: "5% w/v"
+
+  # ---------------------------------------------------------------------------
+  # Other Additives
+  # ---------------------------------------------------------------------------
+  other_additives:
+    # - name: "DTT"
+    #   concentration: "1 mM"
+    #   purpose: "reducing agent"
+    # - name: "RNase inhibitor"
+    #   concentration: "1 U/μL"
+    #   purpose: "prevent RNA degradation"
+
+# =============================================================================
+# MEASUREMENT PARAMETERS (REQUIRED)
+# =============================================================================
+measurements:
+  # ---------------------------------------------------------------------------
+  # Operation Mode (REQUIRED)
+  # ---------------------------------------------------------------------------
+  operation_mode: ""  # REQUIRED
+  # Allowed: passive, force-clamp, force-ramp, force-jump, position-clamp, rotation, torque-wrench
+
+  # ---------------------------------------------------------------------------
+  # Force Parameters
+  # ---------------------------------------------------------------------------
+  force_range:
+    minimum_pN: 
+    maximum_pN: 
+
+  loading_rate:
+    value: 
+    unit: ""  # Allowed: pN/s, nm/s, μm/s
+
+  clamp_force_pN:   # For force-clamp mode
+  tension_pN:   # Applied tension during imaging
+
+  # ---------------------------------------------------------------------------
+  # Extension Parameters
+  # ---------------------------------------------------------------------------
+  extension_range:
+    minimum_nm: 
+    maximum_nm: 
+
+  # ---------------------------------------------------------------------------
+  # Measurement Statistics
+  # ---------------------------------------------------------------------------
+  measurement_duration_s: 
+  number_of_molecules: 
+  number_of_measurements_per_molecule: 
+
+  # ---------------------------------------------------------------------------
+  # Fluorescence Imaging
+  # ---------------------------------------------------------------------------
+  fluorescence_imaging:
+    enabled: false
+    acquisition_mode: ""  # Allowed: continuous, time-lapse, kymograph, z-stack
+    frame_rate_Hz: 
+    exposure_time_ms: 
+    laser_power_uW: 
+
+# =============================================================================
+# CALIBRATION
+# =============================================================================
+calibration:
+  method: ""  # Allowed: power-spectrum, step-response, drag-force, DNA-unzipping, thermal-noise, other
+  calibration_bead_diameter_um: 
+  drag_coefficient_pN_s_nm: 
+  corner_frequency_Hz: 
+  calibration_temperature_C: 
+  calibration_buffer: ""
+  position_sensitivity_nm_per_V: 
+  calibration_date: ""
+  calibration_file: ""
+
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+data_processing:
+  analysis_software:
+    name: ""  # e.g., Pylake, MATLAB, Igor Pro
+    version: ""
+    url: ""
+
+  filtering:
+    method: ""  # Allowed: none, low-pass, median, Savitzky-Golay, other
+    cutoff_frequency_Hz: 
+    window_size: 
+
+  fitting_model:
+    model_name: ""  # Allowed: WLC, FJC, eWLC, Marko-Siggia, custom, other
+    persistence_length_nm: 
+    contour_length_nm: 
+    stretch_modulus_pN: 
+
+  statistical_analysis:
+    methods:
+      # - "t-test"
+      # - "bootstrap"
+    confidence_level: 0.95
+    sample_size: 
+
+  analysis_scripts:
+    repository_url: ""
+    script_files:
+      # - "analysis.py"
+      # - "plotting.py"
+
+# =============================================================================
+# RESULTS
+# =============================================================================
+results:
+  primary_measurements:
+    - parameter: ""
+      value: 
+      error: 
+      unit: ""
+      n:   # sample size
+    # - parameter: "diffusion coefficient"
+    #   value: 0.14
+    #   error: 0.07
+    #   unit: "μm²/s"
+    #   n: 50
+
+  key_findings:
+    # - "Finding 1"
+    # - "Finding 2"
+
+# =============================================================================
+# DATA FILES
+# =============================================================================
+data_files:
+  raw_data:
+    - filename: ""
+      format: ""  # e.g., h5, mat, csv
+      size_bytes: 
+      checksum: ""
+      description: ""
+
+  processed_data:
+    - filename: ""
+      format: ""
+      description: ""
+
+  repository:
+    name: ""  # e.g., Zenodo, Dryad, Figshare
+    url: ""
+    doi: ""
+    accession_number: ""
+
+# =============================================================================
+# NOTES
+# =============================================================================
+notes: |
+  Add any additional notes, observations, or experimental details here.
+  This can span multiple lines.

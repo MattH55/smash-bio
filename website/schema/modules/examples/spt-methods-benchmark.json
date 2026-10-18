@@ -1,0 +1,13 @@
+{
+  "record_id": "SPT-000004",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/spt.example.methods", "title": "Benchmarking diffusion-state inference from single-particle trajectories", "year": 2021, "open_access": true},
+  "technique": {"primary": "SPT", "variant": "spot_on_style", "dimensions": "2D"},
+  "biological_system": {"entities": [{"name": "simulated particle trajectories", "type": "other"}]},
+  "probe": {"type": "other", "name": "simulated"},
+  "sample": {"context": "in_vitro_surface"},
+  "tracking": {"software": ["Spot-On", "vbSPT"], "gap_frames": 2, "min_track_length": 10},
+  "results": [{"quantity": "n_diffusive_states", "value": 2.0, "unit": "1", "statistic": "fit_parameter", "model": "Spot_On"}, {"quantity": "diffusion_coefficient_um2_s-1", "value": 0.031, "unit": "um2/s", "statistic": "fit_parameter"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "datasets": [{"id": "https://github.com/example/spot-on", "scheme": "url", "url": "https://github.com/example/spot-on", "content": "code"}]},
+  "data_flags": {"has_trajectories": false, "has_raw_movies": false}
+}

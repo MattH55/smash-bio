@@ -1,0 +1,350 @@
+# SMASH-BIO Full Metadata Schema for Optical Tweezers Experiments
+# Based on Table 3 from "FAIR data for optical tweezers experiments" (Halma et al., 2025)
+# Covers: Unfolding, DNA-protein interactions, Force generation (cytoskeletal), Rheology
+
+schema_version: "2.0.0"
+experiment_types:
+  - unfolding_experiments
+  - dna_protein_interactions
+  - force_generation_cytoskeletal
+  - rheology
+
+# ============================================================================
+# HARDWARE CONDITIONS (Common to all experiment types)
+# ============================================================================
+hardware:
+  setup:
+    make:
+      description: "Brand name or custom setup"
+      type: string
+      required: true
+      examples: ["LUMICKS C-Trap", "Custom dual-trap", "NanoTracker 2"]
+    model_number:
+      description: "Model number if commercial"
+      type: string
+      required: false
+  
+  spatial_laser_control:
+    description: "Method for controlling laser position"
+    type: string
+    required: false
+    enum: ["AOD", "EOD", "mirror", "SLM", "none"]
+    definitions:
+      AOD: "Acoustic-optical device"
+      EOD: "Electro-optical device"
+      SLM: "Spatial light modulator"
+  
+  detection_device:
+    description: "Detection method"
+    type: string
+    required: true
+    enum: ["QPD", "camera", "PSD", "other"]
+    definitions:
+      QPD: "Quadrant photodiode"
+      PSD: "Position sensitive detector"
+  
+  objective_lens:
+    make:
+      type: string
+    model:
+      type: string
+    numerical_aperture:
+      type: number
+    magnification:
+      type: integer
+  
+  optical_filters:
+    make:
+      type: string
+    model:
+      type: string
+    parameters:
+      type: string
+  
+  laser:
+    power_at_source:
+      value: null
+      unit: "mW"
+    power_at_objective:
+      value: null
+      unit: "mW"
+    wavelength:
+      value: null
+      unit: "nm"
+  
+  trap_parameters:
+    stiffness:
+      value: null
+      unit: "pN/nm"
+    stiffness_uncertainty:
+      value: null
+      unit: "pN/nm"
+    calibration_technique:
+      description: "Method used for calibration"
+      type: string
+      enum: ["active_power_spectrum", "passive_power_spectrum", "equipartition_theorem", "other"]
+  
+  acquisition:
+    rate:
+      value: null
+      unit: "kHz"
+    line_scanning_rate:
+      value: null
+      unit: "Hz"
+    filter_frequency:
+      value: null
+      unit: "Hz"
+  
+  temperature:
+    value: null
+    unit: "K"
+
+# ============================================================================
+# ASSAY CONDITIONS (Varies by experiment type)
+# ============================================================================
+assay_conditions:
+  # Common fields
+  bead:
+    geometry:
+      description: "Bead assay type"
+      type: string
+      enum: ["one-bead", "two-bead", "three-bead", "polymerization"]
+    size:
+      value: null
+      unit: "nm"
+    size_uncertainty:
+      value: null
+      unit: "nm"
+    functionalization:
+      description: "Surface chemistry"
+      type: string
+      examples: ["anti-digoxigenin", "streptavidin", "neutravidin", "biotin"]
+  
+  trap_control:
+    mode:
+      description: "Control mode"
+      type: string
+      enum: ["force_ramp", "force_clamp", "constant_force", "constant_distance", "force_jump", "custom"]
+  
+  profiles:
+    force_vs_time:
+      description: "Force (pN) vs time (s) trace"
+      type: array
+    extension_vs_time:
+      description: "Extension (nm) vs time (s) trace"
+      type: array
+  
+  # Specific to DNA experiments
+  handles:
+    sequences:
+      description: "FASTA nucleotide with annotations for bead attachments"
+      type: string
+  
+  # Microfluidics (if applicable)
+  microfluidics:
+    flow_pressure:
+      value: null
+      unit: "mbar"
+    linear_flow_speed:
+      value: null
+      unit: "mm/s"
+
+# ============================================================================
+# CONSTRUCT PARAMETERS (By experiment type)
+# ============================================================================
+construct_parameters:
+  # ----- Unfolding Experiments (Nucleic acid or protein) -----
+  unfolding:
+    sequence_identity:
+      fasta_sequence:
+        type: string
+      pdb_id:
+        type: string
+        description: "If applicable"
+      uniprot_id:
+        type: string
+        description: "For proteins, if applicable"
+    
+    fluorescent_labels:
+      sequence_location:
+        type: string
+      identifier:
+        type: string
+      absorption_wavelength:
+        value: null
+        unit: "nm"
+      emission_wavelength:
+        value: null
+        unit: "nm"
+      quantum_yield:
+        value: null
+        unit: "%"
+      labeling_efficiency:
+        value: null
+        unit: "%"
+  
+  # ----- DNA-Protein Interactions -----
+  dna_protein:
+    nucleic_acid:
+      sequence_identity:
+        fasta_sequence:
+          type: string
+        genbank_id:
+          type: string
+      fluorescent_labels:
+        sequence_location:
+          type: string
+        identifier:
+          type: string
+    
+    protein:
+      gene_symbol:
+        type: string
+      fasta_sequence:
+        type: string
+      pdb_id:
+        type: string
+      uniprot_id:
+        type: string
+      fluorescent_labels:
+        sequence_location:
+          type: string
+        identifier:
+          type: string
+  
+  # ----- Force Generation (Cytoskeletal filaments/motors) -----
+  force_generation:
+    structure_type:
+      description: "Type of cytoskeletal structure"
+      type: string
+      enum: ["microfilaments_actin", "intermediate_filaments", "microtubules"]
+    
+    protein_units:
+      gene_symbol:
+        type: string
+      fasta_sequence:
+        type: string
+      pdb_id:
+        type: string
+      uniprot_id:
+        type: string
+    
+    perturbations_to_structure:
+      description: "Any modifications to the structure"
+      type: string
+  
+  # ----- Rheology -----
+  rheology:
+    cell_identity:
+      cell_ontology_id:
+        type: string
+        description: "Cell Ontology ID"
+      human_cell_atlas_id:
+        type: string
+        description: "Human Cell Atlas ID (if human)"
+    
+    cell_genome:
+      fasta_sequence:
+        type: string
+      genbank_id:
+        type: string
+    
+    perturbations_to_cell:
+      description: "Any treatments or perturbations"
+      type: string
+
+# ============================================================================
+# FACTORS IN SOLUTION
+# ============================================================================
+factors_in_solution:
+  buffer:
+    identity:
+      name:
+        type: string
+      composition:
+        type: string
+    concentration:
+      value: null
+      unit: "mM"
+    ph:
+      type: number
+  
+  small_molecules:
+    - identifier:
+        name:
+          type: string
+        cas_number:
+          type: string
+        smiles:
+          type: string
+      concentration:
+        value: null
+        unit: "nM"
+  
+  proteins_peptides:
+    - identifier:
+        fasta_sequence:
+          type: string
+        pdb_id:
+          type: string
+        uniprot_id:
+          type: string
+      concentration:
+        value: null
+        unit: "nM"
+      fluorescent_labels:
+        sequence_location:
+          type: string
+        identifier:
+          type: string
+  
+  nucleic_acids:
+    - identifier:
+        fasta_sequence:
+          type: string
+        genbank_id:
+          type: string
+        pdb_id:
+          type: string
+      concentration:
+        value: null
+        unit: "nM"
+      fluorescent_labels:
+        sequence_location:
+          type: string
+        identifier:
+          type: string
+
+# ============================================================================
+# PUBLICATION METADATA
+# ============================================================================
+publication:
+  title:
+    type: string
+    required: true
+  authors:
+    type: array
+    items:
+      type: string
+  journal:
+    type: string
+  year:
+    type: integer
+  volume:
+    type: string
+  pages:
+    type: string
+  doi:
+    type: string
+    required: true
+  pubmed_id:
+    type: string
+  citations:
+    count:
+      type: integer
+    source:
+      type: string
+      enum: ["crossref", "semantic_scholar", "opencitations", "google_scholar"]
+    last_updated:
+      type: string
+      format: date-time

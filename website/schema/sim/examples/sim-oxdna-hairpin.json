@@ -1,0 +1,102 @@
+{
+  "record_id": "SIM-900004",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {
+    "kind": "publication",
+    "doi": "10.1063/1.4960973",
+    "title": "Introducing improved structural properties and salt dependence into a coarse-grained model of DNA (oxDNA2)",
+    "journal": "Journal of Chemical Physics",
+    "year": 2015,
+    "url": "https://doi.org/10.1063/1.4960973",
+    "retrieved": "2026-10-11",
+    "evidence": [
+      {"field": "source.doi", "method": "manual_curation", "confidence": "high",
+       "snippet": "oxDNA2 model paper"}
+    ]
+  },
+  "system": {
+    "molecule_type": "DNA",
+    "name": "DNA hairpin",
+    "construct": {"nucleotide_range": "1-40", "description": "hairpin with a short loop, unzipped from the 5' and 3' ends"},
+    "structure_source": "predicted_secondary_structure",
+    "evidence": [
+      {"field": "system.name", "method": "manual_curation", "confidence": "medium",
+       "snippet": "unzipping a DNA hairpin in oxDNA"}
+    ]
+  },
+  "model": {
+    "family": "oxDNA",
+    "family_group": "nucleic_acid",
+    "parameter_set": "oxDNA2",
+    "solvent": "implicit",
+    "software": [{"name": "oxDNA"}],
+    "unit_system": "reduced_with_stated_conversion",
+    "unit_conversions": {
+      "length_sigma": {"value": 0.8518, "unit": "nm",
+                       "note": "oxDNA length unit"},
+      "energy_epsilon": {"value": 1, "unit": "kBT",
+                         "note": "oxDNA energy unit, about 1 kBT at 300 K"},
+      "statement": "oxDNA uses simulation units; the length and energy units above are the model's stated scales.",
+      "evidence": [
+        {"field": "model.unit_conversions", "method": "manual_curation", "confidence": "medium",
+         "snippet": "oxDNA simulation units (length 0.8518 nm, energy about 1 kBT at 300 K)"}
+      ]
+    },
+    "evidence": [
+      {"field": "model.family", "method": "manual_curation", "confidence": "high",
+       "snippet": "coarse-grained oxDNA2 model"}
+    ]
+  },
+  "protocol": {
+    "mode": "constant_velocity",
+    "pulling_speed": {"value": 0.001, "unit": "nm/ns", "note": "slow-pulling regime used for unzipping"},
+    "pulling_speed_m_per_s": 0.001,
+    "geometry": {
+      "force_application_geometry": "dumbbell_dual_trap",
+      "description": "the two ends of the hairpin are pulled apart",
+      "anchor_a": {"description": "5' end", "end": "5_prime"},
+      "anchor_b": {"description": "3' end", "end": "3_prime"},
+      "evidence": [
+        {"field": "protocol.geometry", "method": "manual_curation", "confidence": "medium",
+         "snippet": "unzipping is simulated by pulling the two ends apart"}
+      ]
+    },
+    "evidence": [
+      {"field": "protocol.mode", "method": "manual_curation", "confidence": "medium",
+       "snippet": "constant-velocity unzipping"}
+    ]
+  },
+  "results": [
+    {"quantity": "unzipping_force", "value": 15, "unit": "pN", "unit_system": "physical",
+     "statistic": "mean",
+     "provenance": [{"field": "results[0]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation; oxDNA unzipping forces are of this order"}]},
+    {"quantity": "distance_to_transition_state", "value": 1.2, "unit": "nm",
+     "unit_system": "physical",
+     "provenance": [{"field": "results[1]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation"}]}
+  ],
+  "data_availability": {
+    "status": "public_repository",
+    "has_linked_dataset": true,
+    "has_any_data": true,
+    "datasets": [
+      {"id": "https://github.com/lorenzo-rovigatti/oxDNA", "url": "https://github.com/lorenzo-rovigatti/oxDNA",
+       "repository": "GitHub", "title": "oxDNA source and examples", "content": "code"}
+    ],
+    "input_files": {"available": true, "formats": ["dat", "top", "conf"],
+                    "statement": "oxDNA input files are distributed with the model."},
+    "trajectories": {"available": false, "statement": "Example trajectories only; production runs are not deposited."}
+  },
+  "curation": {
+    "status": "manually_reviewed",
+    "curator": "schema-example",
+    "date": "2026-10-11",
+    "notes": "Hand-made example for schema validation, not a corpus record. It exercises the reduced-units-with-stated-conversion path for a nucleic-acid model."
+  },
+  "fair_completeness": {
+    "publication": 0.667, "system": 0.5, "model": 1.0, "protocol": 0.667,
+    "results": 1.0, "data": 1.0, "overall": 0.806
+  }
+}

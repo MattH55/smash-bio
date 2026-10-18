@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMASH-Pull model and limits | SMASH-BIO</title>
+  <meta name="description" content="How the SMASH-Pull browser simulator works: a Cα structure-based protein model, a nearest-neighbour DNA/RNA unzipping model with an optical-trap instrument, what each can and cannot tell you, and how it was validated.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/pull.css">
+  <script src="js/chrome.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="pull-hero">
+    <div class="container">
+      <span class="pull-tag">Model &amp; limits</span>
+      <h1>How SMASH-Pull works</h1>
+      <p>Two small physical models, compiled to WebAssembly and run on your computer. This page says what each model contains, what it leaves out, and how far to trust each number it reports.</p>
+      <div class="toc"><a class="chip" href="#protein">Protein model</a><a class="chip" href="#analysis">Protein analysis</a><a class="chip" href="#nucleic">DNA/RNA model</a><a class="chip" href="#trust">What to trust</a><a class="chip" href="#privacy">Privacy</a><a class="chip" href="#licences">Sources &amp; licences</a></div>
+    </div>
+  </header>
+  <main class="container prose" style="padding-bottom:60px">
+    <div class="warnbox"><strong>Status: beta, both engines labelled experimental.</strong> Each engine had to pass pre-registered validation gates before going live. The protein engine fails one geometry gate: GFP pulling directions rank by chain length rather than by measured strength, because solvent drag dominates at affordable speeds. The nucleic engine fails the absolute-force gate: it puts F½ about 5 pN above experiment for 20-bp hairpins. Trends pass in both. Details are on the <a href="benchmarks.html">benchmarks page</a>.</div>
+
+    <h2 id="protein">Protein model</h2>
+    <p>Each residue is one bead at its Cα atom. The energy is a structure-based ("Gō") Hamiltonian built from the structure you load, the same one used by the SMASH-BIO reference pipeline:</p>
+    <ul>
+      <li><strong>Backbone:</strong> harmonic bonds (100 ε/Å²) and angles (20 ε/rad²) at their native values, and dihedral terms (1 − cos Δφ) + ½(1 − cos 3Δφ).</li>
+      <li><strong>Native contacts:</strong> every pair of residues at least 4 apart in sequence whose Cα atoms are within 8 Å in the structure gets a Lennard-Jones 12-6 well (or 10-12, selectable) with its minimum at the native distance.</li>
+      <li><strong>Everything else</strong> repels with (4 Å / r)¹² out to 12 Å.</li>
+      <li><strong>Dynamics:</strong> Langevin velocity-Verlet at kT = 0.5 ε, friction γ = 1, time step 0.01 τ. The fixed residue is held by a stiff spring; the pulled one is attached to a spring moving at constant speed (AFM-like, optical-trap-like) or to a constant force (force clamp).</li>
+    </ul>
+    <p>The browser engine reproduces the reference energies to 10⁻⁹ and its forces to 10⁻⁵ of their scale on real structures. It is several times faster because it uses an analytic dihedral gradient and a neighbour list, and does one force evaluation per step.</p>
+    <h3>Units: why there are no piconewtons</h3>
+    <p>Energies are in ε, the depth of a native contact; lengths in Å; time in τ. Forces are therefore in ε/Å. Turning ε/Å into pN needs a calibration against experiment, which this model does not have, so <strong>protein forces are never shown in pN</strong>. The calibration file (<code>data/calibration.json</code>) is deliberately empty: a future calibration would be published there, versioned, with its evidence. Lengths, extensions and contour lengths come straight from the structure, so they <em>are</em> physical.</p>
+    <h3>Solvent drag</h3>
+    <p>A browser can integrate a few hundred thousand steps per trajectory, so the pulling speeds are fast in model time. At these speeds friction on the moving chain (roughly γ·v times half the number of beads being dragged) is a large share of the measured tension. Two consequences:</p>
+    <ul><li>Peak tension rises with speed partly for this reason, so loading-rate fits give a lower bound on the barrier distance.</li><li><strong>Comparing pulling geometries that span different lengths of chain is confounded</strong>: the longer span carries more drag. Compare directions or proteins whose pulled spans are similar, or check the unfolding order rather than the peak height.</li></ul>
+    <h3>Structure preparation</h3>
+    <ul>
+      <li>Only Cα atoms of the chosen chain are used; altlocs keep their first copy. Structures above 400 residues must be cut to a domain.</li>
+      <li><strong>AlphaFold models:</strong> residues with pLDDT below the cut-off (default 50) keep their bonds but lose their native contacts. They do not become repulsive, they simply have no native attraction.</li>
+      <li><strong>Disulfides, metals and ligands</strong> are detected and reported but not modelled. A disulfide can break in the simulation although it would not in an experiment, which matters most when it bridges the pulled span.</li>
+      <li>Chain breaks (numbering gaps or Cα gaps over 4.2 Å) are bonded across and reported.</li>
+    </ul>
+
+    <h2 id="analysis">Protein analysis</h2>
+    <ul>
+      <li><strong>Unfolding events</strong> are local maxima of the smoothed tension followed by a drop of at least 15 % of the peak height above baseline, or three times the noise, whichever is larger.</li>
+      <li><strong>Peak tension</strong> is the maximum of the 5-point smoothed tension.</li>
+      <li><strong>ΔLc (contour length released)</strong>. In an experiment, ΔLc is the length of chain newly placed in the force path when a domain unfolds. The model can measure this exactly. At each event it computes the shortest path from the fixed to the pulled residue along the chain (3.8 Å per bond) and through native contacts that are still intact. ΔLc is the growth of that path from one event to the next. A WLC fit to the simulated curve would be biased by drag. For titin I27 the events add up to 28 nm, as in experiments.</li>
+      <li><strong>Bell–Evans fit</strong>: peak tension against the log of the loading rate k·v. The slope is kT/xβ.</li>
+      <li><strong>Unfolding order</strong>: for every native contact, the step after which it stayed broken, averaged over replicas at the slowest speed. This is the model's most robust output.</li>
+    </ul>
+
+    <h2 id="nucleic">DNA / RNA model</h2>
+    <p>A hairpin or a duplex is described by one number, <em>n</em>: how many base pairs are open, counted from the end attached to the handles. The model adds up the following:</p>
+    <ul>
+      <li><strong>Base-pair stability:</strong> published Watson–Crick nearest-neighbour stacks, from SantaLucia 1998 for DNA and Xia et al. 1998 for RNA. Their ΔH and ΔS are evaluated at the temperature you set, plus SantaLucia's salt term. Mg²⁺ is converted to an equivalent monovalent concentration ([Na⁺] + 120√[Mg²⁺], in mM), an approximation flagged in the output.</li>
+      <li><strong>Hairpin loop:</strong> the loop-initiation free energy from the Nearest Neighbor Database (DNA table; Turner 2004 for RNA), released when the last base pair opens. Terminal mismatches and special loop bonuses are not included.</li>
+      <li><strong>Mechanics:</strong> released single strand as a worm-like chain (0.59 nm per nucleotide, persistence length 0.75 nm), a folded hairpin as a 2 nm rod, double-stranded handles as an extensible worm-like chain (50 nm, 1000 pN), and the trap or cantilever as a spring. The equilibrium curve and F½ follow from the free energy at fixed trap position.</li>
+      <li><strong>Kinetics:</strong> base pairs open and close one at a time with rates k₀·exp(−ΔG/2kT) (kinetic Monte Carlo, exact Gillespie dynamics with the trap moving in 0.05 nm ticks). The attempt rate k₀ is an input you can change (default 10⁶ s⁻¹), not a fitted number: all times scale with it.</li>
+    </ul>
+    <p>Not represented: mismatches, bulges, internal and multibranch loops, pseudoknots, tertiary contacts, coaxial stacking, and sequence-dependent single-strand elasticity. A sequence that is not a perfect stem with a loop, or a duplex, is refused rather than approximated.</p>
+
+    <h2 id="trust">What to trust</h2>
+    <div class="table-wrap"><table class="pull-table">
+      <thead><tr><th>Output</th><th>Trust</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Protein unfolding order, which contacts resist force</td><td><span class="gate pass">good</span></td><td>Determined by native topology, which Gō models capture well.</td></tr>
+        <tr><td>Protein ΔLc and contour lengths (nm)</td><td><span class="gate pass">good</span></td><td>Pure geometry; I27 total 28 nm as in experiment.</td></tr>
+        <tr><td>Ranking of directions with similar pulled spans</td><td><span class="gate pending">fair</span></td><td>Ubiquitin N–C > K48–C reproduced, but partly through drag.</td></tr>
+        <tr><td>Ranking of directions with different spans</td><td><span class="gate fail">poor</span></td><td>Drag confound; GFP gate failed.</td></tr>
+        <tr><td>Protein forces in pN, rates in s⁻¹</td><td><span class="gate notrun">none</span></td><td>No calibration; never displayed.</td></tr>
+        <tr><td>DNA/RNA trends with GC content, length, salt, temperature</td><td><span class="gate pass">good</span></td><td>Monotonic GC trend passes; published thermodynamics.</td></tr>
+        <tr><td>DNA/RNA Δx and contour lengths</td><td><span class="gate pass">good</span></td><td>Δx at F½ within the gate (16.4 vs 18 ± 2 nm).</td></tr>
+        <tr><td>DNA/RNA absolute F½</td><td><span class="gate pending">fair</span></td><td>About 5 pN high on the 20-bp benchmark class.</td></tr>
+        <tr><td>Hopping and rupture times</td><td><span class="gate notrun">relative</span></td><td>Proportional to the assumed k₀.</td></tr>
+      </tbody></table></div>
+
+    <h2 id="privacy">Privacy and network</h2>
+    <p>The engine runs in Web Workers on your machine. The page loads only its own files from smash-bio.org. When you ask for a structure it contacts:</p>
+    <ul>
+      <li><strong>files.rcsb.org</strong>, for a PDB ID;</li>
+      <li><strong>alphafold.ebi.ac.uk</strong>, for a UniProt accession;</li>
+      <li><strong>rest.uniprot.org</strong>, for a sequence lookup. Only the sequence's CRC64 checksum is sent.</li>
+    </ul>
+    <p>Uploaded files and typed DNA/RNA sequences never leave the browser. These pages carry no analytics. A "Copy link" URL contains your settings (and a DNA/RNA sequence, if you typed one), and is shared only when you share it.</p>
+
+    <h2 id="licences">Sources and licences</h2>
+    <ul>
+      <li>Engine: original Rust code with no third-party dependencies (the JSON reader, random-number generator, maths functions and models are all written for SMASH-Pull). The arccosine uses the rational approximation from fdlibm (© 1993 Sun Microsystems; "Permission to use, copy, modify, and distribute this software is freely granted, provided that this notice is preserved").</li>
+      <li>DNA stacks: SantaLucia, <em>PNAS</em> 95:1460 (1998); RNA stacks: Xia et al., <em>Biochemistry</em> 37:14719 (1998); hairpin loops: Nearest Neighbor Database (Mathews lab, University of Rochester; DNA loop table and Turner 2004). Published measured values; transcribed, not copied code.</li>
+      <li>Structures: RCSB PDB (CC0), AlphaFold DB (CC BY 4.0; cite Jumper et al. 2021 and Varadi et al. 2024), UniProt (CC BY 4.0).</li>
+      <li>Validation, protocols and the integration notes are in the project repository under <code>docs/pull/</code>.</li>
+    </ul>
+  </main>
+  <footer id="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "record_id": "SIM-900002",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {
+    "kind": "publication",
+    "doi": "10.1038/s41467-017-01996-1",
+    "title": "Partially native intermediates mediate misfolding of SOD1 in single-molecule folding trajectories",
+    "journal": "Nature Communications",
+    "year": 2017,
+    "url": "https://doi.org/10.1038/s41467-017-01996-1",
+    "retrieved": "2026-10-11",
+    "evidence": [
+      {"field": "source.doi", "method": "manual_curation", "confidence": "high",
+       "snippet": "Sen Mojumdar et al., Nat Commun 8:1881 (2017)"}
+    ]
+  },
+  "system": {
+    "molecule_type": "protein",
+    "name": "Cu/Zn superoxide dismutase (SOD1)",
+    "entities": [
+      {"name": "Cu/Zn superoxide dismutase (SOD1)", "entity_type": "protein",
+       "role": "tethered_construct",
+       "identifiers": [{"scheme": "uniprot", "id": "P00441", "verified": true}]}
+    ],
+    "construct": {"residue_range": "1-153", "description": "reduced apo state, disulfide and metal ions removed"},
+    "structure_source": "PDB",
+    "structures": [{"scheme": "pdb", "id": "3ECU", "verified": true}],
+    "evidence": [
+      {"field": "system.construct", "method": "manual_curation", "confidence": "high",
+       "snippet": "start from the crystal structure (PDB 3ECU), disulfide and metal ions removed to match the reduced apo state"}
+    ]
+  },
+  "model": {
+    "family": "Go_CA",
+    "family_group": "protein",
+    "parameter_set": "Clementi-Nymeyer-Onuchic C-alpha Go template from SMOG 2",
+    "solvent": "implicit",
+    "software": [{"name": "SMOG 2"}, {"name": "OpenSMOG"}, {"name": "OpenMM"}],
+    "unit_system": "reduced_with_stated_conversion",
+    "unit_conversions": {
+      "energy_epsilon": {"value": 1.4, "unit": "kcal/mol",
+                         "note": "non-native contact energy scale used in this protocol"},
+      "statement": "The C-alpha Go model uses reduced energy and length units; comparison with experiment requires the renormalisation discussed in the paper.",
+      "evidence": [
+        {"field": "model.unit_conversions", "method": "manual_curation", "confidence": "medium",
+         "snippet": "epsilon set in kcal/mol; forces renormalised before comparison with experiment"}
+      ]
+    },
+    "evidence": [
+      {"field": "model.family", "method": "manual_curation", "confidence": "high",
+       "snippet": "convert to a C-alpha Go-type model"}
+    ]
+  },
+  "protocol": {
+    "mode": "constant_velocity",
+    "pulling_speed": {"value": 1, "unit": "m/s", "note": "1 m/s as reported"},
+    "pulling_speed_m_per_s": 1.0,
+    "spring_constant": {"value": 6, "unit": "pN/nm"},
+    "n_trajectories": 26,
+    "geometry": {
+      "force_application_geometry": "single_trap_surface_tether",
+      "description": "one terminus anchored, the other pulled by a harmonic spring",
+      "anchor_a": {"description": "anchor residue held fixed", "end": "unspecified"},
+      "anchor_b": {"description": "pulled terminus", "end": "unspecified"},
+      "evidence": [
+        {"field": "protocol.spring_constant", "method": "manual_curation", "confidence": "high",
+         "snippet": "pull at 1 m/s with a 6 pN/nm spring"}
+      ]
+    },
+    "evidence": [
+      {"field": "protocol.mode", "method": "manual_curation", "confidence": "high",
+       "snippet": "26 unfolding trajectories at constant velocity"}
+    ]
+  },
+  "results": [
+    {"quantity": "number_of_steps_or_intermediates", "value": 1, "unit": "1",
+     "unit_system": "physical", "n_intermediates": 1,
+     "provenance": [{"field": "results[0]", "method": "manual_curation", "confidence": "medium",
+                     "snippet": "intermediates identified as structures that persist longer than 10 ps"}]}
+  ],
+  "data_availability": {
+    "status": "on_request",
+    "has_linked_dataset": false,
+    "statement": "Code is available from the corresponding author on request; no public deposit.",
+    "trajectories": {"available": false, "statement": "not deposited publicly"}
+  },
+  "curation": {
+    "status": "manually_reviewed",
+    "curator": "schema-example",
+    "date": "2026-10-11",
+    "notes": "Hand-made example for schema validation, not a corpus record. Protocol values are the ones the paper states; no unpublished number is invented."
+  },
+  "fair_completeness": {
+    "publication": 0.667, "system": 1.0, "model": 1.0, "protocol": 0.833,
+    "results": 1.0, "data": 0.0, "overall": 0.75
+  }
+}

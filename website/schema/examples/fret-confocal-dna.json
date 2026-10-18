@@ -1,0 +1,24 @@
+{
+  "record_id": "FRET-000001",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.confocal", "pmid": "00000001", "title": "Confocal smFRET of a DNA hairpin", "authors": ["Example A", "Example B"], "journal": "Example Journal", "year": 2024, "open_access": true},
+  "technique": {"primary": "smfret_confocal_burst", "excitation_scheme": "PIE", "detection": "point_detector", "geometry": "confocal_diffusion", "time_resolution": {"value": 50, "unit": "us"}},
+  "biological_system": {"molecule_types": ["DNA"], "entities": [{"name": "DNA hairpin", "type": "DNA", "length_nt": 42, "description": "42-nt hairpin labelled at the stem termini."}]},
+  "construct": {"labels": [{"name": "Cy3B", "role": "donor", "labeling_site": "nucleotide 5", "labeling_chemistry": "hybridization"}, {"name": "ATTO 647N", "role": "acceptor", "labeling_site": "nucleotide 37", "labeling_chemistry": "hybridization"}], "forster_radius": {"value": 6.1, "unit": "nm"}, "forster_radius_source": "literature", "immobilization": "freely_diffusing"},
+  "fret_assays": [{
+    "assay_id": "hairpin-buffer-1",
+    "fluorophores": [{"role": "donor", "name": "Cy3B", "labeling_site": "nucleotide 5"}, {"role": "acceptor", "name": "ATTO 647N", "labeling_site": "nucleotide 37"}],
+    "solution": {"buffer": "20 mM Tris, 50 mM NaCl", "pH": 7.5, "photostabilization": {"oxygen_scavenging": "PCA_PCD", "triplet_quenchers": ["Trolox"]}},
+    "hardware": {"confocal": {"laser_lines": [{"value": 532, "unit": "nm"}, {"value": 635, "unit": "nm"}], "objective_na": 1.4, "pinhole_diameter": {"value": 50, "unit": "um"}, "detectors": ["APD"], "polarization_resolved": true}},
+    "acquisition": {"sampling_rate": {"value": 20, "unit": "kHz"}, "burst_selection": "minimum 30 photons"},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": true, "detection_efficiency": true, "alpha": {"value": 0.08, "reported": true}, "delta": {"value": 0.04, "reported": true}, "gamma": {"value": 0.92, "reported": true}},
+    "analysis": {"accurate_vs_apparent_E": "accurate", "software": ["FRETBursts", "PAM"], "state_detection": "clustering", "kinetic_model": "dwell_time", "forster_radius": {"value": 6.1, "unit": "nm"}},
+    "trace_sets": [{"id": "photon-stream-1", "format": "Photon-HDF5", "channels": ["donor_parallel", "donor_perpendicular", "acceptor_parallel", "acceptor_perpendicular", "time"], "n_molecules": 214, "processed": false}]
+  }],
+  "results": [{"quantity": "fret_efficiency_accurate", "value": 0.72, "unit": "1", "uncertainty": 0.03, "uncertainty_type": "SD", "statistic": "mean", "n_molecules": 214, "state": "folded", "distance_model": "Forster"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "raw_traces_available": true, "datasets": [{"id": "10.0000/example.data", "scheme": "doi", "repository": "Zenodo", "content": "raw_traces", "file_formats": ["h5", "csv"]}]},
+  "data_flags": {"has_raw_traces": true, "has_raw_photon_data": true, "has_raw_movies": false},
+  "observer_effect": {"assessed": true, "photoblinking_observed": false, "photobleaching_lifetime": {"value": 45, "unit": "s"}},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.8, "assay": 1.0, "construct": 0.7, "solution": 0.5, "analysis": 0.9, "data": 1.0, "overall": 0.86},
+  "provenance": [{"field": "results[0]", "method": "manual_curation", "section": "Results", "confidence": "high"}]
+}

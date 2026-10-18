@@ -1,0 +1,242 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-025-62153-7"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM-based single-cell force spectroscopy (JPK CellHesion 200 / NanoWizard II with CellHesion module): ConA-functionalised tipless cantilevers carry single HeLa cells or mouse embryonic kidney fibroblasts that are pressed onto microcontact-printed collagen I or fibronectin patterns of defined area for 5-360 s and retracted; adhesion, single rupture and tether forces analysed. Includes talin/kindlin/paxillin knockouts, Mn2+/blebbistatin/latrunculin A treatments and correlative confocal imaging of paxillin-GFP."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_cell_surface",
+    "correlative_modalities": [
+      "confocal_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "JPK Instruments",
+    "model_number": "CellHesion 200; NanoWizard II with CellHesion module",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "objective_lens": {
+      "make": "Zeiss",
+      "magnification": 63,
+      "numerical_aperture": 1.3
+    },
+    "temperature": {
+      "value": 310.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The ambient temperature was maintained at 37 °C by a PetriDish-Heater (JPK instruments).",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "thermal_noise_cantilever"
+    ],
+    "afm": {
+      "cantilever_model": "NP-O (tipless), Bruker",
+      "spring_constant": {
+        "value": 60,
+        "unit": "pN/nm",
+        "note": "nominal; each cantilever calibrated by thermal noise",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Tipless AFM cantilevers with a nominal spring constant of 0.06 N m–1 (NP-O, Bruker)",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 5000,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the cantilever-bound cell was retracted from the substrate at 5 μm s–1 for 100 μm until cell and substrate were fully separated",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "bead_functionalization": [
+      "concanavalin A (cantilever)"
+    ],
+    "attachment_chemistry": [
+      "concanavalin A cell capture on cantilever",
+      "microcontact-printed ECM protein on glass"
+    ],
+    "trap_control": [
+      "constant_velocity",
+      "constant_distance"
+    ],
+    "pulling_speed": {
+      "value": 5000,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "approaching single cells to the patterned protein substrate at 5 μm s–1 until recording a contact force of 2 nN",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      },
+      {
+        "name": "Mus musculus",
+        "ncbi_taxon": 10090
+      },
+      {
+        "name": "Bos taurus",
+        "ncbi_taxon": 9913
+      }
+    ],
+    "entities": [
+      {
+        "name": "HeLa (Kyoto) cells (wt, talin KO, kindlin KO, TKO+THD, paxillin KO)",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Wild type HeLa (Kyoto) (kind gift from A. Hyman, MPI Molecular Cell Biology and Genetics, Germany), TKO HeLa cells49, TKO + THD HeLa cells49, KKO HeLa cells49, PXN KO HeLa cells",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Mouse embryonic kidney fibroblasts (wt, TKO, TKO+THD, KKO, PXN KO)",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Mus musculus",
+          "ncbi_taxon": 10090
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "wild type mouse embryonic kidney fibroblasts39, TKO fibroblasts19, TKO + THD fibroblasts (kind gift from C. Grashoff, University of Munster, Germany), KKO fibroblasts19 and PXN KO fibroblasts",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Collagen I (PureCol, microcontact-printed patterns)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "fluorescent_labels": [
+          {
+            "identifier": "Alexa Fluor 555"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Collagen I (PureCol® Type I Collagen, 5005, Advanced BioMatrix) or fibronectin (Fibronectin, Bovine Plasma, 341631, Sigma Aldrich) were fluorescently labeled",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Fibronectin, bovine plasma (microcontact-printed patterns)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Bos taurus",
+          "ncbi_taxon": 9913
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "Alexa Fluor 555"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "fibronectin (Fibronectin, Bovine Plasma, 341631, Sigma Aldrich)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "FNIII7-10ΔRGD (non-adhesive passivation / reference)",
+        "entity_type": "protein",
+        "role": "other",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Alexa fluor 488 (Alexa fluor™ 488 NHS Ester, A20000, Thermo Fisher Scientific)-labeled FNIII7-10ΔRGD (50 μg ml–1)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Paxillin-GFP",
+        "entity_type": "protein",
+        "role": "other",
+        "fluorescent_labels": [
+          {
+            "identifier": "GFP"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "wt HeLa cells and fibroblasts overexpressing paxillin-GFP were maintained at SCFS for 70 min",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "HeLa (Kyoto); mouse embryonic kidney fibroblasts"
+    }
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "components": [
+      {
+        "name": "DMEM (SCFS medium)"
+      },
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "MnCl2",
+        "concentration": {
+          "value": 0.5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "blebbistatin",
+        "concentration": {
+          "value": 20,
+          "unit": "µM"
+        }
+      },
+      {
+        "name": "latrunculin A",
+        "concentration": {
+          "value": 1,
+          "unit": "µM"
+        }
+      }
+    ]
+  },
+  "results": []
+}

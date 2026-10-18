@@ -1,0 +1,84 @@
+{
+  "record_id": "SIM-900005",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {
+    "kind": "publication",
+    "title": "Force-modified nearest-neighbour model of an RNA hairpin",
+    "journal": "example",
+    "year": 2024,
+    "retrieved": "2026-10-11",
+    "notes": "Hand-made schema example: the setup is a force-modified ViennaRNA partition function, the numbers are illustrative.",
+    "evidence": [
+      {"field": "source.kind", "method": "manual_curation", "confidence": "high",
+       "snippet": "sequence-based thermodynamic model under constant force"}
+    ]
+  },
+  "system": {
+    "molecule_type": "RNA",
+    "name": "RNA hairpin / stem-loop",
+    "construct": {"nucleotide_range": "1-45"},
+    "structure_source": "predicted_secondary_structure",
+    "evidence": [
+      {"field": "system.structure_source", "method": "manual_curation", "confidence": "medium",
+       "snippet": "secondary structure predicted from the sequence; no atomic structure"}
+    ]
+  },
+  "model": {
+    "family": "thermodynamic_nearest_neighbour",
+    "family_group": "nucleic_acid",
+    "parameter_set": "Turner nearest-neighbour parameters",
+    "solvent": "none",
+    "software": [{"name": "ViennaRNA"}],
+    "unit_system": "physical",
+    "evidence": [
+      {"field": "model.family", "method": "manual_curation", "confidence": "medium",
+       "snippet": "force-modified partition function built from nearest-neighbour thermodynamics"}
+    ]
+  },
+  "protocol": {
+    "mode": "constant_force",
+    "force_range": {"value": 15, "unit": "pN", "note": "upper end of the force range explored"},
+    "geometry": {
+      "force_application_geometry": "other",
+      "description": "force applied between the 5' and 3' ends of the molecule",
+      "anchor_a": {"description": "5' end", "end": "5_prime"},
+      "anchor_b": {"description": "3' end", "end": "3_prime"}
+    },
+    "evidence": [
+      {"field": "protocol.mode", "method": "manual_curation", "confidence": "medium",
+       "snippet": "equilibrium population computed at fixed force"}
+    ]
+  },
+  "results": [
+    {"quantity": "unzipping_force", "value": 14, "unit": "pN", "unit_system": "physical",
+     "statistic": "most_probable",
+     "provenance": [{"field": "results[0]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation"}]},
+    {"quantity": "activation_free_energy", "value": 25, "unit": "kBT", "unit_system": "physical",
+     "provenance": [{"field": "results[1]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative value for schema validation"}]},
+    {"quantity": "number_of_steps_or_intermediates", "value": 0, "unit": "1",
+     "unit_system": "physical", "n_intermediates": 0,
+     "provenance": [{"field": "results[2]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "two-state model: no intermediates"}]}
+  ],
+  "data_availability": {
+    "status": "code_only",
+    "has_linked_dataset": false,
+    "has_any_data": true,
+    "code": [{"id": "https://www.tbi.univie.ac.at/RNA/", "url": "https://www.tbi.univie.ac.at/RNA/",
+              "repository": "institutional", "repository_name": "ViennaRNA", "content": "code"}],
+    "scripts": {"available": true, "formats": ["python"], "statement": "analysis scripts accompany the paper"}
+  },
+  "curation": {
+    "status": "manually_reviewed",
+    "curator": "schema-example",
+    "date": "2026-10-11",
+    "notes": "Hand-made example for schema validation, not a corpus record. It exercises a sequence-based thermodynamic model, which has no trajectory at all."
+  },
+  "fair_completeness": {
+    "publication": 0.333, "system": 0.5, "model": 0.8, "protocol": 0.5,
+    "results": 1.0, "data": 0.0, "overall": 0.522
+  }
+}

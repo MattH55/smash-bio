@@ -1,0 +1,271 @@
+{
+  "publication": {
+    "doi": "10.1073/pnas.2416191122"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Custom dual-trap optical tweezers force-extension (constant-velocity pulling) of single prion protein (PrP 90-231) molecules from dog, hamster and bank vole, each tethered via cysteine-linked DNA handles; folding intermediates, pathways and barriers compared across species. Includes all-atom MD of candidate intermediate substructures."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "acquisition_rate": {
+      "value": 20,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data were sampled at 20 kHz and filtered online with an eight-pole Bessel filter (Krohn-Hite) at the Nyquist frequency.",
+        "confidence": "high"
+      }
+    },
+    "filter_frequency": {
+      "value": 10000,
+      "unit": "Hz",
+      "note": "Nyquist frequency of 20 kHz sampling = 10 kHz; auto value of 20000 Hz was wrong",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data were sampled at 20 kHz and filtered online with an eight-pole Bessel filter (Krohn-Hite) at the Nyquist frequency.",
+        "confidence": "medium"
+      }
+    },
+    "calibration_technique": [
+      "equipartition",
+      "power_spectrum_passive",
+      "stokes_drag"
+    ],
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.37,
+        "max": 0.56,
+        "unit": "pN/nm",
+        "note": "two traps",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The trap stiffnesses were 0.37 and 0.56 pN/nm, calibrated by three independent means (extension variance, extension power spectral density, and viscous drag) as described (82).",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "min": 600,
+      "max": 820,
+      "unit": "nm",
+      "note": "600 nm avidin beads and 820 nm anti-digoxigenin beads",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "250 pM polystyrene beads (600-nm diameter functionalized with avidin, 820-nm diameter functionalized with anti-digoxigenin) to form dumbbells",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "avidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–avidin",
+      "digoxigenin–anti-digoxigenin",
+      "cysteine–DTDP-activated disulfide to sulfhydryl-labelled DNA handle"
+    ],
+    "trap_control": [
+      "constant_velocity",
+      "force_ramp"
+    ],
+    "pulling_speed": {
+      "min": 20,
+      "max": 250,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "pulling speeds of 125 to 250 nm/s for CaPrP and BvPrP, 20-230 nm/s for HaPrP",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "length_bp": 802,
+        "annotations": "for CaPrP and BvPrP: one of length 802 bp labeled with biotin"
+      },
+      {
+        "length_bp": 2100,
+        "annotations": "the other of length 2,100 bp labeled with digoxigenin"
+      },
+      {
+        "length_bp": 798,
+        "annotations": "for HaPrP, 798 bp labeled with biotin"
+      },
+      {
+        "length_bp": 1261,
+        "annotations": "1261 bp labeled with digoxigenin"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein"
+    ],
+    "organisms": [
+      {
+        "name": "Canis lupus familiaris",
+        "ncbi_taxon": 9615
+      },
+      {
+        "name": "hamster"
+      },
+      {
+        "name": "Myodes glareolus",
+        "ncbi_taxon": 447135
+      }
+    ],
+    "entities": [
+      {
+        "name": "Dog prion protein (CaPrP 90–231)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Canis lupus familiaris",
+          "ncbi_taxon": 9615
+        },
+        "region": "residues 90–231",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "O46501",
+            "verified": false
+          },
+          {
+            "scheme": "pdb",
+            "id": "1XYK",
+            "verified": false
+          }
+        ],
+        "mutations": [
+          "Cys added at both termini for handle attachment"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Samples of PrP from each species, with sequence truncated to residues 90–231 (forming the protease-resistant core of PrPSc), were expressed recombinantly in Escherichia coli",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Hamster prion protein (HaPrP 90–231)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "hamster"
+        },
+        "region": "residues 90–231",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "1B10",
+            "verified": false
+          }
+        ],
+        "mutations": [
+          "Cys added at both termini for handle attachment"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "PDB structures for each PrP variant (CaPrP: 1XYK, HaPrP: 1B10, BvPrP: 2K56)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Bank vole prion protein (BvPrP 90–231)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Myodes glareolus",
+          "ncbi_taxon": 447135
+        },
+        "region": "residues 90–231",
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "2K56",
+            "verified": false
+          }
+        ],
+        "mutations": [
+          "Cys added at both termini for handle attachment"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "dogs (immune), hamsters (susceptible), and bank voles (extremely susceptible)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dsDNA handles (biotin and digoxigenin labelled)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "for CaPrP and BvPrP: one of length 802 bp labeled with biotin, the other of length 2,100 bp labeled with digoxigenin; for HaPrP, 798 bp labeled with biotin and 1261 bp labeled with digoxigenin",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "MOPS",
+    "pH": 7.0,
+    "components": [
+      {
+        "name": "MOPS",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 200,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glucose oxidase",
+        "concentration": {
+          "value": 8,
+          "unit": "mU/µL"
+        }
+      },
+      {
+        "name": "catalase",
+        "concentration": {
+          "value": 20,
+          "unit": "mU/µL"
+        }
+      },
+      {
+        "name": "D-glucose",
+        "concentration": {
+          "value": 0.01,
+          "unit": "% w/v"
+        }
+      }
+    ],
+    "oxygen_scavenging": "glucose oxidase, catalase, D-glucose"
+  },
+  "results": []
+}

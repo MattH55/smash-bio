@@ -1,0 +1,20 @@
+{
+ "id": "mykuliak-2020",
+ "name": "Steered MD vs boxed MD benchmark (Mykuliak et al., Biophys J 2020)",
+ "kind": "dataset",
+ "source_url": "https://etsin.fairdata.fi/dataset/c71a62be-550d-4e7c-9fc1-8fc008148aed",
+ "doi": "10.23729/e4805d6f-e85e-4712-8481-948dfc7c6f0e",
+ "license": "Creative Commons Attribution 4.0 International",
+ "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+ "redistributable": true,
+ "retrieved": "2026-10-11",
+ "status": "reachable",
+ "datacite": {
+  "title": "Mechanical unfolding of proteins – a comparative non-equilibrium molecular dynamics study",
+  "publisher": "Tampere University, BioMediTech",
+  "published": "2020",
+  "resource_type": "Dataset"
+ },
+ "notes": "Small method benchmark released under CC BY 4.0 on Fairdata; indexed with a link. Files are fetched only if redistribution is later confirmed as wanted.",
+ "unit_system": "physical"
+}

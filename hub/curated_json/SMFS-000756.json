@@ -1,0 +1,74 @@
+{
+  "publication": {"doi": "10.1038/s41467-024-52749-w"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Custom dual-trap optical tweezers test a rationally designed DNA catch bond ('fish-hook'): a hook construct (2633 bp dsDNA handle + PEG spacer + ssDNA hook) and a fish construct (272 bp handle + jaw/hook-binding region) on separate 1 µm streptavidin beads are brought into contact and retracted at three speeds; rupture forces/ΔLc fitted by XWLC and compared with analytical and Monte Carlo models. No AFM is used (auto record was wrong)."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "temperature": {"value": 296.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "All optical trap experiments were performed at room temperature (~23 °C).", "confidence": "high"}},
+    "acquisition_rate": {"value": 5, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Data is collected at 5000 Hz using custom LabVIEW code.", "confidence": "high"}},
+    "calibration_technique": ["power_spectrum_passive"],
+    "optical": {"number_of_traps": 2}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_nucleic_acid", "receptor_ligand_adhesion"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {"value": 1000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "The fish and hook DNA constructs were attached separately to 1 µm diameter streptavidin-coated polystyrene beads (Bang Labs, Fishers, IN, USA)", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin", "DNA hybridization (fish–hook)"],
+    "trap_control": ["constant_velocity"],
+    "handle_sequences": [
+      {"length_bp": 2633, "annotations": "The final hook construct was 2633 bp of double-stranded DNA (dsDNA) with a PEG spacer connecting the single-stranded hook on one 5′ end and a biotin on the other 5′ end."},
+      {"length_bp": 272, "annotations": "The final fish construct was 272 bp of dsDNA with biotin on one 5′ end and the fish on the other end."}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_nucleic_acid", "receptor_ligand_adhesion"],
+    "entities": [
+      {
+        "name": "DNA fish-hook catch bond (ssDNA hook hybridised to fish jaw/hook-binding region)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {"method": "llm_review", "snippet": "The fish was created separately from two single-stranded sequences: one containing the hook binding region and one of the jaw strands, and the other containing the complementary jaw strand and a sticky end for ligation to the handle.", "confidence": "high"}
+      },
+      {
+        "name": "Hook handle (2633 bp lambda-DNA PCR product, PEG spacer, 5′ biotin)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {"value": 2633, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "The hook handle was a 2633 bp PCR-amplified segment of a lambda DNA template (New England Biolabs, Whitby, ON, Canada).", "confidence": "high"}
+      },
+      {
+        "name": "Fish handle (272 bp lambda-DNA PCR product, 5′ biotin)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {"value": 272, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "The fish handle was 272 bp of dsDNA, similarly constructed from the lambda template with a reverse primer modified with 5′ biotin.", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 8.0,
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "MgCl2", "concentration": {"value": 5, "unit": "mM"}},
+      {"name": "protocatechuic acid (PCA)", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "protocatechuate-3,4-dioxygenase (PCD)", "concentration": {"value": 50, "unit": "nM"}}
+    ],
+    "oxygen_scavenging": "protocatechuic acid / protocatechuate-3,4-dioxygenase (PCA/PCD)",
+    "evidence": {"method": "llm_review", "snippet": "The trap buffer used in all the optical trap experiments contains 50 mM NaCl, 10 mM Tris-HCl (pH 8.0), 5 mM MgCl2, and an oxygen scavenger system using 20 mM protocatechuic acid (PCA) and 50 nM protocatechuate-3,4-dioxygenase", "confidence": "high"}
+  },
+  "results": []
+}

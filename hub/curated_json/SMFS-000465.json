@@ -1,0 +1,217 @@
+{
+  "publication": {
+    "doi": "10.1073/pnas.2417234122"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Custom dual-trap optical tweezers force-ramp (~300 nm/s) unfolding of the Zika virus exoribonuclease-resistant RNA (xrRNA1), wild type and tertiary-contact/pseudoknot mutants, held between RNA:DNA hybrid handles; mechanical resistance compared with Xrn1 resistance in gel assays and all-atom MD with force-distribution analysis. Auto record mislabelled this as AFM."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "QPD"
+    ],
+    "acquisition_rate": {
+      "value": 20,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data were sampled at 20 kHz and filtered online at the Nyquist frequency with an eight-pole Bessel filter.",
+        "confidence": "high"
+      }
+    },
+    "filter_frequency": {
+      "value": 10000,
+      "unit": "Hz",
+      "note": "Nyquist frequency of 20 kHz sampling = 10 kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data were sampled at 20 kHz and filtered online at the Nyquist frequency with an eight-pole Bessel filter.",
+        "confidence": "medium"
+      }
+    },
+    "calibration_technique": [
+      "other",
+      "dna_force_extension_reference"
+    ],
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.43,
+        "max": 0.46,
+        "unit": "pN/nm",
+        "note": "two traps",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Trap stiffnesses (0.43 and 0.46 pN/nm) were calibrated by standard methods (42). The forces for overstretching [~60 to 65 pN (43, 44)] and P4 unfolding [20 pN (35)] were used as independent reference points",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "min": 600,
+      "max": 820,
+      "unit": "nm",
+      "note": "600 nm avidin DN beads and 820 nm anti-digoxigenin beads",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "polystyrene beads (600 and 820 nm in diameter, coated respectively with avidin DN and anti-digoxigenin) to create dumbbells",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "polystyrene",
+    "bead_functionalization": [
+      "avidin DN",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–avidin",
+      "digoxigenin–anti-digoxigenin",
+      "RNA:DNA hybrid handles (annealed ssDNA)"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "value": 300,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Force-ramp measurements were performed by moving the traps holding the beads apart at a constant speed of ~300 nm/s",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "length_bp": 2107,
+        "annotations": "a 2107-bp-long handle sequence ... labeled with digoxigenin (5′ handle)"
+      },
+      {
+        "length_bp": 840,
+        "annotations": "a second, 840-bp-long handle sequence ... labeled with ... biotin (3′ handle)"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "organisms": [
+      {
+        "name": "Zika virus",
+        "ncbi_taxon": 64320
+      }
+    ],
+    "entities": [
+      {
+        "name": "Zika virus xrRNA1 (wild type and tertiary-contact / pseudoknot mutants)",
+        "entity_type": "rna",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Zika virus",
+          "ncbi_taxon": 64320
+        },
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "5TPY",
+            "verified": false
+          }
+        ],
+        "mutations": [
+          "site-directed mutants disrupting tertiary contacts of the threaded 5′ end",
+          "single and double pseudoknot base-pair disruptions"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Here, we have determined which interactions are most important for generating mechanical rigidity in the Zika virus xrRNA, by systematically mutating tertiary contacts.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "RNA:DNA hybrid handles (2107 bp digoxigenin, 840 bp biotin)",
+        "entity_type": "rna_dna_hybrid",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "RNA transcripts were thermally annealed to two single-stranded (ss) DNA sequences complementary to each handle in the RNA transcript; the latter were produced by asymmetric PCR and labeled with digoxigenin (5′ handle) or biotin (3′ handle).",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "MOPS",
+    "pH": 7.0,
+    "components": [
+      {
+        "name": "MOPS",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 130,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 4,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "SUPERase-In RNase inhibitor",
+        "concentration": {
+          "value": 50,
+          "unit": "U/ml"
+        }
+      },
+      {
+        "name": "glucose oxidase",
+        "concentration": {
+          "value": 40,
+          "unit": "U/ml"
+        }
+      },
+      {
+        "name": "catalase",
+        "concentration": {
+          "value": 185,
+          "unit": "U/ml"
+        }
+      },
+      {
+        "name": "glucose",
+        "concentration": {
+          "value": 8.3,
+          "unit": "mg/ml"
+        }
+      }
+    ],
+    "oxygen_scavenging": "glucose oxidase, catalase, glucose"
+  },
+  "results": []
+}

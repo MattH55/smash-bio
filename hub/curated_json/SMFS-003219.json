@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1016/j.nima.2017.11.070"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: 'SMFS' here means single-molecule fluorescence spectroscopy; the paper characterises optical crosstalk in 48-pixel SPAD arrays for multispot confocal smFRET of freely diffusing molecules. No force is applied and no AFM is used."
+  }
+}

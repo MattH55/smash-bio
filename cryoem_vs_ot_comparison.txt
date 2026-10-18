@@ -1,0 +1,51 @@
+
+==============================================================================
+INDUSTRY INVOLVEMENT: ALL PAPERS vs PAPERS WITH AN AFFILIATION
+==============================================================================
+
+Cryo-EM
+  papers in corpus                              19,734
+  less: no affiliation in PubMed                   459
+  less: non-research article                        10
+  = denominator (papers with an affiliation)    19,265
+  industry                                         215
+  mixed                                          1,165
+  industry or mixed                              1,380
+  ...of ALL papers                        7.0%
+  ...of papers WITH AN AFFILIATION        7.2%
+
+Optical tweezers
+  papers in corpus                               4,969
+  less: no affiliation in PubMed                   553
+  less: non-research article                         3
+  = denominator (papers with an affiliation)     4,413
+  industry                                          22
+  mixed                                             76
+  industry or mixed                                 98
+  ...of ALL papers                        2.0%
+  ...of papers WITH AN AFFILIATION        2.2%
+
+==============================================================================
+HEADLINE COMPARISON (affiliations-only denominator)
+==============================================================================
+
+                                              Cryo-EM           OT
+              Papers with an affiliation       19,265        4,413
+                           Industry only          215           22
+                                   Mixed        1,165           76
+                       Industry or mixed        1,380           98
+      Industry-or-mixed rate, all papers         7.0%         2.0%
+Industry-or-mixed rate, with affiliation         7.2%         2.2%
+
+  Gap moves from 3.55x (all papers) to 3.23x (affiliations only)
+
+==============================================================================
+CATEGORY BREAKDOWN, AFFILIATIONS-ONLY DENOMINATOR
+==============================================================================
+
+                       category          Cryo-EM               OT
+                  Industry only      215 ( 1.1%)       22 ( 0.5%)
+                  Academic only   17,748 (92.1%)    4,313 (97.7%)
+    Mixed (industry + academic)    1,165 ( 6.0%)       76 ( 1.7%)
+ Unknown (matched neither list)      137 ( 0.7%)        2 ( 0.0%)
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMASH-Pull benchmarks | SMASH-BIO</title>
+  <meta name="description" content="Precomputed SMASH-Pull simulations of titin I27, ubiquitin, GB1, protein L, talin and DNA/RNA hairpins, and the pre-registered validation gates with their results, including the failures.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/pull.css">
+  <script src="js/chrome.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="pull-hero">
+    <div class="container">
+      <span class="pull-tag">Benchmarks &amp; validation</span>
+      <h1>How well does it work?</h1>
+      <p>Precomputed runs on well-studied molecules, next to what experiments measured, and the validation gates that were written down before any of them were run. Failed gates are shown as failed.</p>
+      <div class="toc"><a class="chip" href="#gates">Validation gates</a><a class="chip" href="#protein">Proteins</a><a class="chip" href="#nucleic">DNA &amp; RNA</a><a class="chip" href="#gate4">Hairpin class benchmark</a><a class="chip" href="#gfp">GFP directions</a></div>
+    </div>
+  </header>
+  <main class="container" style="padding-bottom:60px;display:flex;flex-direction:column;gap:16px">
+    <section class="panel" id="gates"><h2 style="font-size:1.2rem">Validation gates</h2>
+      <p class="small muted">Criteria were frozen before the runs (<code>docs/pull/VALIDATION.md</code>). An engine that fails a gate ships with an "experimental" label.</p>
+      <div class="table-wrap"><table class="pull-table" id="gate-table"><thead><tr><th>Gate</th><th>What is tested</th><th>Result</th><th>Detail</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <section class="panel" id="protein"><h2 style="font-size:1.2rem">Proteins</h2>
+      <p class="small muted" id="prot-proto"></p>
+      <div class="table-wrap"><table class="pull-table" id="prot-table"><thead><tr><th>Protein</th><th>Direction</th><th>Peak tension at 0.1 Å/τ (ε/Å)</th><th>xβ (Å)</th><th>ΔLc total (nm)</th><th>Experiment (approx.)</th></tr></thead><tbody></tbody></table></div>
+      <div class="grid2" style="margin-top:14px" id="prot-charts"></div>
+    </section>
+
+    <section class="panel" id="movies"><h2 style="font-size:1.2rem">Unfolding movies</h2>
+      <p class="small muted">Standard protocol, slowest speed (0.05 Å/τ), 10 runs. Runs are grouped by which block of native contacts breaks first, and the most typical run of each group is shown. Yellow: the first contacts to break. Blue → orange: residues losing their native contacts. Make your own from any result on the <a href="index.html">simulator</a>.</p>
+      <div class="grid2">
+        <div><h3 style="font-size:.95rem">Titin I27: one pathway (10/10 runs)</h3><video controls preload="none" playsinline poster="media/i27-poster.png" src="media/i27.mp4" style="width:100%;border-radius:10px;border:1px solid var(--border)"></video>
+          <p class="hint">In every run the N-terminal residues 1–7 separate from residues 71–77 first, then from 78–84. The terminal strand pairs carry the load, and the core follows.</p></div>
+        <div><h3 style="font-size:.95rem">Ubiquitin N–C: two pathways</h3><video controls preload="none" playsinline poster="media/ubiquitin-NC-poster.png" src="media/ubiquitin-NC.mp4" style="width:100%;border-radius:10px;border:1px solid var(--border)"></video>
+          <p class="hint">7 of 10 runs open at the β1–β5 pair (residues 1–6 ↔ 67–72) first. In 2 of 10, the β1/β2–α1 region (13–18 ↔ 25–30) gives way first; one run matched neither group.</p></div>
+      </div>
+    </section>
+
+    <section class="panel" id="gfp"><h2 style="font-size:1.2rem">GFP pulling directions (gate 2b)</h2>
+      <p class="small muted">Protocol P_std (0.5 Å/τ, 20 replicas). Simulated peak tension against the unfolding force Dietz et al. (2006) measured for each pair of attachment points. The model's ranking follows how much chain lies between the attachment points, the signature of drag.</p>
+      <div class="grid2"><div class="chart" id="gfp-chart"></div><div class="table-wrap"><table class="pull-table" id="gfp-table"><thead><tr><th>Pulled residues</th><th>Span</th><th>Model (ε/Å)</th><th>Experiment (pN)</th></tr></thead><tbody></tbody></table></div></div>
+    </section>
+
+    <section class="panel" id="nucleic"><h2 style="font-size:1.2rem">DNA &amp; RNA</h2>
+      <div class="table-wrap"><table class="pull-table" id="na-table"><thead><tr><th>Construct</th><th>Conditions</th><th>ΔG fold (kcal/mol)</th><th>F½ (pN)</th><th>Δx (nm)</th><th>Unfold / refold at 100 nm/s (pN)</th></tr></thead><tbody></tbody></table></div>
+      <div class="grid2" style="margin-top:14px"><div class="chart" id="unzip-chart"></div><div class="small" id="unzip-note"></div></div>
+    </section>
+
+    <section class="panel" id="gate4"><h2 style="font-size:1.2rem">Hairpin class benchmark (gate 4)</h2>
+      <p class="small muted">The one fully reported hairpin of Woodside et al. (PNAS 2006), 20R55/4T, has F½ = 13.2 ± 0.7 pN and Δx = 18 ± 2 nm at 23 °C, 200 mM KCl. Its exact sequence could not be retrieved, so the gate uses 30 random 20-bp stems with the same GC content (11 G/C) and loop.</p>
+      <div class="grid2"><div class="chart" id="g4-hist"></div><div class="chart" id="g4-gc"></div></div>
+      <p class="small" id="g4-note"></p>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/charts.js"></script>
+  <script src="js/benchmarks.js"></script>
+</body>
+</html>

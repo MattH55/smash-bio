@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schema | SMASH-BIO</title>
+  <meta name="description" content="SMASH-BIO schema v3: Table 3 FAIR metadata for optical tweezers generalised to all single-molecule force spectroscopy techniques, plus a results vocabulary and raw-trace format.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>The SMASH-BIO schema <span class="badge badge-accent" style="vertical-align:middle">v3.1.0</span></h1>
+      <p>A single metadata standard for every technique that applies force between two ends of a biological system — built on Table&nbsp;3 of <em>FAIR data for optical tweezers experiments</em> (Halma, van Eck, Abeln et&nbsp;al., Biophys&nbsp;J 124:1255–1272, 2025).</p>
+    </div>
+  </header>
+  <main class="container docs-layout">
+    <nav class="docs-nav" aria-label="Schema sections">
+      <div class="grp">Standard</div>
+      <a href="#principles">Design principles</a><a href="#table3">Mapping to Table 3</a><a href="#record">Record structure</a>
+      <a href="#technique">Techniques & geometry</a><a href="#hardware">Hardware blocks</a><a href="#classes">Experiment classes</a>
+      <div class="grp">Results & data</div>
+      <a href="#results">Results schema</a><a href="#observables">Observable vocabulary</a><a href="#traces">Raw trace format</a><a href="#availability">Data availability</a>
+      <div class="grp">Provenance</div>
+      <a href="#provenance">Evidence & curation</a><a href="#completeness">Completeness score</a><a href="#pipeline">How records are built</a><a href="#downloads">Downloads</a><a href="#sim-downloads">Simulation downloads</a>
+    </nav>
+    <article class="prose">
+      <h2 id="principles">Design principles</h2>
+      <ul>
+        <li><b>Table 3 first.</b> The four sections of Table 3 — hardware conditions, assay conditions, construct parameters and factors in solution — are kept as the backbone, with the same units (nm, mW, pN/nm, K, kHz, Hz, mbar, mm/s).</li>
+        <li><b>Technique-neutral core, technique-specific blocks.</b> Fields shared by all force probes (detection, temperature, acquisition and filter rates, calibration) live at the top of <code>hardware</code>; laser, magnet, cantilever, acoustic, centrifuge, nanopore, flow, BFP and tension-sensor parameters live in their own sub-blocks.</li>
+        <li><b>Identifiers over names.</b> Every molecular entity carries resolvable identifiers (UniProt, PDB, GenBank, Rfam, ChEBI, Cell Ontology, NCBI Taxonomy, GO), with a <code>verified</code> flag set when the ID was checked against its database.</li>
+        <li><b>Every value has evidence.</b> Auto-populated values carry an <code>evidence</code> object (method, snippet, confidence) so they can be audited and corrected.</li>
+        <li><b>Results are first-class.</b> Reported numbers (unfolding forces, step sizes, Δx‡, lifetimes…) use a controlled observable vocabulary with canonical units, conditions and the model used, enabling cross-study meta-analysis.</li>
+        <li><b>Data availability is explicit.</b> Each record states whether a dataset is linked, where, how it was found, its file formats and whether it contains raw force traces.</li>
+      </ul>
+
+      <h2 id="table3">Mapping to Table 3</h2>
+      <p>How each Table 3 row maps to a schema path, and which experiment types it applies to (columns as in the original table; “all” = spans the full width).</p>
+      <div class="table-scroll"><table class="schema-table" id="t3-map"></table></div>
+
+      <h2 id="record">Record structure</h2>
+      <p>A record (<code>smash-smfs-record.schema.json</code>) describes one publication's experiment set. Top-level sections:</p>
+      <div class="table-scroll"><table class="schema-table" id="top-props"></table></div>
+      <div id="defs"></div>
+
+      <h2 id="technique">Techniques &amp; force geometry</h2>
+      <p>Supported techniques (<code>technique.primary</code>) and the force-application geometry vocabulary. Correlative modalities (confocal, TIRF, smFRET, IRM…) are recorded alongside.</p>
+      <div class="table-scroll"><table class="schema-table" id="tech-table"></table></div>
+      <div id="geom-list" class="chip-row" style="margin-bottom:22px"></div>
+
+      <h2 id="hardware">Technique-specific hardware blocks</h2>
+      <div id="hw-blocks"></div>
+
+      <h2 id="classes">Experiment classes</h2>
+      <p>Table 3's columns — <em>nucleic acid or protein unfolding</em>, <em>DNA–protein interactions</em>, <em>force generation by cytoskeletal filaments or motors</em> and <em>rheology</em> — are refined into sub-classes, and extended with receptor–ligand/adhesion bonds, membrane mechanics and methods.</p>
+      <div class="table-scroll"><table class="schema-table" id="class-table"></table></div>
+
+      <h2 id="results">Results schema</h2>
+      <p><code>smash-smfs-results.schema.json</code> defines a <code>Result</code>: one reported value (or range/distribution) for one observable on one entity or transition, under stated conditions, with the analysis model and provenance.</p>
+      <div class="table-scroll"><table class="schema-table" id="result-props"></table></div>
+      <pre id="result-example"></pre>
+
+      <h2 id="observables">Observable vocabulary</h2>
+      <p>Controlled names and canonical units. Values are stored in the canonical unit; the source unit is kept in the evidence snippet.</p>
+      <div class="table-scroll"><table class="schema-table" id="obs-table"></table></div>
+
+      <h2 id="traces">Raw trace format (TraceSet)</h2>
+      <p>A technique-neutral JSON sidecar describing raw time series so optical, magnetic, acoustic, centrifugal, nanopore, AFM and flow data can be pooled. Containers can be HDF5 (including Lumicks <code>.h5</code>), TDMS, CSV or NumPy; the sidecar maps file paths to standard channel names, units and calibration, and optionally segments the protocol and annotates events.</p>
+      <div class="table-scroll"><table class="schema-table" id="trace-props"></table></div>
+      <pre id="trace-example"></pre>
+
+      <h2 id="availability">Data availability status</h2>
+      <div class="table-scroll"><table class="schema-table" id="status-table"></table></div>
+
+      <h2 id="provenance">Evidence &amp; curation levels</h2>
+      <div class="table-scroll"><table class="schema-table" id="evidence-table"></table></div>
+
+      <h2 id="completeness">Completeness score</h2>
+      <p><code>fair_completeness</code> reports the fraction of Table 3 fields populated in each section (hardware, assay, construct, solution, data) and their mean. It measures what is <em>reported and recoverable</em>, not experimental quality, and is a useful target for authors: a fully reported study scores 100%.</p>
+
+      <h2 id="pipeline">How records are built</h2>
+      <ol>
+        <li><b>Harvest.</b> Europe PMC is queried for each technique (optical/magnetic/torque/acoustic/centrifuge/nanopore tweezers, flow stretching, AFM-SMFS, BFP, micropipette, tension sensors, microneedles, plus generic SMFS phrases). DataCite is queried for deposits using the same vocabulary.</li>
+        <li><b>Scope.</b> A rule-based classifier keeps papers combining a force technique, a biological system and evidence of force applied between two ends (<i>core</i>), or SMFS instrument/analysis development (<i>methods</i>); cold-atom, colloid, plasmonic and similar physics papers are excluded.</li>
+        <li><b>Link data.</b> Datasets and code are linked through DataCite related identifiers, OpenAIRE ScholeXplorer, Europe PMC data-links, text-mined accessions and parsing of data-availability statements in open-access full text. Zenodo and Figshare file listings give formats and sizes.</li>
+        <li><b>Annotate.</b> Biological systems are matched with a curated gazetteer and resolved to UniProt (reviewed entries, organism-aware), Rfam, GenBank, ChEBI and Cell Ontology; organisms come from Europe PMC text mining. Hardware, assay and solution parameters are extracted from Methods text; results from abstracts.</li>
+        <li><b>Curate.</b> Hand-curated studies override automatic values and are marked <code>curated</code>. Authors can submit verified records.</li>
+      </ol>
+
+      <h2 id="downloads">Downloads</h2>
+      <div class="card-grid">
+        <a class="card tech-card" href="downloads/smash-smfs-records.jsonl.gz" download><h3><i class="fas fa-file-zipper"></i> All records (JSONL.gz)</h3><p>Every record, schema v3, one JSON object per line.</p></a>
+        <a class="card tech-card" href="downloads/smash-smfs-summary.csv" download><h3><i class="fas fa-file-csv"></i> Summary table (CSV)</h3><p>One row per study: technique, system, identifiers, data status.</p></a>
+        <a class="card tech-card" href="downloads/smash-smfs-datasets.csv" download><h3><i class="fas fa-box-archive"></i> Deposits (CSV)</h3><p>All repository deposits with linked studies and formats.</p></a>
+        <a class="card tech-card" href="schema/smash-smfs-record.schema.json" download><h3><i class="fas fa-code"></i> Record JSON Schema</h3><p>Draft 2020-12, for validation.</p></a>
+        <a class="card tech-card" href="schema/smash-smfs-results.schema.json" download><h3><i class="fas fa-code"></i> Results &amp; trace schema</h3><p>Result, Observable, TraceSet definitions.</p></a>
+      </div>
+
+      <h2 id="sim-downloads"><span class="sim-tag">Simulation</span> Corpus downloads</h2>
+      <p>These files are the pulling-simulation corpus (SMASH-SIM v1.0.0). They are not experimental force-spectroscopy records. The schema and the field guide are on the <a href="sim/schema.html">simulation schema page</a>.</p>
+      <div class="card-grid">
+        <a class="card tech-card" href="downloads/sim/smash-sim-records.jsonl.gz" download><h3><i class="fas fa-file-zipper"></i> Simulation records (JSONL.gz)</h3><p>Every published simulation record, one JSON object per line.</p></a>
+        <a class="card tech-card" href="downloads/sim/smash-sim-summary.csv" download><h3><i class="fas fa-file-csv"></i> Simulation summary (CSV)</h3><p>One row per simulation: source, system, model, protocol, units and match level.</p></a>
+        <a class="card tech-card" href="downloads/sim/smash-sim-matches.csv" download><h3><i class="fas fa-link"></i> Simulation–experiment links (CSV)</h3><p>Each link with its match level and the forces reported on each side.</p></a>
+        <a class="card tech-card" href="schema/sim/smash-sim-record.schema.json" download><h3><i class="fas fa-code"></i> SMASH-SIM record schema</h3><p>SMASH-SIM v1.0.0. A simulation record, not an experimental SMFS record.</p></a>
+        <a class="card tech-card" href="schema/sim/smash-sim-results.schema.json" download><h3><i class="fas fa-code"></i> SMASH-SIM results schema</h3><p>Simulation observables, including toughness, each with a unit system.</p></a>
+      </div>
+    </article>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/schema.js"></script>
+  <script src="js/schema.js"></script>
+</body>
+</html>

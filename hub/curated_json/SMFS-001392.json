@@ -1,0 +1,199 @@
+{
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Within a broader antiviral study, AFM single-molecule force spectroscopy measures unbinding of His-tagged SARS-CoV-2 spike trimer (tethered to the cantilever via maleimide-PEG/thiol-trisNTA) from surface-immobilised H84T-BanLec and from ACE2 on living VeroE6 cells, over loading rates 10-10,000 pN/s; spike variants wild type, N234Q, Delta and Omicron were compared. High-speed AFM imaging (RIBM) of spike-lectin complexation is the correlative modality; most of the paper (cell/animal antiviral assays) is not force spectroscopy."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": [
+      "high_speed_AFM_imaging"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "Keysight Technologies (SMFS); RIBM (HS-AFM)",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Force distance measurements were performed at room temperature (∼25°C) using cantilevers with 0.01 N/m nominal spring constants (MSCT, Bruker) in TBS buffer containing 1mM CaCl2, and 0.1% Tween-20.",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "equipartition",
+      "thermal_noise_cantilever"
+    ],
+    "afm": {
+      "cantilever_model": "MSCT (Bruker) for SMFS; USC-F1.2-k0.15 (NanoWorld) for HS-AFM",
+      "spring_constant": {
+        "min": 8,
+        "max": 15,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Determined spring constants ranged from 0.008-0.015 N/m.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "attachment_chemistry": [
+      "His-tag–trisNTA",
+      "maleimide-PEG-NHS linker",
+      "APTES silanization"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity"
+    ],
+    "loading_rate": {
+      "min": 10,
+      "max": 10000,
+      "unit": "pN/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Force-distance curves were acquired by recording at least 1000 curves with vertical sweep rates between 0.5s and 10s and at a z-range of typically 500–1000 nm, resulting in a loading rate from 10–10,000 pN/s, using a commercial AFM (Keysight Technologies, USA).",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "organisms": [
+      {
+        "name": "Severe acute respiratory syndrome coronavirus 2",
+        "ncbi_taxon": 2697049
+      }
+    ],
+    "entities": [
+      {
+        "name": "SARS-CoV-2 spike trimer (wild type, N234Q, B.1.617.2 Delta, B.1.1.529 Omicron)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "mutations": [
+          "N234Q"
+        ],
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P0DTC2",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Severe acute respiratory syndrome coronavirus 2",
+          "ncbi_taxon": 2697049
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "SARS-CoV-2 Spike protein Trimer (Wild type)Hoffmann et.al. 2021N/ASARS-CoV-2 Spike protein Trimer (N234Q)Provided by M.K, BOKUThis paperN/A",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "H84T-banana lectin (H84T-BanLec)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "mutations": [
+          "H84T"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the rationally engineered H84T-banana lectin (H84T-BanLec), which specifically recognizes high mannose found on viral proteins but seldom on healthy human cells",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "ACE2 on living VeroE6 cells",
+        "entity_type": "protein",
+        "role": "surface_receptor",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "When the tip tethered molecule bound to ACE2 on the cell surface, a pulling force developed during the upward movement of the cantilever causing the cantilever to bend downwards.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "VeroE6 cells",
+        "entity_type": "cell",
+        "role": "sample",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "VeroE6 cells were grown on Petri dishes (3 mm in diameter) using DMEM containing 10% FBS, 500 unit/mL penicillin and 100 μg/mL streptomycin at 37°C with 5% CO2.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "VeroE6"
+    }
+  },
+  "solution": {
+    "buffer": "TBS (surface SMFS); HEPES (cell SMFS)",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "CaCl2",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "Tween-20",
+        "concentration": {
+          "value": 0.1,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 140,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      }
+    ]
+  },
+  "results": [],
+  "publication": {
+    "doi": "10.1016/j.xcrm.2022.100774"
+  }
+}

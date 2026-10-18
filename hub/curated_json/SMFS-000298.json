@@ -1,0 +1,65 @@
+{
+  "publication": {"doi": "10.1093/nar/gkaf1465"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Home-built dual-trap optical tweezers with DNA nanoswitch calipers (DNC) used to measure intramolecular distances in, and directionally unfold, human telomeric DNA G-quadruplexes in Na+ and K+ buffers. Two DNC constructs (short loop for distance measurement via force jumps, long loop for force-ramp unfolding). Circular dichroism was performed separately (not correlative)."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "temperature": {"value": 296.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "All DNC measurements were performed in Tris-buffered saline (150 mM NaCl or 150 mM KCl, 10 mM Tris buffer, pH 7.4) with 0.1% (w/v) Roche Blocking solution (Roche) at room temperature (23°C).", "confidence": "high"}},
+    "acquisition_rate": {"value": 1.4, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Data was recorded at 1400 Hz using custom LabVIEW 2013 software", "confidence": "high"}},
+    "optical": {"number_of_traps": 2}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_nucleic_acid"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {"value": 3000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "incubated with 0.5 µl of a 1% (w/v) solution of streptavidin-coated silica beads (3.0-µm diameter)", "confidence": "high"}},
+    "bead_material": "silica",
+    "bead_functionalization": ["streptavidin", "anti-digoxigenin"],
+    "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin", "click chemistry (azide–DBCO)", "DNA hybridization handle"],
+    "trap_control": ["force_ramp", "force_jump", "constant_force"],
+    "loading_rate": {"value": 6, "unit": "pN/s", "evidence": {"method": "llm_review", "snippet": "Slow ramping of the force (~6 pN/s) up to ~45 pN was used to probe unfolding of the G-quadruplex", "confidence": "high"}},
+    "handle_sequences": [{"length_bp": 2820, "annotations": "the long double-stranded DNA (dsDNA) handle (2820 bp) used in both constructs was prepared by polymerase chain reaction (PCR) amplification of a specific region of the pET-26b (+) plasmid"}]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_nucleic_acid"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "Human telomeric G-quadruplex DNA (TTAGGG)4", "entity_type": "dna", "role": "tethered_construct",
+       "identifiers": [{"scheme": "pdb", "id": "143D", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "The single-stranded DNA oligo with a human telomeric sequence (TTAGGG)4 that had an azide functional group in the first thymine base of each loop sequence (TTA) was incubated with the DNA handle labeled with DBCO at the 5′ end.", "confidence": "high"}},
+      {"name": "DNA nanoswitch caliper (short-loop and long-loop constructs)", "entity_type": "dna", "role": "tethered_construct",
+       "evidence": {"method": "llm_review", "snippet": "Two different DNC constructs were synthesized, one incorporating a short loop and the other a long loop", "confidence": "high"}},
+      {"name": "dsDNA handle (2820 bp, pET-26b(+) PCR product)", "entity_type": "dna", "role": "handle",
+       "length": {"value": 2820, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "the long double-stranded DNA (dsDNA) handle (2820 bp) used in both constructs was prepared by polymerase chain reaction (PCR) amplification of a specific region of the pET-26b (+) plasmid", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 7.4,
+    "components": [
+      {"name": "NaCl (alternative to KCl)", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "KCl (alternative to NaCl)", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "Tris", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "Roche Blocking solution", "concentration": {"value": 0.1, "unit": "% (w/v)"}}
+    ]
+  },
+  "results": [
+    {"quantity": "unfolding_force", "value": 21, "unit": "pN",
+     "applies_to": {"entity": "Human telomeric G-quadruplex DNA (TTAGGG)4", "transition": "N->U"},
+     "source": {"location": "methods", "snippet": "shearing the handle at a low force (~10 pN, which is less than the approximate unfolding force of the G-quadruplex of ~21 pN)", "extraction": "manual", "confidence": "medium"}},
+    {"quantity": "overstretching_force", "value": 65, "unit": "pN",
+     "applies_to": {"entity": "dsDNA handle (2820 bp, pET-26b(+) PCR product)"},
+     "source": {"location": "methods", "snippet": "the observation of a ~65 pN plateau in force due to mechanical overstretching of dsDNA", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

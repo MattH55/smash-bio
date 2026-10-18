@@ -1,0 +1,88 @@
+{
+  "publication": {"doi": "10.1093/nar/gkaf588"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Magnetic tweezers R-loop assay: a supercoiled 2.04 kbp DNA carrying a single SpCas12f1 target site (biotin/digoxigenin anchor fragments) is held at 0.3-0.4 pN while SpCas12f1-sgRNA (33 nM) forms R-loops, detected as DNA length changes. Combined with cryo-EM (PDB 9i8y) and ensemble cleavage kinetics; the biotin-end bead partner is not stated in the provided text."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["camera_CCD"],
+    "objective_lens": {"make": "Olympus", "magnification": 100, "numerical_aperture": 1.25},
+    "acquisition_rate": {"value": 0.12, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Time trajectories of the DNA length were recorded at 120 Hz and smoothed with a sliding average to 6 Hz for analysis.", "confidence": "high"}},
+    "filter_frequency": {"value": 6, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "Time trajectories of the DNA length were recorded at 120 Hz and smoothed with a sliding average to 6 Hz for analysis.", "confidence": "high"}},
+    "calibration_technique": ["power_spectrum_passive"],
+    "magnetic": {
+      "magnet_type": "permanent_pair",
+      "bead_product": "Dynabeads MyOne (Invitrogen)",
+      "camera_frame_rate": {"value": 120, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "Imaging was carried out with a TM1067 CL CCD camera (Pulnix) at 120 Hz.", "confidence": "high"}},
+      "rotation_control": true
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_protein_interaction"],
+    "bead_geometry": "bead_surface",
+    "bead_size": {"value": 1000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "DNA molecules were bound to 1 μm magnetic beads (MyOne; Invitrogen) and flushed into the flow cell of the setup, allowing the tethering of the digoxigenin-modified DNA end.", "confidence": "high"}},
+    "bead_material": "superparamagnetic",
+    "attachment_chemistry": ["digoxigenin–anti-digoxigenin"],
+    "trap_control": ["constant_force", "rotation"],
+    "handle_sequences": [
+      {"annotations": "Anchor fragments to flow cell and magnetic bead were synthesized by PCR using Taq polymerase, plasmid pBluescript II SK, and primers pBlueFor and pBlueRev2 including biotinylated or digoxigenin-modified deoxyuridine triphosphate (dUTP) in the reaction mixtures."}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Syntrophomonas palmitatica", "ncbi_taxon": 402877}],
+    "entities": [
+      {
+        "name": "2.04 kbp DNA with single SpCas12f1 target site",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 2040, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "Next, the plasmid was used to produce a 2.04 kbp PCR fragment using primers CRISPR-SpeI-For and CRISPR-NotI-Rev, by which a SpeI or a NotI restriction site was introduced at either fragment end.", "confidence": "high"}
+      },
+      {
+        "name": "Biotin- and digoxigenin-modified anchor fragments (pBluescript II SK)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {"method": "llm_review", "snippet": "After purification, the modified fragments were cleaved at their centrally located SpeI (for biotin) and NotI (for digoxigenin) sites using the corresponding enzymes.", "confidence": "high"}
+      },
+      {
+        "name": "SpCas12f1-sgRNA complex",
+        "entity_type": "protein_complex",
+        "role": "binding_partner",
+        "identifiers": [
+          {"scheme": "pdb", "id": "9I8Y", "verified": false},
+          {"scheme": "uniprot", "id": "P0DW62", "verified": false}
+        ],
+        "organism": {"name": "Syntrophomonas palmitatica", "ncbi_taxon": 402877},
+        "mutations": ["D228A (dSpCas12f1)", "N88A/Q89A/N92A (PAMMut)"],
+        "evidence": {"method": "llm_review", "snippet": "For measurements with SpCas12f, reconstituted SpCas12f-sgRNA was added in measurement buffer (10 mM Tris–HCl, pH 7.5, 200 mM NaCl, 10 mM MgCl2, 1 mg/ml bovine serum albumine (BSA)) at a concentration of 33 nM.", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 200, "unit": "mM"}},
+      {"name": "MgCl2", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 1, "unit": "mg/mL"}}
+    ],
+    "small_molecules": [{"name": "SpCas12f1-sgRNA", "concentration": {"value": 33, "unit": "nM"}}],
+    "evidence": {"method": "llm_review", "snippet": "reconstituted SpCas12f-sgRNA was added in measurement buffer (10 mM Tris–HCl, pH 7.5, 200 mM NaCl, 10 mM MgCl2, 1 mg/ml bovine serum albumine (BSA)) at a concentration of 33 nM.", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "other", "value": 18, "unit": "bp",
+     "applies_to": {"entity": "SpCas12f1 R-loop", "transition": "R-loop size"},
+     "source": {"location": "abstract", "snippet": "Our data indicate that SpCas12f1 forms 18 bp R-loops, in which local contacts of the protein to the R-loop stabilize R-loop intermediates.", "extraction": "manual", "confidence": "high"}}
+  ]
+}

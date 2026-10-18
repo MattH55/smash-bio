@@ -1,0 +1,1770 @@
+classifications:
+  dna_protein:
+  - citations: 19
+    doi: https://doi.org/10.1371/journal.pcbi.1009265
+    first_author: Koide, H.
+    id: OT-3186803894
+    title: Modeling of DNA binding to the condensin hinge domain using molecular dynamics
+      simulations guided by atomic force microscopy
+    year: 2021
+  - citations: 4
+    doi: https://doi.org/10.1007/s41048-018-0064-0
+    first_author: Xiao, Xue
+    id: OT-2889493263
+    title: Dissection of structural dynamics of chromatin fibers by single-molecule
+      magnetic tweezers
+    year: 2018
+  - citations: 0
+    doi: https://doi.org/10.1063/1.4869640
+    first_author: Lin, E.
+    id: OT-2044942821
+    title: Enhancing DNA binding rate using optical trapping of high-density gold
+      nanodisks
+    year: 2014
+  - citations: 14
+    doi: https://doi.org/10.1039/d1cp03408a
+    first_author: Losito, M.
+    id: OT-3198002614
+    title: Cas12a target search and cleavage on force-stretched DNA
+    year: 2021
+  - citations: 5
+    doi: https://doi.org/10.3390/molecules26164781
+    first_author: Fabian, R.
+    id: OT-3187558932
+    title: A Horizontal Magnetic Tweezers for Studying Single DNA Molecules and DNA-Binding
+      Proteins
+    year: 2021
+  - citations: 8
+    doi: https://doi.org/10.3791/51446
+    first_author: Monico, C.
+    id: OT-2045071040
+    title: Combining Single-molecule Manipulation and Imaging for the Study of Protein-DNA
+      Interactions
+    year: 2014
+  - citations: 48
+    doi: 10.1093/nar/gkab265
+    first_author: Pauline J. Kolbeck
+    id: CITE-79fc6e439d
+    title: Molecular structure, DNA binding mode, photophysical properties and recommendations
+      for use of SYBR Gold
+    year: 2021
+  - citations: 21
+    doi: 10.1093/nar/gkab142
+    first_author: P. Bianco
+    id: CITE-cb08bd140b
+    title: Single-molecule insight into stalled replication fork rescue in Escherichia
+      coli
+    year: 2021
+  - citations: 18
+    doi: 10.3390/ijms22073636
+    first_author: M. Hausmann
+    id: CITE-7f8a42cf1c
+    title: 'Elucidation of the Clustered Nano-Architecture of Radiation-Induced DNA
+      Damage Sites and Surrounding Chromatin in Cancer Cells: A Single Molecule Localization
+      Microscopy Approach'
+    year: 2021
+  - citations: 13
+    doi: 10.1016/j.csbj.2023.03.009
+    first_author: Jonas Weidner
+    id: CITE-bbc52406f7
+    title: Advanced image-free analysis of the nano-organization of chromatin and
+      other biomolecules by Single Molecule Localization Microscopy (SMLM)
+    year: 2023
+  - citations: 8
+    doi: 10.1093/nar/gkad1055
+    first_author: Pauline J. Kolbeck
+    id: CITE-1a5bc1364d
+    title: 'Supercoiling-dependent DNA binding: quantitative modeling and applications
+      to bulk and single-molecule experiments'
+    year: 2023
+  - citations: 7
+    doi: 10.1038/s41467-025-57703-y
+    first_author: K. Aris
+    id: CITE-262d8a1829
+    title: Dynamic basis of supercoiling-dependent DNA interrogation by Cas12a via
+      R-loop intermediates
+    year: 2025
+  - citations: 2
+    doi: 10.1038/s41467-025-62505-3
+    first_author: Cutts, E.E.
+    id: TOPII-2025-001
+    title: Substrate accessibility regulation of human TopIIα decatenation by cohesin
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: von Appen, A.
+    id: LEM2-2025-001
+    title: A self-enforcing protein-DNA surface hydrogel safeguards nuclear integrity
+    year: 2025
+  - citations: 26
+    doi: 10.1038/s41586-024-07770-w
+    first_author: Passmore, L.A.
+    id: FANCD2-2024-001
+    title: FANCD2-FANCI surveys DNA and recognizes double- to single-stranded junctions
+    year: 2024
+  - citations: 7
+    doi: 10.1038/s41467-023-42524-8
+    first_author: Dekker, N.
+    id: ORC-2023-001
+    title: A chromatinized origin reduces mobility of ORC and MCM through interactions
+      and spatial constraint
+    year: 2023
+  - citations: 0
+    doi: ''
+    first_author: Aragon, L.
+    id: SMC-2023-001
+    title: 'New Insights in Chromosome Organization: Single Molecule Analysis of Eukaryotic
+      SMC Complexes'
+    year: 2023
+  - citations: 36
+    doi: 10.1093/nar/gkac348
+    first_author: Paul, B.
+    id: CAS12-2021-001
+    title: Mechanics of CRISPR-Cas12a and engineered variants on λ-DNA
+    year: 2021
+  - citations: 0
+    doi: ''
+    first_author: Van Houten, B.
+    id: SMADNE-2023-001
+    title: Single-molecule analysis of cancer DNA-protein interactions from nuclear
+      extracts
+    year: 2023
+  - citations: 5
+    doi: ''
+    first_author: Fazio, N.
+    id: RECB-2024-001
+    title: E. coli RecB Nuclease Domain Regulates RecBCD Helicase Activity
+    year: 2024
+  - citations: 0
+    doi: 10.1038/s41556-025-01778-8
+    first_author: Li, Z.
+    id: NDF-2025-001
+    title: Phase-separated NDF-FACT condensates facilitate transcription elongation
+      on chromatin
+    year: 2025
+  - citations: 7
+    doi: 10.1038/s41467-024-51595-0
+    first_author: Various
+    id: SHU-2024-001
+    title: The human Shu complex promotes RAD51 activity by modulating RPA dynamics
+      on ssDNA
+    year: 2024
+  - citations: 8
+    doi: 10.1038/s41467-024-49612-3
+    first_author: Various
+    id: POLX-2024-001
+    title: Mapping fast DNA polymerase exchange during replication
+    year: 2024
+  - citations: 0
+    doi: ''
+    first_author: Various
+    id: HELQ-2023-001
+    title: 'Helicase HELQ: Molecular Characters Fit for DSB Repair Function'
+    year: 2023
+  - citations: 0
+    doi: ''
+    first_author: Klein, N.
+    id: CRISPR-2025-001
+    title: Type I-Fv and engineered type IV-A1 CRISPR–Cas effectors facilitate genome
+      reduction in Escherichia coli
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Schaich, M.A.
+    id: PARP1-2025-001
+    title: Nucleosome unwrapping and PARP1 allostery drive affinities for chromatin
+      and DNA breaks
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Yu, Z.
+    id: HSV-2025-001
+    title: Mechanisms of HSV-1 helicase-primase inhibition and replication fork complex
+      assembly
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Nagpal, A.
+    id: LIG3-2025-001
+    title: The zinc finger of DNA ligase 3α binds to nucleosomes via an arginine anchor
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Nitsch, S.
+    id: H4K16-2025-001
+    title: H4K16 acylations destabilize chromatin architecture and facilitate transcriptional
+      response
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Tsubota, Y.
+    id: COND-2025-001
+    title: Functional interplay between condensin I and topoisomerase IIα in single-molecule
+      DNA compaction
+    year: 2025
+  force_generation:
+  - citations: 2
+    doi: https://doi.org/10.1073/pnas.1308350110
+    first_author: Blehm, B.
+    id: OT-2604821495
+    title: Correction for Blehm et al., In vivo optical trapping indicates kinesin’s
+      stall force is reduced by dynein during intracellular transport
+    year: 2013
+  - citations: 28
+    doi: https://doi.org/10.1073/pnas.1514028112
+    first_author: Fazal, F.
+    id: OT-2261670798
+    title: Direct observation of processive exoribonuclease motion using optical tweezers
+    year: 2015
+  - citations: 76
+    doi: https://doi.org/10.1073/pnas.1417113112
+    first_author: Étienne, Jocelyn
+    id: OT-1613704973
+    title: 'Cells as liquid motors: Mechanosensitivity emerges from collective dynamics
+      of actomyosin cortex'
+    year: 2015
+  - citations: 10
+    doi: https://doi.org/10.1016/j.ymeth.2021.01.012
+    first_author: Dienerowitz, M.
+    id: OT-3126328718
+    title: Single-molecule FRET dynamics of molecular motors in an ABEL trap
+    year: 2021
+  - citations: 70
+    doi: https://doi.org/10.1073/pnas.1014853108
+    first_author: Meier, Börn
+    id: OT-2006110385
+    title: Chemotactic cell trapping in controlled alternating gradient fields
+    year: 2011
+  - citations: 6
+    doi: https://doi.org/10.1039/c7ob01293d
+    first_author: Menezes, H.
+    id: OT-2754860660
+    title: Driving and photo-regulation of myosin–actin motors at molecular and macroscopic
+      levels by photo-responsive high energy molecules
+    year: 2017
+  - citations: 19
+    doi: https://doi.org/10.1038/srep18085
+    first_author: Bergman, J.
+    id: OT-2435707392
+    title: Constructing 3D microtubule networks using holographic optical trapping
+    year: 2015
+  - citations: 54
+    doi: https://doi.org/10.1038/srep25540
+    first_author: Ferraro, Davide
+    id: OT-2345566549
+    title: 'Microfluidic platform combining droplets and magnetic tweezers: application
+      to HER2 expression in cancer diagnosis'
+    year: 2016
+  - citations: 1
+    doi: https://doi.org/10.3390/polym8090343
+    first_author: Hunt, T.
+    id: OT-2522977070
+    title: Particle-Based Modeling of Living Actin Filaments in an Optical Trap
+    year: 2016
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2015.11.091
+    first_author: Andrecka, J.
+    id: OT-2274965715
+    title: High-Speed Nanometric Tracking of Myosin 5 with Interferometric Scattering
+      Microscopy
+    year: 2016
+  - citations: 8
+    doi: https://doi.org/10.3389/fphy.2021.760340
+    first_author: Gurmessa, B.
+    id: OT-3215363202
+    title: Salt-Mediated Stiffening, Destruction, and Resculpting of Actomyosin Network
+    year: 2021
+  - citations: 0
+    doi: https://doi.org/10.1088/1742-6596/901/1/012112
+    first_author: wichean, T.
+    id: OT-2765145203
+    title: Torque Induced on Lipid Microtubules with Optical Tweezers
+    year: 2017
+  - citations: 0
+    doi: https://doi.org/10.1007/s10867-021-09578-5
+    first_author: Martin, S.
+    id: OT-3197340567
+    title: Spontaneous circulation of active microtubules confined by optical traps
+    year: 2021
+  - citations: 5
+    doi: https://doi.org/10.1002/cm.21678
+    first_author: Al Azzam, O.
+    id: OT-3165049217
+    title: Measuring force generation within reconstituted microtubule bundle assemblies
+      using optical tweezers
+    year: 2021
+  - citations: 87
+    doi: 10.1038/s41467-017-01745-4
+    first_author: Miao Yu
+    id: CITE-36a611835c
+    title: mDia1 senses both force and torque during F-actin filament polymerization
+    year: 2017
+  - citations: 18
+    doi: 10.1016/j.bpj.2017.10.036
+    first_author: Matthias D. Koch
+    id: CITE-8921e533c5
+    title: Label-free Imaging and Bending Analysis of Microtubules by ROCS Microscopy
+      and Optical Trapping.
+    year: 2018
+  - citations: 7
+    doi: 10.1093/jmicro/dfw017
+    first_author: A. Narita
+    id: CITE-52f5817a19
+    title: Direct observation of the actin filament by tip-scan atomic force microscopy
+    year: 2016
+  - citations: 5
+    doi: 10.1002/cm.21678
+    first_author: Omayma Y. Al Azzam
+    id: CITE-387389d484
+    title: Measuring force generation within reconstituted microtubule bundle assemblies
+      using optical tweezers
+    year: 2021
+  - citations: 8
+    doi: 10.7554/eLife.91433
+    first_author: Carcamo, C.
+    id: REMOD-2024-001
+    title: Dynamic 1D Search and Processive Nucleosome Translocations by RSC and ISW2
+    year: 2024
+  - citations: 0
+    doi: ''
+    first_author: Yan, S.
+    id: MEMB-2024-001
+    title: Cell protrusions and contractions generate long-range membrane tension
+      propagation
+    year: 2024
+  - citations: 0
+    doi: ''
+    first_author: Barford, D.
+    id: KINET-2024-001
+    title: Kinetochores grip microtubules with directionally asymmetric grip behavior
+    year: 2024
+  - citations: 0
+    doi: ''
+    first_author: Bensel, B.M.
+    id: KIN-2025-001
+    title: Kinesin-1 autoinhibition tunes cargo transport by motor ensembles
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Planelles-Herrero, V.J.
+    id: ELONG-2025-001
+    title: Elongator is a microtubule polymerase selective for polyglutamylated tubulin
+    year: 2025
+  - citations: 0
+    doi: 10.1002/cm.21678
+    first_author: Al Azzam, Omayma
+    id: MOTOR-2021-001
+    title: Measuring force generation within reconstituted microtubule bundle assemblies
+      using optical tweezers
+    year: 2021
+  other:
+  - citations: 0
+    doi: https://doi.org/10.7498/aps.65.233701
+    first_author: Liu Bei
+    id: OT-3114776917
+    title: 852-nm triggered single-photon source based on trapping and manipulation
+      of a single cesium atom confined in a microscopic optical dipole trap
+    year: 2016
+  - citations: 3
+    doi: https://doi.org/10.7498/aps.65.114101
+    first_author: Ren Rui-Min
+    id: OT-3116267153
+    title: Theoretical research on the generation of a submicron localized hollow
+      beam and its applications in the trapping and cooling of a single atom
+    year: 2016
+  - citations: 4
+    doi: https://doi.org/10.1016/j.cnsns.2017.04.003
+    first_author: Vainchtein, D.
+    id: OT-2607359412
+    title: Generation of discrete structures in phase-space via charged particle trapping
+      by an electrostatic wave
+    year: 2017
+  - citations: 0
+    doi: https://doi.org/10.7498/aps.67.20171571
+    first_author: Ning Xiao-Long
+    id: OT-3012370765
+    title: Trapping and guiding of large-size particles in hollow beams produced by
+      nonlinear crystals
+    year: 2018
+  - citations: 0
+    doi: https://doi.org/10.7498/aps.67.20181348
+    first_author: Li Xiao-Yun
+    id: OT-3113885812
+    title: Theoritical research on optical Stark deceleration and trapping of neutral
+      molecular beams based on modulated optical lattices
+    year: 2018
+  - citations: 3
+    doi: https://doi.org/10.7498/aps.67.20180441
+    first_author: Ma Jian-Bing
+    id: OT-3116317318
+    title: Single molecule transverse magnetic tweezers based on light sheet illumination
+    year: 2018
+  - citations: 56
+    doi: https://doi.org/10.1364/ao.49.002872
+    first_author: Shaked, Natan T.
+    id: OT-2126147921
+    title: Parallel on-axis holographic phase microscopy of biological cells and unicellular
+      microorganism dynamics
+    year: 2010
+  - citations: 32
+    doi: https://doi.org/10.1103/physrevlett.104.158302
+    first_author: Caycedo-Soler, F.
+    id: OT-1615336629
+    title: Light-Harvesting Mechanism of Bacteria Exploits a Critical Interplay between
+      the Dynamics of Transport and Trapping
+    year: 2010
+  - citations: 57
+    doi: https://doi.org/10.1088/0957-4484/22/49/494005
+    first_author: Halvorsen, Ken
+    id: OT-2041625780
+    title: Nanoengineering a single-molecule mechanical switch using DNA self-assembly
+    year: 2011
+  - citations: 39
+    doi: https://doi.org/10.1093/nar/gkv554
+    first_author: Le, S.
+    id: OT-2139337591
+    title: Disturbance-free rapid solution exchange for magnetic tweezers single-molecule
+      studies
+    year: 2015
+  - citations: 10
+    doi: https://doi.org/10.1186/s12938-015-0024-6
+    first_author: Alrifaiy, A.
+    id: OT-2127987164
+    title: A lab-on-a-chip for hypoxic patch clamp measurements combined with optical
+      tweezers and spectroscopy- first investigations of single biological cells
+    year: 2015
+  - citations: 438
+    doi: https://doi.org/10.1073/pnas.1524448113
+    first_author: Au, Sam H.
+    id: OT-2336248112
+    title: Clusters of circulating tumor cells traverse capillary-sized vessels
+    year: 2016
+  - citations: 30
+    doi: https://doi.org/10.1021/ja1039677
+    first_author: Josephs, E.
+    id: OT-1985056797
+    title: Nanoscale Positioning of Individual DNA Molecules by an Atomic Force Microscope
+    year: 2010
+  - citations: 34
+    doi: https://doi.org/10.1073/pnas.1506405112
+    first_author: Guo, Q.
+    id: OT-2224295482
+    title: Interrogating the activities of conformational deformed enzyme by single-molecule
+      fluorescence-magnetic tweezers microscopy
+    year: 2015
+  - citations: 151
+    doi: https://doi.org/10.1073/pnas.1003581107
+    first_author: Sun, Yuze
+    id: OT-1999122407
+    title: Bioinspired optofluidic FRET lasers via DNA scaffolds
+    year: 2010
+  - citations: 36
+    doi: https://doi.org/10.1038/s41598-017-14572-w
+    first_author: Kim, M.
+    id: OT-2767148458
+    title: Label-free analysis of the characteristics of a single cell trapped by
+      acoustic tweezers
+    year: 2017
+  - citations: 123
+    doi: https://doi.org/10.1103/physrevlett.114.258104
+    first_author: Sipos, O.
+    id: OT-844408581
+    title: Hydrodynamic Trapping of Swimming Bacteria by Convex Walls
+    year: 2015
+  - citations: 7
+    doi: https://doi.org/10.1017/s1431927615001890
+    first_author: Tsai, B.
+    id: OT-2560128315
+    title: Using Optical Tweezers to Quantify the Interaction Force of Dengue Virus
+      with Host Cellular Receptors
+    year: 2015
+  - citations: 6
+    doi: https://doi.org/10.17537/2018.13.t59
+    first_author: Chetverikov, A.
+    id: OT-2791125275
+    title: Trapping and transport of charges in DNA by mobile discrete breathers
+    year: 2018
+  - citations: 44
+    doi: https://doi.org/10.1038/s41467-021-21101-x
+    first_author: Tang, Longhua
+    id: OT-3127769526
+    title: Combined quantum tunnelling and dielectrophoretic trapping for molecular
+      analysis at ultra-low analyte concentrations
+    year: 2021
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2012.11.1190
+    first_author: Sitters, G.
+    id: OT-2004673661
+    title: STED Nanoscopy Combined with Optical Tweezers Reveals Spatial Dynamics
+      of Proteins on Densely Covered DNA
+    year: 2013
+  - citations: 23
+    doi: https://doi.org/10.1002/ange.201702352
+    first_author: Yuyama, K.
+    id: OT-4253716650
+    title: A Single Spherical Assembly of Protein Amyloid Fibrils Formed by Laser
+      Trapping
+    year: 2017
+  - citations: 29
+    doi: https://doi.org/10.1038/s42004-019-0246-9
+    first_author: Benda, L.
+    id: OT-2995363753
+    title: Substrate-dependent allosteric regulation by switchable catalytic molecular
+      tweezers
+    year: 2019
+  - citations: 33
+    doi: https://doi.org/10.1038/s41598-019-55657-y
+    first_author: Zhang, Z.
+    id: OT-2995082898
+    title: Manipulating rod-shaped bacteria with optical tweezers
+    year: 2019
+  - citations: 59
+    doi: https://doi.org/10.1126/sciadv.abb0695
+    first_author: Zhou, Lin
+    id: OT-3031150156
+    title: Three-dimensional DNA tweezers serve as modular DNA intelligent machines
+      for detection and regulation of intracellular microRNA
+    year: 2020
+  - citations: 108
+    doi: https://doi.org/10.1038/s41467-021-21543-3
+    first_author: Dai, Xin
+    id: OT-3133320426
+    title: Optical tweezers-controlled hotspot for sensitive and reproducible surface-enhanced
+      Raman spectroscopy characterization of native protein structures
+    year: 2021
+  - citations: 33
+    doi: https://doi.org/10.1038/s41598-020-65205-8
+    first_author: Nelsen, E.
+    id: OT-3025754600
+    title: Combined Atomic Force Microscope and Volumetric Light Sheet System for
+      Correlative Force and Fluorescence Mechanobiology Studies
+    year: 2020
+  - citations: 13
+    doi: https://doi.org/10.1126/sciadv.aav4943
+    first_author: Park, S.
+    id: OT-2929459597
+    title: In silico construction of a flexibility-based DNA Brownian ratchet for
+      directional nanoparticle delivery
+    year: 2019
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2019.11.1298
+    first_author: Sundar Rajan, V.
+    id: OT-3004695793
+    title: Studying the Intramolecular Forces of Base-Modified Nucleic Acids using
+      Optical Tweezers
+    year: 2020
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2012.11.1193
+    first_author: Garini, Y.
+    id: OT-2093382301
+    title: A Novel Method for Dynamic Analysis of Single-Molecule Experiments in Trapping
+      Potentials
+    year: 2013
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2019.11.361
+    first_author: Alonso-Caballero, A.
+    id: OT-3004672406
+    title: High Force Magnetic Tweezers Reveal That Bacterial Adhesion Pili Act as
+      Megadalton-scale Schock Absorbers
+    year: 2020
+  - citations: 72
+    doi: https://doi.org/10.1021/nl401879r
+    first_author: Klein, William P.
+    id: OT-2090018020
+    title: Multiscaffold DNA Origami Nanoparticle Waveguides
+    year: 2013
+  - citations: 39
+    doi: https://doi.org/10.1371/journal.pcbi.1003756
+    first_author: Chou, F.
+    id: OT-2138296927
+    title: Blind Predictions of DNA and RNA Tweezers Experiments with Force and Torque
+    year: 2014
+  - citations: 43
+    doi: https://doi.org/10.1002/elps.201400323
+    first_author: Shen, B.
+    id: OT-2039608149
+    title: Dielectrophoretic trapping of multilayer DNA origami nanostructures and
+      DNA origami‐induced local destruction of silicon dioxide
+    year: 2015
+  - citations: 28
+    doi: https://doi.org/10.1021/acsanm.9b00606
+    first_author: Lam, M.
+    id: OT-2949224026
+    title: Entropic Trapping of DNA with a Nanofiltered Nanopore
+    year: 2019
+  - citations: 78
+    doi: https://doi.org/10.1016/j.bpj.2010.03.012
+    first_author: Halvorsen, Ken
+    id: OT-2166556236
+    title: Massively Parallel Single-Molecule Manipulation Using Centrifugal Force
+    year: 2010
+  - citations: 8
+    doi: https://doi.org/10.1016/j.bpj.2010.01.055
+    first_author: Schmidt, S.
+    id: OT-2043641096
+    title: Force Generation of Curved Actin Gels Characterized by Combined AFM-Epifluorescence
+      Measurements
+    year: 2010
+  - citations: 115
+    doi: https://doi.org/10.1038/ncomms3926
+    first_author: Alsteens, David
+    id: OT-1975406813
+    title: Multiparametric atomic force microscopy imaging of single bacteriophages
+      extruding from living bacteria
+    year: 2013
+  - citations: 65
+    doi: https://doi.org/10.1038/ncomms3155
+    first_author: Colom, Adai
+    id: OT-2095251813
+    title: A hybrid high-speed atomic force–optical microscope for visualizing single
+      membrane proteins on eukaryotic cells
+    year: 2013
+  - citations: 16
+    doi: https://doi.org/10.1038/srep43285
+    first_author: van Oene, M.
+    id: OT-2594027775
+    title: Applying torque to the Escherichia coli flagellar motor using magnetic
+      tweezers
+    year: 2017
+  - citations: 1
+    doi: https://doi.org/10.1038/s41592-021-01244-x
+    first_author: Tang, Lei
+    id: OT-3191615384
+    title: Trapping virus in a shell
+    year: 2021
+  - citations: 21
+    doi: https://doi.org/10.1038/srep06866
+    first_author: Khatibzadeh, N.
+    id: OT-2051623605
+    title: Determination of motility forces on isolated chromosomes with laser tweezers
+    year: 2014
+  - citations: 24
+    doi: https://doi.org/10.1080/23746149.2020.1866668
+    first_author: Zhou, G.
+    id: OT-3119891214
+    title: 'Cells nanomechanics by atomic force microscopy: focus on interactions
+      at nanoscale'
+    year: 2021
+  - citations: 7
+    doi: https://doi.org/10.1063/1.4927473
+    first_author: Zhang, Z.
+    id: OT-3105803900
+    title: Anomalous behavior of trapping in extended dendrimers with a perfect trap
+    year: 2015
+  - citations: 47
+    doi: https://doi.org/10.1080/0144235x.2017.1351821
+    first_author: Vexiau, R.
+    id: OT-2949875545
+    title: 'Dynamic dipole polarizabilities of heteronuclear alkali dimers: optical
+      response, trapping and control of ultracold molecules'
+    year: 2017
+  - citations: 17
+    doi: https://doi.org/10.1080/23746149.2020.1778526
+    first_author: Gautam, R.
+    id: OT-3036427775
+    title: Nonlinear optical response and self-trapping of light in biological suspensions
+    year: 2020
+  - citations: 2
+    doi: https://doi.org/10.7498/aps.70.20210443
+    first_author: Li, J.
+    id: OT-3169122920
+    title: Generation of focusing ring of metalens and its application in optical
+      trapping of cold molecules
+    year: 2021
+  - citations: 13
+    doi: https://doi.org/10.1021/acs.langmuir.6b02071
+    first_author: Rempfer, G.
+    id: OT-2962774252
+    title: Selective Trapping of DNA Using Glass Microcapillaries
+    year: 2016
+  - citations: 2
+    doi: https://doi.org/10.3390/mi8120353
+    first_author: Shahid, Ali
+    id: OT-2772734918
+    title: Electrical Tweezer for Droplet Transportation, Extraction, Merging and
+      DNA Analysis
+    year: 2017
+  - citations: 14
+    doi: https://doi.org/10.3390/ma11030445
+    first_author: Prajapati, A.
+    id: OT-2788625932
+    title: Light Trapping with Silicon Light Funnel Arrays
+    year: 2018
+  - citations: 5
+    doi: https://doi.org/10.3390/app10020659
+    first_author: Sun, Rui
+    id: OT-2999842146
+    title: Influence of Laser Intensity Fluctuation on Single-Cesium Atom Trapping
+      Lifetime in a 1064-nm Microscopic Optical Tweezer
+    year: 2020
+  - citations: 5
+    doi: https://doi.org/10.3390/app10020659
+    first_author: Sun, Rui
+    id: OT-3105707387
+    title: Influence of Laser Intensity Fluctuation on Single-Cesium Atom Trapping
+      Lifetime in a 1064-nm Microscopic Optical Tweezer
+    year: 2020
+  - citations: 18
+    doi: https://doi.org/10.3791/2072
+    first_author: Trache, A.
+    id: OT-2008711263
+    title: Live Cell Response to Mechanical Stimulation Studied by Integrated Optical
+      and Atomic Force Microscopy
+    year: 2010
+  - citations: 10
+    doi: https://doi.org/10.3791/3123
+    first_author: Tam, J.
+    id: OT-1995786872
+    title: Use of an Optical Trap for Study of Host-Pathogen Interactions for Dynamic
+      Live Cell Imaging
+    year: 2011
+  - citations: 10
+    doi: https://doi.org/10.1016/j.bpj.2013.03.032
+    first_author: Hirsh, A.
+    id: OT-2050325522
+    title: Structural Ensemble and Dynamics of Toroidal-like DNA Shapes in Bacteriophage
+      ϕ29 Exit Cavity
+    year: 2013
+  - citations: 76
+    doi: https://doi.org/10.3390/molecules23071766
+    first_author: Endo, Masayuki
+    id: OT-2884358867
+    title: DNA Origami Nanomachines
+    year: 2018
+  - citations: 4
+    doi: https://doi.org/10.3791/61433
+    first_author: Sandin, J.
+    id: OT-3048492975
+    title: Near Simultaneous Laser Scanning Confocal and Atomic Force Microscopy (Conpokal)
+      on Live Cells
+    year: 2020
+  - citations: 2
+    doi: https://doi.org/10.3791/3520
+    first_author: Adhikari, A.
+    id: OT-2010982756
+    title: Multiplexed Single-molecule Force Proteolysis Measurements Using Magnetic
+      Tweezers
+    year: 2012
+  - citations: 6
+    doi: https://doi.org/10.3791/62865
+    first_author: Català-Castro, F.
+    id: OT-3198722143
+    title: Direct Force Measurements of Subcellular Mechanics in Confinement using
+      Optical Tweezers
+    year: 2021
+  - citations: 1
+    doi: https://doi.org/10.3791/3061
+    first_author: Murphy, P.
+    id: OT-2015587651
+    title: Visualization of Recombinant DNA and Protein Complexes Using Atomic Force
+      Microscopy
+    year: 2011
+  - citations: 15
+    doi: https://doi.org/10.1016/j.bpj.2013.07.001
+    first_author: Watanabe, T.
+    id: OT-1970974228
+    title: Four-Dimensional Spatial Nanometry of Single Particles in Living Cells
+      Using Polarized Quantum Rods
+    year: 2013
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2015.11.327
+    first_author: Simpson, W.
+    id: OT-2290994419
+    title: Nanoscale Measurements of Biochemical Interactions at the Surface of Optically
+      Trapped Particles
+    year: 2016
+  - citations: 23
+    doi: https://doi.org/10.3389/fchem.2019.00657
+    first_author: Hadrovic, I.
+    id: OT-2978466953
+    title: Molecular Lysine Tweezers Counteract Aberrant Protein Aggregation
+    year: 2019
+  - citations: 1
+    doi: https://doi.org/10.1088/1742-6596/1220/1/012054
+    first_author: Hanasaki, I.
+    id: OT-2945073704
+    title: Time-scale dependent Brownian motion of nanoparticles in clusters at a
+      solid-liquid interface by laser trapping
+    year: 2019
+  - citations: 5
+    doi: https://doi.org/10.3389/fcell.2016.00022
+    first_author: Sparkes, I.
+    id: OT-2332551157
+    title: 'Using Optical Tweezers to Characterize Physical Tethers at Membrane Contact
+      Sites: Grab It, Pull It, Set It Free?'
+    year: 2016
+  - citations: 78
+    doi: https://doi.org/10.1038/s41598-019-56898-7
+    first_author: Sztilkovics, Milan
+    id: OT-2999179229
+    title: Single-cell adhesion force kinetics of cell populations from combined label-free
+      optical biosensor and robotic fluidic force microscopy
+    year: 2020
+  - citations: 14
+    doi: https://doi.org/10.3389/fchem.2019.00237
+    first_author: Shi, M.
+    id: OT-2938776882
+    title: 'Molecular Dynamics Investigations Suggest a Non-specific Recognition Strategy
+      of 14-3-3σ Protein by Tweezer: Implication for the Inhibition Mechanism'
+    year: 2019
+  - citations: 80
+    doi: https://doi.org/10.1098/rstb.2013.0003
+    first_author: Edelstein-Keshet, Leah
+    id: OT-1966746696
+    title: From simple to detailed models for cell polarization
+    year: 2013
+  - citations: 24
+    doi: https://doi.org/10.1063/1.3589856
+    first_author: Kang, K.
+    id: OT-2064558839
+    title: Image time-correlation, dynamic light scattering, and birefringence for
+      the study of the response of anisometric colloids to external fields
+    year: 2011
+  - citations: 11
+    doi: https://doi.org/10.3389/fphy.2020.578662
+    first_author: Hausmann, M.
+    id: OT-3104059235
+    title: Single Molecule Localization Microscopy Analyses of DNA-Repair Foci and
+      Clusters Detected Along Particle Damage Tracks
+    year: 2020
+  - citations: 0
+    doi: https://doi.org/10.1093/abbs/gmx027
+    first_author: Cao, H.
+    id: OT-2598213262
+    title: Toward the development of magnetic tweezers for high-throughput measurement
+      of protein&amp;ndash;protein interactions
+    year: 2017
+  - citations: 13
+    doi: https://doi.org/10.3390/mi8020062
+    first_author: Zubaite, G.
+    id: OT-2589189222
+    title: Droplet Microfluidics Approach for Single-DNA Molecule Amplification and
+      Condensation into DNA-Magnesium-Pyrophosphate Particles
+    year: 2017
+  - citations: 93
+    doi: https://doi.org/10.1103/physreve.89.032720
+    first_author: Guidobaldi, A.
+    id: OT-1977766036
+    title: Geometrical guidance and trapping transition of human sperm cells
+    year: 2014
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2020.11.456
+    first_author: Agarwal, R.
+    id: OT-3133260535
+    title: 'Flow Magnetic Tweezers: Imaging Rare Enzymatic Events with Single Molecule
+      Precision'
+    year: 2021
+  - citations: 1
+    doi: https://doi.org/10.1364/oe.404969
+    first_author: Lehr, J.
+    id: OT-3092017651
+    title: Numerical study on the angular light trapping of the energy yield of organic
+      solar cells with an optical cavity
+    year: 2020
+  - citations: 49
+    doi: https://doi.org/10.1119/1.4939516
+    first_author: Germain, David
+    id: OT-3098313728
+    title: Differential dynamic microscopy to characterize Brownian motion and bacteria
+      motility
+    year: 2016
+  - citations: 5
+    doi: https://doi.org/10.1038/s41598-020-74759-6
+    first_author: Blackburn, L.
+    id: OT-3096612537
+    title: The effect of the electric trapping field on state-selective loading of
+      molecules into rf ion traps
+    year: 2020
+  - citations: 4
+    doi: https://doi.org/10.1371/journal.pone.0142277
+    first_author: Wang, H.
+    id: OT-1894009056
+    title: Simulation Assisted Analysis of the Intrinsic Stiffness for Short DNA Molecules
+      Imaged with Scanning Atomic Force Microscopy
+    year: 2015
+  - citations: 63
+    doi: https://doi.org/10.1038/s41467-018-06397-6
+    first_author: Penders, Jelle
+    id: OT-2897952682
+    title: Single Particle Automated Raman Trapping Analysis
+    year: 2018
+  - citations: 191
+    doi: 10.1126/science.aaf5508
+    first_author: Fabian Kilchherr
+    id: CITE-7683e48afe
+    title: Single-molecule dissection of stacking forces in DNA
+    year: 2016
+  - citations: 86
+    doi: 10.1126/science.abd6179
+    first_author: A. Gopinath
+    id: CITE-626d73f607
+    title: Absolute and arbitrary orientation of single-molecule shapes
+    year: 2018
+  - citations: 84
+    doi: 10.1038/s41467-023-38814-w
+    first_author: Ye Yang
+    id: CITE-7d8e2d3f32
+    title: In-vivo programmable acoustic manipulation of genetically engineered bacteria
+    year: 2023
+  - citations: 81
+    doi: 10.1002/lpor.201800227
+    first_author: Ada-ioana Bunea
+    id: CITE-0e5eac1a2b
+    title: 'Strategies for Optical Trapping in Biological Samples: Aiming at Microrobotic
+      Surgeons'
+    year: 2019
+  - citations: 65
+    doi: 10.1007/s00249-010-0627-6
+    first_author: V. Cassina
+    id: CITE-a682e4f574
+    title: Atomic force microscopy study of DNA conformation in the presence of drugs
+    year: 2010
+  - citations: 63
+    doi: 10.1016/j.revip.2020.100043
+    first_author: T. Avsievich
+    id: CITE-2cc891c18f
+    title: The advancement of blood cell research by optical tweezers
+    year: 2020
+  - citations: 53
+    doi: 10.1038/srep15634
+    first_author: V. Linko
+    id: CITE-ff39244201
+    title: One-step large-scale deposition of salt-free DNA origami nanostructures
+    year: 2015
+  - citations: 53
+    doi: 10.1088/1361-6528/aa837e
+    first_author: Xiaodan Zhao
+    id: CITE-a848776b3d
+    title: Studying the mechanical responses of proteins using magnetic tweezers
+    year: 2017
+  - citations: 52
+    doi: 10.1002/advs.202000557
+    first_author: Yaqin Hu
+    id: CITE-ad76ae474c
+    title: Dynamic DNA Assemblies in Biomedical Applications
+    year: 2020
+  - citations: 51
+    doi: 10.1080/10408398.2021.1945534
+    first_author: Heera Jayan
+    id: CITE-6fed765063
+    title: 'Recent developments in Raman spectral analysis of microbial single cells:
+      Techniques and applications'
+    year: 2021
+  - citations: 51
+    doi: 10.1038/s41598-019-42077-1
+    first_author: Yuri M. Efremov
+    id: CITE-97ee36c2bc
+    title: Anisotropy vs isotropy in living cell indentation with AFM
+    year: 2019
+  - citations: 46
+    doi: 10.1039/c5ib00127g
+    first_author: M. S. Rocha
+    id: CITE-35b2477917
+    title: 'Extracting physical chemistry from mechanics: a new approach to investigate
+      DNA interactions with drugs and proteins in single molecule experiments.'
+    year: 2015
+  - citations: 46
+    doi: 10.1002/jemt.22696
+    first_author: M. Cascione
+    id: CITE-ef6289b2cb
+    title: Atomic force microscopy combined with optical microscopy for cells investigation
+    year: 2017
+  - citations: 37
+    doi: 10.1093/nar/gky200
+    first_author: Sook Ho Kim
+    id: CITE-f8053cbee8
+    title: Unveiling the pathway to Z-DNA in the protein-induced B–Z transition
+    year: 2018
+  - citations: 37
+    doi: 10.1021/jacs.2c13465
+    first_author: Xiaoyi Wang
+    id: CITE-b99b07f09b
+    title: Nanopore Detection Using Supercharged Polypeptide Molecular Carriers
+    year: 2023
+  - citations: 36
+    doi: 10.1186/s12951-018-0381-y
+    first_author: Dennis Kreft
+    id: CITE-fd9988a0aa
+    title: Binding mechanism of anti-cancer chemotherapeutic drug mitoxantrone to
+      DNA characterized by magnetic tweezers
+    year: 2018
+  - citations: 34
+    doi: 10.1038/srep05688
+    first_author: G. Aquino
+    id: CITE-97c62fe2f4
+    title: Memory improves precision of cell sensing in fluctuating environments
+    year: 2014
+  - citations: 34
+    doi: 10.1038/s41565-019-0542-7
+    first_author: Dorota Kostrz
+    id: CITE-2ee543b272
+    title: A modular DNA scaffold to study protein–protein interactions at single-molecule
+      resolution
+    year: 2019
+  - citations: 30
+    doi: 10.1021/ja401036t
+    first_author: G. R. Abel
+    id: CITE-c9c5a4d20f
+    title: A switchable surface enables visualization of single DNA hybridization
+      events with atomic force microscopy.
+    year: 2013
+  - citations: 28
+    doi: 10.1038/s41598-018-26433-1
+    first_author: Supriya V. Bhat
+    id: CITE-a5065966b2
+    title: Correlative atomic force microscopy quantitative imaging-laser scanning
+      confocal microscopy quantifies the impact of stressors on live cells in real-time
+    year: 2018
+  - citations: 27
+    doi: 10.1021/nl403361f
+    first_author: L. Alonso‐Sarduy
+    id: CITE-5ffdd85159
+    title: Time-lapse AFM imaging of DNA conformational changes induced by daunorubicin.
+    year: 2013
+  - citations: 27
+    doi: 10.1038/s41467-023-36373-8
+    first_author: Jibin Abraham Punnoose
+    id: CITE-a6e1093275
+    title: High-throughput single-molecule quantification of individual base stacking
+      energies in nucleic acids
+    year: 2023
+  - citations: 26
+    doi: 10.1002/advs.202303619
+    first_author: D. Reynolds
+    id: CITE-def94fe587
+    title: Double Digital Assay for Single Extracellular Vesicle and Single Molecule
+      Detection
+    year: 2023
+  - citations: 25
+    doi: 10.1039/c9sm00077a
+    first_author: S. Bianchi
+    id: CITE-a7b02d5379
+    title: 3D dynamics of bacteria wall entrapment at a water-air interface.
+    year: 2019
+  - citations: 25
+    doi: 10.1002/sstr.202000038
+    first_author: Jingyuan Huang
+    id: CITE-0083e0ee92
+    title: Arranging Small Molecules with Subnanometer Precision on DNA Origami Substrates
+      for the Single‐Molecule Investigation of Protein–Ligand Interactions
+    year: 2020
+  - citations: 23
+    doi: 10.1016/j.bpj.2016.08.042
+    first_author: Ying Wang
+    id: CITE-9eb85b638b
+    title: Nanomechanics of Fluorescent DNA Dyes on DNA Investigated by Magnetic Tweezers.
+    year: 2016
+  - citations: 22
+    doi: 10.1126/sciadv.abm8149
+    first_author: Long-Jun Tang
+    id: CITE-705788e786
+    title: Measuring conductance switching in single proteins using quantum tunneling
+    year: 2022
+  - citations: 21
+    doi: 10.3390/molecules24142577
+    first_author: C. Kielar
+    id: CITE-9559a4dd44
+    title: Effect of Staple Age on DNA Origami Nanostructure Assembly and Stability
+    year: 2019
+  - citations: 21
+    doi: 10.1039/c3sm52561a
+    first_author: S. Howorka
+    id: CITE-71733a516d
+    title: 'Microarrays and single molecules: an exciting combination.'
+    year: 2014
+  - citations: 20
+    doi: 10.1371/journal.pone.0071556
+    first_author: Hong-yan Zhang
+    id: CITE-afc7cd4761
+    title: Oxaliplatin and Its Enantiomer Induce Different Condensation Dynamics of
+      Single DNA Molecules
+    year: 2013
+  - citations: 19
+    doi: 10.1016/j.bpj.2016.02.030
+    first_author: D. Salerno
+    id: CITE-933937f53b
+    title: Platinum-Based Drugs and DNA Interactions Studied by Single-Molecule and
+      Bulk Measurements.
+    year: 2016
+  - citations: 19
+    doi: 10.1021/acs.jpclett.8b02992
+    first_author: Yan Xu
+    id: CITE-cc8a32e7de
+    title: Single-Molecule Studies of Allosteric Inhibition of Individual Enzyme on
+      a DNA Origami Reactor.
+    year: 2018
+  - citations: 19
+    doi: 10.1038/s41467-022-33503-6
+    first_author: Artur Kaczmarczyk
+    id: CITE-a2526e316c
+    title: Search and processing of Holliday junctions within long DNA by junction-resolving
+      enzymes
+    year: 2022
+  - citations: 17
+    doi: 10.1021/jacs.3c01649
+    first_author: Jinbo Zhu
+    id: CITE-d13056e403
+    title: Multiplexed Nanopore-Based Nucleic Acid Sensing and Bacterial Identification
+      Using DNA Dumbbell Nanoswitches
+    year: 2023
+  - citations: 16
+    doi: 10.1101/060269
+    first_author: Tony Hoang
+    id: CITE-ef11e6262b
+    title: A wireless centrifuge force microscope (CFM) enables multiplexed single-molecule
+      experiments in a commercial centrifuge
+    year: 2016
+  - citations: 16
+    doi: 10.1063/5.0199558
+    first_author: Eryk J. Ratajczyk
+    id: CITE-483c1fb086
+    title: Coarse-grained modeling of DNA-RNA hybrids.
+    year: 2023
+  - citations: 15
+    doi: 10.1088/1361-6501/28/3/034001
+    first_author: V. Korpelainen
+    id: CITE-c6b3cc0e32
+    title: DNA origami structures as calibration standards for nanometrology
+    year: 2017
+  - citations: 13
+    doi: 10.1002/biot.201300087
+    first_author: B. Kainz
+    id: CITE-78ab3e4cfa
+    title: Biomaterial and cellular properties as examined through atomic force microscopy,
+      fluorescence optical microscopies and spectroscopic techniques
+    year: 2014
+  - citations: 13
+    doi: 10.3390/cancers13215561
+    first_author: H. Hahn
+    id: CITE-e2d3df7616
+    title: Topological Analysis of γH2AX and MRE11 Clusters Detected by Localization
+      Microscopy during X-ray-Induced DNA Double-Strand Break Repair
+    year: 2021
+  - citations: 12
+    doi: 10.3390/ma15217664
+    first_author: Nora Slekiene
+    id: CITE-2a7dc5eaad
+    title: Influence of TiO2 and ZnO Nanoparticles on α-Synuclein and β-Amyloid Aggregation
+      and Formation of Protein Fibrils
+    year: 2022
+  - citations: 12
+    doi: 10.1021/jacs.2c11450
+    first_author: Yihui Luo
+    id: CITE-db2caada41
+    title: Resolving Molecular Heterogeneity with Single-Molecule Centrifugation
+    year: 2023
+  - citations: 12
+    doi: 10.1039/d2cs00519k
+    first_author: Tao Jiang
+    id: CITE-259876b79c
+    title: 'Single-molecular protein-based bioelectronics via electronic transport:
+      fundamentals, devices and applications.'
+    year: 2023
+  - citations: 12
+    doi: 10.3390/pharmaceutics14010166
+    first_author: Lucie Dobešová
+    id: CITE-5ea4792828
+    title: 'Incorporation of Low Concentrations of Gold Nanoparticles: Complex Effects
+      on Radiation Response and Fate of Cancer Cells'
+    year: 2022
+  - citations: 11
+    doi: 10.1017/S0033583522000075
+    first_author: W. N. Sánchez
+    id: CITE-6922a60cf6
+    title: Determination of protein–protein interactions at the single-molecule level
+      using optical tweezers
+    year: 2022
+  - citations: 11
+    doi: 10.1002/admi.202001476
+    first_author: T. Ghomian
+    id: CITE-9e4941f2a7
+    title: High‐Throughput Dielectrophoretic Trapping and Detection of DNA Origami
+    year: 2021
+  - citations: 11
+    doi: 10.1101/2020.06.09.142257
+    first_author: Soham Chakraborty
+    id: CITE-51eb04fb50
+    title: Connecting conformational stiffness of the protein with energy landscape
+      by a single experiment
+    year: 2020
+  - citations: 11
+    doi: 10.3389/fcell.2021.745311
+    first_author: Muwen Kong
+    id: CITE-f9cce3837f
+    title: Mechanistic Insights From Single-Molecule Studies of Repair of Double Strand
+      Breaks
+    year: 2021
+  - citations: 10
+    doi: 10.1021/acs.jctc.0c00286.s001
+    first_author: Megan C Engel
+    id: CITE-fe6e2a2b4c
+    title: 'Measuring Internal Forces in Single-Stranded DNA: Application to a DNA
+      Force Clamp.'
+    year: 2020
+  - citations: 10
+    doi: 10.1039/c4cc02900c
+    first_author: G. R. Abel
+    id: CITE-6b214bde63
+    title: Covalent, sequence-specific attachment of long DNA molecules to a surface
+      using DNA-templated click chemistry.
+    year: 2014
+  - citations: 9
+    doi: 10.1088/1361-6633/ad99e7
+    first_author: Shuang Hao
+    id: CITE-5826d027cb
+    title: 'Whispering gallery mode optical resonators for biological and chemical
+      detection: current practices, future perspectives, and challenges'
+    year: 2024
+  - citations: 9
+    doi: 10.1016/j.bbagen.2020.129725
+    first_author: M. Cristofalo
+    id: CITE-1d28cff4be
+    title: Cooperative effects on the compaction of DNA fragments by the nucleoid
+      protein H-NS and the crowding agent PEG probed by Magnetic Tweezers.
+    year: 2020
+  - citations: 9
+    doi: 10.1021/acs.macromol.7b01795
+    first_author: M. S. Rocha
+    id: CITE-e420be24f8
+    title: Force and Scale Dependence of the Elasticity of Self-Assembled DNA Bottle
+      Brushes
+    year: 2017
+  - citations: 9
+    doi: 10.1021/acs.nanolett.4c03323
+    first_author: Linfeng Yang
+    id: CITE-51c176cde7
+    title: 'DNA Mechanics: From Single Stranded to Self-Assembled.'
+    year: 2024
+  - citations: 8
+    doi: 10.1021/acschembio.8b00348
+    first_author: Andreas Schmidt
+    id: CITE-953598d757
+    title: The Protein Microenvironment Governs the Suitability of Labeling Sites
+      for Single-Molecule Spectroscopy of RNP Complexes.
+    year: 2018
+  - citations: 8
+    doi: 10.1038/s41467-024-48630-5
+    first_author: Jianxin Yang
+    id: CITE-5021a53956
+    title: In-tube micro-pyramidal silicon nanopore for inertial-kinetic sensing of
+      single molecules
+    year: 2024
+  - citations: 8
+    doi: 10.1038/s41467-024-50430-w
+    first_author: Yuhang Zhang
+    id: CITE-55f093127b
+    title: Multi-domain interaction mediated strength-building in human α-actinin
+      dimers unveiled by direct single-molecule quantification
+    year: 2024
+  - citations: 8
+    doi: 10.1002/tcr.201500214
+    first_author: Shirsendu Ghosh
+    id: CITE-5bd976b777
+    title: 'Single-molecule Spectroscopy: Exploring Heterogeneity in Chemical and
+      Biological Systems.'
+    year: 2016
+  - citations: 7
+    doi: 10.1101/2022.06.13.495931
+    first_author: Ruixin Li
+    id: CITE-9b93a77960
+    title: Mechanical Deformation Behaviors and Structural Properties of Ligated DNA
+      Crystals
+    year: 2022
+  - citations: 7
+    doi: 10.1021/acs.langmuir.8b02362
+    first_author: Sophie Thamm
+    id: CITE-dafe7508fa
+    title: AFM-Based Probing of the Flexibility and Surface Attachment of Immobilized
+      DNA Origami.
+    year: 2018
+  - citations: 7
+    doi: 10.1016/j.trac.2023.117083
+    first_author: Hui Wang
+    id: CITE-b13522901f
+    title: Visualizing enzyme catalytic process using single-molecule techniques
+    year: 2023
+  - citations: 6
+    doi: 10.1021/acs.analchem.0c00184
+    first_author: S. Serres
+    id: CITE-6a3672b69f
+    title: SINGLE-MOLECULE SENSING OF DNA INTERCALATING DRUGS IN WATER.
+    year: 2020
+  - citations: 6
+    doi: 10.1038/srep42075
+    first_author: Roland Hager
+    id: CITE-af6051a2ad
+    title: Arrays of Individual DNA Molecules on Nanopatterned Substrates
+    year: 2017
+  - citations: 5
+    doi: 10.1016/j.cbpa.2019.09.006
+    first_author: C. Gosse
+    id: CITE-5d6742bc6d
+    title: 'Molecular scaffolds: when DNA becomes the hardware for single-molecule
+      investigations.'
+    year: 2019
+  - citations: 5
+    doi: 10.1371/journal.pone.0244103
+    first_author: Nicholas A. W. Bell
+    id: CITE-b991b50867
+    title: Microfluidic flow-cell with passive flow control for microscopy applications
+    year: 2020
+  - citations: 5
+    doi: 10.1109/TUFFC.2024.3456083
+    first_author: Jinhee Yoo
+    id: CITE-dbc05358d9
+    title: 'Single-Beam Acoustic Tweezers for Cell Biology: Molecular to In Vivo Level'
+    year: 2024
+  - citations: 5
+    doi: 10.1063/1.4995362
+    first_author: Meiling Wu
+    id: CITE-34acf73cce
+    title: Manipulating motions of targeted single cells in solution by an integrated
+      double-ring magnetic tweezers imaging microscope.
+    year: 2017
+  - citations: 5
+    doi: 10.1038/srep02198
+    first_author: N. Johnson
+    id: CITE-34a47f5996
+    title: Extreme alien light allows survival of terrestrial bacteria
+    year: 2013
+  - citations: 5
+    doi: 10.1038/srep02550
+    first_author: S. Redhu
+    id: CITE-225b8fd3af
+    title: Digital Imprinting of RNA Recognition and Processing on a Self-Assembled
+      Nucleic Acid Matrix
+    year: 2013
+  - citations: 0
+    doi: 10.1038/s41594-025-01707-1
+    first_author: Wang, Y.
+    id: POLII-2025-001
+    title: Kinetic control of mammalian transcription elongation
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Liu, S.
+    id: SMCFFM-001
+    title: Single-molecule correlative fluorescence-force microscopy studies
+    year: 2024
+  - citations: 0
+    doi: ''
+    first_author: Banerjee, P.
+    id: FUS-2022-001
+    title: 'Decoding the onset of Amyotrophic Lateral Sclerosis (ALS): LLPS of IDPs'
+    year: 2022
+  - citations: 0
+    doi: ''
+    first_author: Rill, N.
+    id: ATL-2020-001
+    title: Alkyltransferase-like protein clusters scan DNA rapidly over long distances
+      and recruit NER to alkyl-DNA lesions
+    year: 2020
+  - citations: 20
+    doi: ''
+    first_author: Moreno-Herrero, F.
+    id: PAR-2022-001
+    title: Insights into Bacterial DNA Condensation and chromosome organization
+    year: 2022
+  - citations: 0
+    doi: ''
+    first_author: Pangeni, S.
+    id: RPA-2024-001
+    title: Rapid Long-distance Migration of RPA on Single Stranded DNA
+    year: 2024
+  - citations: 3
+    doi: ''
+    first_author: Various
+    id: CELL-2025-001
+    title: Robust quantification of cellular mechanics using optical tweezers
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Schumacher, M.A.
+    id: NAPA-2025-001
+    title: Structural Studies on the M. tuberculosis Nucleoid-associated-Protein,
+      NapA, Indicates DNA Bridging Mechanism
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Yosibash, I.
+    id: GPMV-2025-001
+    title: A Versatile GPMV-Imaging Platform for Quantitative Analysis of Receptor
+      Binding and Membrane Fusion
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Silbermann, L.M.
+    id: LABEL-2025-001
+    title: One-pot dual protein labeling for simultaneous mechanical and fluorescent
+      readouts in optical tweezers
+    year: 2025
+  rheology:
+  - citations: 4
+    doi: https://doi.org/10.1021/acsomega.9b02522
+    first_author: Wu, X.
+    id: OT-2991188635
+    title: Single Polar Cell Trapping Based on the Breath Figure Method
+    year: 2019
+  - citations: 13
+    doi: https://doi.org/10.1364/boe.1.001217
+    first_author: Yang, B.
+    id: OT-2102906418
+    title: Measuring micro-interactions between coagulating red blood cells using
+      optical tweezers
+    year: 2010
+  - citations: 241
+    doi: https://doi.org/10.1073/pnas.1004056107
+    first_author: Wood, David K.
+    id: OT-2140465521
+    title: Single cell trapping and DNA damage analysis using microwell arrays
+    year: 2010
+  - citations: 23
+    doi: https://doi.org/10.1016/j.ymeth.2016.06.009
+    first_author: Long, Xi
+    id: OT-2421186881
+    title: Integrated magnetic tweezers and single-molecule FRET for investigating
+      the mechanical properties of nucleic acid
+    year: 2016
+  - citations: 122
+    doi: https://doi.org/10.1073/pnas.1722206115
+    first_author: Xing, Zhongyang
+    id: OT-2963944074
+    title: Microrheology of DNA hydrogels
+    year: 2018
+  - citations: 5
+    doi: https://doi.org/10.1371/journal.pone.0231606
+    first_author: Zemljič Jokhadar, Š.
+    id: OT-3114470368
+    title: Cortical stiffness of keratinocytes measured by lateral indentation with
+      optical tweezers
+    year: 2020
+  - citations: 7
+    doi: https://doi.org/10.4236/ojbiphy.2017.72005
+    first_author: Michel, K.
+    id: OT-2611908104
+    title: Dynamics Study of the Deformation of Red Blood Cell by Optical Tweezers
+    year: 2017
+  - citations: 40
+    doi: https://doi.org/10.1038/s41467-019-08531-4
+    first_author: Pawlak, R.
+    id: OT-2914189696
+    title: Conformations and cryo-force spectroscopy of spray-deposited single-strand
+      DNA on gold
+    year: 2019
+  - citations: 7
+    doi: https://doi.org/10.1016/j.npe.2019.11.004
+    first_author: Ma, G.
+    id: OT-2992977612
+    title: Simultaneous, hybrid single-molecule method by optical tweezers and fluorescence
+    year: 2019
+  - citations: 79
+    doi: https://doi.org/10.1063/1.3422544
+    first_author: Gel, Murat
+    id: OT-1981492935
+    title: Dielectrophoretic cell trapping and parallel one-to-one fusion based on
+      field constriction created by a micro-orifice array
+    year: 2010
+  - citations: 1
+    doi: https://doi.org/10.1063/5.0063690
+    first_author: Freitag, M.
+    id: OT-3210554806
+    title: Identification and correction of miscalibration artifacts based on force
+      noise for optical tweezers experiments
+    year: 2021
+  - citations: 3
+    doi: https://doi.org/10.3389/fncel.2018.00180
+    first_author: Falleroni, F.
+    id: OT-2808080993
+    title: 'Corrigendum: Cell Mechanotransduction With Piconewton Forces Applied by
+      Optical Tweezers'
+    year: 2018
+  - citations: 6
+    doi: https://doi.org/10.3390/mi12091024
+    first_author: Yale, P.
+    id: OT-3198269426
+    title: Lateral Deformation of Human Red Blood Cells by Optical Tweezers
+    year: 2021
+  - citations: 1
+    doi: https://doi.org/10.1063/1.5010721
+    first_author: Adeniba, O.
+    id: OT-2790271175
+    title: Optomechanical microrheology of single adherent cancer cells
+    year: 2018
+  - citations: 26
+    doi: https://doi.org/10.3390/mi10060409
+    first_author: Deng, B.
+    id: OT-2953208694
+    title: Microfluidic Cell Trapping for Single-Cell Analysis
+    year: 2019
+  - citations: 19
+    doi: https://doi.org/10.3390/cells10030552
+    first_author: Bernecker, C.
+    id: OT-3133497491
+    title: Biomechanics of Ex Vivo-Generated Red Blood Cells Investigated by Optical
+      Tweezers and Digital Holographic Microscopy
+    year: 2021
+  - citations: 8
+    doi: https://doi.org/10.1063/1.5103269
+    first_author: Hisey, C.
+    id: OT-2962979979
+    title: A versatile cancer cell trapping and 1D migration assay in a microfluidic
+      device
+    year: 2019
+  - citations: 59
+    doi: https://doi.org/10.1093/nar/gkq597
+    first_author: Salerno, D.
+    id: OT-1977998168
+    title: Magnetic tweezers measurements of the nanomechanical properties of DNA
+      in the presence of drugs
+    year: 2010
+  - citations: 166
+    doi: 10.3791/50497
+    first_author: Gawain M. Thomas
+    id: CITE-9f92056554
+    title: Measuring the mechanical properties of living cells using atomic force
+      microscopy.
+    year: 2013
+  - citations: 106
+    doi: 10.3390/cells9030545
+    first_author: Ruixue Zhu
+    id: CITE-61b353eb8f
+    title: Optical Tweezers in Studies of Red Blood Cells
+    year: 2020
+  - citations: 81
+    doi: 10.1016/j.jsb.2016.06.022
+    first_author: F. Kriegel
+    id: CITE-6875e71953
+    title: Probing the mechanical properties, conformational changes, and interactions
+      of nucleic acids with magnetic tweezers.
+    year: 2017
+  - citations: 47
+    doi: 10.1016/j.ymeth.2015.08.020
+    first_author: Shimin Le
+    id: CITE-0b45b9c17c
+    title: Uncovering mechanosensing mechanisms at the single protein level using
+      magnetic tweezers.
+    year: 2016
+  - citations: 16
+    doi: 10.3390/mi10120853
+    first_author: Ruixue Zhu
+    id: CITE-86ab57dce1
+    title: Influence of Pulsed He–Ne Laser Irradiation on the Red Blood Cell Interaction
+      Studied by Optical Tweezers
+    year: 2019
+  - citations: 15
+    doi: 10.1140/epjp/s13360-022-03190-9
+    first_author: Sheng Hu
+    id: CITE-db1fd067b6
+    title: Advanced optical tweezers on cell manipulation and analysis
+    year: 2022
+  - citations: 8
+    doi: 10.3389/fphys.2022.979298
+    first_author: C. Bernecker
+    id: CITE-919a57c459
+    title: Biomechanical properties of native and cultured red blood cells–Interplay
+      of shape, structure and biomechanics
+    year: 2022
+  - citations: 5
+    doi: 10.1073/pnas.2400654121
+    first_author: Shimin Le
+    id: CITE-126dd7d167
+    title: Single-molecule force spectroscopy reveals intra- and intermolecular interactions
+      of Caenorhabditis elegans HMP-1 during mechanotransduction
+    year: 2024
+  unfolding:
+  - citations: 4
+    doi: https://doi.org/10.1063/5.0060276
+    first_author: Piccolo, J.
+    id: OT-3203266154
+    title: Force spectroscopy with electromagnetic tweezers
+    year: 2021
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2017.11.1290
+    first_author: Yuan, G.
+    id: OT-2792549580
+    title: Mechanism of Complex Force-Dependent Unfolding Dynamics of Titin Immunoglobulin
+      Domain Revealed by Magnetic Tweezers
+    year: 2018
+  - citations: 8
+    doi: https://doi.org/10.1063/1.5016177
+    first_author: Dahlke, K.
+    id: OT-2788506074
+    title: Force-extension behavior of DNA in the presence of DNA-bending nucleoid
+      associated proteins
+    year: 2018
+  - citations: 0
+    doi: https://doi.org/10.1016/j.bpj.2012.11.1192
+    first_author: Leachman, S.
+    id: OT-2065586133
+    title: A Hybrid Tirf-Magnetic Tweezers Instrument for Studying Force-Induced Conformational
+      Changes in Proteins
+    year: 2013
+  - citations: 7
+    doi: https://doi.org/10.1119/1.4941048
+    first_author: Devenica, L.
+    id: OT-3098289338
+    title: Biophysical measurements of cells, microtubules, and DNA with an atomic
+      force microscope
+    year: 2016
+  - citations: 5
+    doi: https://doi.org/10.1119/1.4941048
+    first_author: Devenica, L.
+    id: OT-2205212296
+    title: Biophysical measurements of cells, microtubules, and DNA with an atomic
+      force microscope
+    year: 2016
+  - citations: 12
+    doi: https://doi.org/10.3390/mi9040188
+    first_author: Fabian, R.
+    id: OT-2802323802
+    title: A Horizontal Magnetic Tweezers and Its Use for Studying Single DNA Molecules
+    year: 2018
+  - citations: 2
+    doi: https://doi.org/10.3791/3405
+    first_author: Raghunathan, K.
+    id: OT-2002953777
+    title: Stretching Short Sequences of DNA with Constant Force Axial Optical Tweezers
+    year: 2011
+  - citations: 1
+    doi: https://doi.org/10.3389/fmolb.2021.605102
+    first_author: Mo, Y.
+    id: OT-3137847787
+    title: Determining Trap Compliances, Microsphere Size Variations, and Response
+      Linearities in Single DNA Molecule Elasticity Measurements with Optical Tweezers
+    year: 2021
+  - citations: 2
+    doi: https://doi.org/10.3791/56328
+    first_author: You, H.
+    id: OT-2756145538
+    title: Single-molecule Manipulation of G-quadruplexes by Magnetic Tweezers
+    year: 2017
+  - citations: 6
+    doi: https://doi.org/10.1038/s41598-017-11912-8
+    first_author: Maity, S.
+    id: OT-2756184864
+    title: New views on phototransduction from atomic force microscopy and single
+      molecule force spectroscopy on native rods
+    year: 2017
+  - citations: 2
+    doi: https://doi.org/10.1364/oe.430465
+    first_author: Andrew, P.
+    id: OT-3184146274
+    title: Optical microlever assisted DNA stretching
+    year: 2021
+  - citations: 8
+    doi: https://doi.org/10.1364/oe.420288
+    first_author: Li, X.
+    id: OT-3137507129
+    title: Optical tweezers study of membrane fluidity in small cell lung cancer cells
+    year: 2021
+  - citations: 53
+    doi: https://doi.org/10.1021/acsnano.8b01844
+    first_author: Engel, Megan C.
+    id: OT-2806404031
+    title: Force-Induced Unravelling of DNA Origami
+    year: 2018
+  - citations: 12
+    doi: https://doi.org/10.1371/journal.pone.0262028
+    first_author: Morgan, I.
+    id: OT-4206011805
+    title: 'Tweezepy: A Python package for calibrating forces in single-molecule video-tracking
+      experiments'
+    year: 2021
+  - citations: 86
+    doi: 10.1038/ncomms11026
+    first_author: Darren Yang
+    id: CITE-68bc689698
+    title: Multiplexed single-molecule force spectroscopy using a centrifuge
+    year: 2016
+  - citations: 77
+    doi: 10.3389/fmolb.2020.00085
+    first_author: Byeongseon Yang
+    id: CITE-d75fb66316
+    title: Next Generation Methods for Single-Molecule Force Spectroscopy on Polyproteins
+      and Receptor-Ligand Complexes
+    year: 2020
+  - citations: 52
+    doi: 10.1126/sciadv.aav2720
+    first_author: Shimin Le
+    id: CITE-e0dc16c541
+    title: Direct single-molecule quantification reveals unexpectedly high mechanical
+      stability of vinculin—talin/α-catenin linkages
+    year: 2019
+  - citations: 41
+    doi: 10.1093/nar/gks1206
+    first_author: A. Tempestini
+    id: CITE-6d031edd92
+    title: Magnetic tweezers measurements of the nanomechanical stability of DNA against
+      denaturation at various conditions of pH and ionic strength
+    year: 2012
+  - citations: 31
+    doi: 10.1038/s41565-021-00979-0
+    first_author: Prakash Shrestha
+    id: CITE-726d7e5e75
+    title: Single-Molecule Mechanical Fingerprinting with DNA Nanoswitch Calipers
+    year: 2021
+  - citations: 30
+    doi: 10.1038/s41467-021-21033-6
+    first_author: Eric M. Mulhall
+    id: CITE-5723c416db
+    title: Single-molecule force spectroscopy reveals the dynamic strength of the
+      hair-cell tip-link connection
+    year: 2021
+  - citations: 23
+    doi: 10.1038/s41467-024-51813-9
+    first_author: A. Walbrun
+    id: CITE-aed409a1d7
+    title: Single-molecule force spectroscopy of toehold-mediated strand displacement
+    year: 2024
+  - citations: 12
+    doi: 10.1093/nar/gkab079
+    first_author: E. Buglione
+    id: CITE-13493f89fe
+    title: Nanomechanics of G-quadruplexes within the promoter of the KIT oncogene
+    year: 2021
+  - citations: 9
+    doi: 10.1101/593335
+    first_author: L. Milles
+    id: CITE-4077f63e47
+    title: Is mechanical receptor ligand dissociation driven by unfolding or unbinding?
+    year: 2019
+  - citations: 8
+    doi: 10.1021/acssensors.0c01278
+    first_author: Qufei Gu
+    id: CITE-8b5db3aa6f
+    title: Toward a Quantitative Relationship between Nanoscale Spatial Organization
+      and Hybridization Kinetics of Surface Immobilized Hairpin DNA Probes.
+    year: 2020
+  - citations: 6
+    doi: 10.1016/j.ijbiomac.2019.02.125
+    first_author: T. Moura
+    id: CITE-f6656df694
+    title: 'Effects of caffeine on the structure and conformation of DNA: A force
+      spectroscopy study.'
+    year: 2019
+  - citations: 6
+    doi: 10.1101/2022.08.14.503897
+    first_author: Y. J. Wang
+    id: CITE-a4cdcfecfb
+    title: Combining DNA scaffolds and acoustic force spectroscopy to characterize
+      individual protein bonds
+    year: 2022
+  - citations: 2
+    doi: 10.1073/pnas.2422678122
+    first_author: Various
+    id: TF-2025-001
+    title: Trigger factor accelerates nascent chain compaction and folding
+    year: 2025
+  - citations: 0
+    doi: ''
+    first_author: Bao, Y.
+    id: GQUAD-2025-001
+    title: Coexistence of G-Quadruplex and i-Motif Within a DNA Duplex is Tolerated
+      by a PCBP2-Assisted Replisome
+    year: 2025
+summary:
+  dna_protein: 30
+  force_generation: 24
+  other: 157
+  rheology: 26
+  unfolding: 29

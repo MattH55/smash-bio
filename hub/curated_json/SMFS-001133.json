@@ -1,0 +1,45 @@
+{
+ "publication": {"doi": "10.1093/pnasnexus/pgac299"},
+ "curation": {"level": "ai_assisted", "curators": ["Claude (AI-assisted curation)"],
+  "notes": "Custom single-beam optical tweezers pull membrane tethers with ConA-coated beads from NIH 3T3 fibroblasts and Xenopus retinal ganglion neurons cultured on glass or polyacrylamide gels of different stiffness, reporting peak and steady-state tether forces (with/without blebbistatin). Traction force microscopy is a separate complementary assay; the 532 nm wavelength in the auto record belongs to a notch dichroic, not the trapping laser."},
+ "technique": {"primary": "optical_tweezers", "secondary": [], "force_application_geometry": "membrane_tether_extrusion", "correlative_modalities": ["widefield_fluorescence", "brightfield_video"]},
+ "hardware": {
+  "make_of_setup": "custom",
+  "custom_built": true,
+  "detection_device": ["camera_CMOS"],
+  "objective_lens": {"make": "Olympus", "numerical_aperture": 1.2, "immersion": "water"},
+  "calibration_technique": ["power_spectrum_passive"],
+  "optical": {
+   "laser_wavelength": {"value": 1064, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "a 5-W 1064-nm ytterbium fibre laser (YLM-5-LP, IPG Laser, Germany) was used at a high power (>1 W) to minimize intensity fluctuations.", "confidence": "high"}},
+   "laser_power_at_objective": {"value": 600, "unit": "mW", "evidence": {"method": "llm_review", "snippet": "Excess power was redirected to a beam dump and the power at the optical trap itself was 600 mW.", "confidence": "high"}},
+   "spatial_laser_control": ["piezo_stage"],
+   "number_of_traps": 1
+  }
+ },
+ "assay": {
+  "experiment_class": ["membrane_mechanics", "rheology_cell"],
+  "bead_size": {"value": 2160, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "Beads of one size (2.16 µm) were used, ConA coated beads were prepared freshly for each experiment under temperature-controlled conditions", "confidence": "high"}},
+  "bead_functionalization": ["concanavalin A"],
+  "trap_control": ["constant_velocity", "constant_distance"],
+  "pulling_speed": {"min": 100, "max": 500, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "Beads were then moved away from the cell at 0.1 µm/s in the case of 3T3 fibroblasts and 0.5 µm/s in the case of neurons, leading to the formation of a membrane tether between the cell and the bead.", "confidence": "high"}}
+ },
+ "biological_system": {
+  "system_class": ["membrane_mechanics", "rheology_cell"],
+  "organisms": [{"name": "Xenopus laevis", "ncbi_taxon": 8355}],
+  "entities": [
+   {"name": "NIH 3T3 fibroblast plasma membrane tether", "entity_type": "cell", "role": "tethered_construct",
+    "evidence": {"method": "llm_review", "snippet": "we probed the effective membrane tension of neurons and fibroblasts cultured on glass and polyacrylamide substrates of varying stiffness using optical tweezers.", "confidence": "high"}},
+   {"name": "Xenopus laevis retinal ganglion cell (neuron) plasma membrane tether", "entity_type": "cell", "role": "tethered_construct",
+    "organism": {"name": "Xenopus laevis", "ncbi_taxon": 8355},
+    "evidence": {"method": "llm_review", "snippet": "Xenopus laevis retinal ganglion cell culture", "confidence": "high"}},
+   {"name": "Concanavalin A", "entity_type": "protein", "role": "binding_partner",
+    "evidence": {"method": "llm_review", "snippet": "beads with 2 μm diameter (Kisker PC-S-2.0) were functionalized with Concanavalin A (ConA, from Canavalia, Sigma–Aldrich, C2272-10MG)", "confidence": "high"}}
+  ],
+  "cell": {"cell_identity": "NIH 3T3 fibroblasts; Xenopus laevis retinal ganglion cells"}
+ },
+ "solution": {
+  "buffer": "Live Cell Imaging Solution (Thermo Fisher A14291DJ) + 1% PSF",
+  "small_molecules": [{"name": "blebbistatin", "concentration": {"value": 20, "unit": "μM"}}]
+ },
+ "results": []
+}

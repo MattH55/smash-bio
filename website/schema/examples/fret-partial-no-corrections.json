@@ -1,0 +1,14 @@
+{
+  "record_id": "FRET-000006",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.partial", "title": "smFRET with incompletely reported corrections", "year": 2021},
+  "technique": {"primary": "smfret_tirf_widefield", "detection": "camera", "geometry": "TIRF_immobilized"},
+  "biological_system": {"molecule_types": ["DNA-protein"], "entities": [{"name": "nucleosome", "type": "complex", "description": "nucleosome with labelled DNA"}]},
+  "fret_assays": [{
+    "assay_id": "nucleosome-minimal",
+    "fluorophores": [{"role": "donor", "name": "Cy3", "labeling_site": "DNA entry"}, {"role": "acceptor", "name": "Cy5", "labeling_site": "DNA exit"}],
+    "corrections": {"background": true, "spectral_crosstalk": false, "direct_excitation": false, "detection_efficiency": false, "alpha": {"reported": false}, "gamma": {"reported": false}},
+    "analysis": {"accurate_vs_apparent_E": "unreported"}
+  }],
+  "data_availability": {"status": "not_stated"}
+}

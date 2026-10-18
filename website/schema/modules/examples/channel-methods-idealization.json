@@ -1,0 +1,12 @@
+{
+  "record_id": "SC-000004",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/sc.example.methods", "title": "An improved idealization algorithm for single-channel data", "year": 2019, "open_access": true},
+  "technique": {"primary": "SC", "configuration": "other"},
+  "biological_system": {"entities": [{"name": "simulated single-channel data", "type": "other"}]},
+  "hardware": {"sampling_rate": {"value": 20, "unit": "kHz"}, "filter_cutoff": {"value": 5, "unit": "kHz"}},
+  "analysis": {"software": ["SCAN", "DCprogs"], "idealization": "HMM", "kinetic_model_type": "aggregated Markov", "dead_time": {"value": 30, "unit": "us"}},
+  "results": [{"quantity": "n_closed_states", "value": 4.0, "unit": "1", "statistic": "fit_parameter"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "datasets": [{"id": "https://github.com/example/dcprogs", "scheme": "url", "url": "https://github.com/example/dcprogs", "content": "code"}]},
+  "data_flags": {"has_raw_current_traces": false, "has_raw_movies": false}
+}

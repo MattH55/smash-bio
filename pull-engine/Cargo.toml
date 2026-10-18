@@ -1,0 +1,22 @@
+[package]
+name = "pull-engine"
+version = "0.1.0"
+edition = "2021"
+description = "SMASH-BIO pull: in-browser SMD / Go-Ca and nearest-neighbour nucleic pulling engine. Zero dependencies."
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Deliberately empty. No serde, no rand, no ViennaRNA, no SMOG.
+# A dependency-free crate keeps the browser bundle licence-clean and lets the
+# exact same Rust compile to a native test binary (cargo test) and to
+# wasm32-unknown-unknown without wasm-bindgen or a host linker.
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

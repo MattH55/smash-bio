@@ -1,0 +1,6 @@
+{
+ "engine_vs_engine": 0.5661629918692276,
+ "openmm_vs_openmm": 0.5298356389233446,
+ "engine_vs_openmm_40": 0.7195100610914804,
+ "fraction_contacts_never_broken": 0.9485099337748344
+}

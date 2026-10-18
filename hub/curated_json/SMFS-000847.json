@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1093/database/baae047"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: describes MechanoProDB, a web database aggregating published force-spectroscopy and steered-MD protein unfolding data; no force-spectroscopy experiment is performed in this paper."
+  }
+}

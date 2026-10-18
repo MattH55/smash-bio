@@ -1,0 +1,186 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-026-76256-2"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Dual-trap optical tweezers (LUMICKS C-Trap) dumbbell assay on the synthetic doxycycline-binding RNA aptamer G12 (long-stem, short-stem and no-stem constructs) with 0.5 kb DNA handles; force-ramp and passive-mode (constant trap distance, HMM-analysed) measurements with and without doxycycline reveal a ligand-stabilised folding intermediate. Most of the paper is SELEX, NGS, ITC, fluorescence and cell-based riboswitch work; the provided methods text is truncated mid-way through the kon/koff analysis."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "temperature": {
+      "value": 298.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All measurements were performed at trap stiffnesses between 0.25–0.40 pN/nm and a temperature of ~25 °C.",
+        "confidence": "high"
+      }
+    },
+    "acquisition_rate": {
+      "value": 78.125,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Data acquisition was initially at 78.125 kHz, then down sampled by a factor of 3 before analysis.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "number_of_traps": 2,
+      "trap_stiffness": {
+        "min": 0.25,
+        "max": 0.4,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "All measurements were performed at trap stiffnesses between 0.25–0.40 pN/nm and a temperature of ~25 °C.",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_material": "silica",
+    "bead_functionalization": [
+      "streptavidin",
+      "anti-digoxigenin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin",
+      "digoxigenin–anti-digoxigenin",
+      "DNA hybridization handle"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity",
+      "passive_mode"
+    ],
+    "pulling_speed": {
+      "value": 500,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Force ramp traces were recorded at a pulling velocity of 500 nm/s if not stated otherwise.",
+        "confidence": "high"
+      }
+    },
+    "handle_sequences": [
+      {
+        "length_bp": 500,
+        "annotations": "DNA handles (0.5 kb) for tethering the target molecules to silica beads were PCR-amplified from λ-DNA"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "entities": [
+      {
+        "name": "Doxycycline aptamer G12 RNA (long-stem, short-stem and no-stem constructs)",
+        "entity_type": "rna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "RNA aptamer constructs (long stem, short stem, no stem) were synthesised with 5’ and 3’ overhangs for integration into the dumbbell assay",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "dsDNA handles (0.5 kb, from lambda DNA; biotin- and digoxigenin-labelled)",
+        "entity_type": "dna",
+        "role": "handle",
+        "length": {
+          "value": 500,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "DNA handles (0.5 kb) for tethering the target molecules to silica beads were PCR-amplified from λ-DNA",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Doxycycline",
+        "entity_type": "small_molecule",
+        "role": "ligand",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Single-molecule force spectroscopy with optical tweezers revealed that doxycycline stabilises a folding intermediate independent of the closing stem P1",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 40,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 250,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glucose",
+        "concentration": {
+          "value": 0.65,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "RNase inhibitor",
+        "concentration": {
+          "value": 0.1,
+          "unit": "X"
+        }
+      }
+    ],
+    "oxygen_scavenging": "glucose oxidase (26 U/ml), catalase (17,000 U/ml), glucose (0.65%)",
+    "small_molecules": [
+      {
+        "name": "doxycycline (varying concentrations)"
+      }
+    ]
+  },
+  "results": []
+}

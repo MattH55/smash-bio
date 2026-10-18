@@ -1,0 +1,119 @@
+# SMASH-BIO Metadata Template: RHEOLOGY (CELL MECHANICS)
+# For studies of cell mechanical properties
+# Based on Table 3 from "FAIR data for optical tweezers experiments"
+
+experiment_id: ""  # e.g., "RHEO-2025-001"
+experiment_type: "rheology"
+schema_version: "2.0.0"
+created_date: ""
+last_modified: ""
+
+# ============================================================================
+# PUBLICATION
+# ============================================================================
+publication:
+  title: ""
+  authors: []
+  journal: ""
+  year: null
+  volume: ""
+  pages: ""
+  doi: ""
+  pubmed_id: ""
+
+# ============================================================================
+# HARDWARE CONDITIONS
+# ============================================================================
+hardware:
+  setup:
+    make: ""
+    model_number: ""
+  spatial_laser_control: ""
+  detection_device: ""
+  objective_lens:
+    make: ""
+    model: ""
+    numerical_aperture: null
+    magnification: null
+  laser:
+    power_at_source_mW: null
+    power_at_objective_mW: null
+    wavelength_nm: null
+  trap_parameters:
+    stiffness_pN_per_nm: null
+    stiffness_uncertainty_pN_per_nm: null
+    calibration_technique: ""
+  acquisition:
+    rate_kHz: null
+    filter_frequency_Hz: null
+  temperature_K: null
+
+# ============================================================================
+# ASSAY CONDITIONS
+# ============================================================================
+assay_conditions:
+  bead:
+    geometry: ""  # one-bead (attached to cell)
+    size_nm: null
+    size_uncertainty_nm: null
+    functionalization: ""  # often coated with ECM proteins
+  trap_control:
+    mode: ""  # oscillatory, step response, etc.
+  measurement_mode: ""  # active microrheology, passive microrheology
+
+# ============================================================================
+# CONSTRUCT PARAMETERS (Cell-specific)
+# ============================================================================
+cell:
+  identity:
+    cell_ontology_id: ""  # e.g., "CL:0000057"
+    human_cell_atlas_id: ""  # if human
+    common_name: ""  # e.g., "HeLa", "fibroblast"
+  
+  source_organism: ""  # e.g., "Homo sapiens"
+  tissue_origin: ""
+  
+  genome:
+    fasta_sequence: ""
+    genbank_id: ""
+  
+  perturbations:
+    description: ""  # drug treatments, knockdowns, etc.
+    - treatment: ""
+      concentration: null
+      duration: ""
+
+cell_culture:
+  passage_number: null
+  confluence_percent: null
+  media: ""
+  supplements: []
+
+# ============================================================================
+# FACTORS IN SOLUTION / MEDIA
+# ============================================================================
+solution:
+  buffer_media:
+    name: ""
+    composition: ""
+    pH: null
+  small_molecules:
+    - name: ""
+      concentration_nM: null
+  cytoskeletal_drugs:
+    - name: ""  # e.g., "cytochalasin D", "nocodazole"
+      concentration_uM: null
+
+# ============================================================================
+# RESULTS
+# ============================================================================
+results:
+  mechanical_properties:
+    youngs_modulus_Pa: null
+    shear_modulus_Pa: null
+    viscosity_Pa_s: null
+    storage_modulus_Pa: null
+    loss_modulus_Pa: null
+  key_findings: []
+
+notes: ""

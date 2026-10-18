@@ -1,0 +1,14 @@
+﻿{
+    "gate":  "1ab",
+    "parity_pass":  true,
+    "parity_detail":  "cargo test: tests/nucleic_parity.rs 9/9 and tests/protein_parity.rs 10/10 against expected.json / expected_protein.json exported from the reference (energies 1e-9, trajectories at T=0 and with injected reference noise).",
+    "fast_pass":  true,
+    "fast_detail":  "src/fast.rs fast_force_equals_reference_force: 1TIT, 1UBQ, 2GB1 x 21 conformations; energy within 1e-9, force within 1e-5 of force scale.",
+    "suites":  [
+                   "ok 61/61",
+                   "ok 9/9",
+                   "ok 10/10",
+                   "ok 0/0"
+               ],
+    "date":  "2026-10-14"
+}

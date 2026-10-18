@@ -1,0 +1,19 @@
+{
+  "record_id": "FRET-000007",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.incell", "title": "In-cell smFRET of a protein disordered region", "authors": ["Example G"], "journal": "Example Journal", "year": 2024, "open_access": false},
+  "technique": {"primary": "smfret_in_cell", "excitation_scheme": "MFD", "detection": "point_detector", "geometry": "confocal_diffusion"},
+  "biological_system": {"molecule_types": ["protein"], "entities": [{"name": "alpha-synuclein", "type": "protein", "length_aa": 140, "identifiers": [{"scheme": "uniprot", "id": "P37840", "verified": true}]}], "organism": "Homo sapiens", "cellular_context": "E. coli cytoplasm"},
+  "construct": {"labels": [{"name": "ATTO 488", "role": "donor", "labeling_site": "A18C", "labeling_chemistry": "maleimide_Cys"}, {"name": "ATTO 590", "role": "acceptor", "labeling_site": "A90C", "labeling_chemistry": "maleimide_Cys"}], "immobilization": "in_cell", "mutation": "A18C;A90C"},
+  "fret_assays": [{
+    "assay_id": "in-cell-alpha-syn",
+    "fluorophores": [{"role": "donor", "name": "ATTO 488", "labeling_site": "A18C"}, {"role": "acceptor", "name": "ATTO 590", "labeling_site": "A90C"}],
+    "solution": {"denaturant": {"type": "urea", "concentration": {"value": 0, "unit": "M"}}},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": true, "detection_efficiency": true},
+    "analysis": {"accurate_vs_apparent_E": "apparent", "software": ["FRETboard"], "state_detection": "clustering", "kinetic_model": "none"}
+  }],
+  "results": [{"quantity": "radius_of_gyration_nm", "value": 3.4, "unit": "nm", "statistic": "fit_parameter", "conditions": {"temperature_K": 310}}, {"quantity": "scaling_exponent_nu", "value": 0.52, "unit": "1", "statistic": "fit_parameter"}],
+  "data_availability": {"status": "on_request", "has_linked_dataset": false},
+  "data_flags": {"has_raw_traces": false, "has_raw_photon_data": false, "has_raw_movies": false},
+  "observer_effect": {"assessed": false}
+}

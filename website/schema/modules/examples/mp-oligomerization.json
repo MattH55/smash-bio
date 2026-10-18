@@ -1,0 +1,15 @@
+{
+  "record_id": "MP-000001",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/mp.example.oligomer", "title": "Mass photometry resolves the oligomeric state of a chaperone", "authors": ["Example A"], "journal": "Example Journal", "year": 2023, "open_access": true},
+  "technique": {"primary": "MP", "variant": "mass_photometry", "time_resolution": {"value": 2, "unit": "ms"}},
+  "biological_system": {"entities": [{"name": "Hsp90", "type": "protein", "identifiers": [{"scheme": "uniprot", "id": "P07900", "verified": true}]}]},
+  "instrument": {"manufacturer": "Refeyn", "model": "TwoMP", "field_of_view": {"value": 150, "unit": "um2"}, "frame_rate": {"value": 500, "unit": "Hz"}, "acquisition_duration": {"value": 60, "unit": "s"}},
+  "calibration": {"standards": ["BSA", "beta-amylase", "thyroglobulin"], "contrast_to_mass_slope": {"value": 0.018, "unit": "contrast/kDa"}, "calibration_type": "standards"},
+  "assay": {"surface": "glass", "method": "droplet_dilution", "concentration": {"value": 20, "unit": "nM"}, "software": ["DiscoverMP"], "temperature": {"value": 293, "unit": "K"}},
+  "event_sets": [{"id": "events-1", "format": "csv", "columns": ["mass_kDa", "contrast", "frame"], "n_events": 8421}],
+  "results": [{"quantity": "molecular_mass_kDa", "value": 84.6, "unit": "kDa", "statistic": "most_probable", "species": "monomer", "n_events": 5200}, {"quantity": "molecular_mass_kDa", "value": 169.0, "unit": "kDa", "statistic": "most_probable", "species": "dimer", "n_events": 3221}, {"quantity": "relative_abundance", "value": 0.62, "unit": "1", "species": "monomer"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "datasets": [{"id": "10.0000/mp.example.oligomer.data", "scheme": "doi", "repository": "Zenodo", "content": "mixed", "file_formats": ["csv", "tif"]}]},
+  "data_flags": {"has_event_lists": true, "has_raw_movies": true},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.9, "assay": 0.9, "construct": 0.5, "solution": 0.5, "analysis": 0.8, "data": 1.0, "overall": 0.83}
+}

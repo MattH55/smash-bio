@@ -1,0 +1,61 @@
+{
+  "publication": {"doi": "10.1038/s41467-026-73387-4"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Mainly a DNA origami design/assembly paper (AFM imaging for yield); the SMFS part is custom dual-trap optical tweezers unfolding of three triangle origami scaffold variants (T1-T3) ligated between 2 kbp dsDNA handles, with a long DNA hairpin unzipping control. Unfolding curves: nT1=30, nT2=33, nT3=42. The Cypher ES / JPK AFMs were used for imaging only, not force spectroscopy."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "acquisition_rate": {"value": 2.5, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "Data were digitised at a 2500 Hz sampling rate and saved to disk, with all subsequent data processing performed in MATLAB (MathWorks).", "confidence": "high"}},
+    "filter_frequency": {"value": 10, "unit": "Hz", "note": "post-acquisition low-pass filter applied for the non-uniformity metric analysis", "evidence": {"method": "llm_review", "snippet": "For each pair, we low-pass filtered the data to 10 Hz.", "confidence": "high"}},
+    "optical": {"number_of_traps": 2}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_nucleic_acid"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {"value": 800, "unit": "nm", "note": "anti-digoxigenin bead 0.8 um; streptavidin bead 0.9 um", "evidence": {"method": "llm_review", "snippet": "The full construct (handles + origami structure) was incubated for 15 minutes on ice with 0.8 μm polystyrene beads (Spherotech) coated with anti-digoxigenin antibodies.", "confidence": "high"}},
+    "bead_sizes_mentioned_nm": [800, 900],
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["anti-digoxigenin", "streptavidin"],
+    "attachment_chemistry": ["digoxigenin–anti-digoxigenin", "biotin–streptavidin", "ligation of handle overhangs to origami scaffold staples"],
+    "trap_control": ["constant_velocity", "force_ramp"],
+    "handle_sequences": [{"length_bp": 2000, "annotations": "We generated two 2000 bp DNA handles, each uniquely tagged with double digoxigenin or biotin, by performing PCR on bacteriophage lambda DNA."}]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_nucleic_acid"],
+    "entities": [
+      {"name": "Triangle DNA origami variants T1, T2, T3 (custom scaffold sequences)", "entity_type": "synthetic", "role": "tethered_construct",
+       "evidence": {"method": "llm_review", "snippet": "triangle origamis were prepared using the fast ramp annealing protocol described above but with two modified staples extending from the 5’ and 3’ ends of the scaffold (Methods).", "confidence": "high"}},
+      {"name": "dsDNA handles (2000 bp, lambda DNA PCR, digoxigenin- or biotin-tagged)", "entity_type": "nucleic_acid", "role": "handle",
+       "length": {"value": 2000, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "We generated two 2000 bp DNA handles, each uniquely tagged with double digoxigenin or biotin, by performing PCR on bacteriophage lambda DNA.", "confidence": "high"}},
+      {"name": "Long DNA hairpin (unzipping control)", "entity_type": "nucleic_acid", "role": "control",
+       "evidence": {"method": "llm_review", "snippet": "comparing with a set of curves obtained from unzipping a long DNA hairpin (Supplementary Fig. 46)", "confidence": "medium"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-Cl",
+    "pH": 7.4,
+    "components": [
+      {"name": "Tris-Cl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "MgCl2", "concentration": {"value": 1.5, "unit": "mM"}},
+      {"name": "glycerol", "concentration": {"value": 3, "unit": "%"}},
+      {"name": "BSA", "concentration": {"value": 0.01, "unit": "%"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "The reaction was then diluted 1000-fold in a working buffer (10 mM Tris-Cl pH 7.4, 150 mM NaCl, 1.5 mM MgCl2, 3% glycerol, and 0.01% bovine serum albumin).", "confidence": "high"}
+  },
+  "results": [
+    {"quantity": "unfolding_force", "min": 30, "unit": "pN", "applies_to": {"entity": "Triangle DNA origami variants T1-T3"},
+     "notes": "Most unfolding forces above 30 pN; a few events below 20 pN early in unfolding.",
+     "source": {"location": "results", "snippet": "The forces required to unfold the origami structures are generally above 30 pN (Supplementary Fig. 47b–c)", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

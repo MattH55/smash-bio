@@ -1,0 +1,155 @@
+{
+  "publication": {
+    "doi": "10.1016/j.isci.2024.109915"
+  },
+  "curation": {
+    "notes": "Cell-scale optical manipulation rather than single-molecule pulling: custom holographic optical tweezers (785 nm laser, LCoS SLM) project a trap shaped like the equatorial contour of an individual human red blood cell, and membrane flickering is tracked by 1 kHz high-speed video with and without trapping. The 1 µm polyester beads in the auto record were used only for hologram position calibration.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "other",
+    "correlative_modalities": [
+      "brightfield_video"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "camera_CMOS",
+      "camera_CCD"
+    ],
+    "objective_lens": {
+      "make": "Nikon",
+      "magnification": 100,
+      "numerical_aperture": 1.45,
+      "immersion": "oil"
+    },
+    "acquisition_rate": {
+      "value": 1,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "The images were recorded at 1 kHz repetition rate (integration time of 1 ms) and a total of 5000 frames for each sample.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "laser_wavelength": {
+        "value": 785,
+        "unit": "nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The light source for HOT operation was a continuous-wave laser diode emitting at 785 nm (ONDAX, by COHERENT), operating at a stable output power of 150 mW.",
+          "confidence": "high"
+        }
+      },
+      "laser_power_at_source": {
+        "value": 150,
+        "unit": "mW",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The light source for HOT operation was a continuous-wave laser diode emitting at 785 nm (ONDAX, by COHERENT), operating at a stable output power of 150 mW.",
+          "confidence": "high"
+        }
+      },
+      "laser_power_at_objective": {
+        "value": 10,
+        "unit": "mW",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we activated the HOT system by turning on the laser, delivering a power of 10 mW to the sample plane",
+          "confidence": "high"
+        }
+      },
+      "spatial_laser_control": [
+        "SLM"
+      ]
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "membrane_mechanics",
+      "rheology_cell"
+    ],
+    "trap_control": [
+      "passive_mode"
+    ],
+    "n_molecules": 6
+  },
+  "biological_system": {
+    "system_class": [
+      "membrane_mechanics",
+      "rheology_cell"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "Human red blood cell (erythrocyte)",
+        "entity_type": "cell",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Human red blood cells analyzed in this study were extracted from a human donor with the following characteristics:•Sample size: one single donor.",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "Red blood cell (erythrocyte), single healthy human donor",
+      "cell_ontology": {
+        "scheme": "cl",
+        "id": "CL:0000232",
+        "verified": false
+      }
+    }
+  },
+  "solution": {
+    "buffer": "phosphate saline buffer (PBS+)",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 130,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "Na3PO4",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "glucose",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 1,
+          "unit": "mg/mL"
+        }
+      }
+    ]
+  }
+}

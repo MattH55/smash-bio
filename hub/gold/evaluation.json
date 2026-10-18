@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "evaluated": "2026-10-10",
+  "status": "pending_human_annotation",
+  "validation": {
+    "errors": [],
+    "warnings": []
+  },
+  "completion": {
+    "studies": {
+      "rows": 150,
+      "complete_rows": 0,
+      "missing_fields": {
+        "human_data_status": 150,
+        "annotator": 150,
+        "annotation_date": 150,
+        "second_reviewer": 150,
+        "adjudicated_data_status": 150
+      }
+    },
+    "deposits": {
+      "rows": 300,
+      "complete_rows": 0,
+      "missing_fields": {
+        "human_relevance": 300,
+        "human_family_id": 300,
+        "annotator": 300,
+        "annotation_date": 300,
+        "second_reviewer": 300,
+        "adjudicated_relevance": 300,
+        "adjudicated_family_id": 300
+      }
+    }
+  },
+  "gates": {
+    "family_pairwise_accuracy": {
+      "target": 0.98,
+      "measured": null,
+      "reason": "adjudicated deposit labels are incomplete"
+    },
+    "relevance_in_scope_precision": {
+      "target": 0.95,
+      "measured": null,
+      "reason": "adjudicated deposit labels are incomplete"
+    }
+  }
+}

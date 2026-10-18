@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation Schema (beta) | SMASH-BIO</title>
+  <meta name="description" content="SMASH-SIM v1.0.0: the JSON Schema for simulated pulling experiments, what each block records, and the downloads of validated simulation records.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/sim.css">
+  <script src="../js/app.js"></script>
+  <script src="data/index.js"></script>
+  <script src="js/sim.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>SMASH-SIM v1.0.0 (beta)</h1>
+      <p>One record describes one simulated system, under one model and one pulling protocol, from
+        one source. The schema reuses the published SMFS definitions and adds the parts a simulation
+        needs.</p>
+    </div>
+  </header>
+
+  <main class="container" style="padding-bottom:60px">
+    <div id="sim-banner"></div>
+    <div id="sim-schema-meta" class="notice" style="margin-bottom:18px"></div>
+
+    <section class="section">
+      <h2>The record, block by block</h2>
+      <div class="table-scroll"><table class="sim-table data-table">
+        <thead><tr><th>Block</th><th>What it records</th></tr></thead>
+        <tbody>
+          <tr><td><code>record_id</code>, <code>schema_version</code>, <code>category</code></td>
+            <td><code>SIM-######</code>, <code>1.0.0</code>, and the fixed label <code>simulation</code>.</td></tr>
+          <tr><td><code>source</code></td>
+            <td><code>publication</code>, <code>dataset</code>, <code>database</code> or
+              <code>smash_sim_generated</code>, with DOI/URL, licence, version, retrieval date, and
+              the SHA-256 of anything ingested.</td></tr>
+          <tr><td><code>system</code></td>
+            <td>Molecule type (protein, DNA, RNA, DNA/RNA–protein, complex), entities with
+              resolver-verified identifiers, the construct (residue or nucleotide range),
+              <code>structure_source</code> (PDB, AlphaFold, predicted secondary structure,
+              designed) and the structure ids.</td></tr>
+          <tr><td><code>model</code></td>
+            <td>Family (Go Cα, heavy-atom Go, SOP, AWSEM, Martini, all-atom explicit/implicit, oxDNA,
+              oxRNA, TIS, HiRE-RNA, thermodynamic nearest-neighbour, other), force field or parameter
+              set, solvent, software and version, the <code>unit_system</code>, and any stated
+              conversions from reduced units.</td></tr>
+          <tr><td><code>protocol</code></td>
+            <td>Mode (constant velocity, constant force, force ramp, boxed MD, equilibrium under
+              force), pulling speed (original unit, plus m/s when physical), spring constant,
+              temperature, number of trajectories, simulated time, and the pulling geometry in the
+              <em>same vocabulary as the experimental records</em> so the two can be matched.</td></tr>
+          <tr><td><code>results</code></td>
+            <td>The published SMFS result structure — unfolding force, ΔLc, x‡, k0, ΔG‡, number of
+              intermediates, toughness, work, loading rate — each with a <code>unit_system</code> and
+              an evidence entry.</td></tr>
+          <tr><td><code>links.experimental_matches[]</code></td>
+            <td>SMASH-BIO and MechanoProDB records for the same molecule, each with a
+              <code>match_level</code>: <code>same_construct_same_geometry</code>,
+              <code>same_molecule_different_geometry</code> or <code>homolog</code>.</td></tr>
+          <tr><td><code>data_availability</code></td>
+            <td>Whether trajectories, force–extension curves, input files (topologies, parameters)
+              and analysis scripts are shared, with formats and locations.</td></tr>
+          <tr><td><code>fair_completeness</code></td>
+            <td>Fraction of the category's own fields populated per section (publication, system,
+              model, protocol, results, data) and overall.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="section section-alt">
+      <h2>Validation</h2>
+      <p class="muted">Every record is validated against the schema before it is published. Records
+        that fail validation are excluded from the downloads and listed in the run report. Shared
+        definitions are referenced from the published SMFS 3.1.0 schemas
+        (<code>../schema/smash-smfs-record.schema.json</code>,
+        <code>../schema/smash-smfs-results.schema.json</code>); nothing in them is modified.</p>
+      <p><a class="btn btn-secondary btn-sm" href="../schema/sim/smash-sim-record.schema.json">Record schema <i class="fas fa-arrow-up-right-from-square"></i></a>
+        <a class="btn btn-secondary btn-sm" href="../schema/sim/smash-sim-results.schema.json">Results vocabulary <i class="fas fa-arrow-up-right-from-square"></i></a></p>
+    </section>
+
+    <section class="section" id="downloads">
+      <h2>Downloads</h2>
+      <p class="muted">Only data whose licence allows redistribution is in the downloads. Where a
+        dataset's licence does not permit it, the record indexes the metadata and links to the
+        source instead.</p>
+      <ul class="linkout-group">
+        <li><a href="../downloads/sim/smash-sim-records.jsonl.gz">smash-sim-records.jsonl.gz</a>
+          — every published simulation record, one JSON object per line</li>
+        <li><a href="../downloads/sim/smash-sim-summary.csv">smash-sim-summary.csv</a>
+          — one row per record: source, system, model, protocol, units, data status, match levels</li>
+        <li><a href="../downloads/sim/smash-sim-matches.csv">smash-sim-matches.csv</a>
+          — every simulation ↔ experiment link with its match level and the forces on both sides</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var meta = SIM.data().meta || {};
+      var node = document.getElementById('sim-schema-meta');
+      node.innerHTML = '<strong>' + meta.n_records + ' validated records</strong> · schema version '
+        + SIM.esc(meta.version) + ' · index built ' + SIM.esc(meta.built)
+        + ' · ' + meta.n_matches + ' simulation ↔ experiment links.';
+    });
+  </script>
+</body>
+</html>

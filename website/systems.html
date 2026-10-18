@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9TN1HCQ2E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F9TN1HCQ2E');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biological Systems | SMASH-BIO</title>
+  <meta name="description" content="Proteins, nucleic acids, motors, cytoskeletal filaments, membranes and cells studied by single-molecule force spectroscopy — with descriptions, reported forces and links to UniProt, AlphaFold, PDB, Rfam and more.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>Biological systems</h1>
+      <p>Every molecule, complex, filament and cell type studied in the hub, with a description, what force spectroscopy has measured on it, and links out to UniProt, AlphaFold, PDBe, InterPro, Rfam, NCBI and Wikipedia. Pulling simulations of the same molecule, when the index has any, are shown on the system page in their own section and are not counted among the studies.</p>
+    </div>
+  </header>
+  <main class="container" style="padding-bottom:60px">
+    <div class="results-bar">
+      <div class="search-input"><i class="fas fa-magnifying-glass"></i><input type="search" id="sq" placeholder="Search systems — titin, kinesin, riboswitch, red blood cell…" aria-label="Search systems"></div>
+      <select id="ssort" aria-label="Sort" style="width:auto">
+        <option value="n">Most studied</option><option value="ds">Most open data</option><option value="name">A–Z</option><option value="recent">Most recent</option>
+      </select>
+    </div>
+    <div class="sys-filters" id="sfilters"></div>
+    <div class="results-meta"><span id="scount" class="num"></span></div>
+    <div class="card-grid" id="sgrid"></div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="data/systems-index.js"></script>
+  <script src="js/systems.js"></script>
+</body>
+</html>

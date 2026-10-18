@@ -1,0 +1,13 @@
+{
+  "record_id": "MP-000003",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/mp.example.kd", "title": "A mass-photometry binding assay measured in solution", "year": 2022, "open_access": false},
+  "technique": {"primary": "MP", "variant": "mass_photometry"},
+  "biological_system": {"entities": [{"name": "streptavidin", "type": "protein", "identifiers": [{"scheme": "uniprot", "id": "P22629", "verified": true}]}, {"name": "biotinylated peptide", "type": "other"}]},
+  "instrument": {"manufacturer": "Refeyn", "model": "OneMP", "frame_rate": {"value": 400, "unit": "Hz"}},
+  "calibration": {"standards": ["BSA"], "calibration_type": "in_situ"},
+  "assay": {"surface": "glass", "method": "droplet_dilution", "concentration": {"value": 50, "unit": "nM"}, "software": ["PhotoMol"]},
+  "results": [{"quantity": "dissociation_constant_M", "value": 4.2e-08, "unit": "M", "statistic": "fit_parameter", "conditions": {"temperature_K": 293}}, {"quantity": "binding_stoichiometry", "value": 4.0, "unit": "1", "statistic": "fit_parameter"}],
+  "data_availability": {"status": "on_request", "has_linked_dataset": false},
+  "data_flags": {"has_event_lists": false, "has_raw_movies": false}
+}

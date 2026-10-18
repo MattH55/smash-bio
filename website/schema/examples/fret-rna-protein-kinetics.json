@@ -1,0 +1,20 @@
+{
+  "record_id": "FRET-000004",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/example.kinetics", "title": "Kinetics of a Rev-RRE RNA-protein complex by smFRET", "authors": ["Example E"], "journal": "Example Journal", "year": 2025, "open_access": true},
+  "technique": {"primary": "smfret_confocal_burst", "excitation_scheme": "PIE", "detection": "point_detector", "geometry": "confocal_diffusion", "temperature": {"value": 298, "unit": "K"}},
+  "biological_system": {"molecule_types": ["RNA-protein"], "entities": [{"name": "RRE RNA", "type": "RNA", "length_nt": 45}, {"name": "Rev peptide", "type": "protein", "length_aa": 17, "identifiers": [{"scheme": "uniprot", "id": "P04618", "verified": true}]}], "organism": "HIV-1"},
+  "construct": {"labels": [{"name": "Cy3", "role": "donor", "labeling_site": "U23"}, {"name": "Cy5", "role": "acceptor", "labeling_site": "U40"}], "immobilization": "freely_diffusing"},
+  "fret_assays": [{
+    "assay_id": "rev-titration",
+    "fluorophores": [{"role": "donor", "name": "Cy3", "labeling_site": "U23"}, {"role": "acceptor", "name": "Cy5", "labeling_site": "U40"}],
+    "solution": {"buffer": "50 mM MOPS, 50 mM KCl", "pH": 7.0, "ligand": "Rev peptide", "ligand_concentration": {"value": 200, "unit": "nM"}},
+    "acquisition": {"sampling_rate": {"value": 20, "unit": "kHz"}, "burst_selection": "minimum 50 photons"},
+    "corrections": {"background": true, "spectral_crosstalk": true, "direct_excitation": true, "detection_efficiency": true},
+    "analysis": {"accurate_vs_apparent_E": "accurate", "software": ["PAM", "Deep-LASI"], "state_detection": "HMM", "kinetic_model": "H2MM"}
+  }],
+  "results": [{"quantity": "dissociation_constant_M", "value": 8.5e-09, "unit": "M", "statistic": "fit_parameter", "conditions": {"temperature_K": 298, "ligand": "Rev peptide"}}, {"quantity": "transition_rate_s-1", "value": 12.4, "unit": "1/s", "statistic": "fit_parameter", "transition": "unbound->bound"}, {"quantity": "dwell_time_ms", "value": 81.0, "unit": "ms", "statistic": "mean", "state": "bound"}],
+  "data_availability": {"status": "public_repository", "has_linked_dataset": true, "raw_traces_available": true, "datasets": [{"id": "10.0000/example.kinetics.data", "scheme": "doi", "repository": "Zenodo", "content": "raw_traces", "file_formats": ["h5"]}]},
+  "data_flags": {"has_raw_traces": true, "has_raw_photon_data": true, "has_raw_movies": false},
+  "fair_completeness": {"publication": 1.0, "hardware": 0.6, "assay": 0.9, "construct": 0.7, "solution": 0.7, "analysis": 0.9, "data": 1.0, "overall": 0.83}
+}

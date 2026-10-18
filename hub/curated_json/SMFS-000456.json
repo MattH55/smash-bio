@@ -1,0 +1,166 @@
+{
+  "publication": {
+    "doi": "10.1016/j.yjsbx.2025.100138"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM dynamic force spectroscopy of the S. aureus hemophore IsdH (NEAT2-NEAT3 construct, PEG-tethered to the tip) unbinding from human methemoglobin immobilised on aldehyde glass, at retraction speeds 50-4200 nm/s with Bell-Evans analysis (IsdH lacks IsdB's catch-bond-like behaviour). Paper is mainly cryo-EM plus ELISA, SEC, stopped-flow and UV-vis biochemistry."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Veeco Instruments",
+    "model_number": "Nanoscope IIIa / Multimode",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "calibration_technique": [
+      "other"
+    ],
+    "afm": {
+      "cantilever_model": "SNL-10 (cantilever D), Bruker",
+      "spring_constant": {
+        "value": 60,
+        "unit": "pN/nm",
+        "note": "nominal; effective spring constant evaluated per Kienberger et al. 2006",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Silicon nitride AFM tips (cantilever D, SNL-10; Bruker Corporation, Massachusetts, USA) with a nominal spring constant of 0.06 N/m",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "min": 50,
+        "max": 4200,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The approach was fixed at a constant velocity of 50 nm/s, while the retraction velocity was varied from 50 to 4200 nm/s, leading to different loading rates",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "attachment_chemistry": [
+      "MPTMS thiol silane + NHS-PEG-maleimide (3.4 kDa) to protein lysines (tip)",
+      "aldehyde–amine Schiff base (substrate)"
+    ],
+    "trap_control": [
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "min": 50,
+      "max": 4200,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "the retraction velocity was varied from 50 to 4200 nm/s",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "receptor_ligand_adhesion"
+    ],
+    "organisms": [
+      {
+        "name": "Staphylococcus aureus",
+        "ncbi_taxon": 1280
+      },
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "IsdH N2N3 (NEAT2–linker–NEAT3)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Staphylococcus aureus",
+          "ncbi_taxon": 1280
+        },
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "Q8NW39",
+            "verified": false
+          }
+        ],
+        "region": "residues 326–660",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The genomic sequence of S. aureus IsdHN2N3, corresponding to IsdH NEAT2 and NEAT3 linked together (UniProt entry Q8NW39, residues 326–660)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Human methemoglobin (metHb)",
+        "entity_type": "protein_complex",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "IsdHN2N3 and metHb molecules were covalently immobilized onto AFM cantilevers and glass substrates, respectively",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "PEG linker (NHS-PEG-MAL, 3.4 kDa)",
+        "entity_type": "synthetic",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "N-hydroxysuccinimide–polyethylene glycol–maleimide (NHS-PEG-MAL, 3.4 kDa, hereafter PEG; Iris Biotech)",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris",
+    "pH": 8.0,
+    "components": [
+      {
+        "name": "Tris",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 150,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "EDTA",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      }
+    ],
+    "oxygen_scavenging": "buffer saturated with N2"
+  },
+  "results": []
+}

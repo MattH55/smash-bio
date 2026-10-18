@@ -1,0 +1,241 @@
+{
+  "publication": {
+    "doi": "10.1073/pnas.2313818121"
+  },
+  "curation": {
+    "notes": "AFM-SMFS (modified Asylum Cypher ES, FIB-modified ultrashort cantilevers) of bacteriorhodopsin in native purple membrane, pulled via a C-terminal click linkage and held at constant cantilever heights while a 540-nm LED triggers the photocycle; equilibrium folding of the terminal 8 aa of helix G is monitored. A D96G/F171C/F219L triple mutant and pH 9.5 condition are also tested.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Asylum Research / Oxford Instruments",
+    "model_number": "Cypher ES",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "acquisition_rate": {
+      "value": 5000,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "We digitized the cantilever deflection, and therefore F, at 5 MHz.",
+        "confidence": "high"
+      }
+    },
+    "afm": {
+      "cantilever_model": "ultrashort (L = 9 µm) FIB-modified cantilever",
+      "spring_constant": {
+        "min": 15,
+        "max": 30,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "ultrashort AFM cantilevers (L = 9 µm) modified with a focused ion beam to have ~15 to 30 pN/nm spring constant",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 300,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "then retracted the cantilever at 300-nm/s velocity until reaching 150 pN of tension",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein"
+    ],
+    "attachment_chemistry": [
+      "cysteine–maleimide",
+      "click chemistry (DBCO–azide)",
+      "covalent PEG linker"
+    ],
+    "trap_control": [
+      "constant_velocity",
+      "constant_distance"
+    ],
+    "pulling_speed": {
+      "value": 300,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "then retracted the cantilever at 300-nm/s velocity until reaching 150 pN of tension",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein"
+    ],
+    "organisms": [
+      {
+        "name": "Halobacterium salinarum",
+        "ncbi_taxon": 2242
+      }
+    ],
+    "entities": [
+      {
+        "name": "Bacteriorhodopsin (bR) S248C, DBCO-labelled, in native purple membrane",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P02945",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Halobacterium salinarum",
+          "ncbi_taxon": 2242
+        },
+        "region": "C-terminal 8 aa of helix G (unfolding probed)",
+        "mutations": [
+          "S248C"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "We prepared DBCO-labeled bR starting from the S248C bR mutant as in prior work (35). Briefly, the bR was expressed using a plasmid-based platform in H. salinarum (45)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Bacteriorhodopsin triple mutant",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "uniprot",
+            "id": "P02945",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Halobacterium salinarum",
+          "ncbi_taxon": 2242
+        },
+        "mutations": [
+          "D96G",
+          "F171C",
+          "F219L"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "was dramatically reduced in the triple mutant (D96G/F171C/F219L) thought to trap bR in its open phase",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Azido-PEG5-triethoxysilane linker",
+        "entity_type": "small_molecule",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "These cantilevers were chemically functionalized with azido-PEG5-triethoxysilane (BroadPharm)",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.8,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 150,
+          "unit": "mM"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 3.4,
+      "unit": "kcal/mol",
+      "uncertainty": 0.3,
+      "applies_to": {
+        "entity": "Bacteriorhodopsin helix G",
+        "transition": "light-induced destabilization (ΔΔG_open)"
+      },
+      "source": {
+        "location": "abstract",
+        "snippet": "In ~60% of the data, we observed abrupt light-induced destabilization of 3.4 ± 0.3 kcal/mol, lasting 38 ± 3 ms.",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "dwell_time",
+      "value": 38,
+      "unit": "ms",
+      "uncertainty": 3,
+      "applies_to": {
+        "entity": "Bacteriorhodopsin",
+        "transition": "open (destabilized) phase lifetime"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "This perturbed phase persisted with an exponential lifetime of τopen = 38 ± 3 ms (fit ± uncertainty)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "dwell_time",
+      "value": 139,
+      "unit": "ms",
+      "uncertainty": 2,
+      "applies_to": {
+        "entity": "Bacteriorhodopsin",
+        "transition": "misfolded phase lifetime"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "remained in the perturbed phase much longer (τmisfold = 139 ± 2 ms)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "dwell_time",
+      "value": 5,
+      "unit": "ms",
+      "uncertainty": 2,
+      "uncertainty_type": "SEM",
+      "applies_to": {
+        "entity": "Bacteriorhodopsin",
+        "transition": "lag time after illumination (destabilization)"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "tlag = 5 ± 2 ms (mean ± SEM)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

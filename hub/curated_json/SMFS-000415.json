@@ -1,0 +1,230 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-025-62531-1"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Dual-trap optical tweezers (LUMICKS C-Trap) with correlative confocal fluorescence: a ~8.3 kb pKYB1 DNA tethered between two beads is held at 40-50 pN for T7 DNAp exonuclease activity, then at 10-20 pN to follow polymerisation in the presence/absence of Atto647N-labelled T7 SSB (gp2.5). Also bulk primer-extension assays and coarse-grained MD simulations."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": [
+      "confocal_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "objective_lens": {
+      "immersion": "water"
+    },
+    "acquisition_rate": {
+      "value": 50,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "All experiments were performed at room temperature with force data collected at 50 kHz.",
+        "confidence": "high"
+      }
+    },
+    "optical": {
+      "laser_wavelength": {
+        "value": 1064,
+        "unit": "nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "A 1064-nm fiber laser was used via a water-immersion microscope objective to generate two orthogonally polarized optical traps.",
+          "confidence": "high"
+        }
+      },
+      "number_of_traps": 2
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "translation_transcription_replication",
+      "nucleic_acid_protein_interaction"
+    ],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_size": {
+      "value": 1760,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "tethered between two 1.76-μm streptavidin-coated microspheres (Spherotech Inc)",
+        "confidence": "high"
+      }
+    },
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "biotin–streptavidin"
+    ],
+    "trap_control": [
+      "constant_force"
+    ],
+    "handle_sequences": [
+      {
+        "length_bp": 8300,
+        "annotations": "The pKYB1 vector (~8.3 kb) DNA construct with biotin labels at both ends"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "translation_transcription_replication",
+      "nucleic_acid_protein_interaction"
+    ],
+    "organisms": [
+      {
+        "name": "Escherichia phage T7",
+        "ncbi_taxon": 10760
+      }
+    ],
+    "entities": [
+      {
+        "name": "pKYB1 DNA (~8.3 kb, biotinylated both ends)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {
+          "value": 8300,
+          "unit": "bp"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "The pKYB1 vector (~8.3 kb) DNA construct with biotin labels at both ends was generated using established protocols",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T7 DNA polymerase (gp5 fused with E. coli thioredoxin, trxA)",
+        "entity_type": "protein_complex",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Escherichia phage T7",
+          "ncbi_taxon": 10760
+        },
+        "fluorescent_labels": [
+          {
+            "identifier": "SNAP-Surface 549"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Recombinant T7 DNA polymerase (T7 gp5 fused with trxA) was expressed, purified, and labeled with SNAP-Surface® 549.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "T7 single-stranded DNA-binding protein gp2.5 (wild type and Δ21C mutant)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {
+          "name": "Escherichia phage T7",
+          "ncbi_taxon": 10760
+        },
+        "identifiers": [
+          {
+            "scheme": "pdb",
+            "id": "1JE5",
+            "verified": false
+          }
+        ],
+        "mutations": [
+          "Δ21C (deletion of 21 C-terminal residues)"
+        ],
+        "fluorescent_labels": [
+          {
+            "identifier": "Atto647N"
+          }
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Wild-type T7 gp2.5 were purified and labeled with Atto647N using a protocol based on previous literature",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {
+        "name": "Tris-HCl",
+        "concentration": {
+          "value": 20,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 5,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "DTT",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "BSA",
+        "concentration": {
+          "value": 0.02,
+          "unit": "%"
+        }
+      },
+      {
+        "name": "T7 DNA polymerase",
+        "concentration": {
+          "value": 30,
+          "unit": "nM"
+        }
+      },
+      {
+        "name": "T7 gp2.5 (SSB)",
+        "concentration": {
+          "value": 150,
+          "unit": "nM"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 0.0007,
+      "unit": "µm^2/s",
+      "uncertainty": 0.0007,
+      "uncertainty_type": "SEM",
+      "applies_to": {
+        "entity": "T7 SSB gp2.5 on ssDNA",
+        "transition": "1D diffusion coefficient"
+      },
+      "source": {
+        "location": "methods",
+        "snippet": "The computed diffusion constant of 7 ± 7 × 10−4 μm2/s (mean ± SEM) (Fig. 2H), in agreement with our recent report13, substantiates that the SSB is essentially immobile on ssDNA.",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

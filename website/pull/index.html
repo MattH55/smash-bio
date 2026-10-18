@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMASH-Pull simulator | SMASH-BIO</title>
+  <meta name="description" content="Simulate a single-molecule pulling experiment in your browser: a Cα Gō model for proteins and a nearest-neighbour kinetic model for DNA and RNA hairpins, with force–extension curves, loading-rate analysis and unfolding order. Nothing leaves your computer.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/pull.css">
+  <script src="js/chrome.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="pull-hero">
+    <div class="container">
+      <span class="pull-tag">Beta · runs in your browser</span>
+      <h1>Pull a molecule</h1>
+      <p>Load a protein structure or type a DNA/RNA sequence, choose where to attach the handles and how hard to pull, and get simulated force–extension curves, unfolding events and the order in which the structure comes apart. The engine is compiled to WebAssembly and runs on this computer; structures are fetched from RCSB, AlphaFold DB or UniProt and nothing you enter is uploaded. <a href="about.html">What the models can and cannot tell you</a>.</p>
+    </div>
+  </header>
+
+  <main class="container pull-layout">
+    <aside class="pull-side" aria-label="Simulation setup">
+      <section class="panel" aria-labelledby="h-input">
+        <h2 id="h-input"><span class="step">1</span>What to pull</h2>
+        <div class="mode-switch" role="group" aria-label="Molecule type">
+          <button type="button" id="mode-protein" aria-pressed="true"><strong>Protein</strong><span>Cα structure-based model</span></button>
+          <button type="button" id="mode-nucleic" aria-pressed="false"><strong>DNA / RNA</strong><span>Base-pair unzipping model</span></button>
+        </div>
+
+        <div id="in-protein">
+          <div class="tabs" role="tablist" aria-label="Structure source">
+            <button role="tab" aria-selected="true" data-tab="t-pdb">PDB ID</button>
+            <button role="tab" aria-selected="false" data-tab="t-af">UniProt / AlphaFold</button>
+            <button role="tab" aria-selected="false" data-tab="t-seq">Sequence</button>
+            <button role="tab" aria-selected="false" data-tab="t-file">Upload</button>
+          </div>
+          <div class="tabpane" id="t-pdb">
+            <div class="field"><label for="pdb-id">PDB entry</label>
+              <div class="inline"><input id="pdb-id" placeholder="e.g. 1TIT" autocomplete="off" spellcheck="false"><button class="btn btn-secondary btn-sm" id="pdb-load">Load</button></div></div>
+          </div>
+          <div class="tabpane" id="t-af" hidden>
+            <div class="field"><label for="af-id">UniProt accession</label>
+              <div class="inline"><input id="af-id" placeholder="e.g. P0CG48" autocomplete="off" spellcheck="false"><button class="btn btn-secondary btn-sm" id="af-load">Load model</button></div>
+              <p class="hint">Loads the AlphaFold DB model. Residues with pLDDT below the cut-off keep their chain but lose their native contacts.</p></div>
+          </div>
+          <div class="tabpane" id="t-seq" hidden>
+            <div class="field"><label for="seq-in">Protein sequence (or FASTA)</label>
+              <textarea id="seq-in" placeholder="MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAG…" spellcheck="false"></textarea>
+              <button class="btn btn-secondary btn-sm" id="seq-load" style="margin-top:6px">Find a structure</button>
+              <p class="hint">Exact-sequence match against UniProt (by CRC64 checksum, so only the checksum is sent), then the AlphaFold DB model of the best hit. A sequence with no exact match cannot be simulated here: structure prediction does not run in a browser.</p></div>
+          </div>
+          <div class="tabpane" id="t-file" hidden>
+            <div class="field"><label for="file-in">PDB-format file</label>
+              <input type="file" id="file-in" accept=".pdb,.ent,.txt">
+              <p class="hint">Read locally; never uploaded. mmCIF is not supported yet.</p></div>
+          </div>
+          <div class="examples" aria-label="Examples">
+            <span class="small muted" style="align-self:center">Examples:</span>
+            <button class="chip" data-ex="1TIT">Titin I27</button>
+            <button class="chip" data-ex="1UBQ">Ubiquitin</button>
+            <button class="chip" data-ex="2GB1">Protein G B1</button>
+            <button class="chip" data-ex="1EMA">GFP</button>
+          </div>
+          <div id="chain-pick" hidden style="margin-top:10px">
+            <div class="field-row three">
+              <div class="field"><label for="chain-sel">Chain</label><select id="chain-sel"></select></div>
+              <div class="field"><label for="rng-a">From residue</label><input id="rng-a" type="number"></div>
+              <div class="field"><label for="rng-b">To residue</label><input id="rng-b" type="number"></div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="reslice">Apply chain / domain</button>
+            <p class="hint">Structures above 400 residues must be cut to a domain.</p>
+          </div>
+        </div>
+
+        <div id="in-nucleic" hidden>
+          <div class="field"><label for="na-seq">Sequence (5′→3′)</label>
+            <textarea id="na-seq" spellcheck="false" placeholder="GAGTCCTGGATCCTGTCCGCTTTTGCGGACAGGATCCAGGACTC"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label for="na-construct">Construct</label>
+              <select id="na-construct"><option value="auto">Hairpin (detect stem)</option><option value="stem">Hairpin (stem + loop)</option><option value="unzip">Duplex unzipping</option></select></div>
+            <div class="field"><label for="na-polymer">Polymer</label>
+              <select id="na-polymer"><option value="auto">Auto</option><option value="DNA">DNA</option><option value="RNA">RNA</option></select></div>
+          </div>
+          <div class="field-row" id="na-stem-row" hidden>
+            <div class="field"><label for="na-stem">Stem (base → loop)</label><input id="na-stem" spellcheck="false"></div>
+            <div class="field"><label for="na-loop">Loop (nt)</label><input id="na-loop" type="number" min="3" value="4"></div>
+          </div>
+          <div class="examples">
+            <span class="small muted" style="align-self:center">Examples:</span>
+            <button class="chip" data-na="hp20">20-bp DNA hairpin</button>
+            <button class="chip" data-na="hp12">12-bp GC-rich hairpin</button>
+            <button class="chip" data-na="rna">RNA hairpin</button>
+            <button class="chip" data-na="unzip">600-bp unzipping</button>
+          </div>
+          <p class="hint">Perfect Watson–Crick stems only: mismatches, bulges, internal loops and pseudoknots are outside this model.</p>
+        </div>
+        <div class="status" id="load-status" aria-live="polite" style="margin-top:10px"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-setup">
+        <h2 id="h-setup"><span class="step">2</span>Experiment</h2>
+        <div id="setup-protein">
+          <div class="field"><span class="lbl">Attach the handles to</span>
+            <div class="field-row">
+              <div class="field" style="margin:0"><label for="anchor-res" class="small">Fixed residue</label><input id="anchor-res" type="number"></div>
+              <div class="field" style="margin:0"><label for="pull-res" class="small">Pulled residue</label><input id="pull-res" type="number"></div>
+            </div>
+            <p class="hint">Defaults to the termini. Click residues in the 3D view to choose others (first click = fixed, second = pulled).</p></div>
+          <div class="field"><span class="lbl">Instrument</span>
+            <div class="seg" role="group" aria-label="Instrument" id="p-inst">
+              <button type="button" data-v="afm" aria-pressed="true">AFM-like</button><button type="button" data-v="ot" aria-pressed="false">Optical-trap-like</button><button type="button" data-v="mt" aria-pressed="false">Force clamp</button>
+            </div>
+            <p class="hint" id="p-inst-hint"></p></div>
+          <div class="field"><span class="lbl">Protocol</span>
+            <div class="seg" role="group" aria-label="Protocol" id="p-proto">
+              <button type="button" data-v="quick" aria-pressed="true">Quick</button><button type="button" data-v="standard" aria-pressed="false">Standard</button><button type="button" data-v="custom" aria-pressed="false">Custom</button>
+            </div>
+            <p class="hint" id="p-proto-hint"></p></div>
+          <div id="p-custom" hidden>
+            <div class="field-row">
+              <div class="field" id="f-speeds"><label for="p-speeds">Speeds (Å/τ)</label><input id="p-speeds" value="0.05, 0.1, 0.2"></div>
+              <div class="field" id="f-force" hidden><label for="p-force">Forces (ε/Å)</label><input id="p-force" value="4, 5, 6"></div>
+              <div class="field"><label for="p-reps">Replicas each</label><input id="p-reps" type="number" min="1" max="50" value="5"></div>
+            </div>
+          </div>
+          <details>
+            <summary class="small" style="cursor:pointer;color:var(--text-2)">Conditions and integrator</summary>
+            <div class="field-row three" style="margin-top:8px">
+              <div class="field"><label for="p-kt">kT (ε)</label><input id="p-kt" type="number" step="0.05" value="0.5"></div>
+              <div class="field"><label for="p-gamma">Friction γ</label><input id="p-gamma" type="number" step="0.1" value="1"></div>
+              <div class="field"><label for="p-dt">dt (τ)</label><input id="p-dt" type="number" step="0.001" value="0.01"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="p-k">Spring k (ε/Å²)</label><input id="p-k" type="number" step="0.01" value="0.1"></div>
+              <div class="field"><label for="p-plddt">pLDDT cut-off</label><input id="p-plddt" type="number" value="50"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="p-clamp-steps">Clamp steps</label><input id="p-clamp-steps" type="number" value="300000"></div>
+              <div class="field"><label for="p-contact">Contact form</label><select id="p-contact"><option value="6-12">LJ 6-12</option><option value="10-12">LJ 10-12</option></select></div>
+            </div>
+          </details>
+        </div>
+
+        <div id="setup-nucleic" hidden>
+          <div class="field-row three">
+            <div class="field"><label for="na-t">T (°C)</label><input id="na-t" type="number" value="25"></div>
+            <div class="field"><label for="na-na">Na⁺/K⁺ (mM)</label><input id="na-na" type="number" value="150"></div>
+            <div class="field"><label for="na-mg">Mg²⁺ (mM)</label><input id="na-mg" type="number" value="0"></div>
+          </div>
+          <div class="field"><span class="lbl">Instrument</span>
+            <div class="seg" role="group" aria-label="Instrument" id="n-inst">
+              <button type="button" data-v="ot" aria-pressed="true">Optical trap</button><button type="button" data-v="mt" aria-pressed="false">Magnetic tweezers (clamp)</button><button type="button" data-v="afm" aria-pressed="false">AFM</button>
+            </div></div>
+          <div class="field-row" id="n-ramp-row">
+            <div class="field"><label for="na-speed">Pulling speed (nm/s)</label><input id="na-speed" type="number" value="100"></div>
+            <div class="field"><label for="na-cycles">Pull–relax cycles</label><input id="na-cycles" type="number" min="1" max="200" value="20"></div>
+          </div>
+          <div class="field-row" id="n-clamp-row" hidden>
+            <div class="field"><label for="na-clamp">Force (pN, blank = F½)</label><input id="na-clamp" type="number" step="0.1"></div>
+            <div class="field"><label for="na-dur">Duration (s)</label><input id="na-dur" type="number" step="0.1" value="0.5"></div>
+          </div>
+          <details>
+            <summary class="small" style="cursor:pointer;color:var(--text-2)">Instrument and model parameters</summary>
+            <div class="field-row" style="margin-top:8px">
+              <div class="field"><label for="na-k">Probe stiffness (pN/nm)</label><input id="na-k" type="number" step="0.01" value="0.3"></div>
+              <div class="field"><label for="na-handle">Handles (bp dsDNA)</label><input id="na-handle" type="number" value="2000"></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="na-k0">Attempt rate k₀ (s⁻¹)</label><input id="na-k0" type="number" value="1000000"></div>
+              <div class="field"><label for="na-thermo">Thermodynamics</label><select id="na-thermo"><option value="browser">At T, with loop term</option><option value="reference">Reference (37 °C, no loop)</option></select></div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-run">
+        <h2 id="h-run"><span class="step">3</span>Run</h2>
+        <div class="run-row">
+          <button class="btn btn-primary" id="run-btn" disabled>Run simulation</button>
+          <button class="btn btn-secondary" id="cancel-btn" hidden>Cancel</button>
+        </div>
+        <div class="progress" style="margin-top:10px" aria-hidden="true"><div id="prog"></div></div>
+        <div class="status" id="run-status" aria-live="polite" style="margin-top:8px"></div>
+        <div class="warnbox" id="phone-warn" hidden style="margin-top:8px">This device looks like a phone or a low-core machine, so only the Quick protocol is offered.</div>
+      </section>
+    </aside>
+
+    <div class="pull-main">
+      <section class="panel" id="struct-panel" aria-labelledby="h-struct">
+        <div class="chart-head"><h3 id="h-struct">Structure</h3>
+          <div class="chart-tools">
+            <select id="color-by" aria-label="Colour by" class="btn btn-sm btn-secondary" style="padding:4px 6px"><option value="index">Colour: N → C</option><option value="plddt">Colour: pLDDT / B-factor</option><option value="break" disabled>Colour: unfolding order</option></select>
+            <button class="btn btn-sm btn-secondary" id="toggle-contacts">Contacts</button>
+          </div></div>
+        <div class="viewer-wrap"><canvas id="viewer" aria-label="3D Cα trace; drag to rotate, scroll to zoom, click to pick residues"></canvas>
+          <div class="viewer-legend" id="viewer-legend">Drag to rotate · scroll or pinch to zoom · click to pick</div></div>
+        <div class="frame-row" id="frame-row" hidden><span>Trajectory</span><input type="range" id="frame" min="0" max="0" value="0" aria-label="Trajectory frame"><button class="btn btn-sm btn-ghost" id="play">Play</button><span id="frame-lbl" class="num"></span></div>
+        <div id="struct-info" style="margin-top:12px"></div>
+        <div id="na-diagram" hidden></div>
+      </section>
+
+      <section id="results" hidden>
+        <div class="panel" style="margin-bottom:14px">
+          <div class="chart-head"><h3>Results</h3>
+            <div class="chart-tools">
+              <button class="btn btn-sm btn-secondary" id="exp-csv">CSV</button>
+              <button class="btn btn-sm btn-secondary" id="exp-json">JSON</button>
+              <button class="btn btn-sm btn-secondary" id="exp-link">Copy link</button>
+            </div></div>
+          <div id="res-summary"></div>
+        </div>
+        <div id="res-charts"></div>
+        <div class="infobox" id="res-tell" style="margin-top:14px"></div>
+      </section>
+
+      <section class="panel empty-state" id="results-empty">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="color:var(--border-strong)"><circle cx="4" cy="12" r="2.4"/><circle cx="20" cy="12" r="2.4"/><path d="M6.5 12c1.5-4 3-4 4.5 0s3 4 4.5 0"/></svg>
+        <p>Load a structure or a sequence, then run. Results appear here.</p>
+      </section>
+    </div>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="js/charts.js"></script>
+  <script src="js/viewer.js"></script>
+  <script src="js/sources.js"></script>
+  <script src="js/pool.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/movie.js"></script>
+  <script src="js/pull-app.js"></script>
+</body>
+</html>

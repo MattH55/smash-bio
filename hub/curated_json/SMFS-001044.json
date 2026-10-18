@@ -1,0 +1,156 @@
+{
+  "publication": {
+    "doi": "10.1093/nar/gkad241"
+  },
+  "curation": {
+    "notes": "Force-distance-curve AFM (JPK ForceRobot 300) with His6-tagged Tn4430 TnpA transposase (WT and the deregulated mutants TnpA3X and TnpAS911R) on NTA-PEG tips probing DNA carrying one or two transposon ends that is clicked onto gold surfaces. Dynamic force spectroscopy at retraction speeds of 0.1-10 µm/s gives koff and xu, and binding probability versus contact time gives kon/KD; a competition assay with free IR end-2 DNA is included. Cryo-EM and SAXS complement the study.",
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ]
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "ForceRobot 300",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "calibration_technique": [
+      "thermal_noise_cantilever"
+    ],
+    "afm": {
+      "cantilever_model": "OMCL-TR400PB (Olympus)",
+      "spring_constant": {
+        "min": 27,
+        "max": 53,
+        "unit": "pN/nm",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "functionalized OMCL probes (Olympus, spring constants from 0.027 to 0.053 N m–1 calculated using thermal tune)",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 1000,
+        "unit": "nm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the approach and retraction speeds of the tip were fixed at 1 μm/s, the hold or contact time was 200 ms",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "nucleic_acid_protein_interaction"
+    ],
+    "attachment_chemistry": [
+      "His-tag/Ni-NTA",
+      "click chemistry (CuAAC azide–alkyne)",
+      "covalent PEG linker",
+      "thiol–gold"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "min": 100,
+      "max": 10000,
+      "unit": "nm/s",
+      "note": "DFS retraction speeds 0.1, 0.2, 1, 2 and 10 µm/s; 1 µm/s for standard maps",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Dynamic force spectroscopy (DFS) analysis was performed using a constant approach speed of 1 μm/s and variable retraction speeds (0.1, 0.2, 1, 2 and 10 μm s–1)",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "nucleic_acid_protein_interaction"
+    ],
+    "entities": [
+      {
+        "name": "Tn4430 transposon-end DNA (one-end or two-end substrate, alkyne-modified)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "DNA molecules containing one or two transposon ends were immobilized using click chemistry as described",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "TnpA transposase of Tn4430, wild type (cMyc-His6 tagged)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "we use force-distance curve-based atomic force microscopy to probe the binding of the TnpA transposase of Tn4430 to DNA molecules containing one or two transposon ends",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "TnpA S911R (deregulated mutant)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "mutations": [
+          "S911R"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "were used to probe the interaction between TnpAWT, TnpA3X and TnpAS911R and the DNA molecule containing one or two transposon ends",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "TnpA3X (deregulated triple mutant)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "were used to probe the interaction between TnpAWT, TnpA3X and TnpAS911R and the DNA molecule containing one or two transposon ends",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "IR end-2 competitor DNA",
+        "entity_type": "dna",
+        "role": "binding_partner",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "BP was measured before and after tip incubation with 12.5, 25 and 50 μM of competitor DNA",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "NaCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      }
+    ]
+  }
+}

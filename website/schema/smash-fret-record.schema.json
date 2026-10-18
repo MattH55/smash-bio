@@ -1,0 +1,286 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/smash-fret-record.schema.json",
+  "title": "SMASH-BIO DNA/RNA single-molecule FRET record",
+  "description": "One publication-level smFRET record. Keeps the Table 3 backbone (hardware, assay, construct, solution) so cross-technique pages work, and adds the FRET-specific acquisition, construct, correction, analysis and hybrid force/FRET fields. Schema version 1.0.0.",
+  "type": "object",
+  "required": ["record_id", "schema_version", "publication", "technique", "biological_system", "fret_assays", "data_availability"],
+  "properties": {
+    "record_id": {"type": "string", "pattern": "^FRET-[0-9]{6}$"},
+    "schema_version": {"const": "1.0.0"},
+    "publication": {"$ref": "#/$defs/Publication"},
+    "technique": {"$ref": "#/$defs/Technique"},
+    "biological_system": {"$ref": "#/$defs/BiologicalSystem"},
+    "construct": {"$ref": "#/$defs/Construct"},
+    "fret_assays": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/FretAssay"}},
+    "results": {"type": "array", "items": {"$ref": "smash-fret-results.schema.json#/$defs/Result"}},
+    "data_availability": {"$ref": "smash-common.schema.json#/$defs/DataAvailability"},
+    "observer_effect": {"$ref": "smash-common.schema.json#/$defs/ObserverEffect"},
+    "fair_completeness": {"$ref": "smash-common.schema.json#/$defs/FairCompleteness"},
+    "provenance": {"$ref": "smash-common.schema.json#/$defs/Provenance"},
+    "data_flags": {
+      "type": "object",
+      "description": "Which kinds of raw data are available for this publication.",
+      "properties": {
+        "has_raw_traces": {"type": "boolean"},
+        "has_raw_photon_data": {"type": "boolean"},
+        "has_raw_movies": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "correlative": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Other modalities used in the same study, reusing the SMFS correlative vocabulary so hybrid studies are captured.",
+      "items": {"enum": ["optical_tweezers", "magnetic_tweezers", "torque_tweezers", "afm_smfs", "acoustic_force_spectroscopy", "centrifuge_force", "nanopore_force", "hydrodynamic_stretching", "biomembrane_force_probe", "micropipette", "tension_sensors", "microneedle", "force_spectroscopy_unspecified", "fluorescence_imaging", "electrophysiology", "mass_photometry", "single_particle_tracking", "other"]}
+    },
+    "cross_ref_smfs_record": {
+      "type": "string",
+      "pattern": "^SMFS-[0-9]{6}$",
+      "description": "SMASH-BIO SMFS record ID when the same publication is also in the force index."
+    },
+    "related_force_records": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^SMFS-[0-9]{6}$"},
+      "description": "All SMASH-BIO force records reporting the same study or a coupled force/FRET experiment."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Publication": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "doi": {"type": "string"},
+        "pmid": {"type": "string"},
+        "pmcid": {"type": "string"},
+        "title": {"type": "string", "minLength": 1},
+        "authors": {"type": "array", "items": {"type": "string"}},
+        "journal": {"type": "string"},
+        "year": {"type": "integer", "minimum": 1900},
+        "abstract": {"type": "string"},
+        "open_access": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Technique": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {"enum": ["smfret_confocal_burst", "smfret_tirf_widefield", "smfret_confocal_scanning_immobilized", "smfret_in_cell", "smfret_nanopore_or_zmw", "smfret_methods"]},
+        "excitation_scheme": {"enum": ["continuous", "ALEX", "nsALEX", "msALEX", "PIE", "MFD", "PAX", "three_color", "other"]},
+        "detection": {"enum": ["point_detector", "camera", "spectrograph", "other"]},
+        "geometry": {"enum": ["confocal_diffusion", "confocal_immobilized", "TIRF_immobilized", "widefield_immobilized", "zero_mode_waveguide", "nanofluidic", "hybrid_force_fret", "other"]},
+        "time_resolution": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "temperature": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "BiologicalSystem": {
+      "type": "object",
+      "required": ["molecule_types", "entities"],
+      "properties": {
+        "molecule_types": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["DNA", "RNA", "protein", "DNA-protein", "RNA-protein", "DNA-RNA", "other"]}},
+        "entities": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/MolecularEntity"}},
+        "organism": {"type": "string"},
+        "cellular_context": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "MolecularEntity": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "type": {"enum": ["DNA", "RNA", "protein", "complex", "ligand", "other"]},
+        "length_nt": {"type": "integer", "minimum": 1},
+        "length_aa": {"type": "integer", "minimum": 1},
+        "length_nm": {"type": "number", "exclusiveMinimum": 0},
+        "description": {"type": "string"},
+        "identifiers": {"type": "array", "items": {"$ref": "smash-common.schema.json#/$defs/Identifier"}},
+        "evidence": {"$ref": "smash-common.schema.json#/$defs/Evidence"}
+      },
+      "additionalProperties": false
+    },
+    "Label": {
+      "type": "object",
+      "required": ["name", "role", "labeling_site"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "role": {"enum": ["donor", "acceptor", "acceptor2", "other"]},
+        "labeling_site": {"type": "string", "minLength": 1},
+        "labeling_chemistry": {"enum": ["maleimide_Cys", "click_UAA", "NHS", "enzymatic", "hybridization", "other", "unspecified"]},
+        "linker": {"type": "string"},
+        "labeling_efficiency": {"type": "number", "minimum": 0, "maximum": 1},
+        "identifier": {"$ref": "smash-common.schema.json#/$defs/Identifier"},
+        "excitation_wavelength": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "emission_wavelength": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "Construct": {
+      "type": "object",
+      "properties": {
+        "labels": {"type": "array", "items": {"$ref": "#/$defs/Label"}},
+        "forster_radius": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "forster_radius_source": {"enum": ["calculated", "literature", "measured", "unspecified"]},
+        "immobilization": {"enum": ["freely_diffusing", "PEG_biotin_streptavidin", "vesicle_encapsulation", "nanodisc", "in_cell", "in_nanopore_or_zmw", "surface_tethered", "other"]},
+        "sequence": {"type": "string"},
+        "mutation": {"type": "string", "description": "HGVS-style notation when stated."}
+      },
+      "additionalProperties": false
+    },
+    "Hardware": {
+      "type": "object",
+      "properties": {
+        "temperature": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "detection": {"enum": ["point_detector", "camera", "spectrograph", "other"]},
+        "make_of_setup": {"type": "string"},
+        "confocal": {
+          "type": "object",
+          "properties": {
+            "laser_lines": {"type": "array", "items": {"$ref": "smash-common.schema.json#/$defs/Quantity"}},
+            "laser_powers": {"type": "array", "items": {"$ref": "smash-common.schema.json#/$defs/Quantity"}},
+            "pulse_repetition_rate": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+            "objective_na": {"type": "number", "exclusiveMinimum": 0},
+            "pinhole_diameter": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+            "detectors": {"type": "array", "items": {"enum": ["SPAD", "APD", "HyD", "PMT", "other"]}},
+            "tcspc_resolution": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+            "polarization_resolved": {"type": "boolean"}
+          },
+          "additionalProperties": false
+        },
+        "widefield": {
+          "type": "object",
+          "properties": {
+            "illumination": {"enum": ["TIRF", "HILO", "epi", "other"]},
+            "camera_model": {"type": "string"},
+            "camera_type": {"enum": ["EMCCD", "sCMOS", "CCD", "other"]},
+            "frame_time": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+            "pixel_size": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+            "emission_splitter": {"type": "string"}
+          },
+          "additionalProperties": false
+        },
+        "zmw_or_nanopore": {
+          "type": "object",
+          "properties": {
+            "aperture_type": {"type": "string"},
+            "diameter": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Solution": {
+      "type": "object",
+      "properties": {
+        "buffer": {"type": "string"},
+        "salts": {"type": "array", "items": {"type": "string"}},
+        "pH": {"type": "number", "minimum": 0, "maximum": 14},
+        "ionic_strength": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "ligand": {"type": "string"},
+        "ligand_concentration": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "denaturant": {
+          "type": "object",
+          "properties": {
+            "type": {"type": "string"},
+            "concentration": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+          },
+          "additionalProperties": false
+        },
+        "photostabilization": {
+          "type": "object",
+          "properties": {
+            "oxygen_scavenging": {"enum": ["GODCAT", "PCA_PCD", "protocatechuate", "none", "other", "unspecified"]},
+            "triplet_quenchers": {"type": "array", "items": {"type": "string"}},
+            "roxs_components": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        },
+        "oxygen_scavenging": {"type": "string"},
+        "triplet_quenchers": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "Acquisition": {
+      "type": "object",
+      "properties": {
+        "sampling_rate": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "integration_time": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "laser_powers": {"type": "array", "items": {"$ref": "smash-common.schema.json#/$defs/Quantity"}},
+        "burst_selection": {"type": "string"},
+        "background_estimation": {"type": "string"},
+        "excitation_period": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "CorrectionValue": {
+      "type": "object",
+      "required": ["reported"],
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "reported": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "Corrections": {
+      "type": "object",
+      "properties": {
+        "background": {"type": "boolean"},
+        "spectral_crosstalk": {"type": "boolean"},
+        "direct_excitation": {"type": "boolean"},
+        "detection_efficiency": {"type": "boolean"},
+        "alpha": {"$ref": "#/$defs/CorrectionValue"},
+        "beta": {"$ref": "#/$defs/CorrectionValue"},
+        "gamma": {"$ref": "#/$defs/CorrectionValue"},
+        "delta": {"$ref": "#/$defs/CorrectionValue"},
+        "gamma_factor": {"type": "number", "exclusiveMinimum": 0},
+        "beta_factor": {"type": "number", "exclusiveMinimum": 0},
+        "correction_method": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "Analysis": {
+      "type": "object",
+      "properties": {
+        "correction_factors": {"$ref": "#/$defs/Corrections"},
+        "accurate_vs_apparent_E": {"enum": ["accurate", "apparent", "unreported"]},
+        "software": {"type": "array", "items": {"type": "string"}},
+        "software_versions": {"type": "array", "items": {"type": "string"}},
+        "software_urls": {"type": "array", "items": {"type": "string"}},
+        "state_detection": {"enum": ["threshold", "HMM", "change_point", "clustering", "none", "other"]},
+        "kinetic_model": {"enum": ["HMM", "dwell_time", "FCS", "BVA", "dynamic_PDA", "H2MM", "other", "none"]},
+        "forster_radius": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "orientation_factor_assumption": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "FretAssay": {
+      "type": "object",
+      "required": ["assay_id", "fluorophores"],
+      "properties": {
+        "assay_id": {"type": "string", "minLength": 1},
+        "fluorophores": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "smash-fret-results.schema.json#/$defs/Fluorophore"},
+          "allOf": [
+            {"contains": {"type": "object", "properties": {"role": {"const": "donor"}}, "required": ["role"]}},
+            {"contains": {"type": "object", "properties": {"role": {"const": "acceptor"}}, "required": ["role"]}}
+          ]
+        },
+        "immobilization": {"type": "string"},
+        "solution": {"$ref": "#/$defs/Solution"},
+        "hardware": {"$ref": "#/$defs/Hardware"},
+        "acquisition": {"$ref": "#/$defs/Acquisition"},
+        "corrections": {"$ref": "#/$defs/Corrections"},
+        "analysis": {"$ref": "#/$defs/Analysis"},
+        "trace_sets": {"type": "array", "items": {"$ref": "smash-fret-results.schema.json#/$defs/TraceSet"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "publication": {"doi": "10.1038/s41467-025-57340-5"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Mechanical unzipping of a 3593 bp DNA hairpin (GAAA tetraloop, 29 bp handles) in a temperature-jump MiniTweezers optical trap (single trap + micropipette) between 7 and 42 °C, using a 1435 nm heating laser and an ice-box for low temperatures; chamber temperature determined from Stokes-drag viscosity measurements. Force-distance curves fitted to derive temperature-dependent nearest-neighbour free energies, entropies, enthalpies and heat-capacity changes."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "micropipette_bead",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "model_number": "MiniTweezers (temperature-jump optical trap)",
+    "custom_built": true,
+    "temperature": {"min": 280.15, "max": 315.15, "unit": "K", "evidence": {"method": "llm_review", "snippet": "Experiments have been carried out in the temperature range [7,42] °C in a buffer of 1M NaCl, 10 mM Tris-HCl (pH 7.5), and 1 mM EDTA.", "confidence": "high"}},
+    "calibration_technique": ["stokes_drag"],
+    "optical": {"number_of_traps": 1}
+  },
+  "assay": {
+    "experiment_class": ["unfolding_nucleic_acid"],
+    "bead_geometry": "trap_bead_and_micropipette_bead",
+    "bead_size": {"min": 2000, "max": 3000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "binds to a 3 μm diameter polystyrene bead coated with anti-DIG (AD). The other end is labeled with biotin (BIO), which binds to a 2 μm diameter streptavidin-coated bead (SA).", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["anti-digoxigenin", "streptavidin"],
+    "attachment_chemistry": ["digoxigenin–anti-digoxigenin", "biotin–streptavidin"],
+    "trap_control": ["constant_velocity"],
+    "pulling_speed": {"value": 100, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "Experiments have been performed at a constant pulling speed, v = 100 nm/s.", "confidence": "high"}},
+    "handle_sequences": [{"length_bp": 29, "annotations": "a 3593bp DNA hairpin flanked by short (29bp) DNA handles and ending with a GAAA tetraloop"}]
+  },
+  "biological_system": {
+    "system_class": ["unfolding_nucleic_acid"],
+    "entities": [
+      {"name": "3593 bp DNA hairpin with GAAA tetraloop", "entity_type": "dna", "role": "tethered_construct",
+       "length": {"value": 3593, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "We used a temperature-jump optical trap20 (OT) to unzip a 3593bp DNA hairpin flanked by short (29bp) DNA handles and ending with a GAAA tetraloop.", "confidence": "high"}},
+      {"name": "dsDNA handles (29 bp)", "entity_type": "dna", "role": "handle",
+       "length": {"value": 29, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "a 3593bp DNA hairpin flanked by short (29bp) DNA handles", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.5,
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 1, "unit": "M"}},
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "EDTA", "concentration": {"value": 1, "unit": "mM"}}
+    ]
+  },
+  "results": [
+    {"quantity": "persistence_length", "value": 0.77, "unit": "nm",
+     "applies_to": {"entity": "ssDNA (unzipped hairpin)"},
+     "conditions": {"temperature_K": 298.15},
+     "model": "WLC",
+     "source": {"location": "methods", "snippet": "lpss=0.77 nm at 25 °C", "extraction": "manual", "confidence": "medium"}}
+  ]
+}

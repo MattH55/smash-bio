@@ -1,0 +1,24 @@
+{
+ "gate": "X1",
+ "proteins": {
+  "1TIT": {
+   "conformations": 6,
+   "max_rel_energy_err": 3.8410560622646864e-12,
+   "max_rel_force_err": 1.166713481028193e-09,
+   "pass": true
+  },
+  "1UBQ": {
+   "conformations": 6,
+   "max_rel_energy_err": 3.457159652616662e-12,
+   "max_rel_force_err": 1.7060986664903173e-09,
+   "pass": true
+  },
+  "2GB1": {
+   "conformations": 6,
+   "max_rel_energy_err": 5.136983118541814e-13,
+   "max_rel_force_err": 8.303844825557177e-10,
+   "pass": true
+  }
+ },
+ "pass": true
+}

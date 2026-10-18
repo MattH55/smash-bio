@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulations (beta) | SMASH-BIO</title>
+  <meta name="description" content="Beta feature. Indexed pulling simulations of proteins and nucleic acids: model, protocol, units and reported mechanical results, kept separate from the experimental force-spectroscopy records and linked to them where the molecule and geometry match.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/sim.css">
+  <script src="../js/app.js"></script>
+  <script src="data/index.js"></script>
+  <script src="data/systems.js"></script>
+  <script src="js/sim.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <span class="eyebrow"><i class="fas fa-cubes"></i> Simulations (beta)</span>
+      <h1>Pulling simulations, indexed for comparison</h1>
+      <p class="lede">Simulated force-driven unfolding and unbinding of proteins and nucleic
+        acids: the model, the protocol, the units and the reported mechanical results — each with
+        its evidence, and each linked to the experimental records for the same molecule.</p>
+    </div>
+  </header>
+
+  <main class="container" style="padding-bottom:60px">
+    <div id="sim-banner"></div>
+
+    <section class="section-tight">
+      <div class="stat-row" id="sim-kpis" aria-live="polite">
+        <div class="stat-tile"><div class="label">Simulation records</div><div class="value" id="k-records">–</div><div class="sub" id="k-datasets"></div></div>
+        <div class="stat-tile"><div class="label">Model families</div><div class="value" id="k-families">–</div><div class="sub">Go, oxDNA, all-atom, Martini…</div></div>
+        <div class="stat-tile"><div class="label">Linked to an experiment</div><div class="value" id="k-matched">–</div><div class="sub" id="k-matched-sub">by molecule; geometry not matched</div></div>
+        <div class="stat-tile"><div class="label">Extracted results</div><div class="value" id="k-results">–</div><div class="sub">forces, x‡, ΔG‡, ΔLc…</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>What this category is</h2></div>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3><i class="fas fa-cubes" style="color:var(--accent)"></i>&nbsp; Simulations, labelled as such</h3>
+          <p class="muted">Every record carries the source publication or dataset, the simulated
+            system, the model family and force field, the pulling protocol and geometry, and the
+            reported results. They have their own record type (<code>SIM-######</code>), their own
+            pages and downloads, and they never stand in for an experiment.</p></div>
+        <div class="card"><h3><i class="fas fa-ruler-combined" style="color:var(--accent)"></i>&nbsp; Units are part of the data</h3>
+          <p class="muted">Coarse-grained models often report reduced units. Each value keeps the
+            unit the source wrote plus a <code>unit_system</code> field, and a reduced value is only
+            converted when the paper states the conversion — the conversion is stored with it.</p></div>
+        <div class="card"><h3><i class="fas fa-link" style="color:var(--accent)"></i>&nbsp; Matched to experiments</h3>
+          <p class="muted">Simulations are matched to SMASH-BIO and MechanoProDB experiments by
+            shared resolver-checked identifiers and the same pulling geometry. Each link carries a
+            match level, so a loose match is never presented as a like-for-like one.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="split">
+        <div class="panel"><div class="panel-head"><h3>By molecule type</h3></div>
+          <div class="panel-body" id="chart-molecule"></div></div>
+        <div class="panel"><div class="panel-head"><h3>By model family</h3></div>
+          <div class="panel-body" id="chart-family"></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div><h2>How a simulation is compared with an experiment</h2>
+          <p>The API and the downloads keep both sides of every link, and the disagreement is the
+            interesting part.</p></div>
+        <a class="btn btn-secondary btn-sm" href="stats.html">Coverage <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3>1 · Same construct, same geometry</h3>
+          <p class="muted">A shared resolver-checked identifier, the same pulling geometry in the
+            experimental vocabulary, and constructs that overlap. This is the level at which a
+            force can be compared directly.</p></div>
+        <div class="card"><h3>2 · Same molecule, other geometry</h3>
+          <p class="muted">The molecule matches, but the construct or the geometry differs or is not
+            stated. Comparable with care, and never plotted on a shared physical axis without a
+            stated conversion.</p></div>
+        <div class="card"><h3>3 · Homolog</h3>
+          <p class="muted">No shared identifier: the link rests on a distinctive molecule-name
+            token. Weakest level, shown as such, and useful only as a pointer.</p></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="section-head">
+        <div><h2>Recently indexed simulations</h2></div>
+        <a class="btn btn-secondary btn-sm" href="explore.html">All simulations <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div id="sim-recent" class="card-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="card"><h3><i class="fas fa-file-code" style="color:var(--accent)"></i>&nbsp; The simulation schema</h3>
+          <p class="muted">SMASH-SIM v1.0.0 reuses the published SMFS definitions for quantities,
+            identifiers, evidence and results, and adds the model, protocol and unit-system blocks.</p>
+          <a class="btn btn-secondary btn-sm" href="schema.html">Read the schema</a></div>
+        <div class="card"><h3><i class="fas fa-upload" style="color:var(--accent)"></i>&nbsp; Submit a simulation record</h3>
+          <p class="muted">Authors can submit a JSON record that validates against the schema;
+            every extracted value in an automatic record shows its evidence snippet.</p>
+          <a class="btn btn-secondary btn-sm" href="submit.html">Submit a record</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="js/overview.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "record_id": "SC-000002",
+  "schema_version": "1.0.0",
+  "publication": {"doi": "10.0000/sc.example.toxin", "title": "Pore formation by a bacterial toxin in planar lipid bilayers", "year": 2021, "open_access": true},
+  "technique": {"primary": "SC", "configuration": "planar_lipid_bilayer"},
+  "biological_system": {"entities": [{"name": "alpha-hemolysin", "type": "pore_forming_toxin", "identifiers": [{"scheme": "uniprot", "id": "P09616", "verified": true}]}]},
+  "expression_system": {"system": "reconstituted_proteoliposome"},
+  "hardware": {"amplifier": "Axopatch 200B", "sampling_rate": {"value": 50, "unit": "kHz"}, "filter_cutoff": {"value": 10, "unit": "kHz"}, "holding_potential": {"value": 50, "unit": "mV"}},
+  "solutions": {"bath": {"ions": [{"ion": "KCl", "concentration": {"value": 1000, "unit": "mM"}}]}, "pH": 7.0},
+  "analysis": {"software": ["custom"], "idealization": "half_amplitude_threshold", "n_open_states": 1, "n_closed_states": 1},
+  "results": [{"quantity": "unitary_conductance_pS", "value": 780.0, "unit": "pS", "statistic": "mean", "conditions": {"voltage_mV": 50}}, {"quantity": "transition_rate_s-1", "value": 4.6, "unit": "1/s", "transition": "closed->open"}],
+  "data_availability": {"status": "not_stated"},
+  "data_flags": {"has_raw_current_traces": false, "has_raw_movies": false}
+}

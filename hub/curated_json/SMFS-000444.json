@@ -1,0 +1,150 @@
+{
+  "publication": {
+    "doi": "10.1038/s41467-025-55946-3"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Home-built magnetic tweezers (voice-coil-actuated permanent magnets, Olympus IX73, Ximea CMOS camera) applying constant (force-clamp) and oscillatory forces to three single-point variants (S47, P47, V47) of cadherin-23 covalently tethered via sortase A between surface and M-270 beads; I27 unfolding used as a specific-tether fingerprint. Force calibrated from DNA B-S overstretching. Includes all-atom MD, FISST and UNRES simulations."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": [
+      "camera_CMOS"
+    ],
+    "acquisition_rate": {
+      "value": 0.58,
+      "unit": "kHz",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "our time-resolution is about 2 ms (580 Hz data acquisition rate)",
+        "confidence": "high"
+      }
+    },
+    "calibration_technique": [
+      "dna_force_extension_reference"
+    ],
+    "magnetic": {
+      "magnet_type": "permanent_pair",
+      "bead_product": "Dynabeads M-270 Amine",
+      "camera_frame_rate": {
+        "max": 3500,
+        "unit": "Hz",
+        "note": "maximum image acquisition rate achieved with real-time tracking; analysed data at 580 Hz",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "thereby achieving the highest image acquisition rate (3.5 KHz) while performing heavy tracking computation in real time",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein"
+    ],
+    "bead_geometry": "bead_on_surface",
+    "bead_size": {
+      "value": 2800,
+      "unit": "nm",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "exert force on superparamagnetic beads (2.8 µm diameter, Fe3O4)",
+        "confidence": "high"
+      }
+    },
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": [
+      "amine",
+      "NHS-(PEG)2-NHS",
+      "LPETGSSC peptide"
+    ],
+    "attachment_chemistry": [
+      "sortase A transpeptidation (LPETG / oligoglycine)",
+      "cysteine–maleimide (GGGGC peptide to maleimide-PEG surface)",
+      "NHS–amine"
+    ],
+    "trap_control": [
+      "force_clamp",
+      "oscillatory",
+      "force_ramp"
+    ],
+    "handle_sequences": [
+      {
+        "length_bp": 605,
+        "annotations": "a 605 bp long DNA linker was cloned from λ-phage DNA (Thermo Scientific). The ends were modified with an amine group and biotin (used for force calibration via B-S transition)"
+      }
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein"
+    ],
+    "entities": [
+      {
+        "name": "Cadherin-23 variants S47, P47 and V47",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "mutations": [
+          "S47 (WT)",
+          "P47",
+          "V47"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "We performed the molecular dynamics simulation for all three proteins (S47, P47, and V47) using the QuickMD plugin in VMD52. The crystal structure solved for the S47 and P47 was taken from PDB database.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Titin I27 (fingerprint domain)",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Specific events were identified by observing three or more distinct unfolding features of I27 at high force (>100 pN)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Sortase A",
+        "entity_type": "protein",
+        "role": "other",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "the incubation was done for the surface with protein and sortase A mixture (1 µM protein and 1–2 µM Sortase A) for 2 h",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "605 bp λ-phage DNA (force calibration)",
+        "entity_type": "dna",
+        "role": "other",
+        "length": {
+          "value": 605,
+          "unit": "bp"
+        },
+        "organism": {
+          "name": "Escherichia phage lambda",
+          "ncbi_taxon": 10710
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "a 605 bp long DNA linker was cloned from λ-phage DNA (Thermo Scientific)",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {},
+  "results": []
+}

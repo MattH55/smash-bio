@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Simulation Record (beta) | SMASH-BIO</title>
+  <meta name="description" content="How to submit a SMASH-SIM simulation record: the required blocks, the unit rules, and a JSON template that validates against the schema.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/sim.css">
+  <script src="../js/app.js"></script>
+  <script src="data/index.js"></script>
+  <script src="js/sim.js"></script>
+</head>
+<body>
+  <nav id="site-nav"></nav>
+  <header class="page-header">
+    <div class="container">
+      <h1>Submit a simulation record (beta)</h1>
+      <p>Simulation records are JSON that validates against SMASH-SIM v1.0.0. Authors can submit a
+        record directly; automatic records show the evidence snippet behind every value.</p>
+    </div>
+  </header>
+
+  <main class="container" style="padding-bottom:60px;max-width:980px">
+    <nav class="chip-row" aria-label="Record type" style="margin-bottom:14px">
+      <a class="chip" href="../submit.html">Experimental record</a>
+      <a class="chip active" href="submit.html" aria-current="page">Simulation record</a>
+    </nav>
+    <div id="sim-banner"></div>
+
+    <section class="section">
+      <h2>Before you submit</h2>
+      <ol class="prose">
+        <li>Give the source first: DOI or URL, licence, version and retrieval date. A simulation
+          record is about one system under one model and one protocol.</li>
+        <li>Say what the units are. If the model reports reduced units, set
+          <code>model.unit_system</code> to <code>reduced</code> (or
+          <code>reduced_with_stated_conversion</code>) and put any conversion the paper states in
+          <code>model.unit_conversions</code>. Never convert a reduced value to a physical unit
+          yourself.</li>
+        <li>Describe the pulling geometry with the same vocabulary as the experimental records
+          (<code>force_application_geometry</code>), and name the anchors (residues, nucleotides, or
+          ends) so the record can be matched.</li>
+        <li>Every value needs its evidence: the field, the method, a snippet, and a confidence.</li>
+        <li>Identifiers (UniProt, PDB, Rfam, GenBank) must resolve; a code that cannot be resolved
+          is left out rather than guessed.</li>
+      </ol>
+    </section>
+
+    <section class="section section-alt">
+      <h2>Minimal valid record</h2>
+      <p class="muted small">Only the required blocks are shown. Validate it with
+        <code>hub/sim/schema.py</code> before sending it.</p>
+      <pre class="desc-block" style="overflow-x:auto"><code>{
+  "record_id": "SIM-000123",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {"kind": "publication", "doi": "10.0000/example", "retrieved": "2026-10-11"},
+  "system": {"molecule_type": "protein", "name": "Titin I27 domain"},
+  "model": {"family": "Go_CA", "family_group": "protein", "unit_system": "reduced_with_stated_conversion"},
+  "protocol": {"mode": "constant_velocity"},
+  "data_availability": {"status": "public_repository"}
+}</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Build a record</h2>
+      <p class="muted small">The form writes a SMASH-SIM JSON record in your browser. It does not upload anything, and it does not create an experimental study. Curators validate it with the simulation schema before it is added.</p>
+      <form id="sim-form" autocomplete="off">
+        <fieldset><legend>Source</legend><div class="form-grid">
+          <div class="field"><label for="s-kind">Source kind</label><select id="s-kind">
+            <option value="publication">Publication</option><option value="dataset">Dataset</option>
+            <option value="database">Database</option></select></div>
+          <div class="field"><label for="s-doi">DOI or URL</label><input id="s-doi" type="text" required placeholder="10.xxxx/… or https://…"></div>
+          <div class="field full"><label for="s-title">Title</label><input id="s-title" type="text" required></div>
+          <div class="field"><label for="s-year">Year</label><input id="s-year" type="number" min="1980" max="2035"></div>
+          <div class="field"><label for="s-journal">Journal or repository</label><input id="s-journal" type="text"></div>
+        </div></fieldset>
+        <fieldset><legend>Simulated system</legend><div class="form-grid">
+          <div class="field"><label for="s-mol">Molecule type</label><select id="s-mol">
+            <option>protein</option><option>DNA</option><option>RNA</option>
+            <option>DNA_protein</option><option>RNA_protein</option><option>complex</option></select></div>
+          <div class="field"><label for="s-name">System name</label><input id="s-name" type="text" required placeholder="Titin I27 domain"></div>
+          <div class="field full"><label for="s-construct">Construct (residue or nucleotide range)</label><input id="s-construct" type="text" placeholder="1-89"></div>
+        </div></fieldset>
+        <fieldset><legend>Model</legend><div class="form-grid">
+          <div class="field"><label for="s-family">Model family</label><select id="s-family">
+            <option>Go_CA</option><option>Go_heavy_atom</option><option>SOP</option><option>AWSEM</option>
+            <option>Martini</option><option>all_atom_explicit_solvent</option><option>all_atom_implicit_solvent</option>
+            <option>oxDNA</option><option>oxRNA</option><option>TIS</option><option>HiRE_RNA</option>
+            <option>thermodynamic_nearest_neighbour</option><option>other</option></select></div>
+          <div class="field"><label for="s-units">Unit system</label><select id="s-units">
+            <option value="physical">Physical units</option>
+            <option value="reduced">Reduced units, no stated conversion</option>
+            <option value="reduced_with_stated_conversion">Reduced units, conversion stated in the paper</option></select></div>
+          <div class="field"><label for="s-soft">Software</label><input id="s-soft" type="text" placeholder="GROMACS, oxDNA"></div>
+          <div class="field full" id="s-conv-wrap" hidden><label for="s-conv">Stated conversion</label>
+            <textarea id="s-conv" placeholder="Only what the paper itself states. Do not invent a conversion from reduced units to piconewtons."></textarea></div>
+        </div></fieldset>
+        <fieldset><legend>Protocol and data</legend><div class="form-grid">
+          <div class="field"><label for="s-mode">Protocol mode</label><select id="s-mode">
+            <option>constant_velocity</option><option>constant_force</option><option>force_ramp</option>
+            <option>boxed_MD</option><option>equilibrium_under_force</option><option>other</option></select></div>
+          <div class="field"><label for="s-geom">Pulling geometry</label><select id="s-geom">
+            <option value="">Not stated</option>
+            <option>dumbbell_dual_trap</option><option>single_trap_surface_tether</option><option>three_bead_assay</option>
+            <option>cantilever_tip_surface</option><option>cantilever_cell_surface</option><option>bead_on_surface_magnetic</option>
+            <option>flow_tethered_end</option><option>nanopore_translocation</option><option>other</option></select></div>
+          <div class="field"><label for="s-data">Data availability</label><select id="s-data">
+            <option>public_repository</option><option>journal_supplement</option><option>source_data_supplement</option>
+            <option>code_only</option><option>on_request</option><option>not_available</option><option>not_stated</option></select></div>
+          <div class="field full"><label for="s-note">Evidence note</label><textarea id="s-note" placeholder="A short quotation or description of where the model and protocol are stated."></textarea></div>
+        </div></fieldset>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-file-code"></i> Generate JSON record</button>
+          <button type="button" class="btn btn-secondary" id="sim-copy" disabled><i class="fas fa-copy"></i> Copy</button>
+          <a class="btn btn-secondary" id="sim-mail" href="mailto:mhalma@opensourcemed.info?subject=SMASH-SIM%20record%20submission"><i class="fas fa-envelope"></i> E-mail to curators</a>
+        </div>
+        <p class="notice" style="margin-top:10px"><i class="fas fa-circle-info"></i>Nothing is uploaded from this page. Download or copy the JSON and attach it to the e-mail. The curator assigns the published <code>SIM-######</code> id after validation.</p>
+        <pre id="sim-out" style="display:none;margin-top:14px;max-height:480px"></pre>
+      </form>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="js/submit.js"></script>
+</body>
+</html>

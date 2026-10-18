@@ -1,0 +1,91 @@
+{
+  "publication": {"doi": "10.1093/nar/gkae538"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Two techniques: (1) custom permanent-magnet magnetic tweezers DNA-bridging assay on branched/unbranched 4292 bp DNA, cycling between 4 pN and 0.1 pN in the presence of WT and variant human CtIP (4 or 20 nM); (2) LUMICKS C-Trap dual-trap optical tweezers with confocal imaging of Bio-CtIP-AF635 diffusion on 25,427 bp DNA held at 15 pN (buffer 20 mM HEPES pH 7.8, 100 mM KCl, 5 mM MgCl2, PCA/PCD oxygen scavenger). Hardware/assay/solution below describe the magnetic tweezers assay."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": ["optical_tweezers"],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": ["confocal_fluorescence"]
+  },
+  "hardware": {
+    "make_of_setup": "custom",
+    "custom_built": true,
+    "detection_device": ["camera_CCD"],
+    "objective_lens": {"immersion": "oil"},
+    "acquisition_rate": {"value": 0.12, "unit": "kHz", "evidence": {"method": "llm_review", "snippet": "The inverted microscope is equipped with a high magnification oil-immersion objective connected to a CCD camera that records the position of the bead at 120 Hz.", "confidence": "high"}},
+    "calibration_technique": ["equipartition"],
+    "magnetic": {
+      "magnet_type": "permanent_pair",
+      "bead_product": "Dynabeads MyOne Streptavidin T1",
+      "camera_frame_rate": {"value": 120, "unit": "Hz", "evidence": {"method": "llm_review", "snippet": "The inverted microscope is equipped with a high magnification oil-immersion objective connected to a CCD camera that records the position of the bead at 120 Hz.", "confidence": "high"}},
+      "rotation_control": true
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_protein_interaction"],
+    "bead_geometry": "bead_surface",
+    "bead_size": {"value": 1000, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "was mixed with 20 μl of 1 μm-diameter magnetic beads (Dynabeads MyOne Streptavidin T1, Thermo Fisher Scientific) diluted 1:10 in PBS–BSA", "confidence": "high"}},
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin", "digoxigenin–anti-digoxigenin"],
+    "trap_control": ["constant_force", "force_jump", "rotation"],
+    "handle_sequences": [
+      {"length_bp": 1000, "annotations": "One handle (1 kb) is labelled with digoxigenin to ensure the DNA immobilization onto the lower surface of the flow cell"},
+      {"length_bp": 140, "annotations": "while the other one (140 bp) is biotinylated for the attachment of a streptavidin-covered superparamagnetic bead."}
+    ]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {
+        "name": "Branched / unbranched dsDNA (4292 bp central segment)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 4292, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "both DNA designs are composed of a central dsDNA segment of 4292 bp (See Supplementary Table S2 for sequence) flanked by two labelled handles.", "confidence": "high"}
+      },
+      {
+        "name": "dsDNA for C-Trap (25,427 bp; and 21,915 bp tether with 18,968 bp loop)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 25427, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "Two types of DNA molecules were immobilized in the C-Trap; a dsDNA molecule of 25 427 bp and a loop-containing dsDNA consisting of a dsDNA tether of 21 915 bp with a central loop of 18 968 bp.", "confidence": "high"}
+      },
+      {
+        "name": "Digoxigenin handle (1 kb) and biotin handle (140 bp)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {"method": "llm_review", "snippet": "One handle (1 kb) is labelled with digoxigenin to ensure the DNA immobilization onto the lower surface of the flow cell, while the other one (140 bp) is biotinylated", "confidence": "high"}
+      },
+      {
+        "name": "CtIP (wild type and variants ΔN500, ΔN541, ΔN790, ΔC608, MBP-CtIP-800–843; Bio-CtIP-AF635)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+        "fluorescent_labels": [{"identifier": "AlexaFluor 635 (via streptavidin conjugate)", "sequence_location": "C-terminal Avi-tag"}],
+        "evidence": {"method": "llm_review", "snippet": "All experiments were performed in 10 mM Tris–Cl pH 7.6, 20 mM NaCl, 1 mM DTT and 0.1 mg/ml BSA, with 4 nM monomeric concentration of the protein of interest.", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl",
+    "pH": 7.6,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "DTT", "concentration": {"value": 1, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 0.1, "unit": "mg/mL"}}
+    ],
+    "small_molecules": [
+      {"name": "CtIP (monomeric concentration)", "concentration": {"value": 4, "unit": "nM"}},
+      {"name": "biotin (for strep-tagged variants)", "concentration": {"value": 10, "unit": "µM"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "All experiments were performed in 10 mM Tris–Cl pH 7.6, 20 mM NaCl, 1 mM DTT and 0.1 mg/ml BSA, with 4 nM monomeric concentration of the protein of interest.", "confidence": "high"}
+  },
+  "results": []
+}

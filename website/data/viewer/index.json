@@ -1,0 +1,205 @@
+{
+ "generated_by": "smashbio 0.1.0",
+ "display_downsampling": "<= 600 points per trace, <= 24 traces per file; analysis uses full-resolution data",
+ "datasets": [
+  {
+   "key": "doxycycline_riboswitch",
+   "title": "Mechanism underlying the high regulatory performance of the doxycycline riboswitch G12",
+   "url": "https://zenodo.org/records/20424385",
+   "repository": "zenodo",
+   "technique": "optical_tweezers",
+   "ligand": "doxycycline",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "2026_CAPTURE_cleaned/CSV_files_to_re_plotting/2026_bubble.csv: 2026_CAPTURE_cleaned.zip__2026_CAPTURE_cleaned__CSV_files_to_re_plotting__2026_bubble.csv: cannot map columns without guessing (force: no column; extension/position: no column). Columns found: ['round', 'motif', 'total_count']. Supply a mapping, e.g. {\"force\": {\"column\": \"Force\", \"unit\": \"pN\"}, \"ext",
+    "2026_COLUMN_cleaned/MEME_COL_ALL_20250409/meme_R1_COL.txt: 2026_COLUMN_cleaned.zip__2026_COLUMN_cleaned__MEME_COL_ALL_20250409__meme_R1_COL.txt: cannot map columns without guessing (force: no column; extension/position: no column). Columns found: ['********************************************************************************']. Supply a mapping, e.g. {\"f"
+   ]
+  },
+  {
+   "key": "theophylline_aptamer",
+   "title": "Single molecule force measurements reveal energy stabilization of theophylline aptamer RNA switch required for gene control",
+   "url": "https://zenodo.org/records/17168139",
+   "repository": "zenodo",
+   "technique": "optical_tweezers",
+   "ligand": "theophylline",
+   "license": "cc-by-4.0",
+   "status": "traces",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 4,
+   "conditions": [
+    "0.5uMtheo",
+    "5uMtheo",
+    "notheo"
+   ],
+   "problems": []
+  },
+  {
+   "key": "prion_pentosan_polysulfate",
+   "title": "Single-molecule force spectroscopy measurements of pentosan polysulfate interacting with hamster prion protein",
+   "url": "https://figshare.com/articles/dataset/Single-molecule_force_spectroscopy_measurements_of_pentosan_polysulfate_interacting_with_hamster_prion_protein/13404719",
+   "repository": "figshare",
+   "technique": "optical_tweezers",
+   "ligand": "pentosan polysulfate",
+   "license": "cc-by-4.0",
+   "status": "traces",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 24,
+   "conditions": [
+    "with pentosan polysulfate"
+   ],
+   "problems": []
+  },
+  {
+   "key": "mtb_rnap_inhibitors",
+   "title": "Data from: Pleomorphic effects of three small-molecule inhibitors on transcription elongation by <em>Mycobacterium tuberculosis</em> RNA polymerase",
+   "url": "https://datadryad.org/dataset/doi:10.5061/dryad.2fqz6130m",
+   "repository": "dryad",
+   "technique": "optical_tweezers",
+   "ligand": "small-molecule RNAP inhibitors",
+   "license": "cc0-1.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [
+    "10.7554/eLife.105545"
+   ],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "no sample file yet: download failed https://datadryad.org/api/v2/files/4433499/download: Client error '401 Unauthorized' for url 'https://datadryad.org/api/v2/files/4433499/download'\nFor more information check; download failed https://datadryad.org/stash/downloads/file_stream/4433499: Client error '403 Forbidden' for u"
+   ]
+  },
+  {
+   "key": "myosin_danicamtiv",
+   "title": "Danicamtiv reduces myosin's working stroke but activates the thin filament by accelerating actomyosin attachment",
+   "url": "https://zenodo.org/records/12636349",
+   "repository": "zenodo",
+   "technique": "optical_tweezers",
+   "ligand": "danicamtiv",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "danicamtiv/motility/pCa-6.25-drug-titrations/2025-04-11/pCa-6.25/0uM-om/1/MTrackJ: Tracks.csv: 2025-07-17_danicamtiv.zip__danicamtiv__motility__pCa-6.25-drug-titrations__2025-04-11__pCa-6.25__0uM-om__1__MTrackJ: Tracks.csv: cannot map columns without guessing (force: no column; extension/position: no column). Columns found: ['Nr', 'TID', 'Points', 'Min x', 'Max x', 'Mean x', 'SD x', 'Min y', ",
+    "danicamtiv/myosim/protocol2.txt: 2025-07-17_danicamtiv.zip__danicamtiv__myosim__protocol2.txt: cannot map columns without guessing (force: no column; extension/position: no column). Columns found: ['dt', 'dhsl', 'Mode', 'pCa']. Supply a mapping, e.g. {\"force\": {\"column\": \"Force\", \"unit\": \"pN\"}, \"extension\": {\"column\": \"Distance\", \"",
+    "danicamtiv/stopped-flow/table.xlsx: 2025-07-17_danicamtiv.zip__danicamtiv__stopped-flow__table.xlsx: no (Ext, Force) column pairs with data found in sheets ['Sheet1']"
+   ]
+  },
+  {
+   "key": "cryptochrome_fad",
+   "title": "Global fitting of refolding models of Drosophila cryptochrome from single molecule pulling data",
+   "url": "https://zenodo.org/records/7600387",
+   "repository": "zenodo",
+   "technique": "optical_tweezers",
+   "ligand": "FAD and analogues",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "readme.txt: readme.txt: cannot map columns without guessing (force: no column; extension/position: no column). Columns found: ['This folder contains the raw data', 'analysis scripts', 'and optimized model parameters for the manuscript titled \u201cThe cofactor-dependent folding mechanism of Drosophila cryptochrome r",
+    "Raw Data and Best Fit Lines.xlsx: Raw Data and Best Fit Lines.xlsx: no (Ext, Force) column pairs with data found in sheets ['Kinetic Data', 'Thermodynamic Data', 'Combined']",
+    "Start_Workspace.mat: Start_Workspace.mat: no reader yet for '.mat'"
+   ]
+  },
+  {
+   "key": "combi_tweez_sybr_gold",
+   "title": "Data supporting \"COMBI-Tweez: high-precision single-molecule mechanical manipulation and imaging for dynamic chiral biopolymers\"",
+   "url": "https://zenodo.org/records/7786636",
+   "repository": "zenodo",
+   "technique": "optical_tweezers",
+   "ligand": "SYBR Gold",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "collated data/Figure 4/Fluorescent tethers/20220202/fluorrescent tether/slide1/tether1/image analysis/200/bg1.csv: collated data.zip__collated data__Figure 4__Fluorescent tethers__20220202__fluorrescent tether__slide1__tether1__image analysis__200__bg1.csv: cannot map columns without guessing (force: no column). Columns found: ['Distance_', 'Gray_Value']. Supply a mapping, e.g. {\"force\": {\"column\": \"Force\", \"uni",
+    "collated data/Figure 2/Non-fluorescent tethers/low force fx/slide1/tether9/spectrum4_001.lvm: collated data.zip__collated data__Figure 2__Non-fluorescent tethers__low force fx__slide1__tether9__spectrum4_001.lvm: no reader yet for '.lvm'"
+   ]
+  },
+  {
+   "key": "melb_substrates",
+   "title": "Substrate-Binding Guides Individual Melibiose Permeases MelB to Structurally Soften and to Destabilize Cytoplasmic Middle-Loop C3. Blaimschein et al.: Data sets",
+   "url": "https://zenodo.org/records/7268848",
+   "repository": "zenodo",
+   "technique": "afm_smfs",
+   "ligand": "melibiose / alpha-NPG",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "no sample file yet: no small data file in a known format (<= max_file_mb)"
+   ]
+  },
+  {
+   "key": "sam_i_riboswitch",
+   "title": "Single-molecule insights into SAM-I riboswitch ligand binding using scaled magnetic force spectroscopy with comparison to conventional biophysical methods",
+   "url": "https://tandf.figshare.com/articles/dataset/Single-molecule_insights_into_SAM-I_riboswitch_ligand_binding_using_scaled_magnetic_force_spectroscopy_with_comparison_to_conventional_biophysical_methods/33422906",
+   "repository": "figshare",
+   "technique": "magnetic_tweezers",
+   "ligand": "SAM",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [
+    "10.1080/15476286.2026.2705059"
+   ],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "no sample file yet: no small data file in a known format (<= max_file_mb)"
+   ]
+  },
+  {
+   "key": "gyrase_ciprofloxacin_drug",
+   "title": "Flow Magnetic Tweezers: Gyrase dynamics in presence of 20 uM drug Ciprofloxacin",
+   "url": "https://zenodo.org/records/3981123",
+   "repository": "zenodo",
+   "technique": "magnetic_tweezers",
+   "ligand": "ciprofloxacin 20 uM",
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "no sample file yet: no small data file in a known format (<= max_file_mb)"
+   ]
+  },
+  {
+   "key": "gyrase_ciprofloxacin_apo",
+   "title": "Flow Magnetic Tweezers: Gyrase dynamics in absence of drug Ciprofloxacin",
+   "url": "https://zenodo.org/records/3981513",
+   "repository": "zenodo",
+   "technique": "magnetic_tweezers",
+   "ligand": null,
+   "license": "cc-by-4.0",
+   "status": "not_harmonised",
+   "may_redistribute_raw": true,
+   "paper_dois": [],
+   "n_traces": 0,
+   "conditions": [],
+   "problems": [
+    "no sample file yet: no small data file in a known format (<= max_file_mb)"
+   ]
+  }
+ ]
+}

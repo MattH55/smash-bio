@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/pull/export/pull_setup.schema.json",
+  "title": "SMASH-Pull setup (smash-pull-setup/1)",
+  "description": "One pulling experiment, described once and runnable by the SMASH-Pull browser engine, the OpenMM port of its Cα model (openmm_go.py), an all-atom OpenMM steered-MD run (openmm_allatom.py) and GROMACS (prepare.py writes gromacs/).",
+  "type": "object",
+  "required": ["schema", "structure"],
+  "properties": {
+    "schema": { "const": "smash-pull-setup/1" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "structure": {
+      "type": "object",
+      "required": ["source"],
+      "properties": {
+        "source": { "enum": ["pdb", "alphafold", "file"] },
+        "id": { "type": "string", "description": "PDB ID (source pdb) or UniProt accession (source alphafold)" },
+        "file": { "type": "string", "description": "PDB-format file next to the setup (source file)" },
+        "chain": { "type": ["string", "null"], "maxLength": 1 },
+        "range": { "type": ["array", "null"], "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 }
+      },
+      "allOf": [
+        { "if": { "properties": { "source": { "enum": ["pdb", "alphafold"] } } }, "then": { "required": ["id"] } },
+        { "if": { "properties": { "source": { "const": "file" } } }, "then": { "required": ["file"] } }
+      ]
+    },
+    "anchor": { "type": "object", "properties": { "residue": { "type": ["integer", "null"] }, "atom": { "const": "CA" } } },
+    "pulled": { "type": "object", "properties": { "residue": { "type": ["integer", "null"] }, "atom": { "const": "CA" } } },
+    "conditions": {
+      "type": "object",
+      "properties": {
+        "temperature_K": { "type": "number", "minimum": 200, "maximum": 400 },
+        "ionic_strength_M": { "type": "number", "minimum": 0 },
+        "pH": { "type": "number", "minimum": 0, "maximum": 14 }
+      }
+    },
+    "go_model": {
+      "type": "object",
+      "description": "Cα Gō model in reduced units (Å, τ, ε). Forces are ε/Å, not pN.",
+      "properties": {
+        "protocol": { "enum": ["constant_velocity", "constant_force"] },
+        "speeds_A_per_tau": { "type": "array", "items": { "type": "number", "exclusiveMinimum": 0 } },
+        "forces_eps_per_A": { "type": "array", "items": { "type": "number" } },
+        "replicas": { "type": "integer", "minimum": 1 },
+        "spring_k_eps_per_A2": { "type": "number", "exclusiveMinimum": 0 },
+        "temperature_eps": { "type": "number", "exclusiveMinimum": 0 },
+        "friction_per_tau": { "type": "number", "exclusiveMinimum": 0 },
+        "dt_tau": { "type": "number", "exclusiveMinimum": 0, "maximum": 0.02 },
+        "contact_form": { "enum": ["lj12-6", "lj10-12"] },
+        "plddt_cutoff": { "type": ["number", "null"] },
+        "travel_fraction": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "steps": { "type": ["integer", "null"] }
+      }
+    },
+    "all_atom": {
+      "type": "object",
+      "properties": {
+        "solvent": { "enum": ["explicit", "implicit"] },
+        "speed_nm_per_ns": { "type": "number", "exclusiveMinimum": 0 },
+        "spring_k_kJ_mol_nm2": { "type": "number", "exclusiveMinimum": 0 },
+        "anchor_restraint_kJ_mol_nm2": { "type": "number", "exclusiveMinimum": 0 },
+        "pull_distance_nm": { "type": ["number", "null"] },
+        "equilibration_ns": { "type": "number", "minimum": 0 },
+        "timestep_fs": { "type": "number", "exclusiveMinimum": 0, "maximum": 4 },
+        "padding_nm": { "type": "number", "minimum": 1.0 },
+        "gromacs_forcefield": { "type": "string" },
+        "gromacs_water": { "type": "string" }
+      }
+    },
+    "provenance": { "type": "object" }
+  }
+}

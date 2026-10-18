@@ -1,0 +1,8 @@
+{
+  "publication": {"doi": "10.1038/s41467-026-70426-y"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "NOT SMFS: study of yeast 26S proteasome ATPase pore-1 loop mutants using biochemical degradation/ATPase assays, TIRF-based single-molecule FRET and cryo-EM; no mechanical force is applied or measured on single molecules (no tweezers, AFM or force probes)."
+  }
+}

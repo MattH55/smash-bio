@@ -1,0 +1,542 @@
+{
+ "chebi:15956": {
+  "id": "15956",
+  "scheme": "chebi",
+  "verified": true
+ },
+ "chebi:42098": {
+  "id": "42098",
+  "scheme": "chebi",
+  "verified": true
+ },
+ "chebi:46793": {
+  "id": "46793",
+  "scheme": "chebi",
+  "verified": true
+ },
+ "cl:CL:0000019": {
+  "id": "CL:0000019",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000034": {
+  "id": "CL:0000034",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000057": {
+  "id": "CL:0000057",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000066": {
+  "id": "CL:0000066",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000084": {
+  "id": "CL:0000084",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000115": {
+  "id": "CL:0000115",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000232": {
+  "id": "CL:0000232",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000233": {
+  "id": "CL:0000233",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000235": {
+  "id": "CL:0000235",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000236": {
+  "id": "CL:0000236",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000540": {
+  "id": "CL:0000540",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000746": {
+  "id": "CL:0000746",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0000775": {
+  "id": "CL:0000775",
+  "scheme": "cl",
+  "verified": true
+ },
+ "cl:CL:0001063": {
+  "id": "CL:0001063",
+  "scheme": "cl",
+  "verified": true
+ },
+ "genbank:J01749.1": {
+  "id": "J01749.1",
+  "scheme": "genbank",
+  "verified": true
+ },
+ "genbank:J02459.1": {
+  "id": "J02459.1",
+  "scheme": "genbank",
+  "verified": true
+ },
+ "genbank:J02482.1": {
+  "id": "J02482.1",
+  "scheme": "genbank",
+  "verified": true
+ },
+ "genbank:L09137.2": {
+  "id": "L09137.2",
+  "scheme": "genbank",
+  "verified": true
+ },
+ "genbank:X02513.1": {
+  "id": "X02513.1",
+  "scheme": "genbank",
+  "verified": true
+ },
+ "go:GO:0000786": {
+  "id": "GO:0000786",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005634": {
+  "id": "GO:0005634",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005643": {
+  "id": "GO:0005643",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005737": {
+  "id": "GO:0005737",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005874": {
+  "id": "GO:0005874",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005882": {
+  "id": "GO:0005882",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0005884": {
+  "id": "GO:0005884",
+  "scheme": "go",
+  "verified": true
+ },
+ "go:GO:0016020": {
+  "id": "GO:0016020",
+  "scheme": "go",
+  "verified": true
+ },
+ "rfam:RF00005": {
+  "id": "RF00005",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00028": {
+  "id": "RF00028",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00036": {
+  "id": "RF00036",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00050": {
+  "id": "RF00050",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00059": {
+  "id": "RF00059",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00162": {
+  "id": "RF00162",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00167": {
+  "id": "RF00167",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00234": {
+  "id": "RF00234",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00250": {
+  "id": "RF00250",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF00522": {
+  "id": "RF00522",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "rfam:RF01734": {
+  "id": "RF01734",
+  "scheme": "rfam",
+  "verified": true
+ },
+ "uniprot:O59010": {
+  "id": "O59010",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:O67854": {
+  "id": "O67854",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:O95471": {
+  "id": "O95471",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00573": {
+  "id": "P00573",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00581": {
+  "id": "P00581",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00644": {
+  "id": "P00644",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00648": {
+  "id": "P00648",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00698": {
+  "id": "P00698",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P00720": {
+  "id": "P00720",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P01267": {
+  "id": "P01267",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02701": {
+  "id": "P02701",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02769": {
+  "id": "P02769",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02792": {
+  "id": "P02792",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02794": {
+  "id": "P02794",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02920": {
+  "id": "P02920",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02931": {
+  "id": "P02931",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P02945": {
+  "id": "P02945",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03034": {
+  "id": "P03034",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03135": {
+  "id": "P03135",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03522": {
+  "id": "P03522",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03680": {
+  "id": "P03680",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03692": {
+  "id": "P03692",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P03695": {
+  "id": "P03695",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P04530": {
+  "id": "P04530",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P04618": {
+  "id": "P04618",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P04637": {
+  "id": "P04637",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P05556": {
+  "id": "P05556",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P06454": {
+  "id": "P06454",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P06654": {
+  "id": "P06654",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P07900": {
+  "id": "P07900",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P09616": {
+  "id": "P09616",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0A334": {
+  "id": "P0A334",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0A6M8": {
+  "id": "P0A6M8",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0A742": {
+  "id": "P0A742",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0AEX9": {
+  "id": "P0AEX9",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0C0S1": {
+  "id": "P0C0S1",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0CE47": {
+  "id": "P0CE47",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0DMV8": {
+  "id": "P0DMV8",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P0DTC2": {
+  "id": "P0DTC2",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P10537": {
+  "id": "P10537",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P10636": {
+  "id": "P10636",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P13569": {
+  "id": "P13569",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P14867": {
+  "id": "P14867",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P16389": {
+  "id": "P16389",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P16403": {
+  "id": "P16403",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P17302": {
+  "id": "P17302",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P21796": {
+  "id": "P21796",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P22629": {
+  "id": "P22629",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P23909": {
+  "id": "P23909",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P29972": {
+  "id": "P29972",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P31224": {
+  "id": "P31224",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P33176": {
+  "id": "P33176",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P37840": {
+  "id": "P37840",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P42212": {
+  "id": "P42212",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P42262": {
+  "id": "P42262",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P52292": {
+  "id": "P52292",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:P54582": {
+  "id": "P54582",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q05586": {
+  "id": "Q05586",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q12791": {
+  "id": "Q12791",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q12809": {
+  "id": "Q12809",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q14524": {
+  "id": "Q14524",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q51918": {
+  "id": "Q51918",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q8NER1": {
+  "id": "Q8NER1",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q96RD7": {
+  "id": "Q96RD7",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q99ZW2": {
+  "id": "Q99ZW2",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q9NYG8": {
+  "id": "Q9NYG8",
+  "scheme": "uniprot",
+  "verified": true
+ },
+ "uniprot:Q9Y4I1": {
+  "id": "Q9Y4I1",
+  "scheme": "uniprot",
+  "verified": true
+ }
+}

@@ -1,0 +1,74 @@
+{
+  "publication": {"doi": "10.1093/nar/gkag585"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "LUMICKS C-Trap force-clamp assays of tension-dependent DNA cleavage by human ANKLE1 endonuclease on three tethered substrates (15 kb four-way junction, 15 kb bubble, 48.5 kb lambda-DNA) in a dual-trap dumbbell; additional quadruple-trap experiments braided two lambda-DNA molecules into a single catenane held at ~40 pN. Cleavage times analysed with Bell-Evans and a combined Michaelis-Menten/Bell-Evans model; bulk gel cleavage assays are complementary."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "LUMICKS",
+    "model_number": "C-Trap",
+    "custom_built": false,
+    "temperature": {"value": 298, "unit": "K", "evidence": {"method": "llm_review", "snippet": "is the absolute temperature (taken to be 298 K for these experiments)", "confidence": "medium"}},
+    "optical": {
+      "number_of_traps": 4,
+      "trap_stiffness": {"min": 0.2, "max": 0.3, "unit": "pN/nm", "evidence": {"method": "llm_review", "snippet": "The optical trap stiffness used in these experiments was 0.2–0.3 pN/nm.", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_protein_interaction"],
+    "bead_geometry": "two_bead_dumbbell (dual trap); two dumbbells braided (quadruple trap)",
+    "bead_size": {"value": 4400, "unit": "nm", "evidence": {"method": "llm_review", "snippet": "0.005% w/v streptavidin-coated polystyrene beads (∼4.4 µm, Spherotech) in TN50 Buffer in channel 1", "confidence": "high"}},
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin"],
+    "trap_control": ["force_clamp", "custom"],
+    "handle_sequences": [{"length_bp": 7500, "annotations": "The custom 15 kb bubble construct consisted of two 7.5 kb dsDNA handles and a centrally located constitutive ‘bubble’, i.e., a permanent, unpaired region of 24 nt."}]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "ANKLE1 (hANKLE1 residues 331–615, R492H)", "entity_type": "protein", "role": "binding_partner",
+       "identifiers": [{"scheme": "uniprot", "id": "Q8NAG6", "verified": false}],
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606}, "region": "331–615", "mutations": ["R492H"],
+       "evidence": {"method": "llm_review", "snippet": "Wild-type ANKLE1 (hANKLE331–615 R492H) was expressed and purified as previously described [29].", "confidence": "high"}},
+      {"name": "15 kb dsDNA with central four-way junction", "entity_type": "dna", "role": "tethered_construct",
+       "length": {"value": 15, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "The custom 15 kb dsDNA construct containing a centrally located four-way junction was prepared as previously described [40].", "confidence": "high"}},
+      {"name": "15 kb dsDNA with central 24-nt bubble", "entity_type": "dna", "role": "tethered_construct",
+       "length": {"value": 15, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "The custom 15 kb bubble construct consisted of two 7.5 kb dsDNA handles and a centrally located constitutive ‘bubble’, i.e., a permanent, unpaired region of 24 nt.", "confidence": "high"}},
+      {"name": "lambda-DNA (48.5 kb, end-biotinylated)", "entity_type": "dna", "role": "tethered_construct",
+       "organism": {"name": "Escherichia phage lambda", "ncbi_taxon": 10710},
+       "length": {"value": 48.5, "unit": "kb"},
+       "evidence": {"method": "llm_review", "snippet": "The 48.5 kb λ-DNA was prepared as previously described [44].", "confidence": "high"}},
+      {"name": "7.5 kb dsDNA handles (PCR from lambda-phage DNA)", "entity_type": "dna", "role": "handle",
+       "length": {"value": 7500, "unit": "bp"},
+       "evidence": {"method": "llm_review", "snippet": "Briefly, a 7.5 kb handle was prepared using PCR with Pfu Ultra II Fusion HS polymerase (Agilent) from a λ-phage genomic DNA template", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "Tris-HCl (ANKLE1 Experiment Buffer)",
+    "pH": 7.5,
+    "components": [
+      {"name": "Tris-HCl", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 40, "unit": "mM"}},
+      {"name": "MnCl2", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 1, "unit": "mg/mL"}},
+      {"name": "ANKLE1", "concentration": {"value": 500, "unit": "nM"}}
+    ]
+  },
+  "results": [
+    {"quantity": "other", "value": 20, "unit": "fold increase in cleavage rate",
+     "applies_to": {"entity": "ANKLE1 (hANKLE1 residues 331–615, R492H)", "transition": "DNA junction cleavage"},
+     "conditions": {"force_pN": 60},
+     "source": {"location": "abstract", "snippet": "At high tension, we observe that the rate at which ANKLE1 catalyzes the cleavage of DNA junctions increases continuously with applied tension, with a 20-fold increase in the cleavage rate at 60 pN.", "extraction": "manual", "confidence": "high"}}
+  ]
+}

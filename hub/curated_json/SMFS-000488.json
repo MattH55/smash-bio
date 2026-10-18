@@ -1,0 +1,132 @@
+{
+  "publication": {
+    "doi": "10.1096/fj.202502545r"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM force spectroscopy (indentation breakthrough forces) on plasma-membrane patches, GPMVs and supported planar bilayers from whole-cell lipid extracts of wild-type and SPTLC1-deficient HAP1 cells grown under sphingolipid-limiting conditions; this is membrane mechanics by tip indentation rather than single-molecule tethering. Paper also includes lipidomics and laurdan GP two-photon imaging (separate, not correlative with AFM)."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": [
+      "widefield_fluorescence"
+    ]
+  },
+  "hardware": {
+    "make_of_setup": "JPK Instruments",
+    "model_number": "NanoWizard II",
+    "custom_built": false,
+    "detection_device": [
+      "cantilever_deflection"
+    ],
+    "calibration_technique": [
+      "thermal_noise_cantilever"
+    ],
+    "afm": {
+      "cantilever_model": "MLCT (V-shaped Si3N4), Bruker",
+      "spring_constant": {
+        "min": 100,
+        "max": 500,
+        "unit": "pN/nm",
+        "note": "nominal 0.1 or 0.5 N/m; individually calibrated by thermal noise",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "V‐shaped MLCT Si3N4 cantilevers with nominal spring constants of 0.1 or 0.5 N/m were individually calibrated in a lipid‐free mica substrate in assay buffer using the thermal noise method.",
+          "confidence": "high"
+        }
+      },
+      "pulling_speed": {
+        "value": 1000,
+        "unit": "nm/s",
+        "note": "approach/indentation speed",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "force spectroscopy was performed at a speed of 1 μm/s",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "membrane_mechanics"
+    ],
+    "trap_control": [
+      "constant_velocity"
+    ],
+    "pulling_speed": {
+      "value": 1000,
+      "unit": "nm/s",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "force spectroscopy was performed at a speed of 1 μm/s",
+        "confidence": "high"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "membrane_mechanics"
+    ],
+    "organisms": [
+      {
+        "name": "Homo sapiens",
+        "ncbi_taxon": 9606
+      }
+    ],
+    "entities": [
+      {
+        "name": "Plasma membrane patches and GPMVs from HAP1 and HAP1-SPTLC1(−) cells",
+        "entity_type": "membrane",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Topographic images and force spectroscopy analysis of PM patches and supported planar bilayers (SPB) formed from whole cell lipid extracts, and force spectroscopy analysis of GPMV were performed.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Supported planar bilayers from HAP1 / HAP1-SPT whole-cell lipid extracts",
+        "entity_type": "membrane",
+        "role": "tethered_construct",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Then, 80 μL 0.4 mM SUV formed with HAP1 or HAP1‐SPT sonicated lipid extract was added on top of the mica.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Serine palmitoyltransferase subunit SPTLC1 (knocked out)",
+        "entity_type": "protein",
+        "role": "other",
+        "organism": {
+          "name": "Homo sapiens",
+          "ncbi_taxon": 9606
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Using a serine palmitoyltransferase-deficient (SPTLC1-) near-haploid HAP1 cell line",
+          "confidence": "high"
+        }
+      }
+    ],
+    "cell": {
+      "cell_identity": "HAP1 (wild type, Horizon C631) and HAP1-SPTLC1(−) (Horizon HZGHC003579c012)"
+    }
+  },
+  "solution": {},
+  "results": []
+}

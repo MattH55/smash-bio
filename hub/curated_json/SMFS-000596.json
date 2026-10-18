@@ -1,0 +1,69 @@
+{
+  "publication": {"doi": "10.1073/pnas.2426204122"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "Dual-trap optical tweezers combined with confocal fluorescence: a biotinylated lambda-DNA tether between two streptavidin beads is moved through microfluidic channels to image binding/competition of cGAS-Halo646 and mGFP-tagged SARS-CoV-2 nucleocapsid protein (N or hyperphosphorylated pN) by kymographs. No force-derived quantities are reported in the provided text; instrument details are in the SI."
+  },
+  "technique": {
+    "primary": "optical_tweezers",
+    "secondary": [],
+    "force_application_geometry": "dumbbell_dual_trap",
+    "correlative_modalities": ["confocal_fluorescence"]
+  },
+  "hardware": {
+    "optical": {"number_of_traps": 2}
+  },
+  "assay": {
+    "experiment_class": ["nucleic_acid_protein_interaction"],
+    "bead_geometry": "two_bead_dumbbell",
+    "bead_material": "polystyrene",
+    "bead_functionalization": ["streptavidin"],
+    "attachment_chemistry": ["biotin–streptavidin"]
+  },
+  "biological_system": {
+    "system_class": ["nucleic_acid_protein_interaction"],
+    "organisms": [{"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049}],
+    "entities": [
+      {
+        "name": "lambda-phage DNA (biotinylated)",
+        "entity_type": "dna",
+        "role": "tethered_construct",
+        "length": {"value": 48503, "unit": "bp"},
+        "evidence": {"method": "llm_review", "snippet": "we employed a dual-trap optical tweezers system to visualize binding to a single λ-phage DNA molecule (48,503 bp) tethered between two streptavidin-functionalized polystyrene beads", "confidence": "high"}
+      },
+      {
+        "name": "cGAS-Halo646 (HaloTag-labeled cGAS)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "fluorescent_labels": [{"identifier": "Halo646 (HaloTag)"}],
+        "evidence": {"method": "llm_review", "snippet": "For visualization, we used a HaloTag-labeled cGAS fusion protein (cGAS-Halo646) and GFP-tagged nucleocapsid proteins (mGFP-N or mGFP-pN).", "confidence": "high"}
+      },
+      {
+        "name": "SARS-CoV-2 nucleocapsid protein (mGFP-N; hyperphosphorylated mGFP-pN)",
+        "entity_type": "protein",
+        "role": "binding_partner",
+        "organism": {"name": "Severe acute respiratory syndrome coronavirus 2", "ncbi_taxon": 2697049},
+        "fluorescent_labels": [{"identifier": "mGFP"}],
+        "evidence": {"method": "llm_review", "snippet": "Using a microfluidic chip, we first equilibrated the λ-DNA with 100 nM mGFP-N or mGFP-pN protein (Fig. 5A).", "confidence": "high"}
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.0,
+    "components": [
+      {"name": "NaCl", "concentration": {"value": 50, "unit": "mM"}},
+      {"name": "HEPES", "concentration": {"value": 20, "unit": "mM"}},
+      {"name": "glycerol", "concentration": {"value": 5, "unit": "%"}},
+      {"name": "DTT", "concentration": {"value": 2, "unit": "mM"}},
+      {"name": "BSA", "concentration": {"value": 0.3, "unit": "mg/mL"}}
+    ],
+    "small_molecules": [
+      {"name": "cGAS-Halo646", "concentration": {"value": 10, "unit": "nM"}},
+      {"name": "mGFP-N or mGFP-pN nucleocapsid protein", "concentration": {"value": 100, "unit": "nM"}}
+    ],
+    "evidence": {"method": "llm_review", "snippet": "Experiments were conducted in a buffer containing 50 mM NaCl, 20 mM HEPES, pH 7.0, 5% glycerol, 2 mM DTT, and 0.3 mg/mL BSA.", "confidence": "high"}
+  },
+  "results": []
+}

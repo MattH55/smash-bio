@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/smash-fret-results.schema.json",
+  "title": "SMASH-BIO single-molecule FRET results",
+  "description": "Derived smFRET measurements, fluorophore definitions and fluorescence/photon trace sidecars for DNA, RNA and associated molecular systems.",
+  "type": "object",
+  "required": ["results"],
+  "properties": {
+    "results": {"type": "array", "items": {"$ref": "#/$defs/Result"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "Fluorophore": {
+      "type": "object",
+      "required": ["role", "name"],
+      "properties": {
+        "role": {"enum": ["donor", "acceptor", "acceptor2", "other"]},
+        "name": {"type": "string", "minLength": 1},
+        "labeling_site": {"type": "string"},
+        "labeling_chemistry": {"enum": ["maleimide_Cys", "click_UAA", "NHS", "enzymatic", "hybridization", "other", "unspecified"]},
+        "linker": {"type": "string"},
+        "labeling_efficiency": {"type": "number", "minimum": 0, "maximum": 1},
+        "identifier": {"$ref": "smash-common.schema.json#/$defs/Identifier"},
+        "excitation_wavelength": {"$ref": "smash-common.schema.json#/$defs/Quantity"},
+        "emission_wavelength": {"$ref": "smash-common.schema.json#/$defs/Quantity"}
+      },
+      "additionalProperties": false
+    },
+    "Result": {
+      "allOf": [
+        {"$ref": "smash-common.schema.json#/$defs/Result"},
+        {
+          "type": "object",
+          "properties": {
+            "quantity": {"$ref": "#/$defs/Observable"},
+            "state": {"type": "string"},
+            "transition": {"type": "string"},
+            "population_fraction": {"type": "number", "minimum": 0, "maximum": 1},
+            "n_states": {"type": "integer", "minimum": 1},
+            "distance_model": {"enum": ["Forster", "accessible_volume", "polymer_model", "other"]},
+            "conditions": {
+              "type": "object",
+              "properties": {
+                "temperature_K": {"type": "number"},
+                "ionic_strength_mM": {"type": "number"},
+                "denaturant": {"type": "string"},
+                "ligand": {"type": "string"},
+                "ligand_concentration_nM": {"type": "number"},
+                "force_pN": {"type": "number"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TraceSet": {
+      "allOf": [
+        {"$ref": "smash-common.schema.json#/$defs/TraceSet"},
+        {
+          "type": "object",
+          "description": "Raw FRET data. Use `format` for the photon-stream container (Photon-HDF5, PicoQuant .ptu/.pt3/.ht3, Becker & Hickl .spc, SMART .smd/.traces, HDF5, CSV, NumPy) and `channels` for the mapped streams.",
+          "properties": {
+            "channels": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"enum": ["donor_intensity", "acceptor_intensity", "fret_efficiency", "stoichiometry", "acceptor_direct_excitation", "donor_parallel", "donor_perpendicular", "acceptor_parallel", "acceptor_perpendicular", "excitation_period", "time", "force", "extension", "other"]}
+            }
+          }
+        }
+      ]
+    },
+    "Observable": {
+      "enum": [
+        "fret_efficiency_apparent",
+        "fret_efficiency_accurate",
+        "fret_efficiency",
+        "stoichiometry",
+        "interdye_distance_mean_nm",
+        "interdye_distance_R_E_nm",
+        "donor_lifetime_ns",
+        "acceptor_lifetime_ns",
+        "anisotropy",
+        "population_fraction",
+        "n_states",
+        "transition_rate_s-1",
+        "dwell_time_ms",
+        "radius_of_gyration_nm",
+        "end_to_end_distance_nm",
+        "scaling_exponent_nu",
+        "dissociation_constant_M",
+        "dissociation_constant_Kd",
+        "forster_radius_nm",
+        "binding_rate_kon",
+        "unbinding_rate_koff",
+        "folding_rate",
+        "unfolding_rate",
+        "photobleaching_lifetime",
+        "other"
+      ]
+    }
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "publication": {
+    "doi": "10.1021/jacs.5c13084"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "AFM single-molecule force-clamp mechanochemistry: an (Ig27 E24C–K55C)8 titin polyprotein with buried engineered disulfides is unfolded at 150 pN, then disulfide reduction by sulfite or thiosulfate (250 mM, pH 7.5) is monitored at 250–450 pN; force-quench pulse protocols probe reversibility (S-thiosulfonation). Complemented by DFT and Ellman's colorimetric assays. Provided text is the main article (no separate methods; instrument details absent)."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "detection_device": [
+      "cantilever_deflection"
+    ]
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_protein"
+    ],
+    "trap_control": [
+      "force_clamp",
+      "force_jump"
+    ]
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_protein"
+    ],
+    "entities": [
+      {
+        "name": "(Ig27 E24C–K55C)8 titin polyprotein",
+        "entity_type": "protein",
+        "role": "tethered_construct",
+        "region": "eight tandem repeats of titin Ig27",
+        "mutations": [
+          "E24C",
+          "K55C"
+        ],
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "using a polyprotein containing eight repeats of a titin Ig27 mutant with a buried engineered disulfide bridge between positions 24 and 55, E24C–K55C",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "pH": 7.5,
+    "small_molecules": [
+      {
+        "name": "sodium sulfite (SO3 2–)",
+        "concentration": {
+          "value": 250,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "thiosulfate (S2O3 2–)",
+        "concentration": {
+          "value": 250,
+          "unit": "mM"
+        }
+      }
+    ]
+  },
+  "results": [
+    {
+      "quantity": "other",
+      "value": 5.58,
+      "unit": "M^-1 s^-1",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide reduction by sulfite (second-order rate at 350 pN)"
+      },
+      "conditions": {
+        "force_pN": 350,
+        "pH": 7.5
+      },
+      "note": "concentration-normalised rate at 350 pN",
+      "source": {
+        "location": "main_text",
+        "snippet": "Averaging a number of independent reduction trajectories normalized by the sulfite concentration yielded a reduction rate of k = 5.58 M–1 s–1 (Figure F)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "other",
+      "value": 0.38,
+      "unit": "M^-1 s^-1",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide reduction by thiosulfate (second-order rate at 350 pN)"
+      },
+      "conditions": {
+        "force_pN": 350,
+        "pH": 7.5
+      },
+      "source": {
+        "location": "main_text",
+        "snippet": "albeit exhibiting a slower normalized rate at 350 pN of disulfide reduction (k = 0.38 M–1 s–1) than sulfite, thiosulfate (250 mM, pH 7.5)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "rate_constant_zero_force",
+      "value": 0.0025,
+      "unit": "s^-1",
+      "uncertainty": 0.0007,
+      "uncertainty_type": "SEM",
+      "model": "Bell/Arrhenius",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide reduction by thiosulfate (250 mM)"
+      },
+      "source": {
+        "location": "main_text",
+        "snippet": "yielding r 0 = 0.0025 ± 0.0007 s–1 and Δx ‡ = 0.42 ± 0.03 Å (Figure C)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "distance_to_transition_state",
+      "value": 0.042,
+      "unit": "nm",
+      "uncertainty": 0.003,
+      "uncertainty_type": "SEM",
+      "model": "Bell/Arrhenius",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide reduction by thiosulfate"
+      },
+      "note": "reported as 0.42 ± 0.03 Å",
+      "source": {
+        "location": "main_text",
+        "snippet": "yielding r 0 = 0.0025 ± 0.0007 s–1 and Δx ‡ = 0.42 ± 0.03 Å (Figure C)",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "other",
+      "value": 0.54,
+      "unit": "s^-1",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide bond reformation after S-thiosulfonation (force quenched)"
+      },
+      "source": {
+        "location": "main_text",
+        "snippet": "The percentage of protein disulfide bond reformation increases exponentially with t q, yielding a bond reformation rate k = 0.54 s–1",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "step_size",
+      "value": 15,
+      "unit": "nm",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "Ig27 unfolding up to disulfide"
+      },
+      "conditions": {
+        "force_pN": 150
+      },
+      "source": {
+        "location": "main_text",
+        "snippet": "the application of a constant force (150 pN for 0.5 s) promoted the unfolding of the protein domain(s) up to the rigid disulfide bond, hallmarked by a ∼15 nm stepwise increase of the protein",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    },
+    {
+      "quantity": "step_size",
+      "value": 10,
+      "unit": "nm",
+      "applies_to": {
+        "entity": "(Ig27 E24C–K55C)8 polyprotein",
+        "transition": "disulfide rupture"
+      },
+      "conditions": {
+        "force_pN": 350
+      },
+      "source": {
+        "location": "main_text",
+        "snippet": "triggered the cleavage of the disulfide bridge, fingerprinted by individual ∼10 nm steps that correspond to the length release of the amino acids previously trapped by the covalent disulfide bond",
+        "extraction": "manual",
+        "confidence": "high"
+      }
+    }
+  ]
+}

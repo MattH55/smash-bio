@@ -1,0 +1,56 @@
+{
+  "publication": {"doi": "10.1002/smsc.202500149"},
+  "curation": {
+    "level": "ai_assisted",
+    "curators": ["Claude (AI-assisted curation)"],
+    "notes": "AFM-SMFS (JPK NanoWizard 4) of Fc–Fc interactions between IgG molecules: cantilever-bound DNP-irrelevant IgGs (IgG-b12, IgG-CD52 and mutants) probed against DNP-specific IgGs on DNP-labelled supported lipid bilayers; dynamic force spectroscopy (Bell–Evans) for koff and binding-probability vs encounter time for kon. Complemented by separate HS-AFM imaging, grating-coupled interferometry and kinetic modelling of IgG oligomerization; no SMFS numbers are reported in the provided text."
+  },
+  "technique": {
+    "primary": "afm_smfs",
+    "secondary": [],
+    "force_application_geometry": "cantilever_tip_surface",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "JPK / Bruker",
+    "model_number": "NanoWizard 4",
+    "custom_built": false,
+    "detection_device": ["cantilever_deflection"],
+    "calibration_technique": ["thermal_noise_cantilever"],
+    "afm": {
+      "cantilever_model": "MSCT (Bruker)",
+      "spring_constant": {"min": 10, "max": 20, "unit": "pN/nm", "note": "nominal", "evidence": {"method": "llm_review", "snippet": "Commercial cantilever with nominal spring constants of 10–20 pN nm (model MSCT, Bruker, USA) were used.", "confidence": "high"}},
+      "pulling_speed": {"min": 200, "max": 20000, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "FD curves were recorded at 6 different pulling rates between 200 and 20 000 nm s with each dataset containing 1000 FD curves.", "confidence": "high"}}
+    }
+  },
+  "assay": {
+    "experiment_class": ["receptor_ligand_adhesion"],
+    "attachment_chemistry": ["IgG covalently functionalized on AFM tip (as described in ref. 27)", "antibody–antigen (DNP-specific IgG on DNP-lipid SLB)"],
+    "trap_control": ["constant_velocity"],
+    "pulling_speed": {"min": 200, "max": 20000, "unit": "nm/s", "evidence": {"method": "llm_review", "snippet": "FD curves were recorded at 6 different pulling rates between 200 and 20 000 nm s with each dataset containing 1000 FD curves.", "confidence": "high"}}
+  },
+  "biological_system": {
+    "system_class": ["receptor_ligand_adhesion"],
+    "organisms": [{"name": "Homo sapiens", "ncbi_taxon": 9606}],
+    "entities": [
+      {"name": "DNP-irrelevant IgG (IgG-b12, IgG-CD52) and mutant variants, tip-bound", "entity_type": "protein", "role": "tethered_construct",
+       "mutations": ["E430G"],
+       "evidence": {"method": "llm_review", "snippet": "Functionalization of AFM cantilevers with DNP‐irrelevant IgGs (IgG‐b12, IgG‐CD52) and mutant variants was performed as described.", "confidence": "high"}},
+      {"name": "DNP-specific IgG (G2a2 VH on human IgG1/2/3/4 constant regions), bound to DNP-SLB", "entity_type": "protein", "role": "binding_partner",
+       "organism": {"name": "Homo sapiens", "ncbi_taxon": 9606},
+       "evidence": {"method": "llm_review", "snippet": "Specificity controls were done by introducing 4.5 μm SpA‐BAA [ 9 ] into the AFM liquid cell and evaluating the resulting reduction of binding probability and additionally by recording FD curves on SLBs before the incubation with DNP‐specific IgGs.", "confidence": "medium"}},
+      {"name": "DNP-labelled supported lipid bilayer (DPPC:DPPE:DNP-cap-DPPE)", "entity_type": "lipid", "role": "surface",
+       "evidence": {"method": "llm_review", "snippet": "DNP‐labeled liposomes consisting of 1,2‐dipalmitoyl‐sn‐glycero‐3‐phosphocholine (DPPC), 1,2‐dipalmitoyl‐sn‐glycero‐3‐phosphoethanolamine (DPPE), and 1,2‐dipalmitoyl‐sn‐glycero‐3‐phosphoethanolamine‐N‐[6‐[(2,4‐dinitrophenyl)amino]hexanoyl] (DNP‐cap‐DPPE) were used to generate SLBs", "confidence": "high"}}
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES (buffer #1)",
+    "pH": 7.4,
+    "components": [
+      {"name": "HEPES", "concentration": {"value": 10, "unit": "mM"}},
+      {"name": "NaCl", "concentration": {"value": 150, "unit": "mM"}},
+      {"name": "CaCl2", "concentration": {"value": 2, "unit": "mM"}}
+    ]
+  },
+  "results": []
+}

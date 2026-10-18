@@ -1,0 +1,119 @@
+# SMASH-BIO Metadata Template: DNA-PROTEIN INTERACTIONS
+# For studies of protein binding/activity on DNA
+# Based on Table 3 from "FAIR data for optical tweezers experiments"
+
+experiment_id: ""  # e.g., "DNA-PROT-2025-001"
+experiment_type: "dna_protein_interactions"
+schema_version: "2.0.0"
+created_date: ""
+last_modified: ""
+
+# ============================================================================
+# PUBLICATION
+# ============================================================================
+publication:
+  title: ""
+  authors: []
+  journal: ""
+  year: null
+  volume: ""
+  pages: ""
+  doi: ""
+  pubmed_id: ""
+
+# ============================================================================
+# HARDWARE CONDITIONS
+# ============================================================================
+hardware:
+  setup:
+    make: ""
+    model_number: ""
+  spatial_laser_control: ""
+  detection_device: ""
+  objective_lens:
+    make: ""
+    model: ""
+    numerical_aperture: null
+    magnification: null
+  laser:
+    power_at_source_mW: null
+    power_at_objective_mW: null
+    wavelength_nm: null
+  trap_parameters:
+    stiffness_pN_per_nm: null
+    stiffness_uncertainty_pN_per_nm: null
+    calibration_technique: ""
+  acquisition:
+    rate_kHz: null
+    filter_frequency_Hz: null
+  temperature_K: null
+
+# ============================================================================
+# ASSAY CONDITIONS
+# ============================================================================
+assay_conditions:
+  bead:
+    geometry: ""
+    size_nm: null
+    size_uncertainty_nm: null
+    functionalization: ""
+  trap_control:
+    mode: ""
+  handles:
+    sequences: ""
+  microfluidics:
+    flow_pressure_mbar: null
+    linear_flow_speed_mm_per_s: null
+
+# ============================================================================
+# CONSTRUCT PARAMETERS (DNA-Protein specific)
+# ============================================================================
+nucleic_acid:
+  type: ""  # DNA, RNA
+  name: ""
+  sequence_identity:
+    fasta_sequence: ""
+    genbank_id: ""
+  length_bp: null
+  topology: ""  # linear, circular
+  fluorescent_labels:
+    - label_name: ""
+      sequence_location: ""
+
+protein:
+  name: ""
+  abbreviation: ""
+  gene_symbol: ""
+  sequence_identity:
+    fasta_sequence: ""
+    pdb_id: ""
+    uniprot_id: ""
+  expression_system: ""
+  concentration_nM: null
+  fluorescent_labels:
+    - label_name: ""
+      sequence_location: ""
+
+# ============================================================================
+# FACTORS IN SOLUTION
+# ============================================================================
+solution:
+  buffer:
+    name: ""
+    composition: ""
+    pH: null
+  cofactors:
+    - name: ""
+      concentration_mM: null
+  small_molecules:
+    - name: ""
+      concentration_nM: null
+
+# ============================================================================
+# RESULTS
+# ============================================================================
+results:
+  interaction_type: ""  # binding, sliding, wrapping, etc.
+  key_findings: []
+
+notes: ""

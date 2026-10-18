@@ -1,0 +1,212 @@
+{
+  "publication": {
+    "doi": "10.1080/15476286.2026.2705059"
+  },
+  "curation": {
+    "level": "ai_assisted",
+    "curators": [
+      "Claude (AI-assisted curation)"
+    ],
+    "notes": "Multiplexed magnetic force spectroscopy (Depixus prototype) on hundreds of B. subtilis yitJ SAM-I riboswitch RNAs (native and stabilised versions) hybridised via DNA splint handles between a surface oligo and MyOne T1 beads; force ramps (~1-32 pN), stepped-force and long constant-force experiments yield ligand-dependent unfolding forces, equilibrium forces and state lifetimes for SAM, SAH and Ribocil-C at 1 and 10 mM Mg2+. Kd values are compared with SPR and ITC (non-SMFS)."
+  },
+  "technique": {
+    "primary": "magnetic_tweezers",
+    "secondary": [],
+    "force_application_geometry": "bead_on_surface_magnetic",
+    "correlative_modalities": []
+  },
+  "hardware": {
+    "make_of_setup": "Depixus",
+    "model_number": "prototype MFS instrument",
+    "custom_built": false,
+    "temperature": {
+      "value": 295.15,
+      "unit": "K",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "Subsequent experiments were performed at 22°C, with recording of bead vertical (Z) positions at 30 Hz.",
+        "confidence": "high"
+      }
+    },
+    "magnetic": {
+      "bead_product": "Dynabeads MyOne Streptavidin T1 (Invitrogen)",
+      "camera_frame_rate": {
+        "value": 30,
+        "unit": "Hz",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Subsequent experiments were performed at 22°C, with recording of bead vertical (Z) positions at 30 Hz.",
+          "confidence": "high"
+        }
+      },
+      "magnet_speed": {
+        "value": 0.125,
+        "unit": "mm/s",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "with a constant magnet rate of 0.125 mm/s moving between 1.2 mm and 0.12 mm above the flow-cell surface (approximately 1–32 pN force)",
+          "confidence": "high"
+        }
+      }
+    }
+  },
+  "assay": {
+    "experiment_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "bead_geometry": "bead_surface",
+    "bead_material": "superparamagnetic",
+    "bead_functionalization": [
+      "streptavidin"
+    ],
+    "attachment_chemistry": [
+      "DNA hybridization handle"
+    ],
+    "trap_control": [
+      "force_ramp",
+      "force_jump",
+      "constant_force"
+    ],
+    "force_range": {
+      "min": 1,
+      "max": 32,
+      "unit": "pN",
+      "evidence": {
+        "method": "llm_review",
+        "snippet": "with a constant magnet rate of 0.125 mm/s moving between 1.2 mm and 0.12 mm above the flow-cell surface (approximately 1–32 pN force)",
+        "confidence": "medium"
+      }
+    }
+  },
+  "biological_system": {
+    "system_class": [
+      "unfolding_nucleic_acid"
+    ],
+    "organisms": [
+      {
+        "name": "Bacillus subtilis",
+        "ncbi_taxon": 1423
+      }
+    ],
+    "entities": [
+      {
+        "name": "SAM-I riboswitch aptamer, B. subtilis yitJ (native and stable versions)",
+        "entity_type": "rna",
+        "role": "tethered_construct",
+        "identifiers": [
+          {
+            "scheme": "rfam",
+            "id": "RF00162",
+            "verified": false
+          }
+        ],
+        "organism": {
+          "name": "Bacillus subtilis",
+          "ncbi_taxon": 1423
+        },
+        "length": {
+          "value": 130,
+          "unit": "nt"
+        },
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "defined as release of the full length of the stable SAM-I aptamer (130 nt)",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "DNA splint handles (3' surface splint, 5' bead splint)",
+        "entity_type": "dna",
+        "role": "handle",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "a sequence that is used to allow the annealing to the DNA handles for surface (3’ DNA splint) and bead (5’ DNA splint) attachment [26]",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "S-adenosylmethionine (SAM)",
+        "entity_type": "small_molecule",
+        "role": "ligand",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Next, ligand (SAM, SAH, Ribocil-C or Mock) was added at increasing concentrations in test buffer.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "S-adenosylhomocysteine (SAH)",
+        "entity_type": "small_molecule",
+        "role": "ligand",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Next, ligand (SAM, SAH, Ribocil-C or Mock) was added at increasing concentrations in test buffer.",
+          "confidence": "high"
+        }
+      },
+      {
+        "name": "Ribocil-C",
+        "entity_type": "small_molecule",
+        "role": "ligand",
+        "evidence": {
+          "method": "llm_review",
+          "snippet": "Next, ligand (SAM, SAH, Ribocil-C or Mock) was added at increasing concentrations in test buffer.",
+          "confidence": "high"
+        }
+      }
+    ]
+  },
+  "solution": {
+    "buffer": "HEPES",
+    "pH": 7.4,
+    "components": [
+      {
+        "name": "HEPES",
+        "concentration": {
+          "value": 50,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "KCl",
+        "concentration": {
+          "value": 100,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2",
+        "concentration": {
+          "value": 1,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "MgCl2 (high-Mg condition)",
+        "concentration": {
+          "value": 10,
+          "unit": "mM"
+        }
+      },
+      {
+        "name": "DMSO",
+        "concentration": {
+          "value": 1,
+          "unit": "%"
+        }
+      }
+    ],
+    "small_molecules": [
+      {
+        "name": "SAM (increasing concentrations)"
+      },
+      {
+        "name": "SAH (increasing concentrations)"
+      },
+      {
+        "name": "Ribocil-C (increasing concentrations)"
+      }
+    ]
+  },
+  "results": []
+}

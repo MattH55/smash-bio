@@ -1,0 +1,22 @@
+{
+ "gate": "5",
+ "chrome": "Chrome/155.0.8059.40",
+ "native": {
+  "protein_1UBQ_quick": "d4409e6ad46389c498d3788d3bf29975dd1140f7804393625bf7aa263fbefd5a",
+  "nucleic_kinetic_hp20": "edd7c4543e374827e4d6edb6efafbad27178ca21979135de216a953bcf553140"
+ },
+ "chrome_hashes": {
+  "run1": {
+   "protein_1UBQ_quick": "d4409e6ad46389c498d3788d3bf29975dd1140f7804393625bf7aa263fbefd5a",
+   "nucleic_kinetic_hp20": "edd7c4543e374827e4d6edb6efafbad27178ca21979135de216a953bcf553140"
+  },
+  "run2": {
+   "protein_1UBQ_quick": "d4409e6ad46389c498d3788d3bf29975dd1140f7804393625bf7aa263fbefd5a",
+   "nucleic_kinetic_hp20": "edd7c4543e374827e4d6edb6efafbad27178ca21979135de216a953bcf553140"
+  }
+ },
+ "a": true,
+ "b": true,
+ "detail_a": "protein_1UBQ_quick, nucleic_kinetic_hp20: SHA-256 native = Chrome (Chrome/155.0.8059.40).",
+ "detail_b": "Two fresh workers in Chrome: identical hashes."
+}

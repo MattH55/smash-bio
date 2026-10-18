@@ -1,0 +1,83 @@
+{
+  "record_id": "SIM-900006",
+  "schema_version": "1.0.0",
+  "category": "simulation",
+  "source": {
+    "kind": "database",
+    "title": "BSDB, the Biomolecule Stretching Database",
+    "url": "http://jowisz.ifpan.edu.pl/BSDB/",
+    "accession": "BSDB:example-entry",
+    "license": null,
+    "redistributable": false,
+    "retrieved": "2026-10-11",
+    "notes": "Hand-made schema example. The licence is unstated, so the distributed copy is metadata and links only; the numeric value is illustrative.",
+    "evidence": [
+      {"field": "source.license", "method": "manual_curation", "confidence": "medium",
+       "snippet": "the reachable pages state no licence"}
+    ]
+  },
+  "system": {
+    "molecule_type": "protein",
+    "name": "Single-domain model protein (BSDB)",
+    "construct": {"residue_range": "1-100"},
+    "structure_source": "PDB",
+    "evidence": [
+      {"field": "system.name", "method": "manual_curation", "confidence": "medium",
+       "snippet": "C-alpha Go peak forces for model proteins"}
+    ]
+  },
+  "model": {
+    "family": "Go_CA",
+    "family_group": "protein",
+    "solvent": "implicit",
+    "unit_system": "reduced_with_stated_conversion",
+    "unit_conversions": {
+      "energy_epsilon": {"value": 1, "unit": "kBT",
+                         "note": "energy scale in which BSDB reports peak forces"},
+      "statement": "BSDB reports peak forces in reduced units with the authors' stated conversion.",
+      "evidence": [
+        {"field": "model.unit_conversions", "method": "manual_curation", "confidence": "medium",
+         "snippet": "peak forces in units of epsilon/sigma"}
+      ]
+    },
+    "evidence": [
+      {"field": "model.family", "method": "manual_curation", "confidence": "high",
+       "snippet": "C-alpha Go model"}
+    ]
+  },
+  "protocol": {
+    "mode": "constant_velocity",
+    "geometry": {
+      "force_application_geometry": "other",
+      "description": "ends pulled apart at constant velocity in the model's reduced units",
+      "anchor_a": {"description": "first residue", "end": "N_terminus"},
+      "anchor_b": {"description": "last residue", "end": "C_terminus"}
+    },
+    "evidence": [
+      {"field": "protocol.mode", "method": "manual_curation", "confidence": "medium",
+       "snippet": "constant-velocity stretching in reduced units"}
+    ]
+  },
+  "results": [
+    {"quantity": "unfolding_force", "value": 5, "unit": "epsilon/sigma",
+     "unit_system": "reduced", "label": "peak force",
+     "provenance": [{"field": "results[0]", "method": "manual_curation", "confidence": "low",
+                     "snippet": "illustrative reduced-unit value for schema validation"}]}
+  ],
+  "data_availability": {
+    "status": "not_stated",
+    "has_linked_dataset": false,
+    "statement": "The database pages are not reachable at the URLs in the papers; only the Internet Archive copy could be read.",
+    "force_extension_curves": {"available": false, "statement": "not stated"}
+  },
+  "curation": {
+    "status": "manually_reviewed",
+    "curator": "schema-example",
+    "date": "2026-10-11",
+    "notes": "Hand-made example for schema validation, not a corpus record. It shows how a database entry whose licence does not permit redistribution is represented: metadata, links, and reduced units left as reduced."
+  },
+  "fair_completeness": {
+    "publication": 0.167, "system": 0.5, "model": 0.8, "protocol": 0.333,
+    "results": 1.0, "data": 0.0, "overall": 0.467
+  }
+}

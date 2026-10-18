@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /nc_assets/
+
+Sitemap: https://smash-bio.org/sitemap.xml
