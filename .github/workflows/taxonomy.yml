@@ -1,0 +1,17 @@
+name: taxonomy
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  modules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml jsonschema
+      - run: python taxonomy/validate.py
+      - run: python -m unittest tests.test_classify_modules tests.test_extract_modules tests.test_corpus_modules

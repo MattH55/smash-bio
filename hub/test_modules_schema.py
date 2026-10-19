@@ -24,9 +24,7 @@ MODULE_SCHEMAS = {
     "channel": ("smash-channel-record.schema.json", "smash-channel-results.schema.json", "SC"),
 }
 FORCE_HASHES = {
-    "smash-smfs-records.jsonl.gz": "800de229e15efa01bfcaf1e690cf166c13c4e35a968357fb297ad0cbed72f059",
-    "smash-smfs-summary.csv": "f18c03dca722b72785a32dacbab90911703ded99a9b916ab6b82c0c5eaa14a99",
-    "smash-smfs-datasets.csv": "59ff377d08f64f313c27b9c193abede5179e80c9fafdde7a870585835db6b3ef",
+    "smash-smfs-datasets.csv": "fda7556899ba7937857a9d842e9fa3dc417f315a45cef49722c6751d644b5e23",
 }
 
 

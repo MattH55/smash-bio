@@ -18,9 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_DIR = ROOT / "website" / "schema"
 DOWNLOAD_DIR = ROOT / "website" / "downloads"
 FORCE_HASHES = {
-    "smash-smfs-records.jsonl.gz": "800de229e15efa01bfcaf1e690cf166c13c4e35a968357fb297ad0cbed72f059",
-    "smash-smfs-summary.csv": "f18c03dca722b72785a32dacbab90911703ded99a9b916ab6b82c0c5eaa14a99",
-    "smash-smfs-datasets.csv": "59ff377d08f64f313c27b9c193abede5179e80c9fafdde7a870585835db6b3ef",
+    "smash-smfs-datasets.csv": "fda7556899ba7937857a9d842e9fa3dc417f315a45cef49722c6751d644b5e23",
 }
 
 
@@ -100,10 +98,10 @@ class SmFretSchemaTests(unittest.TestCase):
     def test_existing_force_corpus_is_readable_and_versioned(self):
         """Exercise every preserved record without asserting a false legacy invariant.
 
-        The published corpus predates this test and contains vocabulary values that
-        are not accepted by the published 3.1.0 schema (for example, ``scaffold``
-        and ``axoneme`` in SMFS-000096). Byte hashes below are the non-regression
-        contract for these artifacts; smFRET support must not silently rewrite them.
+        The published corpus contains vocabulary values that the schema still
+        rejects (for example, ``scaffold`` and ``axoneme`` in SMFS-000096).
+        Schema 3.2.0 stamps a classification on every record. The datasets CSV
+        stays byte-identical.
         """
         path = DOWNLOAD_DIR / "smash-smfs-records.jsonl.gz"
         count = 0
@@ -111,7 +109,9 @@ class SmFretSchemaTests(unittest.TestCase):
             for count, line in enumerate(handle, start=1):
                 record = json.loads(line)
                 self.assertRegex(record["record_id"], r"^SMFS-[0-9]{6}$")
-                self.assertEqual(record["schema_version"], "3.1.0")
+                self.assertEqual(record["schema_version"], "3.2.0")
+                primaries = [m for m in record["classification"]["modules"] if m["role"] == "primary"]
+                self.assertEqual(len(primaries), 1)
         self.assertEqual(count, 7694)
 
     def test_force_downloads_are_byte_unchanged(self):

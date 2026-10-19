@@ -25,17 +25,12 @@ DOWNLOAD_DIR = ROOT / "website" / "downloads"
 #: published artifacts this work must not touch
 # Re-frozen 2026-10-15 after the deliberate audit fixes (HTML entities decoded, CSV columns
 # journal_mirror / counted_in_site_total added): see hub/fix_published.py.
+# Schema 3.2.0 (experiment modules) rewrites the SMFS record schema, the results
+# schema, the records gzip and the summary CSV. The shared schema and the
+# dataset table stay byte-identical.
 FROZEN = {
-    "website/schema/smash-smfs-record.schema.json":
-        "eeb43187bb96e00c9c00d88eb49cc51ecd42967c109168ede5d4f4c8174a65a2",
-    "website/schema/smash-smfs-results.schema.json":
-        "e511aeb8d2846f364ab49cf743c9713c0ddec78eadad773540bf0a90eb98196b",
     "website/schema/smash-common.schema.json":
         "7edfa8eafdc9092b8e22e25de51f30f79956ee774f706f2e039a6e91b1705bfa",
-    "website/downloads/smash-smfs-records.jsonl.gz":
-        "8fa4bc181a295625375b6fd0b5cbd13c20d708703661bf25cea2c5f41ccf727f",
-    "website/downloads/smash-smfs-summary.csv":
-        "5aaf38afd813aa14d0970aefba817f12b7cdd2241db2465fe058c9e2267c18c9",
     "website/downloads/smash-smfs-datasets.csv":
         "fda7556899ba7937857a9d842e9fa3dc417f315a45cef49722c6751d644b5e23",
 }
@@ -119,6 +114,10 @@ class SimSchemaTests(unittest.TestCase):
         published = self.smfs_results["$defs"]["Result"]["properties"]
         sim = self.results["$defs"]["SimResult"]["properties"]
         for name, subschema in published.items():
+            # Schema 3.2.0 records measurement_mode on experimental results.
+            # SMASH-SIM records are out of scope for that field.
+            if name == "measurement_mode":
+                continue
             with self.subTest(property=name):
                 self.assertIn(name, sim)
                 if name == "quantity":  # the one deliberate vocabulary extension

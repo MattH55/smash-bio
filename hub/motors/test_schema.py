@@ -55,8 +55,15 @@ def test_shared_quantities_keep_smfs_units():
     assert [q for q in spec.REUSED if q not in su] == ["number_of_steps_or_intermediates"]
 
 
-def test_smfs_schemas_untouched():
-    """SMASH-MOTOR is a separate module: the published SMFS schema files must equal the committed main versions."""
-    for name in ("smash-smfs-record.schema.json", "smash-smfs-results.schema.json"):
-        main = subprocess.run(["git", "show", f"main:website/schema/{name}"], cwd=ROOT, capture_output=True).stdout
-        assert main and main.replace(b"\r\n", b"\n") == (ROOT / "website" / "schema" / name).read_bytes().replace(b"\r\n", b"\n")
+def test_smfs_experiment_class_enum_matches_main():
+    """Schema 3.2.0 adds classification. The experiment-class vocabulary stays the one on main."""
+    import json
+    current = json.loads((ROOT / "website" / "schema" / "smash-smfs-record.schema.json").read_text(encoding="utf-8"))
+    assert current["properties"]["schema_version"]["const"] == "3.2.0"
+    assert "classification" in current["properties"]
+    main = subprocess.run(
+        ["git", "show", "main:website/schema/smash-smfs-record.schema.json"],
+        cwd=ROOT, capture_output=True, check=True,
+    ).stdout
+    previous = json.loads(main.decode("utf-8"))
+    assert current["$defs"]["ExperimentClass"]["enum"] == previous["$defs"]["ExperimentClass"]["enum"]
