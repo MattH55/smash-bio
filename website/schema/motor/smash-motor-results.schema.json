@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/motor/smash-motor-results.schema.json",
+  "title": "SMASH-MOTOR results",
+  "description": "Reported motor observables (version 1.0.0). Independent of the SMASH-BIO Result; quantities that also exist in SMASH-BIO keep the same name and canonical unit.",
+  "$defs": {
+    "Observable": {
+      "enum": [
+        "step_size",
+        "stall_force",
+        "detachment_force",
+        "velocity",
+        "processivity_run_length",
+        "dwell_time",
+        "pause_frequency",
+        "pause_duration",
+        "torque",
+        "loading_rate",
+        "number_of_steps_or_intermediates",
+        "force_velocity_curve",
+        "load_distance_parameter",
+        "substep_size",
+        "coupling_ratio",
+        "randomness_parameter",
+        "backstep_ratio",
+        "kcat",
+        "km",
+        "rotation_per_step",
+        "number_of_rate_limiting_steps",
+        "other"
+      ],
+      "description": "Motor observable vocabulary; canonical units in ObservableUnits."
+    },
+    "ObservableUnits": {
+      "const": {
+        "step_size": "nm",
+        "stall_force": "pN",
+        "detachment_force": "pN",
+        "velocity": "nm/s",
+        "processivity_run_length": "nm",
+        "dwell_time": "s",
+        "pause_frequency": "1/s",
+        "pause_duration": "s",
+        "torque": "pN nm",
+        "loading_rate": "pN/s",
+        "number_of_steps_or_intermediates": "1",
+        "force_velocity_curve": "—",
+        "load_distance_parameter": "nm",
+        "substep_size": "nm",
+        "coupling_ratio": "steps/ATP",
+        "randomness_parameter": "1",
+        "backstep_ratio": "1",
+        "kcat": "1/s",
+        "km": "uM",
+        "rotation_per_step": "deg",
+        "number_of_rate_limiting_steps": "1"
+      }
+    },
+    "MotorResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quantity",
+        "unit"
+      ],
+      "properties": {
+        "quantity": {
+          "$ref": "#/$defs/Observable"
+        },
+        "label": {
+          "type": "string",
+          "description": "Name as written by the authors."
+        },
+        "value": {
+          "type": [
+            "number",
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "force_pN": {
+                "type": "number"
+              },
+              "velocity_nm_s": {
+                "type": "number"
+              },
+              "force_err": {
+                "type": "number",
+                "minimum": 0
+              },
+              "velocity_err": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "description": "One point of a force-velocity curve (hindering force positive).",
+            "required": [
+              "force_pN",
+              "velocity_nm_s"
+            ]
+          },
+          "description": "A number; for force_velocity_curve an array of points. Nucleic-acid motors: step_size, velocity and processivity_run_length in nm, nm/s, nm, with the source unit in source.unit_as_reported."
+        },
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "number",
+          "minimum": 0
+        },
+        "uncertainty_type": {
+          "enum": [
+            "SD",
+            "SEM",
+            "CI95",
+            "fit_error",
+            "range",
+            "unspecified"
+          ]
+        },
+        "statistic": {
+          "enum": [
+            "mean",
+            "median",
+            "mode",
+            "most_probable",
+            "fit_parameter",
+            "single_value",
+            "range"
+          ]
+        },
+        "n_molecules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_events": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "conditions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "load_pN": {
+              "type": "number",
+              "description": "Load in pN (hindering positive)."
+            },
+            "load_direction": {
+              "enum": [
+                "hindering",
+                "assisting",
+                "sideways",
+                "mixed",
+                "none",
+                "other"
+              ]
+            },
+            "atp_uM": {
+              "type": "number",
+              "minimum": 0
+            },
+            "feedback_mode": {
+              "enum": [
+                "passive_trap",
+                "force_clamp",
+                "position_clamp",
+                "velocity_clamp",
+                "force_ramp",
+                "none",
+                "other"
+              ]
+            },
+            "temperature_K": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rise_per_unit_nm": {
+              "type": "number",
+              "minimum": 0,
+              "description": "nm per bp or nt used for the conversion."
+            },
+            "rise_assumed": {
+              "type": "boolean",
+              "description": "true when 0.34 nm/bp (B-DNA) was assumed because the paper gives none."
+            },
+            "construct": {
+              "type": "string",
+              "description": "Construct the value applies to, if the study has several."
+            }
+          },
+          "description": "Conditions the value was measured under; never pooled across conditions."
+        },
+        "model": {
+          "type": "string",
+          "description": "Analysis model, e.g. Boltzmann, gamma, Michaelis-Menten."
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "location": {
+              "enum": [
+                "abstract",
+                "results_text",
+                "methods",
+                "table",
+                "figure",
+                "supplement",
+                "dataset"
+              ]
+            },
+            "snippet": {
+              "type": "string",
+              "maxLength": 400
+            },
+            "extraction": {
+              "enum": [
+                "rule_v1",
+                "manual",
+                "author_submitted",
+                "gold_annotation"
+              ]
+            },
+            "confidence": {
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            },
+            "unit_as_reported": {
+              "type": "string",
+              "description": "Unit as written, e.g. bp, nt/s."
+            }
+          },
+          "description": "Where the value came from."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "quantity": {
+                "const": "force_velocity_curve"
+              }
+            },
+            "required": [
+              "quantity"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "array"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

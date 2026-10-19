@@ -1,0 +1,498 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://smash-bio.org/schema/motor/smash-motor-record.schema.json",
+  "title": "SMASH-MOTOR processive-motor record",
+  "description": "One processive-motor study (single-molecule, or gliding / ensemble), derived from one SMASH-BIO record and linked to it by smfs_record_id. Version 1.0.0. Its own record type (MOTOR-######), schemas and downloads; shared definitions are referenced from the published SMFS 3.1.0 schemas, which are not modified. Every field except identity and family is optional and is left out when the paper does not report it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "schema_version",
+    "category",
+    "smfs_record_id",
+    "publication",
+    "family",
+    "assay_type",
+    "curation"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^MOTOR-[0-9]{6}$"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "category": {
+      "const": "processive_motor",
+      "description": "Fixed label so any consumer can branch on it."
+    },
+    "smfs_record_id": {
+      "type": "string",
+      "pattern": "^SMFS-[0-9]{6}$",
+      "description": "The SMASH-BIO record of the same study."
+    },
+    "publication": {
+      "$ref": "../smash-smfs-record.schema.json#/$defs/Publication"
+    },
+    "technique": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "$ref": "../smash-smfs-record.schema.json#/$defs/TechniqueName"
+        },
+        "force_application_geometry": {
+          "$ref": "../smash-smfs-record.schema.json#/$defs/Technique/properties/force_application_geometry"
+        }
+      },
+      "description": "Technique, in the SMASH-BIO vocabulary (copied from the linked record)."
+    },
+    "assay_type": {
+      "enum": [
+        "single_molecule",
+        "gliding_or_ensemble",
+        "other"
+      ],
+      "description": "gliding_or_ensemble: gliding or other ensemble motility assay without a single-molecule readout."
+    },
+    "family": {
+      "enum": [
+        "kinesin",
+        "dynein",
+        "myosin_processive",
+        "helicase_translocase",
+        "rna_polymerase",
+        "dna_polymerase_replisome",
+        "ribosome",
+        "viral_packaging",
+        "smc_loop_extruder",
+        "chromatin_remodeller",
+        "other"
+      ],
+      "description": "Motor family."
+    },
+    "family_other": {
+      "type": "string",
+      "description": "Free text when family = other."
+    },
+    "isoform": {
+      "type": "string",
+      "description": "Isoform or construct name as the authors give it, e.g. 'kinesin-1 K560'."
+    },
+    "uniprot": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^([OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})(-[0-9]+)?$"
+      },
+      "description": "UniProt accessions of the motor subunits."
+    },
+    "construct": {
+      "$ref": "#/$defs/Construct"
+    },
+    "oligomeric_state": {
+      "type": "string",
+      "description": "e.g. monomer, dimer, hexamer, complex with dynactin."
+    },
+    "adaptors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Cargo adaptors or activators, e.g. dynactin, BICD2, Hook3, LIS1."
+    },
+    "track": {
+      "$ref": "#/$defs/Track"
+    },
+    "probe_link": {
+      "$ref": "#/$defs/ProbeLink"
+    },
+    "load": {
+      "$ref": "#/$defs/Load"
+    },
+    "feedback": {
+      "$ref": "#/$defs/Feedback"
+    },
+    "chemistry": {
+      "$ref": "#/$defs/Chemistry"
+    },
+    "reporting": {
+      "$ref": "#/$defs/Reporting"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "smash-motor-results.schema.json#/$defs/MotorResult"
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "../smash-smfs-record.schema.json#/$defs/Evidence"
+      },
+      "description": "Evidence per field, keyed by field path (e.g. 'family', 'load.direction'); values are the SMASH-BIO Evidence object."
+    },
+    "classification": {
+      "$ref": "#/$defs/Classification"
+    },
+    "data_availability": {
+      "$ref": "../smash-smfs-record.schema.json#/$defs/DataAvailability"
+    },
+    "curation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "auto",
+            "curated",
+            "author_verified",
+            "gold_annotated"
+          ]
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Curator notes."
+        }
+      },
+      "description": "Curation level of the motor-specific fields.",
+      "required": [
+        "level"
+      ]
+    }
+  },
+  "$defs": {
+    "Construct": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "truncation": {
+          "type": "string",
+          "description": "Residue range or truncation name."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "e.g. GFP, SNAP, His6, AviTag."
+        },
+        "mutations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Point mutations, e.g. E236A."
+        }
+      },
+      "description": "Motor construct."
+    },
+    "Track": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "track_type": {
+          "enum": [
+            "microtubule",
+            "actin",
+            "dsDNA",
+            "ssDNA",
+            "RNA",
+            "mRNA",
+            "chromatin",
+            "other"
+          ],
+          "description": "Track the motor moves on."
+        },
+        "track_type_other": {
+          "type": "string",
+          "description": "Free text when track_type = other."
+        },
+        "track_source": {
+          "type": "string",
+          "description": "Source or preparation, e.g. porcine brain tubulin, lambda DNA."
+        },
+        "polarity_marked": {
+          "type": "boolean",
+          "description": "Track polarity marked or otherwise known."
+        },
+        "lattice_or_sequence": {
+          "type": "string",
+          "description": "Lattice (13-protofilament, GMPCPP, taxol) or nucleic-acid sequence/template."
+        },
+        "decorations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "MAPs, nucleosomes, SSB, roadblocks."
+        }
+      },
+      "description": "Track."
+    },
+    "ProbeLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attachment": {
+          "enum": [
+            "antibody",
+            "biotin_streptavidin",
+            "his_tag",
+            "gfp_antibody",
+            "snap_or_halo_tag",
+            "dna_tether",
+            "nonspecific_adsorption",
+            "covalent",
+            "other"
+          ],
+          "description": "How the motor is linked to the probe."
+        },
+        "attachment_other": {
+          "type": "string",
+          "description": "Free text when attachment = other."
+        },
+        "motors_per_probe": {
+          "oneOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "const": "single"
+            }
+          ],
+          "description": "Motors per bead or probe as reported, or 'single' when single-motor conditions are stated."
+        },
+        "single_motor_verification": {
+          "enum": [
+            "poisson_dilution",
+            "fraction_moving",
+            "photobleaching",
+            "stated_only",
+            "none_stated",
+            "other"
+          ],
+          "description": "How single-motor conditions were verified."
+        },
+        "single_motor_verification_other": {
+          "type": "string",
+          "description": "Free text when single_motor_verification = other."
+        }
+      },
+      "description": "Motor-probe link. Multi-motor beads inflate stall force and run length."
+    },
+    "Load": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "geometry": {
+          "enum": [
+            "single_bead",
+            "three_bead",
+            "dumbbell",
+            "surface_tether",
+            "magnetic_bead",
+            "none",
+            "other"
+          ],
+          "description": "Load geometry."
+        },
+        "geometry_other": {
+          "type": "string",
+          "description": "Free text when geometry = other."
+        },
+        "direction": {
+          "enum": [
+            "hindering",
+            "assisting",
+            "sideways",
+            "mixed",
+            "none",
+            "other"
+          ],
+          "description": "Load direction relative to motion."
+        },
+        "vertical_component_considered": {
+          "type": "boolean",
+          "description": "Whether the vertical (z) force component was accounted for."
+        }
+      },
+      "description": "Load. Trap stiffness and instrument details stay on the linked SMASH-BIO record."
+    },
+    "Feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "passive_trap",
+            "force_clamp",
+            "position_clamp",
+            "velocity_clamp",
+            "force_ramp",
+            "none",
+            "other"
+          ],
+          "description": "Feedback (clamp) mode."
+        },
+        "mode_other": {
+          "type": "string",
+          "description": "Free text when mode = other."
+        }
+      },
+      "description": "Feedback mode; it determines which observables are valid."
+    },
+    "Chemistry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nucleotide": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "species": {
+              "type": "string",
+              "description": "e.g. ATP, GTP, NTPs, dNTPs."
+            },
+            "concentration_uM": {
+              "type": "number",
+              "description": "µM.",
+              "minimum": 0
+            }
+          },
+          "description": "Fuel nucleotide."
+        },
+        "adp_uM": {
+          "type": "number",
+          "description": "[ADP] in µM.",
+          "minimum": 0
+        },
+        "pi_uM": {
+          "type": "number",
+          "description": "[Pi] in µM.",
+          "minimum": 0
+        },
+        "analogues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "e.g. AMP-PNP, ATPγS."
+        },
+        "mg_mM": {
+          "type": "number",
+          "description": "[Mg2+] in mM.",
+          "minimum": 0
+        },
+        "ionic_strength_mM": {
+          "type": "number",
+          "description": "mM.",
+          "minimum": 0
+        },
+        "temperature_C": {
+          "type": "number",
+          "description": "°C."
+        },
+        "crowders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "e.g. PEG, Ficoll."
+        },
+        "inhibitors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "e.g. vanadate, ciliobrevin."
+        }
+      },
+      "description": "Chemistry. Units are fixed by the field names."
+    },
+    "Reporting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "n_molecules": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Motors analysed."
+        },
+        "n_runs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Runs analysed."
+        },
+        "n_steps": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Steps analysed."
+        },
+        "step_detection": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "type": "string",
+              "description": "e.g. Kerssemakers, t-test, HMM, change-point."
+            },
+            "settings": {
+              "type": "string",
+              "description": "As reported."
+            }
+          },
+          "description": "Step detection."
+        },
+        "fit_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "e.g. Boltzmann F-V, gamma dwell time, Michaelis-Menten."
+        }
+      },
+      "description": "What was analysed and how."
+    },
+    "Classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "route": {
+          "enum": [
+            "entity_specific",
+            "entity_generic",
+            "title",
+            "curated"
+          ],
+          "description": "How the family was found: a specific or generic gazetteer entity on the SMASH-BIO record, the title, or a curator."
+        },
+        "certainty": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Route weight x share of the top family among all family hits (hub/motors/classify.py)."
+        },
+        "family_hits": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": "Score per family; more than one key means the family was ambiguous."
+        },
+        "gazetteer": {
+          "type": "string",
+          "description": "Gazetteer file and version used."
+        }
+      },
+      "description": "Automatic family call, kept so it can be audited against the gold set."
+    }
+  }
+}
