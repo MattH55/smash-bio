@@ -4,6 +4,8 @@ Every extractor returns values together with a short snippet so the record keeps
 auditable provenance. Extracted values are flagged as automatic (unverified).
 """
 import re
+import sys
+from pathlib import Path
 
 NUM = r"(\d+(?:[.,]\d+)?)"
 RANGE = NUM + r"(?:\s*(?:-|–|—|to|and)\s*" + NUM + r")?"
@@ -248,9 +250,21 @@ RES_PATTERNS = [
     ("processivity_run_length", r"run lengths?|processivit(y|ies)"),
     ("loading_rate", r"loading rates?"),
 ]
+# Observables added for module profiles (taxonomy/modules.yaml). They are tried
+# only when the caller passes those quantity names, so a folding abstract is
+# not scanned for fusion time.
+EXTRA_RES_PATTERNS = [
+    ("fusion_time", r"fusion times?"),
+    ("molecular_tension", r"molecular tensions?"),
+    ("pause_density", r"pause densit(?:y|ies)"),
+    ("kcat", r"\bkcats?\b|catalytic rates?"),
+    ("storage_modulus", r"storage modul(?:us|i)"),
+    ("loss_modulus", r"loss modul(?:us|i)"),
+    ("viscosity", r"\bviscosit(?:y|ies)\b"),
+]
 RES_UNITS = {
     "pN": {"unfolding_force", "refolding_force", "rupture_force", "unbinding_force", "unzipping_force", "overstretching_force",
-           "stall_force", "equilibrium_force", "adhesion_force", "tether_force", "stretch_modulus"},
+           "stall_force", "equilibrium_force", "adhesion_force", "tether_force", "stretch_modulus", "molecular_tension"},
     "nN": {"rupture_force", "adhesion_force", "unbinding_force"},
     "nm": {"step_size", "persistence_length", "contour_length_increment", "contour_length", "distance_to_transition_state", "processivity_run_length"},
     "Å": {"distance_to_transition_state", "step_size", "contour_length_increment"},
@@ -258,11 +272,13 @@ RES_UNITS = {
     "µm": {"processivity_run_length", "contour_length", "persistence_length"},
     "nm/s": {"velocity"}, "bp/s": {"velocity"}, "nt/s": {"velocity"}, "aa/s": {"velocity"}, "µm/s": {"velocity"}, "codons/s": {"velocity"},
     "kBT": {"folding_free_energy", "activation_free_energy"}, "kcal/mol": {"folding_free_energy"}, "kJ/mol": {"folding_free_energy"},
-    "ms": {"bond_lifetime", "dwell_time"}, "s": {"bond_lifetime", "dwell_time"}, "µs": {"bond_lifetime", "dwell_time"},
-    "pN·nm": {"torque"}, "pN/nm": {"molecular_stiffness"}, "kPa": {"elastic_modulus"}, "Pa": {"elastic_modulus"}, "MPa": {"elastic_modulus"},
-    "s⁻¹": {"rate_constant_zero_force"}, "pN/s": {"loading_rate"},
+    "ms": {"bond_lifetime", "dwell_time"}, "s": {"bond_lifetime", "dwell_time", "fusion_time"}, "µs": {"bond_lifetime", "dwell_time"},
+    "pN·nm": {"torque"}, "pN/nm": {"molecular_stiffness"}, "kPa": {"elastic_modulus", "storage_modulus", "loss_modulus"},
+    "Pa": {"elastic_modulus", "storage_modulus", "loss_modulus"}, "MPa": {"elastic_modulus"},
+    "s⁻¹": {"rate_constant_zero_force", "kcat"}, "pN/s": {"loading_rate"},
+    "Pa.s": {"viscosity"}, "1/µm": {"pause_density"}, "1/um": {"pause_density"},
 }
-UNIT_RX = (r"(pN\s*(?:·|\s)?\s*nm|pN/nm|pN/s|pN|nN|nm/s|bp/s|nt/s|aa/s|codons?/s|" + MU + r"m/s|nm|Å|" + MU + r"m|bp|nt|kBT|kB\s?T|k_BT|kT|kcal/mol|kcal mol-1|kJ/mol|ms|" + MU + r"s|s-1|s−1|s⁻¹|kPa|MPa|Pa|s)\b")
+UNIT_RX = (r"(pN\s*(?:·|\s)?\s*nm|pN/nm|pN/s|pN|nN|nm/s|bp/s|nt/s|aa/s|codons?/s|" + MU + r"m/s|nm|Å|" + MU + r"m|bp|nt|kBT|kB\s?T|k_BT|kT|kcal/mol|kcal mol-1|kJ/mol|ms|" + MU + r"s|s-1|s−1|s⁻¹|Pa\.s|kPa|MPa|Pa|1/" + MU + r"m|1/um|s)\b")
 VAL_RX = re.compile(r"(?:~|≈|∼|≃|approximately |about |around |of |at |was |were |is |are |by |up to |as high as |>|<|≥|≤|=|\()?\s*" +
                     NUM + r"(?:\s*(?:±|\+/-)\s*" + NUM + r")?(?:\s*(?:-|–|to)\s*" + NUM + r")?" + SP + UNIT_RX)
 
@@ -275,13 +291,38 @@ def norm_unit(u):
     return u.replace("µs", "µs")
 
 
-def extract_results(text):
-    """Pull (observable, value, unit) triples from abstract/results text."""
+def _measurement_mode(sentence):
+    """Mode phrase in the same sentence, from taxonomy/rules/mode_phrases.csv."""
+    tax = getattr(_measurement_mode, "tax", None)
+    if tax is None:
+        root = Path(__file__).resolve().parents[1] / "taxonomy"
+        sys.path.insert(0, str(root))
+        from load import load_taxonomy
+        tax = load_taxonomy()
+        _measurement_mode.tax = tax
+    for rule in tax.modes:
+        if rule.regex.search(sentence):
+            return rule.measurement_mode
+    return None
+
+
+def extract_results(text, quantities=None):
+    """Pull (observable, value, unit) triples from abstract/results text.
+
+    ``quantities`` is the primary module's observable profile. Those names are
+    added to the patterns that are tried. ``None`` keeps the historical list.
+    """
     if not text:
         return []
+    patterns = list(RES_PATTERNS)
+    if quantities:
+        have = {name for name, _pattern in patterns}
+        for name, pattern in EXTRA_RES_PATTERNS:
+            if name in quantities and name not in have:
+                patterns.append((name, pattern))
     out, seen = [], set()
     for sent in re.split(r"(?<=[.;])\s+(?=[A-Z(])", text):
-        for q, prx in RES_PATTERNS:
+        for q, prx in patterns:
             for qm in re.finditer(prx, sent, re.I):
                 tail = sent[qm.end(): qm.end() + 70]
                 vm = VAL_RX.search(tail)
@@ -299,6 +340,9 @@ def extract_results(text):
                 r = {"quantity": q, "value": v, "unit": unit, "statistic": "single_value",
                      "source": {"location": "abstract", "snippet": sent[max(0, qm.start() - 60): qm.end() + 90].strip()[:300],
                                 "extraction": "auto_regex", "confidence": "medium"}}
+                mode = _measurement_mode(sent)
+                if mode:
+                    r["measurement_mode"] = mode
                 if vm.group(2):
                     r["uncertainty"], r["uncertainty_type"] = _num(vm.group(2)), "unspecified"
                 if vm.group(3):

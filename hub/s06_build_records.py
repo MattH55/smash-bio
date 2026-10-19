@@ -1,4 +1,4 @@
-"""Step 6 - assemble schema-conformant SMASH-BIO records (schema v3.1.0).
+"""Step 6 - assemble schema-conformant SMASH-BIO records (schema v3.2.0).
 
 Inputs : out/articles_classified.jsonl, out/links.json, out/datasets_raw.jsonl,
          full-text cache (s05), legacy curated YAML (publications_metadata/)
@@ -7,6 +7,7 @@ Output : out/records.jsonl, out/datasets_hub.jsonl, out/uniprot_cache.json
 import datetime
 import json
 import re
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -21,6 +22,11 @@ from s05_fulltext import FT_CACHE
 ROOT = Path(__file__).resolve().parent.parent
 HUB_DIR = Path(__file__).resolve().parent
 TODAY = datetime.date.today().isoformat()
+sys.path.insert(0, str(ROOT / "taxonomy"))
+from classify_modules import apply_classification, classify  # noqa: E402
+from load import load_taxonomy  # noqa: E402
+
+TAXONOMY = load_taxonomy()
 
 def _split_top(p):
     """Split a regex on top-level '|' (outside groups/classes)."""
@@ -1198,7 +1204,7 @@ def main():
                 ("correction" if any("erratum" in p or "correction" in p for p in pubtypes) or re.match(r"(correction|erratum|retraction)", a.get("title") or "", re.I) else
                  ("methods" if a["tier"] == "methods" else "primary_research")))
         rec = {
-            "record_id": None, "schema_version": "3.1.0",
+            "record_id": None, "schema_version": "3.2.0",
             "curation": {"level": "auto_fulltext" if methods else "auto_abstract", "last_updated": TODAY},
             "publication": {k: v for k, v in {
                 "doi": a.get("doi"), "pmid": a.get("pmid"), "pmcid": a.get("pmcid"),
@@ -1216,7 +1222,7 @@ def main():
                                   **({"cell": cell} if cell else {}), **({"cytoskeleton": cyto} if cyto else {}),
                                   **({"fluorescent_labels": [{"identifier": d} for d in dyes]} if dyes else {})},
             "solution": sol,
-            "results": X.extract_results(re.sub(r"<[^>]+>", "", a.get("abstract") or "")),
+            "results": [],
             "data_availability": {"status": status, "has_linked_dataset": bool(real), "statement": statement[:2500],
                                   "statement_classes": st_cls, "datasets": list(real) + list(mirrors), "code": list(code.values()),
                                   "accessions": list(acc.values())[:40], "supplementary_files": supp,
@@ -1225,11 +1231,17 @@ def main():
                             "disease_relevance": sorted({e["text"] for e in ann if e["type"] == "Diseases" and any("abstract" in s.lower() for s in e["sections"])})[:8],
                             "keywords": a.get("keywords"), "funding": sorted(set(a.get("grants") or []))},
         }
+        provisional, _ignored = classify(rec, TAXONOMY, methods)
+        module_id = next(item["module_id"] for item in provisional["modules"] if item["role"] == "primary")
+        profile = TAXONOMY.module(module_id).observable_profile
+        quantities = list(profile.get("primary") or []) + list(profile.get("secondary") or [])
+        rec["results"] = X.extract_results(re.sub(r"<[^>]+>", "", a.get("abstract") or ""), quantities)
         cy = curated.get(a.get("doi")) or curated.get("title:" + norm_title(a.get("title")))
         if cy:
             merge_curated(rec, cy)
         if a.get("doi") in submitted:
             merge_submitted(rec, submitted[a["doi"]])
+        rec = apply_classification(rec, TAXONOMY, methods)
         for d in rec["data_availability"]["datasets"] + rec["data_availability"]["code"]:
             if d.get("scheme") == "doi":
                 used_ds.add(d["id"])
