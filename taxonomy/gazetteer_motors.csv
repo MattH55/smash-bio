@@ -1,0 +1,78 @@
+name,synonyms,uniprot,processive,motor_track,family,note
+Kinesin-1,KIF5B|kinesin 1|conventional kinesin,P33176,true,microtubule,cytoskeletal_walkers,Processive dimeric walker (Vale 1996; Howard review). Human KIF5B.
+Kinesin-1 KIF5A,KIF5A,Q12840,true,microtubule,cytoskeletal_walkers,Same family as KIF5B. Human KIF5A.
+Kinesin-1 KIF5C,KIF5C,O60282,true,microtubule,cytoskeletal_walkers,Same family as KIF5B. Human KIF5C.
+Kinesin-2 KIF3A,KIF3A|kinesin-2|kinesin 2,Q9Y496,true,microtubule,cytoskeletal_walkers,Heterotrimeric kinesin-2 is processive (Gilbert 2018 review). Human KIF3A.
+Kinesin-2 KIF17,KIF17,Q9P2E2,true,microtubule,cytoskeletal_walkers,Homodimeric kinesin-2. Human KIF17.
+Kinesin-3 KIF1A,KIF1A|kinesin-3|kinesin 3,Q12756,true,microtubule,cytoskeletal_walkers,Highly processive (Okada 1995). Human KIF1A.
+Kinesin-3 KIF1B,KIF1B,O60333,true,microtubule,cytoskeletal_walkers,Kinesin-3 family. Human KIF1B.
+Kinesin-3 KIF13A,KIF13A,Q9H1H9,true,microtubule,cytoskeletal_walkers,Kinesin-3 family. Human KIF13A.
+Kinesin-3 KIF16B,KIF16B,Q96L93,true,microtubule,cytoskeletal_walkers,Kinesin-3 family. Human KIF16B.
+Kinesin-5,KIF11|Eg5|kinesin-5|kinesin 5,P52732,true,microtubule,cytoskeletal_walkers,Slow processive plus-end motor (Valentine 2006). Human KIF11.
+Kinesin-7 CENP-E,CENP-E|kinesin-7,Q02224,true,microtubule,cytoskeletal_walkers,Processive kinetochore kinesin. Human CENP-E.
+Kinesin-8 KIF18A,KIF18A|kinesin-8,Q7Z4S6,true,microtubule,cytoskeletal_walkers,Processive plus-end depolymerase (Mayr 2007). Human KIF18A.
+Kinesin-8 KIF18B,KIF18B,Q86Y91,true,microtubule,cytoskeletal_walkers,Kinesin-8 family. Human KIF18B.
+Kinesin-13 KIF2C,KIF2C|MCAK|kinesin-13,Q99661,false,microtubule,cytoskeletal_walkers,Non-processive depolymeriser (Hunter 2003). Human KIF2C.
+Kinesin-13 KIF2A,KIF2A,O00139,false,microtubule,cytoskeletal_walkers,"Non-processive depolymeriser, same family as MCAK. Human KIF2A."
+Cytoplasmic dynein,DYNC1H1|cytoplasmic dynein|dynein-1,Q14204,true,microtubule,cytoskeletal_walkers,Processive minus-end motor with dynactin (Reck-Peterson 2018). Human DYNC1H1.
+Dynein intermediate chain,DYNC1I2,,true,microtubule,cytoskeletal_walkers,Subunit of cytoplasmic dynein; processivity is of the motor complex. UniProt left blank rather than guessed.
+Axonemal dynein,DNAH5|axonemal dynein|outer-arm dynein,Q8TE73,true,microtubule,cytoskeletal_walkers,Outer-arm axonemal dynein is processive in vitro (Sakakibara 1999). Human DNAH5.
+Myosin II skeletal,MYH2|skeletal myosin|muscle myosin II|myosin II,Q9UKX2,false,actin,nonprocessive_myosins,Skeletal myosin II is non-processive (Finer 1994 three-bead assay). Human MYH2. The bare synonym myosin II is this row; cardiac and smooth rows keep their own names.
+Myosin II cardiac,MYH7|cardiac myosin|beta-cardiac myosin,P12883,false,actin,nonprocessive_myosins,Cardiac beta-myosin is non-processive as a monomer ensemble. Human MYH7.
+Myosin II smooth,MYH11|smooth muscle myosin,P35749,false,actin,nonprocessive_myosins,Smooth-muscle myosin II. Human MYH11.
+Myosin II non-muscle,MYH9|non-muscle myosin|NMIIA,P35579,false,actin,nonprocessive_myosins,Non-muscle myosin IIA. Human MYH9.
+Myosin II non-muscle B,MYH10|NMIIB,P35580,false,actin,nonprocessive_myosins,Non-muscle myosin IIB. Human MYH10.
+Myosin V,MYO5A|myosin-5|myosin V,Q9Y4I1,true,actin,cytoskeletal_walkers,Processive hand-over-hand walker (Mehta 1999). Human MYO5A.
+Myosin Va,MYO5A,Q9Y4I1,true,actin,cytoskeletal_walkers,Same accession as Myosin V; synonym row for MYO5A spelling.
+Myosin VI,MYO6|myosin-6|myosin VI,Q9UM54,true,actin,cytoskeletal_walkers,Processive minus-end myosin when dimeric (Rock 2001). Human MYO6.
+Myosin VII,MYO7A|myosin-7|myosin VII,Q13402,true,actin,cytoskeletal_walkers,Dimeric myosin VII is processive (Yang 2006). Human MYO7A.
+Myosin X,MYO10|myosin-10|myosin X,Q9HD67,true,actin,cytoskeletal_walkers,Processive on actin bundles (Nagy 2008). Human MYO10.
+Myosin I,MYO1A|myosin-1|myosin I,Q9UBC5,false,actin,nonprocessive_myosins,Single-headed myosin I is non-processive. Human MYO1A.
+Myosin Ib,MYO1B,O43795,false,actin,nonprocessive_myosins,Myosin I family. Human MYO1B.
+E. coli RNAP,rpoB|E. coli RNA polymerase|bacterial RNA polymerase,P0A8V2,true,dna,nucleic_acid_motors,Processive transcription (Wang 1998). E. coli rpoB.
+T7 RNAP,T7 RNA polymerase,P00573,true,dna,nucleic_acid_motors,Highly processive single-subunit polymerase. Bacteriophage T7.
+RNA polymerase II,POLR2A|Pol II|RNA polymerase II,P24928,true,dna,nucleic_acid_motors,Processive elongation complex. Human POLR2A.
+T7 DNAP,T7 DNA polymerase,P00581,true,dna,nucleic_acid_motors,Processive with thioredoxin. Bacteriophage T7 gene 5.
+DNA polymerase I,Pol I|DNA Pol I,P00582,true,dna,nucleic_acid_motors,Pol I holoenzyme is processive on short patches. E. coli. Klenow is a separate row.
+Klenow fragment,Klenow,,false,dna,nucleic_acid_motors,Klenow is poorly processive relative to the holoenzyme (processive set false). UniProt left blank; the fragment is not a separate entry.
+Phi29 DNAP,phi29 DNA polymerase|Φ29 DNA polymerase,P03680,true,dna,nucleic_acid_motors,Highly processive (Blanco 1989). Bacillus phage phi29.
+DNA polymerase delta,POLD1|Pol delta|DNA polymerase δ,P28340,true,dna,nucleic_acid_motors,Replicative polymerase. Human POLD1.
+DNA polymerase epsilon,POLE|Pol epsilon|DNA polymerase ε,Q07864,true,dna,nucleic_acid_motors,Replicative polymerase. Human POLE.
+RecBCD,RecBCD helicase,P08394,true,dna,nucleic_acid_motors,Rapid processive helicase/nuclease. E. coli RecB.
+UvrD,UvrD helicase|helicase II,P03018,true,dna,nucleic_acid_motors,Processive 3'-5' helicase. E. coli UvrD.
+PcrA,PcrA helicase,P56255,true,dna,nucleic_acid_motors,Processive helicase used in optical-trap studies (Geiselmann; Park 2010). Geobacillus PcrA.
+Rep helicase,Rep,P09980,,dna,nucleic_acid_motors,Rep processivity depends on dimerisation; left null rather than guessed. E. coli Rep.
+RecQ,RecQ helicase,P15043,,dna,nucleic_acid_motors,Family processivity varies; left null. E. coli RecQ.
+BLM,BLM helicase|Bloom helicase,P54132,true,dna,nucleic_acid_motors,Processive RecQ-family helicase. Human BLM.
+WRN,WRN helicase|Werner helicase,Q14191,true,dna,nucleic_acid_motors,Processive RecQ-family helicase. Human WRN.
+MCM2,MCM2|MCM helicase,P49736,true,dna,nucleic_acid_motors,Replicative helicase subunit; CMG is processive. Human MCM2.
+MCM4,MCM4,P33991,true,dna,nucleic_acid_motors,CMG subunit. Human MCM4.
+CMG helicase,CMG,,true,dna,nucleic_acid_motors,CMG is the processive eukaryotic replicative helicase. No single UniProt accession.
+T7 gp4,T7 helicase|gene 4 helicase,P03692,true,dna,nucleic_acid_motors,Processive hexameric helicase. Bacteriophage T7 gp4.
+DnaB,DnaB helicase,P0ACB0,true,dna,nucleic_acid_motors,Processive bacterial replicative helicase. E. coli DnaB.
+FtsK,FtsK translocase,P46889,true,dna,nucleic_acid_motors,Processive dsDNA translocase (Saleh 2004). E. coli FtsK.
+SpoIIIE,SpoIIIE,P21458,true,dna,nucleic_acid_motors,Processive chromosome translocase. B. subtilis SpoIIIE.
+SMC2,SMC2|condensin,O95347,true,dna,nucleic_acid_motors,Loop-extruding condensin subunit; treated as processive DNA translocase (Ganji 2018). Human SMC2.
+SMC4,SMC4,Q9NTJ3,true,dna,nucleic_acid_motors,Condensin SMC subunit. Human SMC4.
+SMC1,SMC1A|cohesin,Q14683,true,dna,nucleic_acid_motors,Cohesin can extrude loops; marked processive DNA translocase. Human SMC1A.
+SMC3,SMC3,Q9UQE7,true,dna,nucleic_acid_motors,Cohesin SMC subunit. Human SMC3.
+Ribosome,ribosome|70S ribosome|80S ribosome,,true,rna,nucleic_acid_motors,Processive translation. No single UniProt accession.
+Phi29 packaging motor,gp16|phi29 packaging|Φ29 gp16,P11014,true,dna,packaging_motors,Processive packaging ATPase (Smith 2001). Phage phi29 gp16.
+T4 terminase,T4 gp17|terminase gp17,P17312,true,dna,packaging_motors,Processive large terminase. Phage T4 gp17.
+Lambda terminase,lambda terminase|λ terminase,P03709,true,dna,packaging_motors,Large terminase subunit. Phage lambda gpA.
+ClpX,ClpX|ClpXP,P0A6G7,true,protein,protein_unfoldases,Processive unfoldase (Aubin-Tam 2011). E. coli ClpX.
+ClpA,ClpA|ClpAP,P0ABH9,true,protein,protein_unfoldases,Processive unfoldase. E. coli ClpA.
+26S proteasome,PSMC1|26S proteasome|proteasome,P62191,true,protein,protein_unfoldases,Processive unfoldase cap. Human PSMC1 stands in for the 19S ATPase.
+F1-ATPase,F1 ATPase|ATP synthase|atpD,P0ABB4,false,,rotary,"Rotary, not a linear processive motor (Noji 1997). E. coli atpD beta subunit."
+Bacterial flagellar motor,flagellar motor|MotA,,false,,rotary,Rotary. UniProt left blank; the motor is a complex.
+Viral portal,portal protein,,true,dna,packaging_motors,Portal itself is the channel; processivity belongs to the terminase. Marked true only as the packaging-complex label. UniProt left blank.
+NS3 helicase,NS3|HCV helicase,,true,rna,nucleic_acid_motors,Processive RNA helicase in single-molecule studies. UniProt left blank (many viral strains).
+Rho helicase,Rho,P0AG30,true,rna,nucleic_acid_motors,Processive RNA translocase. E. coli Rho.
+Ribosome EF-G,EF-G|fusA,P0A6M8,true,rna,nucleic_acid_motors,"Elongation factor of the processive ribosome, not itself a walker. E. coli fusA. Track is the mRNA."
+Kinesin-14 Ncd,Ncd|kinesin-14,,false,microtubule,nonprocessive_myosins,Non-processive minus-end kinesin (Case 1997). UniProt left blank (Drosophila Ncd).
+Myosin XI,myosin XI|myosin-11,,true,actin,cytoskeletal_walkers,Plant myosin XI is processive. UniProt left blank (species-specific).
+DNA polymerase gamma,POLG|Pol gamma,P54098,true,dna,nucleic_acid_motors,Mitochondrial replicative polymerase. Human POLG.
+T7 gp4 primase-helicase,T7 primase,,true,dna,nucleic_acid_motors,Same polypeptide as T7 gp4; synonym for primase-helicase papers.
+SpaIIIE,SpoIIIE translocase,P21458,true,dna,nucleic_acid_motors,Spelling variant of SpoIIIE kept so the gazetteer hits both names.
+AddA,AddA helicase,,true,dna,nucleic_acid_motors,Bacillus RecBCD-like helicase; processive. UniProt left blank.
+TrwB,TrwB conjugative motor,,true,dna,nucleic_acid_motors,Conjugative DNA translocase. UniProt left blank rather than guessed.

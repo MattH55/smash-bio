@@ -1,0 +1,69 @@
+id,pattern,field,module,submodule,priority
+k_cas9,\bCas9\b,any,nucleic_acid_protein,gene_editing,200
+k_cas12,\bCas12a?\b,any,nucleic_acid_protein,gene_editing,200
+k_cas13,\bCas13\b,any,nucleic_acid_protein,gene_editing,200
+k_crispr,\bCRISPR\b,any,nucleic_acid_protein,gene_editing,190
+k_baseed,\bbase editors?\b,any,nucleic_acid_protein,gene_editing,190
+k_nucleosome,\bnucleosomes?\b,any,nucleic_acid_protein,chromatin,180
+k_histone,\bhistones?\b,any,nucleic_acid_protein,chromatin,180
+k_chromatin,\bchromatin\b,any,nucleic_acid_protein,chromatin,180
+k_cohesin,\bcohesin\b,any,nucleic_acid_protein,chromatin,180
+k_condensin,\bcondensin\b,any,nucleic_acid_protein,chromatin,180
+k_replisome,\breplisome\b,any,nucleic_acid_protein,replication,170
+k_fork,\breplication forks?\b,any,nucleic_acid_protein,replication,170
+k_mcm,\bMCM\b,any,nucleic_acid_protein,replication,170
+k_primase,\bprimase\b,any,nucleic_acid_protein,replication,170
+k_reca,\bRecA\b,any,nucleic_acid_protein,repair,170
+k_rad51,\bRAD51\b,any,nucleic_acid_protein,repair,170
+k_brca2,\bBRCA2\b,any,nucleic_acid_protein,repair,170
+k_mismatch,\bmismatch repair\b,any,nucleic_acid_protein,repair,170
+k_nhej,\bNHEJ\b,any,nucleic_acid_protein,repair,170
+k_ku,\bKu70\b|\bKu80\b,any,nucleic_acid_protein,repair,170
+k_ribo,\briboswitch(es)?\b,any,rna_structure,riboswitches,190
+k_pseudo,\bpseudoknots?\b,any,rna_structure,pseudoknots_frameshifting,190
+k_frame,\bframeshift(ing)?\b,any,rna_structure,pseudoknots_frameshifting,180
+k_aptamer,\baptamers?\b,any,rna_structure,aptamers,180
+k_gq,\bG-?quadruplex(es)?\b,any,dna_structure,dna_g_quadruplexes,175
+k_origami,\borigami\b,any,dna_structure,origami,190
+k_nano,\bDNA nanostructures?\b,any,dna_structure,origami,190
+k_llps,\bphase separation\b|\bLLPS\b,any,condensates_microrheology,condensate_rheology,180
+k_cond,\bcondensates?\b,any,condensates_microrheology,condensate_rheology,180
+k_drop,\bdroplet fusion\b,any,condensates_microrheology,condensate_rheology,180
+k_tgt,\btension sensors?\b|\bTGTs?\b,any,mechanobiology,tension_sensors,185
+k_fretten,\bFRET-based tension\b,any,mechanobiology,tension_sensors,185
+k_catch,\bcatch bonds?\b,any,receptor_ligand,catch_slip_bonds,160
+k_slip,\bslip bonds?\b,any,receptor_ligand,catch_slip_bonds,160
+k_chaperone,\bchaperones?\b,any,protein_folding,chaperone_assisted,150
+k_ligfold,\bligand-dependent folding\b,any,protein_folding,ligand_dependent,150
+k_titin,\btitin\b,any,protein_folding,mechanoproteins,140
+k_hairpin,\bDNA hairpins?\b,any,dna_structure,hairpins,150
+k_over,\boverstretch(ing|ed)?\b,any,nucleic_acid_mechanics,overstretching,40
+k_super,\bsupercoil(ing|ed)?\b|\bplectonemes?\b,any,nucleic_acid_mechanics,torque_supercoiling,40
+k_braid,\bbraids?\b|\bbraiding\b,any,nucleic_acid_mechanics,braiding,40
+k_pers,\bpersistence lengths?\b,any,nucleic_acid_mechanics,elasticity,35
+k_kin,\bkinesins?\b,any,processive_motors,cytoskeletal_walkers,120
+k_dyn,\bdyneins?\b,any,processive_motors,cytoskeletal_walkers,120
+k_myo5,\bmyosin[- ]?V\b,any,processive_motors,cytoskeletal_walkers,120
+k_rnap,\bRNA polymerase\b|\bRNAP\b,any,processive_motors,nucleic_acid_motors,120
+k_hel,\bhelicases?\b,any,processive_motors,nucleic_acid_motors,120
+k_pack,\bpackaging motors?\b|\bterminase\b,any,processive_motors,packaging_motors,130
+k_clp,\bClpXP\b|\bproteasome\b,any,processive_motors,protein_unfoldases,130
+k_myo2,\bmyosin[- ]?II\b,any,force_generation,nonprocessive_myosins,120
+k_poly,\bpolymeri[sz]ation force\b|\bfilament elongation\b,any,force_generation,filament_polymerisation,120
+k_f1,\bF1[- ]ATPase\b|\bflagellar motors?\b,any,force_generation,rotary_motors,120
+k_cortex,\bcell mechanics\b|\bcell cortex\b,any,cell_structure_transport,cell_cortex,80
+k_org,\borganelle transport\b,any,cell_structure_transport,organelle_transport,80
+k_chromech,\bchromosome mechanics\b,any,cell_structure_transport,chromosome_mechanics,80
+k_pnet,\bpolymer networks?\b,any,condensates_microrheology,polymer_networks,70
+k_cyto,\bcytosol\b,any,condensates_microrheology,cytosol,70
+k_tether,\bmembrane tethers?\b|\btether extrusion\b,any,membranes,tether_extrusion,80
+k_ves,\bvesicles?\b,any,membranes,vesicle_assemblies,40
+k_bridge,\bmembrane bridging\b,any,membranes,membrane_bridging,80
+k_ab,\bantibod(y|ies)\b,any,receptor_ligand,antibody_antigen,70
+k_ag,\bantigens?\b,any,receptor_ligand,antibody_antigen,70
+k_adh,\bcell adhesion\b,any,receptor_ligand,cell_adhesion,70
+k_mechtr,\bmechanotransduction\b,any,mechanobiology,mechanotransduction,80
+k_tf,\btranscription factors?\b,any,nucleic_acid_protein,transcription_regulation,100
+k_bind,\bDNA-binding\b,any,nucleic_acid_protein,binding_diffusion,90
+k_resol,\bspatial resolution\b,any,methods,resolution,5
+k_soft,\banalysis software\b,any,methods,software,5

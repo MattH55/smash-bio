@@ -1,0 +1,185 @@
+# One entry per module. priority: higher wins when several v3.1 classes match.
+# Keyword rules with a higher priority can replace the primary module.
+# taxonomy_version is taxonomy/VERSION.
+- id: protein_folding
+  label: Protein folding and dynamics
+  table3_type: unfolding
+  priority: 40
+  description: Unfolding and refolding of proteins and polyproteins, including chaperones and ligand-dependent folds.
+  parent_sources: [halma2025_table2, simpson2023_s5]
+  submodules: [chaperone_assisted, ligand_dependent, mechanoproteins]
+  observable_profile:
+    primary: [unfolding_force, contour_length_increment, folding_free_energy, distance_to_transition_state, dwell_time]
+    secondary: [refolding_force, unfolding_rate, folding_rate, rate_constant_zero_force]
+  typical_assays: [unfolding]
+  typical_geometries: [dumbbell, single_trap_surface]
+  canonical_systems: ["UniProt:Q8WZ42"]
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: rna_structure
+  label: RNA structure and function
+  table3_type: unfolding
+  priority: 45
+  description: Mechanical unfolding of RNA structures, including riboswitches, pseudoknots, G-quadruplexes and aptamers.
+  parent_sources: [simpson2023_s3]
+  submodules: [riboswitches, pseudoknots_frameshifting, g_quadruplexes, aptamers]
+  observable_profile:
+    primary: [unfolding_force, equilibrium_force, folding_free_energy, contour_length_increment]
+    secondary: [dwell_time, unfolding_rate]
+  typical_assays: [unfolding]
+  typical_geometries: [dumbbell, single_trap_surface]
+  canonical_systems: ["Rfam:RF00162"]
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: dna_structure
+  label: DNA structures and hairpins
+  table3_type: unfolding
+  priority: 45
+  description: DNA hairpins, G-quadruplexes and DNA origami or other nanostructures under force.
+  parent_sources: [halma2025_table2, malinowska2024_unfolding]
+  submodules: [hairpins, dna_g_quadruplexes, origami]
+  observable_profile:
+    primary: [unfolding_force, unzipping_force, equilibrium_force, contour_length_increment]
+    secondary: [dwell_time, folding_free_energy]
+  typical_assays: [unfolding]
+  typical_geometries: [dumbbell, single_trap_surface]
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: nucleic_acid_protein
+  label: Nucleic acid–protein interactions
+  table3_type: dna_protein
+  priority: 80
+  description: Proteins bound to DNA or RNA, including binding, gene editing, chromatin, replication, repair and transcription regulation.
+  parent_sources: [halma2025_table2, simpson2023_s2]
+  submodules: [binding_diffusion, gene_editing, chromatin, replication, repair, transcription_regulation]
+  observable_profile:
+    primary: [rupture_force, unbinding_force, dwell_time, diffusion_coefficient]
+    secondary: [binding_rate_kon, unbinding_rate_koff, contour_length_increment]
+  typical_assays: [mechanical_change, translocation]
+  typical_geometries: [dumbbell, single_trap_surface]
+  canonical_systems: ["UniProt:Q99ZW2"]
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: nucleic_acid_mechanics
+  label: Polymer mechanics of DNA and RNA
+  table3_type: dna_protein
+  priority: 30
+  description: Elasticity, overstretching, torque and supercoiling, and multi-tether or braiding assays of nucleic acids.
+  parent_sources: [halma2025_lineage, malinowska2024_dual_dna]
+  submodules: [elasticity, overstretching, torque_supercoiling, braiding]
+  observable_profile:
+    primary: [persistence_length, stretch_modulus, overstretching_force, torque]
+    secondary: [contour_length, twist_persistence_length, torsional_modulus, buckling_torque]
+  typical_assays: [mechanical_change, dual_tether]
+  typical_geometries: [dumbbell, quadruple_trap]
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: processive_motors
+  label: Processive motors and translocases
+  table3_type: force_generation
+  priority: 100
+  description: Motors that take many steps per attachment, including cytoskeletal walkers, nucleic-acid motors, packaging motors and unfoldases.
+  parent_sources: [halma2025_table2, simpson2023_s6, malinowska2024_translocation]
+  submodules: [cytoskeletal_walkers, nucleic_acid_motors, packaging_motors, protein_unfoldases]
+  observable_profile:
+    primary: [step_size, stall_force, velocity, processivity_run_length, dwell_time]
+    secondary: [pause_density, kcat, pause_duration]
+  typical_assays: [translocation]
+  typical_geometries: [one_bead, dumbbell, single_trap_surface]
+  canonical_systems: ["UniProt:P33176", "UniProt:Q14204", "UniProt:P00573"]
+  table3_fields: [hardware.*, assay.bead_geometry, assay.trap_control, biological_system.entities, solution.*]
+- id: force_generation
+  label: Non-processive force generation
+  table3_type: force_generation
+  priority: 90
+  description: Non-processive myosins, filament polymerisation force, and rotary motors. A three-bead stroke is not a one-bead run.
+  parent_sources: [halma2025_table2]
+  submodules: [nonprocessive_myosins, filament_polymerisation, rotary_motors]
+  observable_profile:
+    primary: [stall_force, step_size, dwell_time]
+    secondary: [velocity, adhesion_force]
+  typical_assays: [mechanical_change, polymerisation]
+  typical_geometries: [three_bead, polymerisation_assay]
+  canonical_systems: ["UniProt:P12883"]
+  table3_fields: [hardware.*, assay.bead_geometry, assay.trap_control, biological_system.entities, solution.*]
+- id: cell_structure_transport
+  label: Cellular structure and transport
+  table3_type: rheology
+  priority: 50
+  description: Cell and cortex mechanics, organelle or cargo transport in vivo, and chromosome mechanics inside cells.
+  parent_sources: [halma2025_table2, simpson2023_s6]
+  submodules: [cell_cortex, organelle_transport, chromosome_mechanics]
+  observable_profile:
+    primary: [cell_stiffness, elastic_modulus, velocity]
+    secondary: [viscosity, storage_modulus, loss_modulus]
+  typical_assays: [in_vivo, large_object]
+  typical_geometries: [one_bead]
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, biological_system.cell, solution.*]
+- id: condensates_microrheology
+  label: Condensates and micro-rheology
+  table3_type: rheology
+  priority: 55
+  description: Rheology and fusion of condensates, polymer networks, and the cytosol.
+  parent_sources: [simpson2023_s4]
+  submodules: [condensate_rheology, polymer_networks, cytosol]
+  observable_profile:
+    primary: [storage_modulus, loss_modulus, viscosity, fusion_time]
+    secondary: [elastic_modulus, diffusion_coefficient]
+  typical_assays: [large_object]
+  typical_geometries: [one_bead]
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: membranes
+  label: Membranes and vesicles
+  table3_type: rheology
+  priority: 50
+  description: Membrane tether extrusion, vesicle assemblies, and membrane bridging.
+  parent_sources: [halma2025_fig1, malinowska2024_other]
+  submodules: [tether_extrusion, vesicle_assemblies, membrane_bridging]
+  observable_profile:
+    primary: [tether_force, membrane_tension, bending_rigidity]
+    secondary: [fusion_time, adhesion_force]
+  typical_assays: [large_object]
+  typical_geometries: []
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: receptor_ligand
+  label: Receptor–ligand and adhesion bonds
+  table3_type: extended
+  priority: 60
+  description: Catch and slip bonds, antibody–antigen pairs, and cell-adhesion complexes. An extension of Table 3 used by AFM and the biomembrane force probe.
+  parent_sources: [smashbio_extension]
+  submodules: [catch_slip_bonds, antibody_antigen, cell_adhesion]
+  observable_profile:
+    primary: [rupture_force, unbinding_force, bond_lifetime, unbinding_rate_koff]
+    secondary: [catch_bond_peak_force, adhesion_force, distance_to_transition_state]
+  typical_assays: [mechanical_change]
+  typical_geometries: [bead_micropipette]
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: mechanobiology
+  label: Molecular tension in cells
+  table3_type: extended
+  priority: 70
+  description: Tension sensors and mechanotransduction readouts in cells.
+  parent_sources: [simpson2023_s7_3]
+  submodules: [tension_sensors, mechanotransduction]
+  observable_profile:
+    primary: [molecular_tension, adhesion_force]
+    secondary: [dwell_time, rupture_force]
+  typical_assays: [large_object]
+  typical_geometries: []
+  canonical_systems: []
+  table3_fields: [hardware.*, assay.*, biological_system.entities, solution.*]
+- id: methods
+  label: Instrumentation, calibration and analysis
+  table3_type: extended
+  priority: 10
+  description: Papers whose contribution is the instrument, the calibration or the analysis, rather than a biological system.
+  parent_sources: [smashbio_methods_tier]
+  submodules: [calibration, resolution, software]
+  observable_profile:
+    primary: [molecular_stiffness]
+    secondary: [loading_rate]
+  typical_assays: []
+  typical_geometries: []
+  canonical_systems: []
+  table3_fields: [hardware.*]
