@@ -1,0 +1,47 @@
+# id, label, parent module, keyword hints, canonical systems.
+# Operational keyword rules live in rules/keyword_to_module.csv. Hints here are
+# the terms a reviewer should expect that rule file to cover.
+- {id: chaperone_assisted, label: Chaperone-assisted folding, module: protein_folding, keywords: [chaperone, Hsp70, GroEL], canonical_systems: ["UniProt:P0A6Z3"]}
+- {id: ligand_dependent, label: Ligand-dependent folding, module: protein_folding, keywords: ["ligand-dependent folding"], canonical_systems: []}
+- {id: mechanoproteins, label: Mechanoproteins, module: protein_folding, keywords: [titin, mechanoprotein], canonical_systems: ["UniProt:Q8WZ42"]}
+- {id: riboswitches, label: Riboswitches, module: rna_structure, keywords: [riboswitch], canonical_systems: ["Rfam:RF00162"]}
+- {id: pseudoknots_frameshifting, label: Pseudoknots and frameshifting, module: rna_structure, keywords: [pseudoknot, frameshift], canonical_systems: []}
+- {id: g_quadruplexes, label: G-quadruplexes, module: rna_structure, keywords: ["G-quadruplex"], canonical_systems: []}
+- {id: aptamers, label: Aptamers, module: rna_structure, keywords: [aptamer], canonical_systems: []}
+- {id: hairpins, label: Hairpins, module: dna_structure, keywords: ["DNA hairpin"], canonical_systems: []}
+- {id: dna_g_quadruplexes, label: DNA G-quadruplexes, module: dna_structure, keywords: ["DNA G-quadruplex"], canonical_systems: []}
+- {id: origami, label: DNA origami and nanostructures, module: dna_structure, keywords: [origami, "DNA nanostructure"], canonical_systems: []}
+- {id: binding_diffusion, label: Binding and diffusion, module: nucleic_acid_protein, keywords: ["DNA-binding"], canonical_systems: []}
+- {id: gene_editing, label: Gene editing, module: nucleic_acid_protein, keywords: [Cas9, Cas12, Cas13, CRISPR, "base editor"], canonical_systems: ["UniProt:Q99ZW2"]}
+- {id: chromatin, label: Chromatin organisation, module: nucleic_acid_protein, keywords: [nucleosome, histone, chromatin, cohesin, condensin], canonical_systems: ["UniProt:P62799"]}
+- {id: replication, label: Replication, module: nucleic_acid_protein, keywords: [replisome, "replication fork", MCM, primase], canonical_systems: []}
+- {id: repair, label: Repair, module: nucleic_acid_protein, keywords: [RecA, RAD51, BRCA2, mismatch, NHEJ, Ku], canonical_systems: ["UniProt:P0A7G6"]}
+- {id: transcription_regulation, label: Transcription regulation, module: nucleic_acid_protein, keywords: ["transcription factor"], canonical_systems: []}
+- {id: elasticity, label: Elasticity, module: nucleic_acid_mechanics, keywords: ["persistence length"], canonical_systems: []}
+- {id: overstretching, label: Overstretching, module: nucleic_acid_mechanics, keywords: [overstretch], canonical_systems: []}
+- {id: torque_supercoiling, label: Torque and supercoiling, module: nucleic_acid_mechanics, keywords: [supercoil, plectoneme, torque], canonical_systems: []}
+- {id: braiding, label: Multi-tether and braiding, module: nucleic_acid_mechanics, keywords: [braid], canonical_systems: []}
+- {id: cytoskeletal_walkers, label: Cytoskeletal walkers, module: processive_motors, keywords: [kinesin, dynein, "myosin V"], canonical_systems: ["UniProt:P33176", "UniProt:Q14204"]}
+- {id: nucleic_acid_motors, label: Nucleic-acid motors, module: processive_motors, keywords: [RNAP, helicase, replisome], canonical_systems: ["UniProt:P00573"]}
+- {id: packaging_motors, label: Packaging motors, module: processive_motors, keywords: [terminase, "packaging motor"], canonical_systems: ["UniProt:P11014"]}
+- {id: protein_unfoldases, label: Protein unfoldases, module: processive_motors, keywords: [ClpXP, proteasome], canonical_systems: ["UniProt:P0A6G7"]}
+- {id: nonprocessive_myosins, label: Non-processive myosins, module: force_generation, keywords: ["myosin II", "three-bead"], canonical_systems: ["UniProt:P12883"]}
+- {id: filament_polymerisation, label: Filament polymerisation force, module: force_generation, keywords: ["polymerisation force", "filament elongation"], canonical_systems: []}
+- {id: rotary_motors, label: Rotary motors, module: force_generation, keywords: ["F1-ATPase", "flagellar motor"], canonical_systems: ["UniProt:P0ABB4"]}
+- {id: cell_cortex, label: Cell and cortex mechanics, module: cell_structure_transport, keywords: ["cell mechanics", cortex], canonical_systems: []}
+- {id: organelle_transport, label: Organelle and cargo transport in vivo, module: cell_structure_transport, keywords: ["organelle transport"], canonical_systems: []}
+- {id: chromosome_mechanics, label: Chromosome mechanics, module: cell_structure_transport, keywords: ["chromosome mechanics"], canonical_systems: []}
+- {id: condensate_rheology, label: Condensate rheology and fusion, module: condensates_microrheology, keywords: [condensate, "phase separation", LLPS, "droplet fusion"], canonical_systems: []}
+- {id: polymer_networks, label: Polymer networks, module: condensates_microrheology, keywords: ["polymer network"], canonical_systems: []}
+- {id: cytosol, label: Cytosol, module: condensates_microrheology, keywords: [cytosol], canonical_systems: []}
+- {id: tether_extrusion, label: Tether extrusion, module: membranes, keywords: ["membrane tether", "tether extrusion"], canonical_systems: []}
+- {id: vesicle_assemblies, label: Vesicle assemblies, module: membranes, keywords: [vesicle], canonical_systems: []}
+- {id: membrane_bridging, label: Membrane bridging, module: membranes, keywords: ["membrane bridging"], canonical_systems: []}
+- {id: catch_slip_bonds, label: Catch and slip bonds, module: receptor_ligand, keywords: ["catch bond", "slip bond"], canonical_systems: []}
+- {id: antibody_antigen, label: Antibody–antigen, module: receptor_ligand, keywords: [antibody, antigen], canonical_systems: []}
+- {id: cell_adhesion, label: Cell adhesion, module: receptor_ligand, keywords: ["cell adhesion"], canonical_systems: []}
+- {id: tension_sensors, label: Tension sensors, module: mechanobiology, keywords: ["tension sensor", TGT], canonical_systems: []}
+- {id: mechanotransduction, label: Mechanotransduction, module: mechanobiology, keywords: [mechanotransduction], canonical_systems: []}
+- {id: calibration, label: Calibration, module: methods, keywords: [calibration], canonical_systems: []}
+- {id: resolution, label: Resolution, module: methods, keywords: ["spatial resolution"], canonical_systems: []}
+- {id: software, label: Software, module: methods, keywords: ["analysis software"], canonical_systems: []}

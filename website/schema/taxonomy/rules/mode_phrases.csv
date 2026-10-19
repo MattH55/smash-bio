@@ -1,0 +1,8 @@
+id,pattern,measurement_mode
+m_fx,\bforce[- ]extension\b|\bpulling curves?\b,force_extension
+m_fc,\bconstant force\b|\bforce[- ]clamp\b|\bforce feedback\b|\bforce[- ]feedback\b,force_clamp
+m_dc,\bconstant (trap )?distance\b|\bpassive mode\b|\bfixed traps?\b,distance_clamp
+m_fr,\bforce[- ]ramp\b|\bloading rates?\b|\bdynamic force spectroscopy\b,force_ramp
+m_fj,\bforce[- ]jumps?\b,force_jump
+m_osc,\boscillat|\bactive microrheolog|\bfrequency sweep\b,oscillatory_microrheology
+m_eq,\bequilibrium fluctuations?\b|\bhopping\b,passive_equilibrium

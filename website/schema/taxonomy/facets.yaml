@@ -1,0 +1,68 @@
+# Controlled vocabularies for schema 3.2.0 / taxonomy 1.0.0.
+# Sources: taxonomy/CITATION.md. Do not add a value here without bumping VERSION.
+
+table3_type:
+  - unfolding
+  - dna_protein
+  - force_generation
+  - rheology
+  - extended
+
+assay_type:
+  - translocation
+  - mechanical_change
+  - unfolding
+  - dual_tether
+  - large_object
+  - in_vivo
+  - polymerisation
+  - passive_tether
+
+bead_geometry:
+  - one_bead
+  - three_bead
+  - dumbbell
+  - single_trap_surface
+  - bead_micropipette
+  - quadruple_trap
+  - polymerisation_assay
+
+measurement_mode:
+  - force_extension
+  - distance_clamp
+  - force_clamp
+  - force_ramp
+  - force_jump
+  - oscillatory_microrheology
+  - passive_equilibrium
+
+fluorescence_modality:
+  - confocal
+  - TIRF
+  - widefield
+  - smFRET
+  - IRM
+  - STED
+
+processivity:
+  - processive
+  - non_processive
+  - unknown
+  - not_applicable
+
+motor_track:
+  - actin
+  - microtubule
+  - dna
+  - rna
+  - protein
+
+module_method:
+  - rule
+  - curated
+  - author
+  - ml
+
+module_role:
+  - primary
+  - secondary

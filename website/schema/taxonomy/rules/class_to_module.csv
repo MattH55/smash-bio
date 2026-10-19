@@ -1,0 +1,15 @@
+experiment_class,table3_type,module,submodule,entity_type,notes
+unfolding_protein,unfolding,protein_folding,,,
+unfolding_nucleic_acid,unfolding,rna_structure,,rna,RNA entity selects rna_structure
+unfolding_nucleic_acid,unfolding,dna_structure,,dna,DNA entity selects dna_structure
+nucleic_acid_protein_interaction,dna_protein,nucleic_acid_protein,,,
+chromatin_mechanics,dna_protein,nucleic_acid_protein,chromatin,,
+nucleic_acid_mechanics,dna_protein,nucleic_acid_mechanics,,,
+translation_transcription_replication,force_generation,processive_motors,,,default; processivity may reassign
+force_generation_motor,force_generation,*,,,processivity chooses processive_motors or force_generation
+force_generation_polymerization,force_generation,force_generation,filament_polymerisation,,
+rheology_cell,rheology,cell_structure_transport,cell_cortex,,
+rheology_material,rheology,condensates_microrheology,,,
+membrane_mechanics,rheology,membranes,tether_extrusion,,
+receptor_ligand_adhesion,extended,receptor_ligand,,,
+methods_calibration,extended,methods,calibration,,
