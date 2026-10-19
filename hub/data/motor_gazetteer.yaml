@@ -1,0 +1,131 @@
+# Motor-family gazetteer for the SMASH-BIO Motors module (BRIEF_MOTORS.md, task 1c).
+#
+# Classification order (hub/motors/classify.py):
+#   1. entities: the canonical entity names produced by hub/gazetteer.py (record biological_system.entities[].name);
+#   2. titles:   regexes over the publication title, used only when no entity resolved a family.
+# A SMASH-BIO record becomes a SMASH-MOTOR record (hub/motors/build_records.py) when a family resolves and no exclusion
+# fires. The SMASH-BIO experiment class is not required. Gliding / ensemble assays are kept and labelled.
+#
+# `specific: false` marks generic names ("Kinesin", "Helicase") that resolve the family with lower certainty.
+# Regexes are Python, case-insensitive, matched with re.search.
+
+families:
+  kinesin:
+    entities:
+      - {name: "Kinesin-1"}
+      - {name: "Kinesin-5 (Eg5)"}
+      - {name: "Kinesin-3 (KIF1A)"}
+      - {name: "Kinesin-8 (Kip3)"}
+      - {name: "Kinesin-13 (MCAK)", note: "depolymerising kinesin; family is kinesin, processivity differs"}
+      - {name: "Kinesin-14", note: "minus-end kinesin; ncd is non-processive"}
+      - {name: "CENP-E (kinesin-7)"}
+      - {name: "Kinesin", specific: false}
+    gene_symbols: [KIF5A, KIF5B, KIF5C, KIF1A, KIF3A, KIF11, KIF2C, KIF18A, KIP3, CENPE, ncd]
+    titles:
+      - '\bkinesins?\b'
+      - '\bKIF\d+[A-Z]?\b'
+      - '\bEg5\b|\bKLP\d+\b|\bKip[23]\b|\bCin8\b|\bCENP-E\b'
+
+  dynein:
+    entities:
+      - {name: "Cytoplasmic dynein-1"}
+    gene_symbols: [DYNC1H1, DYN1]
+    titles:
+      - '\bdyneins?\b'
+    adaptors_hint: '\bdynactin\b|\bBICD2\b|\bBICDR1\b|\bHOOK3\b|\bLIS1\b|\bNinein\b'
+
+  myosin_processive:
+    entities:
+      - {name: "Myosin V"}
+      - {name: "Myosin VI"}
+    gene_symbols: [MYO5A, MYO5B, MYO6, MYO10]
+    titles:
+      - '\bmyosin[- ]?(V|Va|Vb|5|5a|VI|6|X|10|VII|7)\b'
+      - '\bMyo(5|6|10)\b'
+
+  helicase_translocase:
+    entities:
+      - {name: "RecBCD"}
+      - {name: "UvrD helicase"}
+      - {name: "Rep helicase"}
+      - {name: "PcrA helicase"}
+      - {name: "RecQ helicase"}
+      - {name: "BLM helicase"}
+      - {name: "WRN helicase"}
+      - {name: "Pif1 helicase"}
+      - {name: "T4 gp41 helicase"}
+      - {name: "T7 gp4 helicase-primase"}
+      - {name: "NS3 helicase (HCV)"}
+      - {name: "DnaB helicase"}
+      - {name: "CMG / MCM2-7 replicative helicase"}
+      - {name: "eIF4A"}
+      - {name: "FtsK DNA translocase"}
+      - {name: "SpoIIIE DNA translocase"}
+      - {name: "Helicase", specific: false}
+    titles:
+      - '\bhelicases?\b'
+      - '\btranslocases?\b'
+      - '\bRecBCD\b|\bUvrD\b|\bPcrA\b|\bRecQ\b|\bFtsK\b|\bSpoIIIE\b|\bXPD\b|\bPif1\b|\bDnaB\b|\bCMG\b'
+
+  rna_polymerase:
+    entities:
+      - {name: "RNA polymerase II"}
+      - {name: "T7 RNA polymerase"}
+      - {name: "RNA polymerase (bacterial)", specific: false}
+    titles:
+      - '\bRNA polymerases?\b|\bRNAP(II)?\b|\bPol II\b'
+      - '\btranscription elongation\b'
+
+  dna_polymerase_replisome:
+    entities:
+      - {name: "φ29 DNA polymerase"}
+      - {name: "T7 DNA polymerase / replisome"}
+      - {name: "DNA polymerase I (Klenow)"}
+      - {name: "DNA polymerase / replisome", specific: false}
+    titles:
+      - '\bDNA polymerases?\b|\breplisomes?\b|\bKlenow\b'
+
+  ribosome:
+    entities:
+      - {name: "Ribosome"}
+    titles:
+      - '\bribosom(e|es|al translocation)\b'
+
+  viral_packaging:
+    entities:
+      - {name: "Viral DNA packaging motor"}
+    titles:
+      - '\bpackaging motor\b|\bterminase\b|\bportal motor\b|\bDNA packaging\b'
+
+  smc_loop_extruder:
+    entities:
+      - {name: "Condensin"}
+      - {name: "Cohesin"}
+      - {name: "Smc5/6"}
+      - {name: "MukBEF"}
+      - {name: "SMC complex (loop extrusion)", specific: false}
+    titles:
+      - '\bcondensin\b|\bcohesin\b(?![- ]dockerin)|\bSMC5/6\b|\bMukBEF\b|\bloop extru(sion|der)\b'
+
+  chromatin_remodeller:
+    entities:
+      - {name: "Chromatin remodeler"}
+    titles:
+      - '\bchromatin remodel(l)?(er|ers|ing)\b|\bRSC\b|\bISWI\b|\bSWR1\b|\bSWI/SNF\b|\bCHD1\b|\bINO80\b'
+
+# Out of scope (BRIEF_MOTORS.md "Out of scope"): myosin II and muscle. An excluded entity blocks a family only when no
+# other motor-family entity is present.
+exclusions:
+  entities:
+    - "Myosin II"
+    - "Skeletal muscle myosin II"
+    - "β-cardiac myosin (MYH7)"
+    - "Myosin-binding protein C"
+    - "Troponin/tropomyosin regulatory complex"
+    - "Cardiomyocyte / muscle fibre"
+  # Generic "Myosin" (gazetteer default MYH9) never resolves a family by itself.
+  never_resolve: ["Myosin", "Myosin I", "Dynactin", "Axonemal dynein / cilia"]
+  # Gliding / ensemble assays without a single-molecule readout are kept and labelled assay_type = gliding_or_ensemble.
+  gliding: '\bgliding (assay|motility|filaments?)\b|\bin vitro motility assay\b|\bmotility assay\b'
+  single_molecule: '\bsingle[- ]molecule\b|\b(optical|laser) (trap|traps|tweezers|trapping)\b|\bcentrifuge (force )?microscop\w*\b|\bmagnetic tweezers\b|\bbead assay\b|\bstepping\b|\bstall force\b|\bforce clamp\b|\bthree[- ]bead\b|\bsingle (motor|kinesin|dynein|myosin)\b'
+  muscle: '\bmuscle fib(re|er)s?\b|\bmyofibrils?\b|\bsarcomeres?\b|\bskinned fib(re|er)s?\b'

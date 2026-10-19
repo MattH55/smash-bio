@@ -1,0 +1,10 @@
+# Private or regenerable; the public repository keeps scripts, manuscript source and the checklist
+sources/          # 2024 drafts and the Database reviewer report (private correspondence)
+out/
+figures/_screens/
+data/*
+!data/MANIFEST.txt
+!data/crossref_cache.json
+!data/hub_logs/
+*.docx
+~$*
