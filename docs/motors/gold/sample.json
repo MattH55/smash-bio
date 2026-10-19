@@ -1,0 +1,4290 @@
+{
+ "created": "2026-10-18",
+ "seed": 20261019,
+ "per_family": 50,
+ "annotation_order": [
+  "kinesin",
+  "dynein",
+  "myosin_processive",
+  "helicase_translocase",
+  "chromatin_remodeller",
+  "smc_loop_extruder",
+  "dna_polymerase_replisome",
+  "ribosome",
+  "viral_packaging",
+  "rna_polymerase"
+ ],
+ "strata": "technique.primary x publication decade, largest-remainder proportional allocation",
+ "source": {
+  "file": "smash-motor-records.jsonl.gz",
+  "sha256": "1014843c6156125a42b3c0de5e76ae61e5cbec3f7d51eeb1e7b14e0d92441a77",
+  "n_records": 793
+ },
+ "note": "Annotators must not open this file while annotating: it is stratified on the pipeline's family call.",
+ "by_family": {
+  "kinesin": {
+   "pool": 211,
+   "sampled": 50,
+   "strata": {
+    "afm_smfs|2000s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "force_spectroscopy_unspecified|1990s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 15,
+     "sampled": 4
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 16,
+     "sampled": 4
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 3,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "optical_tweezers|1990s": {
+     "pool": 19,
+     "sampled": 5
+    },
+    "optical_tweezers|2000s": {
+     "pool": 35,
+     "sampled": 8
+    },
+    "optical_tweezers|2010s": {
+     "pool": 67,
+     "sampled": 16
+    },
+    "optical_tweezers|2020s": {
+     "pool": 50,
+     "sampled": 12
+    },
+    "tension_sensors|2020s": {
+     "pool": 2,
+     "sampled": 0
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000025",
+     "smfs_record_id": "SMFS-000183",
+     "doi": "10.64898/2026.06.17.732986",
+     "pmid": null,
+     "title": "Mechanical tension expands the microtubule lattice stepwise and modulates kinesin-1 binding in an isoform-dependent manner",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000064",
+     "smfs_record_id": "SMFS-000527",
+     "doi": "10.1101/2025.01.31.635950",
+     "pmid": null,
+     "title": "Multi-kinesin clusters impart mechanical stress that reveals mechanisms of microtubule breakage in cells",
+     "year": 2025,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000076",
+     "smfs_record_id": "SMFS-000623",
+     "doi": "10.1101/2025.07.02.662715",
+     "pmid": null,
+     "title": "Stall force measurement of the kinesin-3 motor KIF1A using a programmable DNA origami nanospring",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000109",
+     "smfs_record_id": "SMFS-001042",
+     "doi": "10.1101/2023.11.08.563482",
+     "pmid": null,
+     "title": "ADP release can explain spatially-dependent kinesin binding times",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000124",
+     "smfs_record_id": "SMFS-001184",
+     "doi": "10.1016/j.bpj.2023.02.006",
+     "pmid": "36772794",
+     "title": "Huntingtin S421 phosphorylation increases kinesin and dynein engagement on early endosomes and lysosomes.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000128",
+     "smfs_record_id": "SMFS-001207",
+     "doi": "10.1073/pnas.2216903120",
+     "pmid": "36598948",
+     "title": "KIF1A is kinetically tuned to be a superengaging motor under hindering loads.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000131",
+     "smfs_record_id": "SMFS-001272",
+     "doi": "10.1101/2023.10.31.564930",
+     "pmid": null,
+     "title": "Phosphatidic Acid Dependent Recruitment of Microtubule Motors to Spherical Supported Lipid Bilayers for  In-vitro  Motility Assays",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000152",
+     "smfs_record_id": "SMFS-001448",
+     "doi": "10.1101/2022.03.01.482581",
+     "pmid": null,
+     "title": "Cholesterol in the cargo membrane reduces kinesin-1 binding to microtubules in the presence of tau",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000157",
+     "smfs_record_id": "SMFS-001490",
+     "doi": "10.1140/epje/s10189-022-00181-7",
+     "pmid": "35318549",
+     "title": "Effect of varying load in moving period of a step on dynamics of molecular motors.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000158",
+     "smfs_record_id": "SMFS-001518",
+     "doi": "10.1016/j.cub.2022.07.029",
+     "pmid": "35961316",
+     "title": "Force generation of KIF1C is impaired by pathogenic mutations.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000163",
+     "smfs_record_id": "SMFS-001561",
+     "doi": "10.1101/2022.05.16.492183",
+     "pmid": null,
+     "title": "KIF1A is kinetically tuned to be a super-engaging motor under hindering loads",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000257",
+     "smfs_record_id": "SMFS-002367",
+     "doi": "10.1101/2020.06.18.159640",
+     "pmid": null,
+     "title": "Germanium nanospheres for ultraresolution picotensiometry of kinesin motors",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000261",
+     "smfs_record_id": "SMFS-002376",
+     "doi": "10.1101/2020.08.11.245910",
+     "pmid": null,
+     "title": "Highly-parallel microfluidics-based force spectroscopy on single cytoskeletal motors",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000288",
+     "smfs_record_id": "SMFS-002621",
+     "doi": "10.1021/acs.jcim.8b00577",
+     "pmid": "30500195",
+     "title": "ATP-Concentration- and Force-Dependent Chemomechanical Coupling of Kinesin Molecular Motors.",
+     "year": 2019,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000304",
+     "smfs_record_id": "SMFS-002772",
+     "doi": "10.1101/557611",
+     "pmid": null,
+     "title": "MAP7 recruits kinesin-1 to microtubules to direct organelle transport",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000317",
+     "smfs_record_id": "SMFS-002880",
+     "doi": "10.1021/acs.nanolett.9b02592",
+     "pmid": "31565944",
+     "title": "Role of a Kinesin Motor in Cancer Cell Mechanics.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000350",
+     "smfs_record_id": "SMFS-003167",
+     "doi": "10.1002/biot.201700402",
+     "pmid": "28941258",
+     "title": "Magnetic Quantum Dots Steer and Detach Microtubules From Kinesin-Coated Surfaces.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000396",
+     "smfs_record_id": "SMFS-003571",
+     "doi": "10.1007/978-1-4939-6421-5_18",
+     "pmid": "27844440",
+     "title": "Measurement of Force-Dependent Release Rates of Cytoskeletal Motors.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000432",
+     "smfs_record_id": "SMFS-003875",
+     "doi": "10.1016/j.bbrc.2016.08.171",
+     "pmid": "27590585",
+     "title": "Distinctions between dynamic characteristics of the single EG5 motor protein along neural vs. cancerous microtubules.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000442",
+     "smfs_record_id": "SMFS-003965",
+     "doi": "10.1016/j.bpj.2016.04.029",
+     "pmid": "27224488",
+     "title": "Microtubule Defects Influence Kinesin-Based Transport In Vitro.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000448",
+     "smfs_record_id": "SMFS-004023",
+     "doi": "10.1016/j.bpj.2016.05.015",
+     "pmid": "27332130",
+     "title": "Quantitative Determination of the Probability of Multiple-Motor Transport in Bead-Based Assays.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000460",
+     "smfs_record_id": "SMFS-004196",
+     "doi": "10.1103/physreve.91.022709",
+     "pmid": "25768533",
+     "title": "Effective rates from thermodynamically consistent coarse-graining of models for molecular motors with probe particles.",
+     "year": 2015,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000462",
+     "smfs_record_id": "SMFS-004210",
+     "doi": "10.7554/elife.07403",
+     "pmid": "25902401",
+     "title": "Examining kinesin processivity within a general gating framework.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000465",
+     "smfs_record_id": "SMFS-004264",
+     "doi": "10.1016/j.celrep.2015.02.061",
+     "pmid": "25818289",
+     "title": "Kinesin's front head is gated by the backward orientation of its neck linker.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000466",
+     "smfs_record_id": "SMFS-004265",
+     "doi": "10.1103/physrevlett.114.078103",
+     "pmid": "25763975",
+     "title": "Kinesin-8 motors improve nuclear centering by promoting microtubule catastrophe.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000493",
+     "smfs_record_id": "SMFS-004588",
+     "doi": "10.1073/pnas.1410943111",
+     "pmid": "25197045",
+     "title": "Kinesin processivity is gated by phosphate release.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000508",
+     "smfs_record_id": "SMFS-004772",
+     "doi": "10.1371/journal.pone.0057383",
+     "pmid": "23451216",
+     "title": "A minimal optical trapping and imaging microscopy system.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000554",
+     "smfs_record_id": "SMFS-005240",
+     "doi": "10.1016/j.bpj.2012.06.038",
+     "pmid": "22947865",
+     "title": "Measuring molecular motor forces in vivo: implications for tug-of-war models of bidirectional transport.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000555",
+     "smfs_record_id": "SMFS-005241",
+     "doi": "10.1021/nl303585w",
+     "pmid": "23092335",
+     "title": "Measuring nanoscale forces with living probes.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000572",
+     "smfs_record_id": "SMFS-005399",
+     "doi": "10.1007/s10867-011-9249-1",
+     "pmid": "23449554",
+     "title": "Walking motion of an overdamped active particle in a ratchet potential.",
+     "year": 2012,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000581",
+     "smfs_record_id": "SMFS-005599",
+     "doi": "10.1101/pdb.top066662",
+     "pmid": "22046048",
+     "title": "Optical traps to study properties of molecular motors.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000593",
+     "smfs_record_id": "SMFS-005681",
+     "doi": "10.1101/pdb.prot066688",
+     "pmid": "22046050",
+     "title": "The optical trapping dumbbell assay for nonprocessive motors or motors that turn around filaments.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000605",
+     "smfs_record_id": "SMFS-005818",
+     "doi": "10.1098/rsif.2010.0107.focus",
+     "pmid": "20356879",
+     "title": "Insights into the mechanisms of myosin and kinesin molecular motors from the single-molecule unbinding force measurements.",
+     "year": 2010,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000621",
+     "smfs_record_id": "SMFS-006047",
+     "doi": "10.1016/j.bpj.2009.07.013",
+     "pmid": "19751672",
+     "title": "Force and premature binding of ADP can regulate the processivity of individual Eg5 dimers.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000623",
+     "smfs_record_id": "SMFS-006080",
+     "doi": "10.1007/s12195-009-0059-5",
+     "pmid": "21544223",
+     "title": "Insights into the Mechanical Properties of the Kinesin Neck Linker Domain from Sequence Analysis and Molecular Dynamics Simulations.",
+     "year": 2009,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000638",
+     "smfs_record_id": "SMFS-006231",
+     "doi": "10.1073/pnas.0809849106",
+     "pmid": "19221028",
+     "title": "The reciprocal coordination and mechanics of molecular motors in living cells.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000651",
+     "smfs_record_id": "SMFS-006365",
+     "doi": "10.1073/pnas.0805147105",
+     "pmid": "19047639",
+     "title": "Kinesin's cover-neck bundle folds forward to generate force.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000657",
+     "smfs_record_id": "SMFS-006488",
+     "doi": "10.2142/biophysics.4.11",
+     "pmid": "27857571",
+     "title": "The forward and backward stepping processes of kinesin are gated by ATP binding.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000658",
+     "smfs_record_id": "SMFS-006490",
+     "doi": "10.1073/pnas.0711314105",
+     "pmid": "18427114",
+     "title": "The mitotic kinesin CENP-E is a processive transport motor.",
+     "year": 2008,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000671",
+     "smfs_record_id": "SMFS-006623",
+     "doi": "10.1103/physrevlett.98.258102",
+     "pmid": "17678059",
+     "title": "Kinesin's network of chemomechanical motor cycles.",
+     "year": 2007,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000692",
+     "smfs_record_id": "SMFS-006826",
+     "doi": "10.1038/ncb1394",
+     "pmid": "16604065",
+     "title": "Individual dimers of the mitotic kinesin motor Eg5 step processively and support substantial loads in vitro.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000712",
+     "smfs_record_id": "SMFS-007042",
+     "doi": "10.1103/physreve.72.031918",
+     "pmid": "16241493",
+     "title": "Physical analysis of a processive molecular motor: the conventional kinesin.",
+     "year": 2005,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000743",
+     "smfs_record_id": "SMFS-007326",
+     "doi": "10.1051/medsci/2003193364",
+     "pmid": "12836420",
+     "title": "[Optical tweezers in biology and medicine].",
+     "year": 2003,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000757",
+     "smfs_record_id": "SMFS-007475",
+     "doi": "10.1083/jcb.151.5.1081",
+     "pmid": "11086009",
+     "title": "Controlling kinesin by reversible disulfide cross-linking. Identifying the motility-producing conformational change.",
+     "year": 2000,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000765",
+     "smfs_record_id": "SMFS-007535",
+     "doi": "10.1038/35036357",
+     "pmid": "11025663",
+     "title": "Working strokes by single molecules of the kinesin-related microtubule motor ncd.",
+     "year": 2000,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000774",
+     "smfs_record_id": "SMFS-007623",
+     "doi": "10.1016/s0006-3495(98)74031-7",
+     "pmid": "9533719",
+     "title": "Two-dimensional tracking of ncd motility by back focal plane interferometry.",
+     "year": 1998,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000775",
+     "smfs_record_id": "SMFS-007636",
+     "doi": "10.1016/s0301-4622(97)00008-2",
+     "pmid": "9468610",
+     "title": "Imaging and nano-manipulation of single biomolecules.",
+     "year": 1997,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000778",
+     "smfs_record_id": "SMFS-007640",
+     "doi": "10.1073/pnas.94.14.7275",
+     "pmid": "9207081",
+     "title": "Movements of truncated kinesin fragments with a short or an artificial flexible neck.",
+     "year": 1997,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000789",
+     "smfs_record_id": "SMFS-007687",
+     "doi": "10.1038/365721a0",
+     "pmid": "8413650",
+     "title": "Direct observation of kinesin stepping by optical trapping interferometry.",
+     "year": 1993,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000790",
+     "smfs_record_id": "SMFS-007688",
+     "doi": "10.1126/science.8469975",
+     "pmid": "8469975",
+     "title": "Force of single kinesin molecules measured with optical tweezers.",
+     "year": 1993,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "dynein": {
+   "pool": 92,
+   "sampled": 50,
+   "strata": {
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 9,
+     "sampled": 5
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "microneedle|2010s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "optical_tweezers|1990s": {
+     "pool": 4,
+     "sampled": 2
+    },
+    "optical_tweezers|2000s": {
+     "pool": 13,
+     "sampled": 7
+    },
+    "optical_tweezers|2010s": {
+     "pool": 28,
+     "sampled": 15
+    },
+    "optical_tweezers|2020s": {
+     "pool": 31,
+     "sampled": 17
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000018",
+     "smfs_record_id": "SMFS-000111",
+     "doi": "10.1021/acsnano.6c00959",
+     "pmid": "41955523",
+     "title": "Force-Regulated Multimotor Coordination Drives Bidirectional Lipid Droplets Transport in Tunneling Nanotubes.",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000081",
+     "smfs_record_id": "SMFS-000666",
+     "doi": "10.1083/jcb.202310022",
+     "pmid": "38949648",
+     "title": "A force-sensitive mutation reveals a non-canonical role for dynein in anaphase progression.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000100",
+     "smfs_record_id": "SMFS-000818",
+     "doi": "10.1038/s41589-023-01464-6",
+     "pmid": "37919547",
+     "title": "Lis1 slows force-induced detachment of cytoplasmic dynein from microtubules.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000101",
+     "smfs_record_id": "SMFS-000838",
+     "doi": "10.1016/j.devcel.2024.05.022",
+     "pmid": "38866013",
+     "title": "Mechanics of spindle orientation in human mitotic cells is determined by pulling forces on astral microtubules and clustering of cortical dynein.",
+     "year": 2024,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000110",
+     "smfs_record_id": "SMFS-001046",
+     "doi": "10.1016/j.bbrc.2023.149236",
+     "pmid": "37979328",
+     "title": "Acidification of the phagosome orchestrates the motor forces directing its transport.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000125",
+     "smfs_record_id": "SMFS-001193",
+     "doi": "10.1007/978-1-0716-2958-1_12",
+     "pmid": "36602687",
+     "title": "In Vivo Trapping of Latex Bead Phagosomes for Quantitative Force Measurements.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000129",
+     "smfs_record_id": "SMFS-001221",
+     "doi": "10.1007/978-1-0716-2958-1_14",
+     "pmid": "36602689",
+     "title": "Measurements of the Force-Dependent Detachment Rates of Cytoplasmic Dynein from Microtubules.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000132",
+     "smfs_record_id": "SMFS-001294",
+     "doi": "10.1007/978-1-0716-2958-1_8",
+     "pmid": "36602683",
+     "title": "Reconstitution of Organelle Transport Along Microtubules In Vitro.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000138",
+     "smfs_record_id": "SMFS-001338",
+     "doi": "10.1007/978-1-0716-2958-1_13",
+     "pmid": "36602688",
+     "title": "Studying Dynein Mechanochemistry with an Optical Trap.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000150",
+     "smfs_record_id": "SMFS-001437",
+     "doi": "10.1007/978-1-0716-2229-2_23",
+     "pmid": "36063337",
+     "title": "Catching the Conformational Wave: Measuring the Working Strokes of Protofilaments as They Curl Outward from Disassembling Microtubule Tips.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000166",
+     "smfs_record_id": "SMFS-001569",
+     "doi": "10.1016/j.bpj.2022.03.029",
+     "pmid": "35346642",
+     "title": "Long-range electrostatic interactions significantly modulate the affinity of dynein for microtubules.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000170",
+     "smfs_record_id": "SMFS-001607",
+     "doi": "10.1007/978-1-0716-2229-2_20",
+     "pmid": "36063334",
+     "title": "Microtubule Dumbbells to Assess the Effect of Force Geometry on Single Kinesin Motors.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000171",
+     "smfs_record_id": "SMFS-001619",
+     "doi": "10.3389/fcell.2022.934684",
+     "pmid": "36601539",
+     "title": "Molecular, morphological and functional properties of tunnelling nanotubes between normal and cancer urothelial cells: New insights from the in vitro model mimicking the situation after surgical removal of the urothelial tumor.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000221",
+     "smfs_record_id": "SMFS-002065",
+     "doi": "10.1101/2021.12.06.471346",
+     "pmid": null,
+     "title": "Oscillatory movement of a dynein-microtubule complex crosslinked with DNA origami",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000244",
+     "smfs_record_id": "SMFS-002274",
+     "doi": "10.1103/physreve.101.052413",
+     "pmid": "32575243",
+     "title": "Collective intracellular cargo transport by multiple kinesins on multiple microtubules.",
+     "year": 2020,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000254",
+     "smfs_record_id": "SMFS-002360",
+     "doi": "10.1126/sciadv.aaz4295",
+     "pmid": "32285003",
+     "title": "Force production of human cytoplasmic dynein is limited by its processivity.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000267",
+     "smfs_record_id": "SMFS-002405",
+     "doi": "10.1038/s41556-020-0501-4",
+     "pmid": "32341547",
+     "title": "Lis1 activates dynein motility by modulating its pairing with dynactin.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000282",
+     "smfs_record_id": "SMFS-002579",
+     "doi": "10.1101/2020.09.20.305243",
+     "pmid": null,
+     "title": "The regulatory function of the AAA4 ATPase domain of cytoplasmic dynein",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000283",
+     "smfs_record_id": "SMFS-002580",
+     "doi": "10.1038/s41467-020-19477-3",
+     "pmid": "33230227",
+     "title": "The regulatory function of the AAA4 ATPase domain of cytoplasmic dynein.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000308",
+     "smfs_record_id": "SMFS-002799",
+     "doi": "10.1002/1873-3468.13319",
+     "pmid": "30575960",
+     "title": "Mg2+ -free ATP regulates the processivity of native cytoplasmic dynein.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000335",
+     "smfs_record_id": "SMFS-003033",
+     "doi": "10.1016/j.cub.2018.03.041",
+     "pmid": "29706510",
+     "title": "Coin Tossing Explains the Activity of Opposing Microtubule Motors on Phagosomes.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000339",
+     "smfs_record_id": "SMFS-003079",
+     "doi": "10.1016/j.bpj.2018.05.026",
+     "pmid": "29933888",
+     "title": "Dynamic Clustering of Dyneins on Axonal Endosomes: Evidence from High-Speed Darkfield Imaging.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000357",
+     "smfs_record_id": "SMFS-003226",
+     "doi": "10.1038/s41567-018-0154-4",
+     "pmid": "30079097",
+     "title": "Physical Forces Determining the Persistency and Centering Precision of Microtubule Asters.",
+     "year": 2018,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000397",
+     "smfs_record_id": "SMFS-003573",
+     "doi": "10.1007/978-1-4939-6421-5_21",
+     "pmid": "27844443",
+     "title": "Measuring Molecular Forces Using Calibrated Optical Tweezers in Living Cells.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000427",
+     "smfs_record_id": "SMFS-003801",
+     "doi": "10.1371/journal.pcbi.1005102",
+     "pmid": "27706163",
+     "title": "A Motor-Gradient and Clustering Model of the Centripetal Motility of MTOCs in Meiosis I of Mouse Oocytes.",
+     "year": 2016,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000456",
+     "smfs_record_id": "SMFS-004169",
+     "doi": "10.1073/pnas.1417422112",
+     "pmid": "25941405",
+     "title": "Cytoplasmic dynein regulates its attachment to microtubules via nucleotide state-switched mechanosensing at multiple AAA domains.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000459",
+     "smfs_record_id": "SMFS-004191",
+     "doi": "10.1002/cm.21232",
+     "pmid": "26242795",
+     "title": "Dynein arms are strain-dependent direction-switching force generators.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000472",
+     "smfs_record_id": "SMFS-004296",
+     "doi": "10.1016/j.jtbi.2015.04.029",
+     "pmid": "25944174",
+     "title": "Model for bidirectional movement of cytoplasmic dynein.",
+     "year": 2015,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000486",
+     "smfs_record_id": "SMFS-004503",
+     "doi": "10.1007/978-1-4939-0329-0_9",
+     "pmid": "24633798",
+     "title": "Covalent immobilization of microtubules on glass surfaces for molecular motor force measurements and other single-molecule assays.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000487",
+     "smfs_record_id": "SMFS-004504",
+     "doi": "10.1038/ncomms6544",
+     "pmid": "25424027",
+     "title": "Cytoplasmic dynein transports cargos via load-sharing between the heads.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000498",
+     "smfs_record_id": "SMFS-004679",
+     "doi": "10.1016/b978-0-12-397924-7.00014-5",
+     "pmid": "24630111",
+     "title": "Reconstituting the motility of isolated intracellular cargoes.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000499",
+     "smfs_record_id": "SMFS-004704",
+     "doi": "10.1021/cr4005555",
+     "pmid": "24666199",
+     "title": "Single-molecule fluorescence and in vivo optical traps: how multiple dyneins and kinesins interact.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000502",
+     "smfs_record_id": "SMFS-004739",
+     "doi": "10.1016/j.bpj.2014.06.022",
+     "pmid": "25099805",
+     "title": "The winch model can explain both coordinated and uncoordinated stepping of cytoplasmic dynein.",
+     "year": 2014,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000512",
+     "smfs_record_id": "SMFS-004824",
+     "doi": null,
+     "pmid": null,
+     "title": "Correction for Blehm et al., In vivo optical trapping indicates kinesin’s stall force is reduced by dynein during intracellular transport",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000515",
+     "smfs_record_id": "SMFS-004851",
+     "doi": "10.1074/jbc.m113.465088",
+     "pmid": "23960070",
+     "title": "Dynein interacts with the neural cell adhesion molecule (NCAM180) to tether dynamic microtubules and maintain synaptic density in cortical neurons.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000526",
+     "smfs_record_id": "SMFS-004946",
+     "doi": "10.1016/j.cell.2012.11.044",
+     "pmid": "23332753",
+     "title": "Molecular adaptations allow dynein to generate large collective forces inside cells.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000545",
+     "smfs_record_id": "SMFS-005176",
+     "doi": "10.1088/1478-3975/9/4/046003",
+     "pmid": "22733140",
+     "title": "Effectiveness of a dynein team in a tug of war helped by reduced load sensitivity of detachment: evidence from the study of bidirectional endosome transport in D. discoideum.",
+     "year": 2012,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000571",
+     "smfs_record_id": "SMFS-005383",
+     "doi": "10.1073/pnas.1116315109",
+     "pmid": "22411823",
+     "title": "Two independent switches regulate cytoplasmic dynein's processivity and directionality.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000577",
+     "smfs_record_id": "SMFS-005451",
+     "doi": "10.1103/physreve.83.011909",
+     "pmid": "21405715",
+     "title": "Cargo transport by several motors.",
+     "year": 2011,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000601",
+     "smfs_record_id": "SMFS-005768",
+     "doi": "10.1016/j.ymeth.2010.01.020",
+     "pmid": "20096784",
+     "title": "Direct physical study of kinetochore-microtubule interactions by reconstitution and interrogation with an optical force clamp.",
+     "year": 2010,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000629",
+     "smfs_record_id": "SMFS-006150",
+     "doi": "10.1002/cphc.200900113",
+     "pmid": "19504528",
+     "title": "Probing dynein and kinesin stepping with mechanical manipulation in a living cell.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000639",
+     "smfs_record_id": "SMFS-006243",
+     "doi": "10.1073/pnas.0906524106",
+     "pmid": "19864630",
+     "title": "Tug-of-war between dissimilar teams of microtubule motors regulates transport and fission of endosomes.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000683",
+     "smfs_record_id": "SMFS-006741",
+     "doi": "10.1529/biophysj.105.073189",
+     "pmid": "16284275",
+     "title": "A simple theoretical model explains dynein's response to load.",
+     "year": 2006,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000702",
+     "smfs_record_id": "SMFS-006943",
+     "doi": "10.1002/cm.20071",
+     "pmid": "15887297",
+     "title": "Analysis of force generation during flagellar assembly through optical trapping of free-swimming Chlamydomonas reinhardtii.",
+     "year": 2005,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000719",
+     "smfs_record_id": "SMFS-007119",
+     "doi": "10.1038/nature02293",
+     "pmid": "14961123",
+     "title": "Cytoplasmic dynein functions as a gear in response to load.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000721",
+     "smfs_record_id": "SMFS-007135",
+     "doi": "10.1002/jemt.20126",
+     "pmid": "15630689",
+     "title": "Exploring molecular motors and switches at the single-molecule level.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000727",
+     "smfs_record_id": "SMFS-007162",
+     "doi": "10.1016/j.cub.2004.04.026",
+     "pmid": "15120091",
+     "title": "Molecular motors: Dynein's gearbox.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000748",
+     "smfs_record_id": "SMFS-007367",
+     "doi": "10.1023/a:1020300319224",
+     "pmid": "23345779",
+     "title": "Mechanical Properties of a Single-Headed Processive Motor, Inner-Arm Dynein Subspecies-c of ChlamydomonasStudied at the Single Molecule Level.",
+     "year": 2002,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000771",
+     "smfs_record_id": "SMFS-007599",
+     "doi": "10.1038/31520",
+     "pmid": "9641685",
+     "title": "Dynein arms are oscillating force generators.",
+     "year": 1998,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000793",
+     "smfs_record_id": "SMFS-007699",
+     "doi": "10.1038/348346a0",
+     "pmid": "2250707",
+     "title": "Force generation of organelle transport measured in vivo by an infrared laser trap.",
+     "year": 1990,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "myosin_processive": {
+   "pool": 56,
+   "sampled": 50,
+   "strata": {
+    "afm_smfs|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "optical_tweezers|2000s": {
+     "pool": 24,
+     "sampled": 21
+    },
+    "optical_tweezers|2010s": {
+     "pool": 15,
+     "sampled": 13
+    },
+    "optical_tweezers|2020s": {
+     "pool": 11,
+     "sampled": 10
+    },
+    "tension_sensors|2020s": {
+     "pool": 1,
+     "sampled": 1
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000023",
+     "smfs_record_id": "SMFS-000161",
+     "doi": "10.1186/s12964-026-02832-0",
+     "pmid": "41943107",
+     "title": "Leader cell myosin 10 controls adhesion dynamics, invasion, and EMT pathway activation.",
+     "year": 2026,
+     "technique": "tension_sensors"
+    },
+    {
+     "record_id": "MOTOR-000031",
+     "smfs_record_id": "SMFS-000232",
+     "doi": "10.1016/j.jbc.2026.113303",
+     "pmid": "42372918",
+     "title": "Phosphate release from myosin Va occurs after the initial powerstroke but before the secondary powerstroke associated with ADP-release.",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000102",
+     "smfs_record_id": "SMFS-000860",
+     "doi": "10.1038/s41467-024-49898-3",
+     "pmid": "39112473",
+     "title": "Motor domain phosphorylation increases nucleotide exchange and turns MYO6 into a faster and stronger motor.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000108",
+     "smfs_record_id": "SMFS-001035",
+     "doi": "10.1038/s41467-023-38535-0",
+     "pmid": "37253724",
+     "title": "A mutation in switch I alters the load-dependent kinetics of myosin Va.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000149",
+     "smfs_record_id": "SMFS-001421",
+     "doi": "10.1038/s41598-022-07047-0",
+     "pmid": "35210477",
+     "title": "Autoregulation and dual stepping mode of MYA2, an Arabidopsis myosin XI responsible for cytoplasmic streaming.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000160",
+     "smfs_record_id": "SMFS-001541",
+     "doi": "10.1007/978-1-0716-2229-2_19",
+     "pmid": "36063333",
+     "title": "High-Speed Optical Traps Address Dynamics of Processive and Non-Processive Molecular Motors.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000172",
+     "smfs_record_id": "SMFS-001629",
+     "doi": "10.1016/j.jbc.2022.101688",
+     "pmid": "35143838",
+     "title": "Multimodal regulation of myosin VI ensemble transport by cargo adaptor protein GIPC.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000193",
+     "smfs_record_id": "SMFS-001827",
+     "doi": "10.21203/rs.3.rs-857859/v1",
+     "pmid": null,
+     "title": "Autoregulation and Dual Stepping Mode of MYA2, an Arabidopsis Myosin XI Responsible for Cytoplasmic Streaming",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000218",
+     "smfs_record_id": "SMFS-002034",
+     "doi": "10.1002/cm.21682",
+     "pmid": "34331410",
+     "title": "Myosin's powerstroke occurs prior to the release of phosphate from the active site.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000248",
+     "smfs_record_id": "SMFS-002314",
+     "doi": "10.1098/rsif.2020.0029",
+     "pmid": "32259459",
+     "title": "Dynamics of ATP-dependent and ATP-independent steppings of myosin-V on actin: catch-bond characteristics.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000252",
+     "smfs_record_id": "SMFS-002347",
+     "doi": "10.1074/jbc.ra120.015632",
+     "pmid": "33453985",
+     "title": "FRET and optical trapping reveal mechanisms of actin activation of the power stroke and phosphate release in myosin V.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000287",
+     "smfs_record_id": "SMFS-002613",
+     "doi": "10.1039/c9ra05072h",
+     "pmid": "35528596",
+     "title": "A model for the chemomechanical coupling of myosin-V molecular motors.",
+     "year": 2019,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000322",
+     "smfs_record_id": "SMFS-002908",
+     "doi": "10.1021/acs.biochem.9b00422",
+     "pmid": "31508940",
+     "title": "Stiffness of Cargo-Motor Linkage Tunes Myosin VI Motility and Response to Load.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000387",
+     "smfs_record_id": "SMFS-003467",
+     "doi": "10.1007/s12551-017-0281-7",
+     "pmid": "28762198",
+     "title": "Directly watching biomolecules in action by high-speed atomic force microscopy.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000401",
+     "smfs_record_id": "SMFS-003608",
+     "doi": "10.1038/ncomms15692",
+     "pmid": "28569841",
+     "title": "Myosin Va molecular motors manoeuvre liposome cargo through suspended actin filament intersections in vitro.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000415",
+     "smfs_record_id": "SMFS-003686",
+     "doi": "10.1073/pnas.1700318114",
+     "pmid": "28193897",
+     "title": "Simulating the dynamics of the mechanochemical cycle of myosin-V.",
+     "year": 2017,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000429",
+     "smfs_record_id": "SMFS-003805",
+     "doi": "10.1038/ncomms13715",
+     "pmid": "27941751",
+     "title": "A programmable DNA origami nanospring that reveals force-induced adjacent binding of myosin VI heads.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000467",
+     "smfs_record_id": "SMFS-004273",
+     "doi": "10.1021/nl5049059",
+     "pmid": "25736894",
+     "title": "Local heat activation of single myosins based on optical trapping of gold nanoparticles.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000495",
+     "smfs_record_id": "SMFS-004634",
+     "doi": "10.2142/biophysics.10.69",
+     "pmid": "27493501",
+     "title": "Myosin V is a biological Brownian machine.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000496",
+     "smfs_record_id": "SMFS-004635",
+     "doi": "10.1073/pnas.1320122111",
+     "pmid": "24753602",
+     "title": "Myosin-10 produces its power-stroke in two phases and moves processively along a single actin filament under low load.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000513",
+     "smfs_record_id": "SMFS-004838",
+     "doi": "10.1073/pnas.1312393110",
+     "pmid": "24101499",
+     "title": "Design principles governing the motility of myosin V.",
+     "year": 2013,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000566",
+     "smfs_record_id": "SMFS-005358",
+     "doi": "10.1038/ncomms1934",
+     "pmid": "22805563",
+     "title": "Switching of myosin-V motion between the lever-arm swing and brownian search-and-catch.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000586",
+     "smfs_record_id": "SMFS-005632",
+     "doi": "10.1016/j.jmb.2010.10.010",
+     "pmid": "20970430",
+     "title": "Robust mechanosensing and tension generation by myosin VI.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000589",
+     "smfs_record_id": "SMFS-005655",
+     "doi": "10.1101/pdb.prot066977",
+     "pmid": "22135665",
+     "title": "Single-molecule gold-nanoparticle tracking.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000599",
+     "smfs_record_id": "SMFS-005751",
+     "doi": "10.1073/pnas.1002430107",
+     "pmid": "20385849",
+     "title": "Contribution of the myosin VI tail domain to processive stepping and intramolecular tension sensing.",
+     "year": 2010,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000600",
+     "smfs_record_id": "SMFS-005767",
+     "doi": "10.1038/nsmb.1820",
+     "pmid": "20418880",
+     "title": "Direct observation of the myosin-Va power stroke and its reversal.",
+     "year": 2010,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000607",
+     "smfs_record_id": "SMFS-005839",
+     "doi": "10.1371/journal.pone.0012224",
+     "pmid": "20805877",
+     "title": "Mechanical characterization of one-headed myosin-V using optical tweezers.",
+     "year": 2010,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000617",
+     "smfs_record_id": "SMFS-006008",
+     "doi": "10.1016/j.bpj.2009.09.009",
+     "pmid": "19948129",
+     "title": "Combining single-molecule optical trapping and small-angle x-ray scattering measurements to compute the persistence length of a protein ER/K alpha-helix.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000626",
+     "smfs_record_id": "SMFS-006113",
+     "doi": "10.1073/pnas.0908192106",
+     "pmid": "19822760",
+     "title": "Mechanochemical model for myosin V.",
+     "year": 2009,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000632",
+     "smfs_record_id": "SMFS-006177",
+     "doi": "10.1016/j.bpj.2008.09.031",
+     "pmid": "19134468",
+     "title": "Simultaneous measurement of nucleotide occupancy and mechanical displacement in myosin-V, a processive molecular motor.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000636",
+     "smfs_record_id": "SMFS-006226",
+     "doi": "10.1073/pnas.0909851106",
+     "pmid": "20018767",
+     "title": "The SAH domain extends the functional length of the myosin lever.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000640",
+     "smfs_record_id": "SMFS-006247",
+     "doi": "10.1039/b821861g",
+     "pmid": "19506758",
+     "title": "Using electrical and optical tweezers to facilitate studies of molecular motors.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000648",
+     "smfs_record_id": "SMFS-006345",
+     "doi": "10.3938/jkps.53.1726",
+     "pmid": "20552037",
+     "title": "How the Load and the Nucleotide State Affect the Actin Filament Binding Mode of the Molecular Motor Myosin V.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000652",
+     "smfs_record_id": "SMFS-006368",
+     "doi": "10.1074/jbc.m800539200",
+     "pmid": "18441369",
+     "title": "Load and Pi control flux through the branched kinetic cycle of myosin V.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000662",
+     "smfs_record_id": "SMFS-006514",
+     "doi": "10.1021/cb600342a",
+     "pmid": "17243783",
+     "title": "A survey of single-molecule techniques in chemical biology.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000668",
+     "smfs_record_id": "SMFS-006583",
+     "doi": "10.1073/pnas.0611519104",
+     "pmid": "17360624",
+     "title": "Extending the absorbing boundary method to fit dwell-time distributions of molecular motors with complex kinetic pathways.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000675",
+     "smfs_record_id": "SMFS-006650",
+     "doi": "10.1073/pnas.0706653104",
+     "pmid": "17878301",
+     "title": "Myosin V stepping mechanism.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000686",
+     "smfs_record_id": "SMFS-006757",
+     "doi": "10.1529/biophysj.105.075721",
+     "pmid": "16500969",
+     "title": "Cargo-binding makes a wild-type single-headed myosin-VI move processively.",
+     "year": 2006,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000691",
+     "smfs_record_id": "SMFS-006821",
+     "doi": "10.1196/annals.1380.002",
+     "pmid": "17132771",
+     "title": "Functional studies of individual myosin molecules.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000696",
+     "smfs_record_id": "SMFS-006888",
+     "doi": "10.1016/j.ultramic.2006.01.013",
+     "pmid": "16713090",
+     "title": "Secretory vesicles in live cells are not free-floating but tethered to filamentous structures: a study using photonic force microscopy.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000701",
+     "smfs_record_id": "SMFS-006936",
+     "doi": "10.1073/pnas.0506441102",
+     "pmid": "16150709",
+     "title": "A force-dependent state controls the coordination of processive myosin V.",
+     "year": 2005,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000717",
+     "smfs_record_id": "SMFS-007100",
+     "doi": "10.1038/sj.emboj.7600180",
+     "pmid": "15044955",
+     "title": "A monomeric myosin VI with a large working stroke.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000726",
+     "smfs_record_id": "SMFS-007154",
+     "doi": "10.1038/nsmb806",
+     "pmid": "15286720",
+     "title": "Mechanochemical coupling of two substeps in a single myosin V motor.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000728",
+     "smfs_record_id": "SMFS-007165",
+     "doi": "10.1042/bst0320685",
+     "pmid": "15493988",
+     "title": "Myosin VI: a multifunctional motor.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000729",
+     "smfs_record_id": "SMFS-007166",
+     "doi": "10.1098/rstb.2004.1563",
+     "pmid": "15647169",
+     "title": "Myosin VI: cellular functions and motor properties.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000733",
+     "smfs_record_id": "SMFS-007213",
+     "doi": "10.1016/s0092-8674(04)00211-9",
+     "pmid": "15006355",
+     "title": "The mechanism of myosin VI translocation and its load-induced anchoring.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000734",
+     "smfs_record_id": "SMFS-007226",
+     "doi": "10.1016/s0022-2836(03)00341-3",
+     "pmid": "12729766",
+     "title": "A kinetic mechanism for the fast movement of Chara myosin.",
+     "year": 2003,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000750",
+     "smfs_record_id": "SMFS-007441",
+     "doi": "10.1083/jcb.200103128",
+     "pmid": "11706052",
+     "title": "Myosin V exhibits a high duty cycle and large unitary displacement.",
+     "year": 2001,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000751",
+     "smfs_record_id": "SMFS-007442",
+     "doi": "10.1073/pnas.191512398",
+     "pmid": "11707568",
+     "title": "Myosin VI is a processive motor with a large step size.",
+     "year": 2001,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000759",
+     "smfs_record_id": "SMFS-007487",
+     "doi": "10.1006/meth.2000.1089",
+     "pmid": "11133243",
+     "title": "In vitro assays of processive myosin motors.",
+     "year": 2000,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "helicase_translocase": {
+   "pool": 132,
+   "sampled": 50,
+   "strata": {
+    "afm_smfs|2000s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "afm_smfs|2010s": {
+     "pool": 4,
+     "sampled": 2
+    },
+    "afm_smfs|2020s": {
+     "pool": 3,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 3,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2010s": {
+     "pool": 7,
+     "sampled": 3
+    },
+    "hydrodynamic_stretching|2020s": {
+     "pool": 3,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2000s": {
+     "pool": 4,
+     "sampled": 2
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 17,
+     "sampled": 6
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 19,
+     "sampled": 7
+    },
+    "optical_tweezers|2000s": {
+     "pool": 5,
+     "sampled": 2
+    },
+    "optical_tweezers|2010s": {
+     "pool": 35,
+     "sampled": 13
+    },
+    "optical_tweezers|2020s": {
+     "pool": 28,
+     "sampled": 11
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000006",
+     "smfs_record_id": "SMFS-000031",
+     "doi": "10.64898/2026.03.03.709311",
+     "pmid": null,
+     "title": "Base-pair scale dynamics of a repair helicase on DNA lesions reveal varied damage-sensing mechanisms",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000032",
+     "smfs_record_id": "SMFS-000246",
+     "doi": "10.1016/j.celrep.2026.117273",
+     "pmid": "41999602",
+     "title": "RNA virus polymerase-helicase coupling enables rapid elongation through duplex RNA.",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000033",
+     "smfs_record_id": "SMFS-000247",
+     "doi": "10.1038/s41467-026-69985-x",
+     "pmid": "41851108",
+     "title": "RPA directly stimulates Mer3 helicase processivity to ensure normal crossover formation in meiosis.",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000054",
+     "smfs_record_id": "SMFS-000408",
+     "doi": "10.1017/qrd.2025.10011",
+     "pmid": "41445583",
+     "title": "Continuous-time random walk model for the diffusive motion of helicases.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000069",
+     "smfs_record_id": "SMFS-000581",
+     "doi": "10.1101/2025.08.02.668043",
+     "pmid": null,
+     "title": "RPA directly stimulates Mer3/HFM1 helicase processivity to ensure normal crossover formation in meiosis",
+     "year": 2025,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000078",
+     "smfs_record_id": "SMFS-000634",
+     "doi": "10.1101/2025.10.03.680419",
+     "pmid": null,
+     "title": "Template switching by coronavirus polymerase requires helicase activity and is stimulated by remdesivir and molnupiravir",
+     "year": 2025,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000088",
+     "smfs_record_id": "SMFS-000706",
+     "doi": "10.1093/nar/gkae108",
+     "pmid": "38364872",
+     "title": "Communication between DNA and nucleotide binding sites facilitates stepping by the RecBCD helicase.",
+     "year": 2024,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000097",
+     "smfs_record_id": "SMFS-000789",
+     "doi": "10.1101/2024.02.29.582829",
+     "pmid": null,
+     "title": "High-resolution fleezers reveal duplex opening and stepwise assembly by an oligomer of the DEAD-box helicase Ded1p",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000118",
+     "smfs_record_id": "SMFS-001126",
+     "doi": "10.1101/2023.10.13.561901",
+     "pmid": null,
+     "title": "E. coli  RecBCD Nuclease Domain Regulates Helicase Activity but not Single Stranded DNA Translocase Activity",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000122",
+     "smfs_record_id": "SMFS-001171",
+     "doi": "10.1021/jacs.3c05254",
+     "pmid": "37739407",
+     "title": "Helicase Activity Modulation with On-Demand Light-Based Conformational Control.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000135",
+     "smfs_record_id": "SMFS-001327",
+     "doi": "10.1016/j.jbc.2023.104817",
+     "pmid": "37178921",
+     "title": "Single-molecule visualization of Pif1 helicase translocation on single-stranded DNA.",
+     "year": 2023,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000142",
+     "smfs_record_id": "SMFS-001368",
+     "doi": "10.1093/nar/gkad759",
+     "pmid": "37739415",
+     "title": "Unfolding of an RNA G-quadruplex motif in the negative strand genome of porcine reproductive and respiratory syndrome virus by host and viral helicases to promote viral replication.",
+     "year": 2023,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000144",
+     "smfs_record_id": "SMFS-001389",
+     "doi": "10.1093/nar/gkac361",
+     "pmid": "35580046",
+     "title": "A loosened gating mechanism of RIG-I leads to autoimmune disorders.",
+     "year": 2022,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000156",
+     "smfs_record_id": "SMFS-001487",
+     "doi": "10.1038/s41467-022-28082-5",
+     "pmid": "35102151",
+     "title": "Duplex DNA and BLM regulate gate opening by the human TopoIIIα-RMI1-RMI2 complex.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000168",
+     "smfs_record_id": "SMFS-001590",
+     "doi": "10.1016/j.bpj.2022.07.030",
+     "pmid": "35923103",
+     "title": "Mechanical regulation of the helicase activity of Zika virus NS3.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000206",
+     "smfs_record_id": "SMFS-001934",
+     "doi": "10.1016/j.bpj.2020.11.2276",
+     "pmid": "33340543",
+     "title": "Force-dependent stimulation of RNA unwinding by SARS-CoV-2 nsp13 helicase.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000212",
+     "smfs_record_id": "SMFS-001978",
+     "doi": "10.1101/2021.01.05.425498",
+     "pmid": null,
+     "title": "Kinetic and structural mechanism for DNA unwinding by a non-hexameric helicase",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000215",
+     "smfs_record_id": "SMFS-001988",
+     "doi": "10.1007/978-1-0716-1290-3_6",
+     "pmid": "33847954",
+     "title": "Magnetic Tweezers-Based Single-Molecule Assays to Study Interaction of E. coli SSB with DNA and RecQ Helicase.",
+     "year": 2021,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000230",
+     "smfs_record_id": "SMFS-002143",
+     "doi": "10.1093/nar/gkab142",
+     "pmid": "33744948",
+     "title": "Single-molecule insight into stalled replication fork rescue in Escherichia coli.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000232",
+     "smfs_record_id": "SMFS-002145",
+     "doi": "10.1038/s42003-021-02606-z",
+     "pmid": "34526657",
+     "title": "Single-molecule kinetic locking allows fluorescence-free quantification of protein/nucleic-acid binding.",
+     "year": 2021,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000234",
+     "smfs_record_id": "SMFS-002172",
+     "doi": "10.7554/elife.60515",
+     "pmid": "33739282",
+     "title": "Switch-like control of helicase processivity by single-stranded DNA binding protein.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000290",
+     "smfs_record_id": "SMFS-002639",
+     "doi": "10.1007/978-1-4939-9500-4_14",
+     "pmid": "31127580",
+     "title": "Assembling the Human Resectosome on DNA Curtains.",
+     "year": 2019,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000313",
+     "smfs_record_id": "SMFS-002871",
+     "doi": "10.1093/nar/gkz023",
+     "pmid": "30690484",
+     "title": "Regulation of Rep helicase unwinding by an auto-inhibitory subdomain.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000316",
+     "smfs_record_id": "SMFS-002878",
+     "doi": "10.1093/nar/gkz893",
+     "pmid": "31665506",
+     "title": "Ring-shaped replicative helicase encircles double-stranded DNA during unwinding.",
+     "year": 2019,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000329",
+     "smfs_record_id": "SMFS-002941",
+     "doi": "10.1038/s41467-019-09896-2",
+     "pmid": "31089141",
+     "title": "The mechanism of DNA unwinding by the eukaryotic replicative helicase.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000353",
+     "smfs_record_id": "SMFS-003184",
+     "doi": "10.7554/elife.32354",
+     "pmid": "29504934",
+     "title": "Mechanochemical coupling and bi-phasic force-velocity dependence in the ultra-fast ring ATPase SpoIIIE.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000379",
+     "smfs_record_id": "SMFS-003408",
+     "doi": "10.1093/nar/gkx147",
+     "pmid": "28334870",
+     "title": "Annealing helicase HARP closes RPA-stabilized DNA bubbles non-processively.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000386",
+     "smfs_record_id": "SMFS-003461",
+     "doi": "10.1016/bs.mie.2016.08.004",
+     "pmid": "28062032",
+     "title": "Direct Visualization of Helicase Dynamics Using Fluorescence Localization and Optical Trapping.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000392",
+     "smfs_record_id": "SMFS-003520",
+     "doi": "10.1093/nar/gkx761",
+     "pmid": "28977580",
+     "title": "Force-activated DNA substrates for probing individual proteins interacting with single-stranded DNA.",
+     "year": 2017,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000399",
+     "smfs_record_id": "SMFS-003585",
+     "doi": "10.1101/224022",
+     "pmid": null,
+     "title": "Mechanochemical Coupling and Bi-Phasic Force-Velocity Dependence in the Ultra-Fast Ring ATPase SpoIIIE",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000410",
+     "smfs_record_id": "SMFS-003666",
+     "doi": "10.1093/nar/gkw881",
+     "pmid": "28069994",
+     "title": "RHAU helicase stabilizes G4 in its nucleotide-free state and destabilizes G4 upon ATP hydrolysis.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000418",
+     "smfs_record_id": "SMFS-003719",
+     "doi": "10.1002/pro.3136",
+     "pmid": "28176403",
+     "title": "Single-molecule imaging reveals the translocation and DNA looping dynamics of hepatitis C virus NS3 helicase.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000436",
+     "smfs_record_id": "SMFS-003903",
+     "doi": "10.1093/nar/gkw689",
+     "pmid": "27488190",
+     "title": "Force and twist dependence of RepC nicking activity on torsionally-constrained DNA molecules.",
+     "year": 2016,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000447",
+     "smfs_record_id": "SMFS-004022",
+     "doi": "10.1074/jbc.m116.729210",
+     "pmid": "27129237",
+     "title": "Quantitative Correlation between Infectivity and Gp120 Density on HIV-1 Virions Revealed by Optical Trapping Virometry.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000452",
+     "smfs_record_id": "SMFS-004049",
+     "doi": "10.1016/j.ymeth.2016.06.019",
+     "pmid": "27371121",
+     "title": "Single molecule studies of helicases with magnetic tweezers.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000453",
+     "smfs_record_id": "SMFS-004051",
+     "doi": "10.1021/acs.biochem.6b00214",
+     "pmid": "27182892",
+     "title": "Single-Molecule Force Spectroscopy Studies of APOBEC3A-Single-Stranded DNA Complexes.",
+     "year": 2016,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000474",
+     "smfs_record_id": "SMFS-004334",
+     "doi": "10.1002/smll.201402686",
+     "pmid": "25400244",
+     "title": "Probing DNA helicase kinetics with temperature-controlled magnetic tweezers.",
+     "year": 2015,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000478",
+     "smfs_record_id": "SMFS-004390",
+     "doi": "10.1038/nbt.3357",
+     "pmid": "26414351",
+     "title": "Subangstrom single-molecule measurements of motor proteins using a nanopore.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000506",
+     "smfs_record_id": "SMFS-004749",
+     "doi": "10.1016/j.dnarep.2014.01.013",
+     "pmid": "24560558",
+     "title": "Two steps forward, one step back: determining XPD helicase mechanism by single-molecule fluorescence and high-resolution optical tweezers.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000532",
+     "smfs_record_id": "SMFS-005018",
+     "doi": "10.7554/elife.00334",
+     "pmid": "23741615",
+     "title": "Sequence-dependent base pair stepping dynamics in XPD helicase unwinding.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000535",
+     "smfs_record_id": "SMFS-005053",
+     "doi": "10.1016/j.celrep.2013.05.002",
+     "pmid": "23746452",
+     "title": "Substrate-selective repair and restart of replication forks by DNA translocases.",
+     "year": 2013,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000562",
+     "smfs_record_id": "SMFS-005338",
+     "doi": "10.1073/pnas.1201613109",
+     "pmid": "22493241",
+     "title": "Single-molecule imaging of DNA curtains reveals mechanisms of KOPS sequence targeting by the DNA translocase FtsK.",
+     "year": 2012,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000604",
+     "smfs_record_id": "SMFS-005817",
+     "doi": "10.1017/s0033583510000107",
+     "pmid": "20682090",
+     "title": "Insight into helicase mechanism and function revealed through single-molecule approaches.",
+     "year": 2010,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000606",
+     "smfs_record_id": "SMFS-005830",
+     "doi": "10.1016/s0076-6879(10)75013-8",
+     "pmid": "20627163",
+     "title": "Magnetic tweezers for the study of DNA tracking motors.",
+     "year": 2010,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000614",
+     "smfs_record_id": "SMFS-005924",
+     "doi": "10.1016/j.jmb.2009.11.072",
+     "pmid": "19968999",
+     "title": "Single-molecule study of DNA polymerization activity of HIV-1 reverse transcriptase on DNA templates.",
+     "year": 2010,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000618",
+     "smfs_record_id": "SMFS-006017",
+     "doi": "10.1038/nchembio.236",
+     "pmid": "19838204",
+     "title": "Coupling DNA unwinding activity with primer synthesis in the bacteriophage T4 primosome.",
+     "year": 2009,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000680",
+     "smfs_record_id": "SMFS-006710",
+     "doi": "10.1529/biophysj.106.097915",
+     "pmid": "17496045",
+     "title": "Step length measurement--theory and simulation for tethered bead constant-force single molecule assay.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000714",
+     "smfs_record_id": "SMFS-007064",
+     "doi": "10.1529/biophysj.104.052811",
+     "pmid": "15653727",
+     "title": "Single-molecule measurements of the persistence length of double-stranded RNA.",
+     "year": 2005,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000716",
+     "smfs_record_id": "SMFS-007091",
+     "doi": "10.1017/s0033583506004239",
+     "pmid": "16817984",
+     "title": "Unfolding single RNA molecules: bridging the gap between equilibrium and non-equilibrium statistical thermodynamics.",
+     "year": 2005,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000753",
+     "smfs_record_id": "SMFS-007445",
+     "doi": "10.1038/35053131",
+     "pmid": "11201750",
+     "title": "Processive translocation and DNA unwinding by individual RecBCD enzyme molecules.",
+     "year": 2001,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "chromatin_remodeller": {
+   "pool": 16,
+   "sampled": 16,
+   "strata": {
+    "afm_smfs|2020s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2020s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "magnetic_tweezers|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2010s": {
+     "pool": 4,
+     "sampled": 4
+    },
+    "optical_tweezers|2020s": {
+     "pool": 6,
+     "sampled": 6
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000020",
+     "smfs_record_id": "SMFS-000135",
+     "doi": "10.64898/2026.09.20.752975",
+     "pmid": null,
+     "title": "INO80 rapidly shuttles nucleosomes between chromatin barriers",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000042",
+     "smfs_record_id": "SMFS-000294",
+     "doi": "10.1038/s41467-026-77906-1",
+     "pmid": "42811034",
+     "title": "Single-molecule imaging reveals DNA shape read-out by the INO80 chromatin remodeler.",
+     "year": 2026,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000052",
+     "smfs_record_id": "SMFS-000387",
+     "doi": "10.1007/978-1-0716-4280-1_17",
+     "pmid": "39704952",
+     "title": "Assessing the Effect of Chromatin-Binding Enzymes on Condensed Chromatin with Optical Tweezers.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000072",
+     "smfs_record_id": "SMFS-000606",
+     "doi": "10.64898/2025.12.11.693632",
+     "pmid": null,
+     "title": "Single-Molecule Imaging Reveals DNA Shape Read-out by the INO80 Chromatin Remodeler",
+     "year": 2025,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000092",
+     "smfs_record_id": "SMFS-000737",
+     "doi": "10.7554/elife.91433",
+     "pmid": "38497611",
+     "title": "Dynamic 1D search and processive nucleosome translocations by RSC and ISW2 chromatin remodelers.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000116",
+     "smfs_record_id": "SMFS-001118",
+     "doi": "10.1101/2023.06.13.544671",
+     "pmid": null,
+     "title": "Dynamic 1D Search and Processive Nucleosome Translocations by RSC and ISW2 Chromatin Remodelers",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000147",
+     "smfs_record_id": "SMFS-001397",
+     "doi": "10.7554/elife.77352",
+     "pmid": "35876491",
+     "title": "ATP binding facilitates target search of SWR1 chromatin remodeler by promoting one-dimensional diffusion on DNA.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000148",
+     "smfs_record_id": "SMFS-001413",
+     "doi": "10.1101/2022.04.13.488252",
+     "pmid": null,
+     "title": "Assignment of structural transitions during mechanical unwrapping of nucleosomes and their disassembly products",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000224",
+     "smfs_record_id": "SMFS-002107",
+     "doi": "10.1016/j.celrep.2021.109183",
+     "pmid": "34038732",
+     "title": "Recognition of the inherently unstable H2A nucleosome by Swc2 is a major determinant for unidirectional H2A.Z exchange.",
+     "year": 2021,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000519",
+     "smfs_record_id": "SMFS-004880",
+     "doi": null,
+     "pmid": "24058311",
+     "title": "High-resolution optical tweezers for single-molecule manipulation.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000537",
+     "smfs_record_id": "SMFS-005102",
+     "doi": "10.1371/journal.pone.0031845",
+     "pmid": "22359636",
+     "title": "ATP-independent cooperative binding of yeast Isw1a to bare and nucleosomal DNA.",
+     "year": 2012,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000542",
+     "smfs_record_id": "SMFS-005147",
+     "doi": "10.1016/b978-0-12-391938-0.00001-x",
+     "pmid": "22929763",
+     "title": "DNA translocation of ATP-dependent chromatin remodeling factors revealed by high-resolution optical tweezers.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000552",
+     "smfs_record_id": "SMFS-005225",
+     "doi": "10.1016/j.jmb.2012.08.021",
+     "pmid": "22944905",
+     "title": "Kinetics and thermodynamics of phenotype: unwinding and rewinding the nucleosome.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000592",
+     "smfs_record_id": "SMFS-005675",
+     "doi": "10.1038/emboj.2011.141",
+     "pmid": "21552204",
+     "title": "The RSC chromatin remodelling ATPase translocates DNA with high force and small step size.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000664",
+     "smfs_record_id": "SMFS-006541",
+     "doi": "10.1073/pnas.0700706104",
+     "pmid": "17360331",
+     "title": "Conformational flexibility in the chromatin remodeler RSC observed by electron microscopy and the orthogonal tilt reconstruction method.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000689",
+     "smfs_record_id": "SMFS-006781",
+     "doi": "10.1016/j.molcel.2005.12.013",
+     "pmid": "16455496",
+     "title": "Direct observation of DNA distortion by the RSC complex.",
+     "year": 2006,
+     "technique": "magnetic_tweezers"
+    }
+   ]
+  },
+  "smc_loop_extruder": {
+   "pool": 41,
+   "sampled": 41,
+   "strata": {
+    "afm_smfs|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "afm_smfs|2010s": {
+     "pool": 9,
+     "sampled": 9
+    },
+    "afm_smfs|2020s": {
+     "pool": 7,
+     "sampled": 7
+    },
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 5,
+     "sampled": 5
+    },
+    "optical_tweezers|2010s": {
+     "pool": 3,
+     "sampled": 3
+    },
+    "optical_tweezers|2020s": {
+     "pool": 11,
+     "sampled": 11
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000010",
+     "smfs_record_id": "SMFS-000067",
+     "doi": "10.64898/2026.02.02.703226",
+     "pmid": null,
+     "title": "Cryo-EM and single molecule visualization unravel the role of human condensin II activation by M18BP1 in driving DNA compaction",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000014",
+     "smfs_record_id": "SMFS-000086",
+     "doi": "10.64898/2026.05.01.721706",
+     "pmid": null,
+     "title": "Dynamic CTCF bridges drive genome organization",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000021",
+     "smfs_record_id": "SMFS-000140",
+     "doi": "10.1007/978-1-0716-5005-9_2",
+     "pmid": "41111101",
+     "title": "Interaction Between an Individual Cohesin Complex and DNA Revealed by Optical Tweezers and Single-Molecule Microscopy.",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000024",
+     "smfs_record_id": "SMFS-000165",
+     "doi": "10.64898/2026.05.01.722258",
+     "pmid": null,
+     "title": "Loop Extrusion Reversal by Condensin Motor is Mediated by Catch Bonds",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000046",
+     "smfs_record_id": "SMFS-000344",
+     "doi": "10.1007/978-1-0716-5005-9_3",
+     "pmid": "41111102",
+     "title": "Visualizing Binding of Single SMC Complexes to DNA Substrates Using Combinational Optical Tweezers and Fluorescence Microscopy.",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000048",
+     "smfs_record_id": "SMFS-000368",
+     "doi": "10.1021/acs.jctc.5c01181",
+     "pmid": "40934391",
+     "title": "AI Uncovers the Rapid Activation of Catch-Bonds under Force.",
+     "year": 2025,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000077",
+     "smfs_record_id": "SMFS-000631",
+     "doi": "10.1038/s41467-025-62505-3",
+     "pmid": "40764613",
+     "title": "Substrate accessibility regulation of human TopIIa decatenation by cohesin.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000082",
+     "smfs_record_id": "SMFS-000674",
+     "doi": "10.1126/sciadv.adt1832",
+     "pmid": "39671477",
+     "title": "All eukaryotic SMC proteins induce a twist of -0.6 at each DNA loop extrusion step.",
+     "year": 2024,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000083",
+     "smfs_record_id": "SMFS-000675",
+     "doi": "10.1101/2024.03.22.586328",
+     "pmid": null,
+     "title": "All eukaryotic SMC proteins induce a twist of -0.6 at each DNA-loop-extrusion step",
+     "year": 2024,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000095",
+     "smfs_record_id": "SMFS-000774",
+     "doi": "10.1007/s12551-024-01235-0",
+     "pmid": "39618797",
+     "title": "Force generation and resistance in human mitosis.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000119",
+     "smfs_record_id": "SMFS-001139",
+     "doi": "10.1101/2023.09.12.557335",
+     "pmid": null,
+     "title": "Engineering an artificial catch bond using mechanical anisotropy",
+     "year": 2023,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000126",
+     "smfs_record_id": "SMFS-001205",
+     "doi": "10.1021/acs.nanolett.3c03026",
+     "pmid": "37933959",
+     "title": "Iterative Machine Learning for Classification and Discovery of Single-Molecule Unfolding Trajectories from Force Spectroscopy Data.",
+     "year": 2023,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000127",
+     "smfs_record_id": "SMFS-001206",
+     "doi": "10.1101/2023.08.08.552253",
+     "pmid": null,
+     "title": "Iterative Machine Learning for Classification and Discovery of Single-molecule Unfolding Trajectories from Force Spectroscopy Data",
+     "year": 2023,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000137",
+     "smfs_record_id": "SMFS-001337",
+     "doi": "10.1016/j.bpj.2023.03.029",
+     "pmid": "36960531",
+     "title": "Structural reorganization and relaxation dynamics of axially stressed chromosomes.",
+     "year": 2023,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000139",
+     "smfs_record_id": "SMFS-001340",
+     "doi": "10.1101/2023.11.20.567865",
+     "pmid": null,
+     "title": "Substrate accessibility regulation of human TopIIa decatenation by cohesin",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000153",
+     "smfs_record_id": "SMFS-001455",
+     "doi": "10.1093/nar/gkab1268",
+     "pmid": "34951453",
+     "title": "Condensin extrudes DNA loops in steps up to hundreds of base pairs that are generated by ATP binding events.",
+     "year": 2022,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000181",
+     "smfs_record_id": "SMFS-001728",
+     "doi": "10.1016/j.bpj.2022.10.017",
+     "pmid": "36242515",
+     "title": "Single-molecule experiments reveal the elbow as an essential folding guide in SMC coiled-coil arms.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000194",
+     "smfs_record_id": "SMFS-001838",
+     "doi": "10.7554/elife.67554",
+     "pmid": "34250901",
+     "title": "CTP promotes efficient ParB-dependent DNA condensation by facilitating one-dimensional diffusion from parS.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000195",
+     "smfs_record_id": "SMFS-001855",
+     "doi": "10.21203/rs.3.rs-901482/v1",
+     "pmid": null,
+     "title": "Condensin compacts DNA in 15 nm steps and requires FACT for extrusion on chromatin",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000197",
+     "smfs_record_id": "SMFS-001865",
+     "doi": "10.1101/2021.02.11.430778",
+     "pmid": null,
+     "title": "Cytidine triphosphate promotes efficient ParB-dependent DNA condensation by facilitating one-dimensional spreading from  parS",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000245",
+     "smfs_record_id": "SMFS-002276",
+     "doi": "10.1101/2020.11.04.368506",
+     "pmid": null,
+     "title": "Condensin extrudes DNA loops in steps up to hundreds of base pairs that are generated by ATP binding events",
+     "year": 2020,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000258",
+     "smfs_record_id": "SMFS-002369",
+     "doi": "10.1101/2020.01.21.913590",
+     "pmid": null,
+     "title": "High Force Catch Bond Mechanism of Bacterial Adhesion in the Human Gut",
+     "year": 2020,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000259",
+     "smfs_record_id": "SMFS-002371",
+     "doi": "10.1038/s41467-020-18063-x",
+     "pmid": "32859904",
+     "title": "High force catch bond mechanism of bacterial adhesion in the human gut.",
+     "year": 2020,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000263",
+     "smfs_record_id": "SMFS-002388",
+     "doi": "10.1101/2020.07.09.194894",
+     "pmid": null,
+     "title": "Influence of Fluorination on Single-Molecule Unfolding and Rupture Pathways of a Mechanostable Protein Adhesion Complex",
+     "year": 2020,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000264",
+     "smfs_record_id": "SMFS-002389",
+     "doi": "10.1021/acs.nanolett.0c04178",
+     "pmid": "33191756",
+     "title": "Influence of Fluorination on Single-Molecule Unfolding and Rupture Pathways of a Mechanostable Protein Adhesion Complex.",
+     "year": 2020,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000286",
+     "smfs_record_id": "SMFS-002609",
+     "doi": "10.1126/sciadv.aay6804",
+     "pmid": "31807710",
+     "title": "A conserved ATP- and Scc2/4-dependent activity for cohesin in tethering DNA molecules.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000306",
+     "smfs_record_id": "SMFS-002794",
+     "doi": "10.1021/jacs.9b06776",
+     "pmid": "31464132",
+     "title": "Mechanisms of Nanonewton Mechanostability in a Protein Complex Revealed by Molecular Dynamics Simulations and Single-Molecule Force Spectroscopy.",
+     "year": 2019,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000344",
+     "smfs_record_id": "SMFS-003127",
+     "doi": "10.1063/1.5013259",
+     "pmid": "29604819",
+     "title": "History, rare, and multiple events of mechanical unfolding of repeat proteins.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000349",
+     "smfs_record_id": "SMFS-003160",
+     "doi": "10.1038/s41598-018-27085-x",
+     "pmid": "29941985",
+     "title": "Ligand Binding Stabilizes Cellulosomal Cohesins as Revealed by AFM-based Single-Molecule Force Spectroscopy.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000373",
+     "smfs_record_id": "SMFS-003339",
+     "doi": "10.1074/jbc.ra117.000644",
+     "pmid": "29567834",
+     "title": "The cohesin module is a major determinant of cellulosome mechanical stability.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000382",
+     "smfs_record_id": "SMFS-003441",
+     "doi": "10.1021/jacs.7b07574",
+     "pmid": "29058444",
+     "title": "Combining in Vitro and in Silico Single-Molecule Force Spectroscopy to Characterize and Tune Cellulosomal Scaffoldin Mechanics.",
+     "year": 2017,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000398",
+     "smfs_record_id": "SMFS-003577",
+     "doi": "10.1021/acs.jpcb.6b09593",
+     "pmid": "27991799",
+     "title": "Mechanical Stability of a High-Affinity Toxin Anchor from the Pathogen Clostridium perfringens.",
+     "year": 2017,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000404",
+     "smfs_record_id": "SMFS-003627",
+     "doi": "10.1038/s41598-017-14701-5",
+     "pmid": "29079757",
+     "title": "Oligomerization and ATP stimulate condensin-mediated DNA compaction.",
+     "year": 2017,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000411",
+     "smfs_record_id": "SMFS-003668",
+     "doi": "10.1101/149138",
+     "pmid": null,
+     "title": "Real-time detection of condensin-driven DNA compaction reveals a multistep binding mechanism",
+     "year": 2017,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000412",
+     "smfs_record_id": "SMFS-003669",
+     "doi": "10.15252/embj.201797596",
+     "pmid": "29118001",
+     "title": "Real-time detection of condensin-driven DNA compaction reveals a multistep binding mechanism.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000492",
+     "smfs_record_id": "SMFS-004557",
+     "doi": "10.1038/nmeth.3099",
+     "pmid": "25194847",
+     "title": "From genes to protein mechanics on a chip.",
+     "year": 2014,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000503",
+     "smfs_record_id": "SMFS-004740",
+     "doi": "10.1002/prot.24436",
+     "pmid": "24123195",
+     "title": "Theoretical tests of the mechanical protection strategy in protein nanomechanics.",
+     "year": 2014,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000521",
+     "smfs_record_id": "SMFS-004894",
+     "doi": "10.3791/50950",
+     "pmid": "24378772",
+     "title": "Investigating receptor-ligand systems of the cellulosome with AFM-based single-molecule force spectroscopy.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000561",
+     "smfs_record_id": "SMFS-005329",
+     "doi": "10.1073/pnas.1211929109",
+     "pmid": "23188794",
+     "title": "Single-molecule dissection of the high-affinity cohesin-dockerin complex.",
+     "year": 2012,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000628",
+     "smfs_record_id": "SMFS-006137",
+     "doi": "10.1073/pnas.0813093106",
+     "pmid": "19666489",
+     "title": "On the remarkable mechanostability of scaffoldins and the mechanical clamp motif.",
+     "year": 2009,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000666",
+     "smfs_record_id": "SMFS-006575",
+     "doi": "10.1103/physreve.75.011913",
+     "pmid": "17358190",
+     "title": "Equation of state of looped DNA.",
+     "year": 2007,
+     "technique": "force_spectroscopy_unspecified"
+    }
+   ]
+  },
+  "dna_polymerase_replisome": {
+   "pool": 36,
+   "sampled": 36,
+   "strata": {
+    "afm_smfs|2010s": {
+     "pool": 3,
+     "sampled": 3
+    },
+    "afm_smfs|2020s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2020s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "magnetic_tweezers|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 4,
+     "sampled": 4
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 3,
+     "sampled": 3
+    },
+    "nanopore_force|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2010s": {
+     "pool": 7,
+     "sampled": 7
+    },
+    "optical_tweezers|2020s": {
+     "pool": 10,
+     "sampled": 10
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000002",
+     "smfs_record_id": "SMFS-000004",
+     "doi": "10.64898/2026.09.27.754746",
+     "pmid": null,
+     "title": "A dedicated motif in human polymerase gamma enables DNA synthesis through replication roadblocks",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000034",
+     "smfs_record_id": "SMFS-000250",
+     "doi": "10.1126/sciadv.adx4089",
+     "pmid": "41477827",
+     "title": "Real-time imaging of rotation during synthesis by the replisome.",
+     "year": 2026,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000047",
+     "smfs_record_id": "SMFS-000346",
+     "doi": "10.64898/2026.08.24.746741",
+     "pmid": null,
+     "title": "XRCC1 Enables the Efficient Local Search for DNA Damage by DNA Polymerase Beta",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000055",
+     "smfs_record_id": "SMFS-000414",
+     "doi": "10.1101/2025.03.07.642097",
+     "pmid": null,
+     "title": "DNA polymerase actively and sequentially displaces single-stranded DNA-binding proteins",
+     "year": 2025,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000056",
+     "smfs_record_id": "SMFS-000415",
+     "doi": "10.1038/s41467-025-62531-1",
+     "pmid": "40790032",
+     "title": "DNA polymerase actively and sequentially displaces single-stranded DNA-binding proteins.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000070",
+     "smfs_record_id": "SMFS-000582",
+     "doi": "10.1101/2025.04.01.646591",
+     "pmid": null,
+     "title": "Real-time imaging of rotation during synthesis by the replisome",
+     "year": 2025,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000085",
+     "smfs_record_id": "SMFS-000693",
+     "doi": "10.1016/j.jmb.2024.168544",
+     "pmid": "38508303",
+     "title": "C-terminal Domain of T4 gene 32 Protein Enables Rapid Filament Reorganization and Dissociation.",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000096",
+     "smfs_record_id": "SMFS-000786",
+     "doi": "10.1101/2024.10.08.617221",
+     "pmid": null,
+     "title": "Geometry of Braided DNA Dictates Supercoiling Partitioning",
+     "year": 2024,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000130",
+     "smfs_record_id": "SMFS-001228",
+     "doi": "10.1093/nar/gkad037",
+     "pmid": "36744436",
+     "title": "Mechanism of strand displacement DNA synthesis by the coordinated activities of human mitochondrial DNA polymerase and SSB.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000133",
+     "smfs_record_id": "SMFS-001314",
+     "doi": "10.1021/acs.jpclett.3c00740",
+     "pmid": "37194946",
+     "title": "Single-Molecule Force Spectroscopy of Deoxyribonucleic Acid and Deoxyribonucleic Acid Polymerase Activity Impacted by Alkylating Agents.",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000169",
+     "smfs_record_id": "SMFS-001594",
+     "doi": "10.1101/2022.07.19.500644",
+     "pmid": null,
+     "title": "Mechanism of strand displacement DNA synthesis by the coordinated activities of human mitochondrial DNA polymerase and SSB",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000198",
+     "smfs_record_id": "SMFS-001868",
+     "doi": "10.1096/fj.202100033rr",
+     "pmid": "33908664",
+     "title": "DNA polymerase Gp90 activities and regulations on strand displacement DNA synthesis revealed at single-molecule level.",
+     "year": 2021,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000211",
+     "smfs_record_id": "SMFS-001967",
+     "doi": "10.1016/bs.enz.2021.09.001",
+     "pmid": "34696830",
+     "title": "In vitro single-molecule manipulation studies of viral DNA replication.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000216",
+     "smfs_record_id": "SMFS-001995",
+     "doi": "10.1007/978-1-0716-1290-3_18",
+     "pmid": "33847966",
+     "title": "Measurements of Real-Time Replication Kinetics of DNA Polymerases on ssDNA Templates Coated with Single-Stranded DNA-Binding Proteins.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000227",
+     "smfs_record_id": "SMFS-002132",
+     "doi": "10.3389/fmolb.2021.741718",
+     "pmid": "34513934",
+     "title": "Single-Molecule Insights Into the Dynamics of Replicative Helicases.",
+     "year": 2021,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000262",
+     "smfs_record_id": "SMFS-002377",
+     "doi": "10.1021/jacs.9b12448",
+     "pmid": "32003988",
+     "title": "Histone H2A Ubiquitination Reinforces Mechanical Stability and Asymmetry at the Single-Nucleosome Level.",
+     "year": 2020,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000314",
+     "smfs_record_id": "SMFS-002875",
+     "doi": "10.1093/nar/gkz249",
+     "pmid": "30968132",
+     "title": "Replicative DNA polymerases promote active displacement of SSB proteins during lagging strand synthesis.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000342",
+     "smfs_record_id": "SMFS-003099",
+     "doi": "10.1021/acs.accounts.7b00541",
+     "pmid": "29368512",
+     "title": "Facilitated Unbinding via Multivalency-Enabled Ternary Complexes: New Paradigm for Protein-DNA Interactions.",
+     "year": 2018,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000352",
+     "smfs_record_id": "SMFS-003172",
+     "doi": "10.1007/978-1-4939-8556-2_19",
+     "pmid": "29971728",
+     "title": "Measuring Unzipping and Rezipping of Single Long DNA Molecules with Optical Tweezers.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000377",
+     "smfs_record_id": "SMFS-003385",
+     "doi": "10.1038/s41598-017-08038-2",
+     "pmid": "28790383",
+     "title": "A DNA-centered explanation of the DNA polymerase translocation mechanism.",
+     "year": 2017,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000417",
+     "smfs_record_id": "SMFS-003705",
+     "doi": "10.1016/bs.mie.2016.08.001",
+     "pmid": "28062045",
+     "title": "Single-Molecule Optical-Trapping Techniques to Study Molecular Mechanisms of a Replisome.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000419",
+     "smfs_record_id": "SMFS-003721",
+     "doi": "10.1002/pro.3152",
+     "pmid": "28263430",
+     "title": "Single-molecule mechanochemical characterization of E. coli pol III core catalytic activity.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000420",
+     "smfs_record_id": "SMFS-003747",
+     "doi": "10.1016/j.bpj.2016.12.044",
+     "pmid": "28256218",
+     "title": "Switching between Exonucleolysis and Replication by T7 DNA Polymerase Ensures High Fidelity.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000470",
+     "smfs_record_id": "SMFS-004290",
+     "doi": "10.1093/nar/gkv204",
+     "pmid": "25800740",
+     "title": "Mechano-chemical kinetics of DNA replication: identification of the translocation step of a replicative DNA polymerase.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000473",
+     "smfs_record_id": "SMFS-004310",
+     "doi": "10.1021/nl504522n",
+     "pmid": "25495735",
+     "title": "Nanopores suggest a negligible influence of CpG methylation on nucleosome packaging and stability.",
+     "year": 2015,
+     "technique": "nanopore_force"
+    },
+    {
+     "record_id": "MOTOR-000475",
+     "smfs_record_id": "SMFS-004335",
+     "doi": "10.1042/bst20140253",
+     "pmid": "26020443",
+     "title": "Probing DNA interactions with proteins using a single-molecule toolbox: inside the cell, in a test tube and in a computer.",
+     "year": 2015,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000497",
+     "smfs_record_id": "SMFS-004677",
+     "doi": "10.1021/ja5063983",
+     "pmid": "25203438",
+     "title": "Reading single DNA with DNA polymerase followed by atomic force microscopy.",
+     "year": 2014,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000533",
+     "smfs_record_id": "SMFS-005037",
+     "doi": "10.1016/j.bpj.2013.10.005",
+     "pmid": "24359751",
+     "title": "Single-molecule force spectroscopy study on the mechanism of RNA disassembly in tobacco mosaic virus.",
+     "year": 2013,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000538",
+     "smfs_record_id": "SMFS-005103",
+     "doi": "10.1073/pnas.1204759109",
+     "pmid": "22573817",
+     "title": "Active DNA unwinding dynamics during processive DNA replication.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000556",
+     "smfs_record_id": "SMFS-005251",
+     "doi": "10.1093/nar/gks253",
+     "pmid": "22434889",
+     "title": "Mechanism of strand displacement synthesis by DNA replicative polymerases.",
+     "year": 2012,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000557",
+     "smfs_record_id": "SMFS-005256",
+     "doi": "10.1016/j.bpj.2012.01.020",
+     "pmid": "22385852",
+     "title": "Minimalist model for force-dependent DNA replication.",
+     "year": 2012,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000587",
+     "smfs_record_id": "SMFS-005638",
+     "doi": "10.1073/pnas.1018824108",
+     "pmid": "21245349",
+     "title": "Simultaneous single-molecule measurements of phage T7 replisome composition and function reveal the mechanism of polymerase exchange.",
+     "year": 2011,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000597",
+     "smfs_record_id": "SMFS-005730",
+     "doi": "10.1016/j.plrev.2010.06.001",
+     "pmid": "20576476",
+     "title": "Biophysical characterization of DNA binding from single molecule force measurements.",
+     "year": 2010,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000643",
+     "smfs_record_id": "SMFS-006302",
+     "doi": "10.1021/cb8001107",
+     "pmid": "18652472",
+     "title": "Distinct double- and single-stranded DNA binding of E. coli replicative DNA polymerase III alpha subunit.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000674",
+     "smfs_record_id": "SMFS-006648",
+     "doi": "10.1038/nmeth1037",
+     "pmid": "17435763",
+     "title": "Multiplexed single-molecule assay for enzymatic activity on flow-stretched DNA.",
+     "year": 2007,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000749",
+     "smfs_record_id": "SMFS-007412",
+     "doi": "10.1023/a:1015322023130",
+     "pmid": "11969092",
+     "title": "[Biophysics of the DNA molecule: a new trend].",
+     "year": 2002,
+     "technique": "magnetic_tweezers"
+    }
+   ]
+  },
+  "ribosome": {
+   "pool": 71,
+   "sampled": 50,
+   "strata": {
+    "afm_smfs|2010s": {
+     "pool": 4,
+     "sampled": 3
+    },
+    "afm_smfs|2020s": {
+     "pool": 3,
+     "sampled": 2
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 2,
+     "sampled": 2
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 7,
+     "sampled": 5
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2000s": {
+     "pool": 9,
+     "sampled": 6
+    },
+    "optical_tweezers|2010s": {
+     "pool": 26,
+     "sampled": 18
+    },
+    "optical_tweezers|2020s": {
+     "pool": 19,
+     "sampled": 13
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000013",
+     "smfs_record_id": "SMFS-000084",
+     "doi": "10.64898/2026.07.02.735960",
+     "pmid": null,
+     "title": "Drug Functional Site-Unknown Molecular Targets Exemplified by SARS-CoV-2 pseudoknot and ribosomal frameshifting-modulators",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000017",
+     "smfs_record_id": "SMFS-000110",
+     "doi": "10.1002/cbic.202500863",
+     "pmid": "41948965",
+     "title": "Force-Forster Resonance Energy Transfer Correlation Microscopy: A Multimodal Approach for the Study of Single-Nucleotide-Resolution Ribosome Translocation.",
+     "year": 2026,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000029",
+     "smfs_record_id": "SMFS-000208",
+     "doi": "10.64898/2026.03.09.709851",
+     "pmid": null,
+     "title": "Multivalent weak contacts shape chaperone-nascent protein interactions",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000041",
+     "smfs_record_id": "SMFS-000291",
+     "doi": "10.1016/j.bpj.2026.01.001",
+     "pmid": "41502090",
+     "title": "Single-molecule force measurements show that r-proteins assist 23S rRNA co-transcriptional folding.",
+     "year": 2026,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000071",
+     "smfs_record_id": "SMFS-000598",
+     "doi": "10.1101/2025.06.05.657321",
+     "pmid": null,
+     "title": "SURFS and AlphaFold Reveal Ribosome Footprint Shift Caused by EF-Tu D81 Mutation",
+     "year": 2025,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000080",
+     "smfs_record_id": "SMFS-000648",
+     "doi": "10.1073/pnas.2422678122",
+     "pmid": "40711920",
+     "title": "Trigger factor accelerates nascent chain compaction and folding.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000084",
+     "smfs_record_id": "SMFS-000677",
+     "doi": "10.1002/cbic.202400130",
+     "pmid": "38923096",
+     "title": "Allosteric Effects of EF-G Domain I Mutations Inducing Ribosome Frameshifting Revealed by Multiplexed Force Spectroscopy.",
+     "year": 2024,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000086",
+     "smfs_record_id": "SMFS-000695",
+     "doi": "10.1101/2024.11.15.622191",
+     "pmid": null,
+     "title": "Calmodulin acts as a chaperone during co-translational folding of the Kv7.2 channel Calcium Responsive Domain",
+     "year": 2024,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000140",
+     "smfs_record_id": "SMFS-001355",
+     "doi": "10.21203/rs.3.rs-3352709/v1",
+     "pmid": null,
+     "title": "The translational landscape of HIV-1 infected cells reveals novel gene regulatory principles",
+     "year": 2023,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000154",
+     "smfs_record_id": "SMFS-001463",
+     "doi": "10.1007/978-1-0716-2229-2_14",
+     "pmid": "36063328",
+     "title": "Cotemporal Single-Molecule Force and Fluorescence Measurements to Determine the Mechanism of Ribosome Translocation.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000175",
+     "smfs_record_id": "SMFS-001650",
+     "doi": "10.3791/62589",
+     "pmid": "35225268",
+     "title": "Optical Tweezers to Study RNA-Protein Interactions in Translation Regulation.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000185",
+     "smfs_record_id": "SMFS-001749",
+     "doi": "10.1007/978-1-0716-2229-2_16",
+     "pmid": "36063330",
+     "title": "Tethering Complex Proteins and Protein Complexes for Optical Tweezers Experiments.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000186",
+     "smfs_record_id": "SMFS-001753",
+     "doi": "10.7554/elife.73534",
+     "pmid": "35147499",
+     "title": "The MIDAS domain of AAA mechanoenzyme Mdn1 forms catch bonds with two different substrates.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000196",
+     "smfs_record_id": "SMFS-001856",
+     "doi": "10.1103/physrevlett.126.038102",
+     "pmid": "33543960",
+     "title": "Conformational Shannon Entropy of mRNA Structures from Force Spectroscopy Measurements Predicts the Efficiency of -1 Programmed Ribosomal Frameshift Stimulation.",
+     "year": 2021,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000207",
+     "smfs_record_id": "SMFS-001939",
+     "doi": "10.1042/ebc20200024",
+     "pmid": "33438724",
+     "title": "From folding to function: complex macromolecular reactions unraveled one-by-one with optical tweezers.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000226",
+     "smfs_record_id": "SMFS-002131",
+     "doi": "10.1016/j.jmb.2021.167207",
+     "pmid": "34418422",
+     "title": "Single-Molecule Force Spectroscopy of Protein Folding.",
+     "year": 2021,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000239",
+     "smfs_record_id": "SMFS-002187",
+     "doi": "10.1038/s42003-021-02055-8",
+     "pmid": "33953328",
+     "title": "The ribosome modulates folding inside the ribosomal exit tunnel.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000246",
+     "smfs_record_id": "SMFS-002277",
+     "doi": "10.1101/2020.12.12.422522",
+     "pmid": null,
+     "title": "Conformational Shannon entropy of mRNA structures from force spectroscopy measurements predicts the efficiency of −1 programmed ribosomal frameshift stimulation",
+     "year": 2020,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000276",
+     "smfs_record_id": "SMFS-002551",
+     "doi": "10.1101/2020.12.28.424630",
+     "pmid": null,
+     "title": "Structural dynamics of the SARS-CoV-2 frameshift-stimulatory pseudoknot reveal topologically distinct conformers",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000284",
+     "smfs_record_id": "SMFS-002581",
+     "doi": "10.1101/2020.06.30.180224",
+     "pmid": null,
+     "title": "The ribosome modulates folding inside the ribosomal exit tunnel",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000291",
+     "smfs_record_id": "SMFS-002660",
+     "doi": "10.1016/j.molcel.2019.07.024",
+     "pmid": "31471187",
+     "title": "Co-temporal Force and Fluorescence Measurements Reveal a Ribosomal Gear Shift Mechanism of Translation Regulation by Structured mRNAs.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000292",
+     "smfs_record_id": "SMFS-002662",
+     "doi": "10.1073/pnas.1905258116",
+     "pmid": "31409714",
+     "title": "Complex dynamics under tension in a high-efficiency frameshift stimulatory structure.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000296",
+     "smfs_record_id": "SMFS-002710",
+     "doi": "10.1073/pnas.1914366116",
+     "pmid": "31776255",
+     "title": "Energetic dependencies dictate folding mechanism in a complex protein.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000297",
+     "smfs_record_id": "SMFS-002728",
+     "doi": "10.1261/rna.067504.118",
+     "pmid": "30705137",
+     "title": "Force measurements show that uL4 and uL24 mechanically stabilize a fragment of 23S rRNA essential for ribosome assembly.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000327",
+     "smfs_record_id": "SMFS-002934",
+     "doi": "10.1016/j.molcel.2019.01.043",
+     "pmid": "30852061",
+     "title": "The Ribosome Cooperates with a Chaperone to Guide Multi-domain Protein Folding.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000331",
+     "smfs_record_id": "SMFS-002968",
+     "doi": "10.3390/mps2020032",
+     "pmid": "31164612",
+     "title": "Using Single-Molecule Chemo-Mechanical Unfolding to Simultaneously Probe Multiple Structural Parameters in Protein Folding.",
+     "year": 2019,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000334",
+     "smfs_record_id": "SMFS-003001",
+     "doi": "10.1021/acs.biochem.8b00213",
+     "pmid": "29589750",
+     "title": "Argonaute Facilitates the Lateral Diffusion of the Guide along Its Target and Prevents the Guide from Being Pushed Away by the Ribosome.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000369",
+     "smfs_record_id": "SMFS-003317",
+     "doi": "10.1039/c8cc02658k",
+     "pmid": "29785422",
+     "title": "Super-resolution force spectroscopy reveals ribosomal motion at sub-nucleotide steps.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000381",
+     "smfs_record_id": "SMFS-003440",
+     "doi": "10.1080/15476286.2017.1325069",
+     "pmid": "28548627",
+     "title": "Combined single molecule experimental and computational approaches for understanding the unfolding pathway of a viral translation enhancer that participates in a conformational switch.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000391",
+     "smfs_record_id": "SMFS-003509",
+     "doi": "10.7554/elife.22883",
+     "pmid": "28186489",
+     "title": "Folding behavior of a T-shaped, ribosome-binding translation enhancer implicated in a wide-spread conformational switch.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000425",
+     "smfs_record_id": "SMFS-003776",
+     "doi": "10.1073/pnas.1617873114",
+     "pmid": "28507157",
+     "title": "Translation and folding of single proteins in real time.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000426",
+     "smfs_record_id": "SMFS-003778",
+     "doi": "10.1038/s41467-017-00771-6",
+     "pmid": "28939815",
+     "title": "Trigger factor chaperone acts as a mechanical foldase.",
+     "year": 2017,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000443",
+     "smfs_record_id": "SMFS-003966",
+     "doi": "10.1016/j.bbrep.2016.01.017",
+     "pmid": "28955849",
+     "title": "Model of the pathway of -1 frameshifting: Long pausing.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000489",
+     "smfs_record_id": "SMFS-004523",
+     "doi": "10.7554/elife.03406",
+     "pmid": "25114092",
+     "title": "Direct measurement of the mechanical work during translocation by the ribosome.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000518",
+     "smfs_record_id": "SMFS-004876",
+     "doi": "10.1002/bip.22293",
+     "pmid": "23722586",
+     "title": "Frameshifting dynamics.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000523",
+     "smfs_record_id": "SMFS-004901",
+     "doi": "10.1021/ja408595e",
+     "pmid": "24087850",
+     "title": "Kinetics of allosteric transitions in S-adenosylmethionine riboswitch are accurately predicted from the folding landscape.",
+     "year": 2013,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000551",
+     "smfs_record_id": "SMFS-005219",
+     "doi": "10.1073/pnas.1118452109",
+     "pmid": "22411833",
+     "title": "Initiation factor 2, tRNA, and 50S subunits cooperatively stabilize mRNAs on the ribosome during initiation.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000558",
+     "smfs_record_id": "SMFS-005299",
+     "doi": "10.1073/pnas.1204114109",
+     "pmid": "22988073",
+     "title": "Programmed -1 frameshifting efficiency correlates with RNA pseudoknot conformational plasticity, not resistance to mechanical unfolding.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000559",
+     "smfs_record_id": "SMFS-005313",
+     "doi": "10.1155/2012/569870",
+     "pmid": "22545064",
+     "title": "Revealing -1 programmed ribosomal frameshifting mechanisms by single-molecule techniques and computational methods.",
+     "year": 2012,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000560",
+     "smfs_record_id": "SMFS-005315",
+     "doi": "10.1073/pnas.1208950109",
+     "pmid": "22908248",
+     "title": "Ribosomal protein S1 unwinds double-stranded RNA in multiple steps.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000579",
+     "smfs_record_id": "SMFS-005503",
+     "doi": "10.1016/j.febslet.2011.04.045",
+     "pmid": "21549117",
+     "title": "Force measurements of the disruption of the nascent polypeptide chain from the ribosome by optical tweezers.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000580",
+     "smfs_record_id": "SMFS-005537",
+     "doi": "10.1016/j.bpj.2011.03.023",
+     "pmid": "21539788",
+     "title": "Interaction strengths between the ribosome and tRNA at various steps of translocation.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000582",
+     "smfs_record_id": "SMFS-005614",
+     "doi": "10.1073/pnas.1107121108",
+     "pmid": "22025688",
+     "title": "Probing ribosomal protein-RNA interactions with an external force.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000603",
+     "smfs_record_id": "SMFS-005807",
+     "doi": "10.1074/jbc.m110.179697",
+     "pmid": "20870713",
+     "title": "Full reconstruction of a vectorial protein folding pathway by atomic force microscopy and molecular dynamics simulations.",
+     "year": 2010,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000624",
+     "smfs_record_id": "SMFS-006083",
+     "doi": "10.1093/nar/gkp779",
+     "pmid": "19812214",
+     "title": "Interaction of the HIV-1 frameshift signal with the ribosome.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000641",
+     "smfs_record_id": "SMFS-006280",
+     "doi": "10.1016/j.jmb.2007.05.058",
+     "pmid": "18021801",
+     "title": "Characterization of the mechanical unfolding of RNA pseudoknots.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000645",
+     "smfs_record_id": "SMFS-006327",
+     "doi": "10.1038/nature06716",
+     "pmid": "18327250",
+     "title": "Following translation by single ribosomes one codon at a time.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000647",
+     "smfs_record_id": "SMFS-006343",
+     "doi": "10.1146/annurev.biochem.77.061206.174353",
+     "pmid": "18518818",
+     "title": "How RNA unfolds and refolds.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000665",
+     "smfs_record_id": "SMFS-006546",
+     "doi": "10.1073/pnas.0608668104",
+     "pmid": "17389398",
+     "title": "Correlation between mechanical strength of messenger RNA pseudoknots and ribosomal frameshifting.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000688",
+     "smfs_record_id": "SMFS-006771",
+     "doi": "10.1017/s0033583506004446",
+     "pmid": "17040613",
+     "title": "Determination of thermodynamics and kinetics of RNA reactions by force.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "viral_packaging": {
+   "pool": 27,
+   "sampled": 27,
+   "strata": {
+    "afm_smfs|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2000s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "optical_tweezers|2000s": {
+     "pool": 8,
+     "sampled": 8
+    },
+    "optical_tweezers|2010s": {
+     "pool": 11,
+     "sampled": 11
+    },
+    "optical_tweezers|2020s": {
+     "pool": 5,
+     "sampled": 5
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000063",
+     "smfs_record_id": "SMFS-000513",
+     "doi": "10.1007/978-1-0716-4280-1_15",
+     "pmid": "39704950",
+     "title": "Methods for Studying Motor-Driven Viral DNA Packaging in Bacteriophages phi29, Lambda, and T4 via Single DNA Molecule Manipulation and Rapid Solution Exchange.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000074",
+     "smfs_record_id": "SMFS-000617",
+     "doi": "10.1038/s41598-024-74915-2",
+     "pmid": "40016253",
+     "title": "Single-molecule measurements of bacteriophage lambda DNA packaging using purified terminase motor proteins and E. coli integration host factor.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000209",
+     "smfs_record_id": "SMFS-001945",
+     "doi": "10.1007/s12551-021-00883-w",
+     "pmid": "35047087",
+     "title": "Helical inchworming: a novel translocation mechanism for a ring ATPase.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000220",
+     "smfs_record_id": "SMFS-002057",
+     "doi": "10.52601/bpr.2021.210003",
+     "pmid": "37288367",
+     "title": "Optical tweezer and TIRF microscopy for single molecule manipulation of RNA/DNA nanostructures including their rubbery property and single molecule counting.",
+     "year": 2021,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000256",
+     "smfs_record_id": "SMFS-002364",
+     "doi": "10.1093/nar/gkaa875",
+     "pmid": "33119757",
+     "title": "Function of a viral genome packaging motor from bacteriophage T4 is insensitive to DNA sequence.",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000272",
+     "smfs_record_id": "SMFS-002512",
+     "doi": "10.1021/acs.jpcb.9b06428",
+     "pmid": "31955577",
+     "title": "Retained Stability of the RNA Structure in DNA Packaging Motor with a Single Mg2+ Ion Bound at the Double Mg-Clamp Structure.",
+     "year": 2020,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000364",
+     "smfs_record_id": "SMFS-003292",
+     "doi": "10.1007/978-1-4939-8556-2_20",
+     "pmid": "29971729",
+     "title": "Single-Molecule Measurements of Motor-Driven Viral DNA Packaging in Bacteriophages Phi29, Lambda, and T4 with Optical Tweezers.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000385",
+     "smfs_record_id": "SMFS-003452",
+     "doi": "10.1007/978-1-4939-6421-5_13",
+     "pmid": "27844435",
+     "title": "Deciphering the Molecular Mechanism of the Bacteriophage φ29 DNA Packaging Motor.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000390",
+     "smfs_record_id": "SMFS-003501",
+     "doi": "10.1103/physreve.95.052408",
+     "pmid": "28618627",
+     "title": "Experimental comparison of forces resisting viral DNA packaging and driving DNA ejection.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000400",
+     "smfs_record_id": "SMFS-003594",
+     "doi": "10.1002/anie.201704113",
+     "pmid": "28631866",
+     "title": "Mg2+ -Dependent High Mechanical Anisotropy of Three-Way-Junction pRNA as Revealed by Single-Molecule Force Spectroscopy.",
+     "year": 2017,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000482",
+     "smfs_record_id": "SMFS-004441",
+     "doi": "10.1093/nar/gku896",
+     "pmid": "25274732",
+     "title": "A biomechanical mechanism for initiating DNA packaging.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000491",
+     "smfs_record_id": "SMFS-004541",
+     "doi": "10.1038/ncomms5173",
+     "pmid": "24937091",
+     "title": "Evidence for an electrostatic mechanism of force generation by the bacteriophage T4 DNA packaging motor.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000563",
+     "smfs_record_id": "SMFS-005345",
+     "doi": "10.1007/978-1-4614-0980-9_24",
+     "pmid": "22297530",
+     "title": "Single-molecule studies of viral DNA packaging.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000565",
+     "smfs_record_id": "SMFS-005357",
+     "doi": "10.1016/b978-0-12-394621-8.00018-2",
+     "pmid": "22420853",
+     "title": "Structure, assembly, and DNA packaging of the bacteriophage T4 head.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000567",
+     "smfs_record_id": "SMFS-005365",
+     "doi": "10.1073/pnas.1209214109",
+     "pmid": "23169641",
+     "title": "The dynamic pause-unpackaging state, an off-translocation recovery state of a DNA packaging motor from bacteriophage T4.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000573",
+     "smfs_record_id": "SMFS-005416",
+     "doi": "10.1371/journal.pbio.1000592",
+     "pmid": "21358801",
+     "title": "A promiscuous DNA packaging machine from bacteriophage T4.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000590",
+     "smfs_record_id": "SMFS-005662",
+     "doi": "10.1016/j.coviro.2011.05.023",
+     "pmid": "22440623",
+     "title": "Single-molecule studies of viral DNA packaging.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000615",
+     "smfs_record_id": "SMFS-005935",
+     "doi": "10.1186/1743-422x-7-356",
+     "pmid": "21129201",
+     "title": "Structure and assembly of bacteriophage T4 head.",
+     "year": 2010,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000635",
+     "smfs_record_id": "SMFS-006225",
+     "doi": "10.1073/pnas.0904364106",
+     "pmid": "19706522",
+     "title": "The Q motif of a viral packaging motor governs its force generation and communicates ATP recognition to DNA interaction.",
+     "year": 2009,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000653",
+     "smfs_record_id": "SMFS-006417",
+     "doi": "10.1529/biophysj.107.104612",
+     "pmid": "17827233",
+     "title": "Portal motor velocity and internal force resisting viral DNA packaging in bacteriophage phi29.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000667",
+     "smfs_record_id": "SMFS-006581",
+     "doi": "10.1371/journal.pbio.0050059",
+     "pmid": "17311473",
+     "title": "Experimental test of connector rotation during DNA packaging into bacteriophage phi29 capsids.",
+     "year": 2007,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000670",
+     "smfs_record_id": "SMFS-006621",
+     "doi": "10.1073/pnas.0701323104",
+     "pmid": "17556543",
+     "title": "Ionic effects on viral DNA packaging and portal motor function in bacteriophage phi 29.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000673",
+     "smfs_record_id": "SMFS-006634",
+     "doi": "10.1529/biophysj.106.093062",
+     "pmid": "17028142",
+     "title": "Mechanical unfolding of RNA: from hairpins to structures with internal multiloops.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000678",
+     "smfs_record_id": "SMFS-006697",
+     "doi": "10.1073/pnas.0704008104",
+     "pmid": "17942694",
+     "title": "Single phage T4 DNA packaging motors exhibit large force generation, high velocity, and dynamic variability.",
+     "year": 2007,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000710",
+     "smfs_record_id": "SMFS-007016",
+     "doi": "10.1016/j.cell.2005.06.024",
+     "pmid": "16143101",
+     "title": "Mechanism of force generation of a viral DNA packaging motor.",
+     "year": 2005,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000737",
+     "smfs_record_id": "SMFS-007279",
+     "doi": "10.1073/pnas.0737893100",
+     "pmid": "12629206",
+     "title": "Mechanics of DNA packaging in viruses.",
+     "year": 2003,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000754",
+     "smfs_record_id": "SMFS-007457",
+     "doi": "10.1038/35099581",
+     "pmid": "11607035",
+     "title": "The bacteriophage straight phi29 portal motor can package DNA against a large internal force.",
+     "year": 2001,
+     "technique": "optical_tweezers"
+    }
+   ]
+  },
+  "rna_polymerase": {
+   "pool": 111,
+   "sampled": 50,
+   "strata": {
+    "acoustic_force_spectroscopy|2020s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "afm_smfs|2010s": {
+     "pool": 5,
+     "sampled": 2
+    },
+    "afm_smfs|2020s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2000s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2010s": {
+     "pool": 1,
+     "sampled": 1
+    },
+    "force_spectroscopy_unspecified|2020s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "hydrodynamic_stretching|2010s": {
+     "pool": 1,
+     "sampled": 0
+    },
+    "hydrodynamic_stretching|2020s": {
+     "pool": 3,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2000s": {
+     "pool": 2,
+     "sampled": 1
+    },
+    "magnetic_tweezers|2010s": {
+     "pool": 9,
+     "sampled": 4
+    },
+    "magnetic_tweezers|2020s": {
+     "pool": 20,
+     "sampled": 9
+    },
+    "optical_tweezers|1990s": {
+     "pool": 4,
+     "sampled": 2
+    },
+    "optical_tweezers|2000s": {
+     "pool": 16,
+     "sampled": 7
+    },
+    "optical_tweezers|2010s": {
+     "pool": 29,
+     "sampled": 13
+    },
+    "optical_tweezers|2020s": {
+     "pool": 13,
+     "sampled": 6
+    }
+   },
+   "records": [
+    {
+     "record_id": "MOTOR-000007",
+     "smfs_record_id": "SMFS-000038",
+     "doi": "10.64898/2026.07.09.737391",
+     "pmid": null,
+     "title": "Biophysical Characterization of ParBS Condensates suggests a physical mechanism for segregation",
+     "year": 2026,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000037",
+     "smfs_record_id": "SMFS-000282",
+     "doi": "10.1002/advs.76334",
+     "pmid": "42405926",
+     "title": "Single-Molecule Characterization of Bacterial Factor-Dependent Transcription Activation by Rob.",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000044",
+     "smfs_record_id": "SMFS-000331",
+     "doi": "10.64898/2026.07.07.737000",
+     "pmid": null,
+     "title": "The nucleoside analog CMX521 inhibits coronavirus RNA-dependent RNA polymerase via a two-pronged mechanism",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000045",
+     "smfs_record_id": "SMFS-000332",
+     "doi": "10.1016/j.jbc.2026.113561",
+     "pmid": "42749260",
+     "title": "The nucleoside analog CMX521 inhibits coronavirus RNA-dependent RNA polymerase via a two-pronged mechanism.",
+     "year": 2026,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000059",
+     "smfs_record_id": "SMFS-000445",
+     "doi": "10.1016/j.molcel.2025.05.002",
+     "pmid": "40412388",
+     "title": "FACT weakens the nucleosomal barrier to transcription and preserves its integrity by forming a hexasome-like intermediate.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000066",
+     "smfs_record_id": "SMFS-000556",
+     "doi": "10.1101/2025.02.07.637008",
+     "pmid": null,
+     "title": "Pleomorphic effects of three small-molecule inhibitors on transcription elongation by  Mycobacterium tuberculosis  RNA polymerase",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000067",
+     "smfs_record_id": "SMFS-000557",
+     "doi": "10.7554/elife.105545",
+     "pmid": "41042133",
+     "title": "Pleomorphic effects of three small-molecule inhibitors on transcription elongation by Mycobacterium tuberculosis RNA polymerase.",
+     "year": 2025,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000115",
+     "smfs_record_id": "SMFS-001093",
+     "doi": "10.1021/acs.jpcb.2c08771",
+     "pmid": "36977198",
+     "title": "Correlative Escherichia coli Transcription Rate and Bubble Conformation Remodeled by NusA and NusG.",
+     "year": 2023,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000117",
+     "smfs_record_id": "SMFS-001119",
+     "doi": "10.1101/2023.06.25.546419",
+     "pmid": null,
+     "title": "Dynamic ParB-DNA interactions initiate and maintain a partition condensate for bacterial chromosome segregation",
+     "year": 2023,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000121",
+     "smfs_record_id": "SMFS-001162",
+     "doi": "10.1101/2023.11.02.565415",
+     "pmid": null,
+     "title": "Force and the  α  -C-terminal domains bias RNA polymerase recycling",
+     "year": 2023,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000134",
+     "smfs_record_id": "SMFS-001325",
+     "doi": "10.1101/2023.06.05.542125",
+     "pmid": null,
+     "title": "Single-molecule studies reveal the off-pathway elemental pause state as a target of streptolydigin inhibition of RNA polymerase and its dramatic enhancement by Gre factors",
+     "year": 2023,
+     "technique": "acoustic_force_spectroscopy"
+    },
+    {
+     "record_id": "MOTOR-000161",
+     "smfs_record_id": "SMFS-001542",
+     "doi": "10.1016/j.celrep.2022.110749",
+     "pmid": "35476989",
+     "title": "High-throughput single-molecule experiments reveal heterogeneity, state switching, and three interconnected pause states in transcription.",
+     "year": 2022,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000167",
+     "smfs_record_id": "SMFS-001584",
+     "doi": "10.1021/acs.langmuir.2c02251",
+     "pmid": "36305083",
+     "title": "Mechanical Stability of DNA Corona Phase on Gold Nanospheres.",
+     "year": 2022,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000174",
+     "smfs_record_id": "SMFS-001647",
+     "doi": "10.1093/nar/gkac558",
+     "pmid": "35819188",
+     "title": "On the stability of stalled RNA polymerase and its removal by RapA.",
+     "year": 2022,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000177",
+     "smfs_record_id": "SMFS-001687",
+     "doi": "10.1093/nar/gkac560",
+     "pmid": "35819191",
+     "title": "Quantitative parameters of bacterial RNA polymerase open-complex formation, stabilization and disruption on a consensus promoter.",
+     "year": 2022,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000229",
+     "smfs_record_id": "SMFS-002138",
+     "doi": "10.3791/62974",
+     "pmid": "34570101",
+     "title": "Single-molecule Imaging of EWS-FLI1 Condensates Assembling on DNA.",
+     "year": 2021,
+     "technique": "hydrodynamic_stretching"
+    },
+    {
+     "record_id": "MOTOR-000247",
+     "smfs_record_id": "SMFS-002291",
+     "doi": "10.1038/s41467-020-16702-x",
+     "pmid": "32504003",
+     "title": "DNA origami-based single-molecule force spectroscopy elucidates RNA Polymerase III pre-initiation complex stability.",
+     "year": 2020,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000255",
+     "smfs_record_id": "SMFS-002363",
+     "doi": "10.1101/2020.07.31.231274",
+     "pmid": null,
+     "title": "Force-dependent stimulation of RNA unwinding by SARS-CoV-2 nsp13 helicase",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000271",
+     "smfs_record_id": "SMFS-002511",
+     "doi": "10.1101/2020.07.28.132373",
+     "pmid": null,
+     "title": "Residence Time Analysis of RNA Polymerase Transcription Dynamics: A Bayesian Sticky HMM Approach",
+     "year": 2020,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000320",
+     "smfs_record_id": "SMFS-002899",
+     "doi": "10.1016/j.ymeth.2019.03.010",
+     "pmid": "30898685",
+     "title": "Single-molecule approach for studying RNAP II transcription initiation using magnetic tweezers.",
+     "year": 2019,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000340",
+     "smfs_record_id": "SMFS-003082",
+     "doi": "10.1016/j.bpj.2018.06.032",
+     "pmid": "30236784",
+     "title": "Dynamics of Chromatin Fibers: Comparison of Monte Carlo Simulations with Force Spectroscopy.",
+     "year": 2018,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000343",
+     "smfs_record_id": "SMFS-003117",
+     "doi": "10.1073/pnas.1719906115",
+     "pmid": "29351994",
+     "title": "Full molecular trajectories of RNA polymerase at single base-pair resolution.",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000345",
+     "smfs_record_id": "SMFS-003146",
+     "doi": "10.1042/bcj20170616",
+     "pmid": "29187520",
+     "title": "Investigation of specific interactions between T7 promoter and T7 RNA polymerase by force spectroscopy using atomic force microscope.",
+     "year": 2018,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000356",
+     "smfs_record_id": "SMFS-003215",
+     "doi": "10.1101/494534",
+     "pmid": null,
+     "title": "One-dimensional sliding assists σ  70  -dependent promoter binding by Escherichia coli RNA polymerase",
+     "year": 2018,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000394",
+     "smfs_record_id": "SMFS-003540",
+     "doi": "10.1002/pro.3183",
+     "pmid": "28470684",
+     "title": "How to switch the motor on: RNA polymerase initiation steps at the single-molecule level.",
+     "year": 2017,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000413",
+     "smfs_record_id": "SMFS-003670",
+     "doi": "10.1038/s41467-017-01041-1",
+     "pmid": "29079833",
+     "title": "Real-time observation of polymerase-promoter contact remodeling during transcription initiation.",
+     "year": 2017,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000428",
+     "smfs_record_id": "SMFS-003802",
+     "doi": "10.1101/042432",
+     "pmid": null,
+     "title": "A Novel Initiation Pathway in  Escherichia Coli  Transcription",
+     "year": 2016,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000430",
+     "smfs_record_id": "SMFS-003828",
+     "doi": "10.1073/pnas.1605038113",
+     "pmid": "27729537",
+     "title": "Backtracked and paused transcription initiation intermediate of Escherichia coli RNA polymerase.",
+     "year": 2016,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000434",
+     "smfs_record_id": "SMFS-003889",
+     "doi": "10.1021/acs.accounts.5b00536",
+     "pmid": "26991064",
+     "title": "Elucidation of the Dynamics of Transcription Elongation by RNA Polymerase II using Kinetic Network Models.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000441",
+     "smfs_record_id": "SMFS-003957",
+     "doi": "10.1073/pnas.1517011113",
+     "pmid": "26929337",
+     "title": "Mechanisms of backtrack recovery by RNA polymerases I and II.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000445",
+     "smfs_record_id": "SMFS-003990",
+     "doi": "10.1073/pnas.1602764113",
+     "pmid": "27791062",
+     "title": "Nucleosomal arrangement affects single-molecule transcription dynamics.",
+     "year": 2016,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000477",
+     "smfs_record_id": "SMFS-004354",
+     "doi": "10.1021/acs.nanolett.5b03264",
+     "pmid": "26393370",
+     "title": "Relevance of the Drag Force during Controlled Translocation of a DNA-Protein Complex through a Glass Nanocapillary.",
+     "year": 2015,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000481",
+     "smfs_record_id": "SMFS-004430",
+     "doi": "10.1016/j.sbi.2015.08.007",
+     "pmid": "26434413",
+     "title": "Untangling reaction pathways through modern approaches to high-throughput single-molecule force-spectroscopy experiments.",
+     "year": 2015,
+     "technique": "afm_smfs"
+    },
+    {
+     "record_id": "MOTOR-000490",
+     "smfs_record_id": "SMFS-004525",
+     "doi": "10.1093/nar/gku254",
+     "pmid": "24753422",
+     "title": "Direct optical mapping of transcription factor binding sites on field-stretched λ-DNA in nanofluidic devices.",
+     "year": 2014,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000511",
+     "smfs_record_id": "SMFS-004822",
+     "doi": "10.1371/journal.pone.0057328",
+     "pmid": "23437369",
+     "title": "Cooperative RNA polymerase molecules behavior on a stochastic sequence-dependent model for transcription elongation.",
+     "year": 2013,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000543",
+     "smfs_record_id": "SMFS-005157",
+     "doi": "10.1126/science.1225722",
+     "pmid": "23087247",
+     "title": "Direct observation of cotranscriptional folding in an adenine riboswitch.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000553",
+     "smfs_record_id": "SMFS-005239",
+     "doi": "10.1016/j.bbrc.2012.08.127",
+     "pmid": "22967893",
+     "title": "Measuring intermolecular rupture forces with a combined TIRF-optical trap microscope and DNA curtains.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000570",
+     "smfs_record_id": "SMFS-005381",
+     "doi": "10.1073/pnas.1200939109",
+     "pmid": "22493230",
+     "title": "Trigger loop dynamics mediate the balance between the transcriptional fidelity and speed of RNA polymerase II.",
+     "year": 2012,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000584",
+     "smfs_record_id": "SMFS-005616",
+     "doi": "10.1007/978-1-61779-261-8_12",
+     "pmid": "21809207",
+     "title": "Probing the mechanics of the complete DNA transcription cycle in real-time using optical tweezers.",
+     "year": 2011,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000619",
+     "smfs_record_id": "SMFS-006018",
+     "doi": "10.1016/j.plrev.2009.09.001",
+     "pmid": "20416848",
+     "title": "DNA based molecular motors.",
+     "year": 2009,
+     "technique": "force_spectroscopy_unspecified"
+    },
+    {
+     "record_id": "MOTOR-000642",
+     "smfs_record_id": "SMFS-006299",
+     "doi": "10.1126/science.1151298",
+     "pmid": "18174398",
+     "title": "Direct observation of hierarchical folding in single riboswitch aptamers.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000660",
+     "smfs_record_id": "SMFS-006500",
+     "doi": "10.1016/j.cell.2008.03.003",
+     "pmid": "18358802",
+     "title": "Transcription termination: pulling out all the stops.",
+     "year": 2008,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000697",
+     "smfs_record_id": "SMFS-006889",
+     "doi": "10.1016/j.cell.2006.04.032",
+     "pmid": "16777599",
+     "title": "Sequence-resolved detection of pausing by single RNA polymerase molecules.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000699",
+     "smfs_record_id": "SMFS-006907",
+     "doi": "10.1126/science.1130105",
+     "pmid": "16902131",
+     "title": "Single-molecule, motion-based DNA sequencing using RNA polymerase.",
+     "year": 2006,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000715",
+     "smfs_record_id": "SMFS-007065",
+     "doi": "10.1002/cphc.200500038",
+     "pmid": "16331734",
+     "title": "Single-molecule studies on DNA and RNA.",
+     "year": 2005,
+     "technique": "magnetic_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000718",
+     "smfs_record_id": "SMFS-007103",
+     "doi": "10.1529/biophysj.104.044081",
+     "pmid": "15465875",
+     "title": "A single-molecule technique to study sequence-dependent transcription pausing.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000730",
+     "smfs_record_id": "SMFS-007180",
+     "doi": "10.1074/jbc.m310471200",
+     "pmid": "14597619",
+     "title": "Promoter binding, initiation, and elongation by bacteriophage T7 RNA polymerase. A single-molecule view of the transcription cycle.",
+     "year": 2004,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000763",
+     "smfs_record_id": "SMFS-007518",
+     "doi": "10.1126/science.287.5462.2497",
+     "pmid": "10741971",
+     "title": "Single-molecule study of transcriptional pausing and arrest by E. coli RNA polymerase.",
+     "year": 2000,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000769",
+     "smfs_record_id": "SMFS-007569",
+     "doi": "10.1126/science.283.5408.1689",
+     "pmid": "10073927",
+     "title": "Single-molecule biomechanics with optical methods.",
+     "year": 1999,
+     "technique": "optical_tweezers"
+    },
+    {
+     "record_id": "MOTOR-000770",
+     "smfs_record_id": "SMFS-007570",
+     "doi": "10.1016/s0006-3495(99)77237-1",
+     "pmid": "9929475",
+     "title": "Single-molecule imaging of RNA polymerase-DNA interactions in real time.",
+     "year": 1999,
+     "technique": "optical_tweezers"
+    }
+   ]
+  }
+ }
+}

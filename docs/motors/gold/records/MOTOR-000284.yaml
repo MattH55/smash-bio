@@ -1,0 +1,58 @@
+# SMASH-MOTOR gold set: one annotation file per MOTOR record (docs/motors/gold/records/<record_id>.yaml).
+#
+# Rules
+# - Fill values from the paper only (main text, tables, figure legends, supplement). Never enter a "typical" value.
+# - Leave a field as null if you did not look for it. If you looked and the paper does not report it, list its path in
+#   `not_reported` (e.g. "load.vertical_component_considered"). null and not_reported mean different things.
+# - Keep the units of the field names (µM, mM, °C). Results use the canonical units of Table S2 (nm, pN, s, nm/s ...);
+#   write the unit the paper used in `source.unit_as_reported`.
+# - Do not look at the pipeline's output for this record while annotating (sample.json, the website, records.jsonl).
+# - Check with: python hub/motors/validate_gold.py docs/motors/gold/records/<record_id>.yaml
+
+record_id: MOTOR-000284
+smfs_record_id: SMFS-002581
+doi: "10.1101/2020.06.30.180224"
+title: "The ribosome modulates folding inside the ribosomal exit tunnel"
+annotator: ""                 # initials
+annotation_date: ""           # YYYY-MM-DD
+second_reviewer: ""           # initials, after adjudication
+adjudicated: false
+sections_read: []             # any of: abstract, methods, results, figure_legends, tables, supplement
+full_text_available: null     # true / false
+is_processive_motor_study: null   # true if the paper measures a processive motor moving along a track
+
+motor:                        # the motor fields of the SMASH-MOTOR record schema v1.0.0
+  assay_type: null            # single_molecule | gliding_or_ensemble | other
+  family: null                # kinesin | dynein | myosin_processive | helicase_translocase | rna_polymerase |
+                              # dna_polymerase_replisome | ribosome | viral_packaging | smc_loop_extruder |
+                              # chromatin_remodeller | other
+  family_other: null
+  isoform: null
+  uniprot: []
+  construct: {truncation: null, tags: [], mutations: []}
+  oligomeric_state: null
+  adaptors: []
+  track: {track_type: null, track_type_other: null, track_source: null, polarity_marked: null, lattice_or_sequence: null, decorations: []}
+  probe_link: {attachment: null, attachment_other: null, motors_per_probe: null, single_motor_verification: null,
+               single_motor_verification_other: null}
+  load: {geometry: null, geometry_other: null, direction: null, vertical_component_considered: null}
+  feedback: {mode: null, mode_other: null}
+  chemistry: {nucleotide: {species: null, concentration_uM: null}, adp_uM: null, pi_uM: null, analogues: [], mg_mM: null,
+              ionic_strength_mM: null, temperature_C: null, crowders: [], inhibitors: []}
+  reporting: {n_molecules: null, n_runs: null, n_steps: null, step_detection: {method: null, settings: null}, fit_models: []}
+
+not_reported: []              # motor field paths looked for and not reported by the paper
+
+results: []                   # one entry per reported value. Example (delete the leading "# "):
+# - quantity: stall_force          # SMASH-MOTOR results vocabulary (smash-motor-results.schema.json)
+#   value: 6.0
+#   unit: pN
+#   uncertainty: 0.5
+#   uncertainty_type: SEM          # SD | SEM | CI95 | fit_error | range | unspecified
+#   statistic: mean                # mean | median | mode | most_probable | fit_parameter | single_value | range
+#   n_molecules: 12
+#   conditions: {load_direction: hindering, atp_uM: 1000, feedback_mode: passive_trap, temperature_K: 296}
+#   model: null                    # analysis model, e.g. Boltzmann, gamma
+#   source: {location: figure, snippet: "stall force of 6.0 ± 0.5 pN (Fig. 2B)", extraction: gold_annotation, unit_as_reported: pN}
+
+notes: ""
