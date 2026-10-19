@@ -1,5 +1,13 @@
 # SMASH-BIO schema changelog
 
+## 3.2.0 - 2026-10-18
+
+- Added `classification` to the SMFS record: Table 3 type, exactly one primary module, sub-modules, assay, bead geometry, measurement modes, correlative fluorescence and processivity. Taxonomy 1.0.0.
+- Kept `experiment_classes` populated and marked the experiment-class description deprecated so older `?cls=` links still select the same studies.
+- Motor entities may carry `processive` and `motor_track`.
+- Results schema: `measurement_mode` on a result, plus `fusion_time`, `molecular_tension`, `pause_density` and `kcat`.
+- Not tagged. `v1.0.0-paper` is unchanged. The maintainer reviews `hub/out/modules_report.md` and `hub/curation_queue_modules.csv` before any `v1.1.0` tag.
+
 ## SMASH-MOTOR 1.0.0 - 2026-10-19
 
 - New, separate module schemas under `schema/motor/`: `smash-motor-record.schema.json` (MOTOR-###### records linked to

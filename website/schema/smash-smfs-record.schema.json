@@ -18,7 +18,7 @@
       "pattern": "^SMFS-[0-9]{6}$"
     },
     "schema_version": {
-      "const": "3.1.0"
+      "const": "3.2.0"
     },
     "curation": {
       "$ref": "#/$defs/Curation"
@@ -85,6 +85,221 @@
       "items": {
         "$ref": "#/$defs/Evidence"
       }
+    },
+    "classification": {
+      "type": "object",
+      "description": "What the experiment studies (Table 3 type, one primary module) and how it was measured (facets). Generated from taxonomy/.",
+      "required": [
+        "table3_type",
+        "modules",
+        "processivity",
+        "taxonomy_version"
+      ],
+      "properties": {
+        "table3_type": {
+          "enum": [
+            "unfolding",
+            "dna_protein",
+            "force_generation",
+            "rheology",
+            "extended"
+          ]
+        },
+        "modules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "module_id",
+              "role",
+              "method"
+            ],
+            "properties": {
+              "module_id": {
+                "enum": [
+                  "protein_folding",
+                  "rna_structure",
+                  "dna_structure",
+                  "nucleic_acid_protein",
+                  "nucleic_acid_mechanics",
+                  "processive_motors",
+                  "force_generation",
+                  "cell_structure_transport",
+                  "condensates_microrheology",
+                  "membranes",
+                  "receptor_ligand",
+                  "mechanobiology",
+                  "methods"
+                ]
+              },
+              "role": {
+                "enum": [
+                  "primary",
+                  "secondary"
+                ]
+              },
+              "submodules": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "antibody_antigen",
+                    "aptamers",
+                    "binding_diffusion",
+                    "braiding",
+                    "calibration",
+                    "catch_slip_bonds",
+                    "cell_adhesion",
+                    "cell_cortex",
+                    "chaperone_assisted",
+                    "chromatin",
+                    "chromosome_mechanics",
+                    "condensate_rheology",
+                    "cytoskeletal_walkers",
+                    "cytosol",
+                    "dna_g_quadruplexes",
+                    "elasticity",
+                    "filament_polymerisation",
+                    "g_quadruplexes",
+                    "gene_editing",
+                    "hairpins",
+                    "ligand_dependent",
+                    "mechanoproteins",
+                    "mechanotransduction",
+                    "membrane_bridging",
+                    "nonprocessive_myosins",
+                    "nucleic_acid_motors",
+                    "organelle_transport",
+                    "origami",
+                    "overstretching",
+                    "packaging_motors",
+                    "polymer_networks",
+                    "protein_unfoldases",
+                    "pseudoknots_frameshifting",
+                    "repair",
+                    "replication",
+                    "resolution",
+                    "riboswitches",
+                    "rotary_motors",
+                    "software",
+                    "tension_sensors",
+                    "tether_extrusion",
+                    "torque_supercoiling",
+                    "transcription_regulation",
+                    "vesicle_assemblies"
+                  ]
+                }
+              },
+              "method": {
+                "enum": [
+                  "rule",
+                  "curated",
+                  "author",
+                  "ml"
+                ]
+              },
+              "evidence_ref": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Index into provenance."
+              }
+            }
+          }
+        },
+        "assay_type": {
+          "enum": [
+            "translocation",
+            "mechanical_change",
+            "unfolding",
+            "dual_tether",
+            "large_object",
+            "in_vivo",
+            "polymerisation",
+            "passive_tether"
+          ]
+        },
+        "bead_geometry": {
+          "enum": [
+            "one_bead",
+            "three_bead",
+            "dumbbell",
+            "single_trap_surface",
+            "bead_micropipette",
+            "quadruple_trap",
+            "polymerisation_assay"
+          ]
+        },
+        "measurement_modes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "force_extension",
+              "distance_clamp",
+              "force_clamp",
+              "force_ramp",
+              "force_jump",
+              "oscillatory_microrheology",
+              "passive_equilibrium"
+            ]
+          }
+        },
+        "correlative_fluorescence": {
+          "type": "object",
+          "required": [
+            "present"
+          ],
+          "properties": {
+            "present": {
+              "type": "boolean"
+            },
+            "modalities": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "confocal",
+                  "TIRF",
+                  "widefield",
+                  "smFRET",
+                  "IRM",
+                  "STED"
+                ]
+              }
+            }
+          }
+        },
+        "processivity": {
+          "enum": [
+            "processive",
+            "non_processive",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "taxonomy_version": {
+          "const": "1.0.0"
+        }
+      },
+      "allOf": [
+        {
+          "properties": {
+            "modules": {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "const": "primary"
+                  }
+                },
+                "required": [
+                  "role"
+                ]
+              },
+              "minContains": 1,
+              "maxContains": 1
+            }
+          }
+        }
+      ]
     }
   },
   "$defs": {
@@ -884,7 +1099,8 @@
         "translation_transcription_replication",
         "methods_calibration"
       ],
-      "description": "Table 3 columns (unfolding; DNA-protein interactions; force generation by cytoskeletal filaments or motors; rheology) refined into sub-classes."
+      "description": "Table 3 columns (unfolding; DNA-protein interactions; force generation by cytoskeletal filaments or motors; rheology) refined into sub-classes. Deprecated in schema 3.2.0: kept populated for old links. Prefer classification.modules.",
+      "deprecated": true
     },
     "DataPointer": {
       "type": "object",
@@ -1108,6 +1324,24 @@
         },
         "evidence": {
           "$ref": "#/$defs/Evidence"
+        },
+        "processive": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "From taxonomy/gazetteer_motors.csv. Null when the gazetteer does not know."
+        },
+        "motor_track": {
+          "enum": [
+            "actin",
+            "microtubule",
+            "dna",
+            "rna",
+            "protein",
+            null
+          ],
+          "description": "Filament or polymer the motor runs on."
         }
       }
     },
@@ -1291,21 +1525,40 @@
           "type": "string"
         },
         "canonical_doi": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "version_dois": {
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         },
         "relevance": {
-          "enum": ["in_scope", "methods", "out_of_scope", "unsure"]
+          "enum": [
+            "in_scope",
+            "methods",
+            "out_of_scope",
+            "unsure"
+          ]
         },
         "relevance_evidence": {
           "type": "object",
           "properties": {
-            "method": {"type": "string"},
-            "rule": {"type": "string"},
-            "matched": {"type": "array", "items": {"type": "string"}}
+            "method": {
+              "type": "string"
+            },
+            "rule": {
+              "type": "string"
+            },
+            "matched": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "scheme": {
@@ -1315,16 +1568,25 @@
           "type": "string"
         },
         "title": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "repository": {
           "type": "string"
         },
         "resource_type": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "relation": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "DataCite relation, e.g. IsSupplementTo"
         },
         "year": {
@@ -1334,7 +1596,10 @@
           ]
         },
         "license": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "files": {
           "type": "array",
@@ -1398,7 +1663,10 @@
       "description": "Additional SMASH-BIO annotations beyond Table 3.",
       "properties": {
         "instrument_vendor": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "analysis_software": {
           "type": "array",

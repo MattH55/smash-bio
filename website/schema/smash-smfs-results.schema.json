@@ -203,6 +203,18 @@
               ]
             }
           }
+        },
+        "measurement_mode": {
+          "description": "Measurement mode of the sentence this result was read from, when a mode phrase matches.",
+          "enum": [
+            "force_extension",
+            "distance_clamp",
+            "force_clamp",
+            "force_ramp",
+            "force_jump",
+            "oscillatory_microrheology",
+            "passive_equilibrium"
+          ]
         }
       }
     },
@@ -262,6 +274,10 @@
         "bending_rigidity",
         "loading_rate",
         "number_of_steps_or_intermediates",
+        "fusion_time",
+        "molecular_tension",
+        "pause_density",
+        "kcat",
         "other"
       ]
     },
@@ -317,7 +333,11 @@
         "viscosity": "Pa.s",
         "membrane_tension": "pN/um",
         "bending_rigidity": "kBT",
-        "loading_rate": "pN/s"
+        "loading_rate": "pN/s",
+        "fusion_time": "s",
+        "molecular_tension": "pN",
+        "pause_density": "1/um",
+        "kcat": "1/s"
       }
     },
     "TraceSet": {
