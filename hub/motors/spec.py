@@ -17,6 +17,9 @@ SCHEMA_DIR = Path(__file__).resolve().parents[2] / "website" / "schema" / "motor
 BASE = "https://smash-bio.org/schema/motor/"
 SMFS = "../smash-smfs-record.schema.json"
 
+# columns of the motor Table 3 (hub/motors/table3_motor.yaml); kept here so the schema does not depend on the YAML
+EXPERIMENT_TYPES = ["optical_trap_single_bead", "optical_trap_three_bead", "optical_trap_dna_tether", "magnetic_tweezers",
+                    "flow_stretching", "sm_fluorescence", "gliding_ensemble"]
 FAMILIES = ["kinesin", "dynein", "myosin_processive", "helicase_translocase", "rna_polymerase", "dna_polymerase_replisome",
             "ribosome", "viral_packaging", "smc_loop_extruder", "chromatin_remodeller", "other"]
 LOAD_DIRECTION = ["hindering", "assisting", "sideways", "mixed", "none", "other"]
@@ -133,6 +136,8 @@ def record_schema() -> dict:
                              "Technique, in the SMASH-BIO vocabulary (copied from the linked record)."),
             "assay_type": {"enum": ["single_molecule", "gliding_or_ensemble", "other"],
                            "description": "gliding_or_ensemble: gliding or other ensemble motility assay without a single-molecule readout."},
+            "experiment_type": enum(EXPERIMENT_TYPES, "Experiment type: the column of the motor Table 3 (hub/motors/table3_motor.yaml) "
+                                    "that decides which fields apply. Left out until it is known."),
             "family": enum(FAMILIES, "Motor family."),
             "family_other": text("Free text when family = other."),
             "isoform": text("Isoform or construct name as the authors give it, e.g. 'kinesin-1 K560'."),
@@ -150,6 +155,10 @@ def record_schema() -> dict:
             "evidence": {"type": "object", "additionalProperties": {"$ref": SMFS + "#/$defs/Evidence"},
                          "description": "Evidence per field, keyed by field path (e.g. 'family', 'load.direction'); values are the SMASH-BIO Evidence object."},
             "classification": {"$ref": "#/$defs/Classification"},
+            "fair_completeness": obj({**{s: {"type": ["number", "null"], "minimum": 0, "maximum": 1} for s in ("hardware", "assay", "construct", "solution", "overall")},
+                                      "basis": {"type": "string", "description": "experiment_type whose R fields were scored, or 'core' (fields required for every type)."}},
+                                     "Fraction of the motor Table 3 fields marked R for this record's experiment type that are filled, per section "
+                                     "(hub/motors/table3.py). Measures what is reported and recoverable, not experimental quality."),
             "data_availability": {"$ref": SMFS + "#/$defs/DataAvailability"},
             "curation": obj({"level": {"enum": ["auto", "curated", "author_verified", "gold_annotated"]},
                              "last_updated": {"type": "string", "format": "date"}, "notes": text("Curator notes.")},

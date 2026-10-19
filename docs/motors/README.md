@@ -35,6 +35,19 @@ it was derived from (`smfs_record_id`). The SMASH-BIO schemas, build (`s06`, `s0
   stay empty until Phase 2 extraction or curation; nothing is guessed.
 - Counts: `python -I paper/scripts/motor_stats.py`. Review list: `python hub/motors/review_list.py`.
 
+## 1e. Table 3 for motor experiments
+
+- `hub/motors/table3_motor.yaml`: the Table 3 structure of the FAIR optical-tweezers guidelines applied to motor
+  experiments: hardware, assay, construct and solution fields (rows) x seven experiment types (columns:
+  optical trap single bead, three-bead, nucleic-acid tether; magnetic tweezers; flow stretching / DNA curtains;
+  single-molecule fluorescence; gliding / ensemble), each cell R, O or -. Rendered as `docs/motors/TABLE3_MOTOR.md`
+  (`python hub/motors/table3.py`, which also checks every path against the schemas). The grid is a proposal for the
+  author to edit.
+- MOTOR records gain `experiment_type` (set only where unambiguous: magnetic tweezers, flow stretching, three-bead
+  geometry, gliding; optical-trap sub-types wait for Phase 2) and `fair_completeness`: the fraction of R fields filled
+  for that type, per section, reading motor fields from the MOTOR record and hardware/solution fields from the linked
+  SMASH-BIO record. Without an experiment type only the fields required for every type count (basis `core`).
+
 ## 1d. Gold-set tooling
 
 - `python hub/motors/sample_gold.py`: up to 50 MOTOR records per family, strata technique × decade, seed 20261019.

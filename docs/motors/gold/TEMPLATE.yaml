@@ -23,6 +23,8 @@ is_processive_motor_study: null   # true if the paper measures a processive moto
 
 motor:                        # the motor fields of the SMASH-MOTOR record schema v1.0.0
   assay_type: null            # single_molecule | gliding_or_ensemble | other
+  experiment_type: null       # optical_trap_single_bead | optical_trap_three_bead | optical_trap_dna_tether | magnetic_tweezers |
+                              # flow_stretching | sm_fluorescence | gliding_ensemble | other  (columns of docs/motors/TABLE3_MOTOR.md)
   family: null                # kinesin | dynein | myosin_processive | helicase_translocase | rna_polymerase |
                               # dna_polymerase_replisome | ribosome | viral_packaging | smc_loop_extruder |
                               # chromatin_remodeller | other

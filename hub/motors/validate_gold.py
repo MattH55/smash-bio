@@ -27,7 +27,7 @@ GOLD = ROOT / "docs" / "motors" / "gold"
 HEADER = ("record_id", "smfs_record_id", "doi", "title", "annotator", "annotation_date", "second_reviewer", "adjudicated",
           "sections_read", "full_text_available", "is_processive_motor_study", "motor", "not_reported", "results", "notes")
 SECTIONS = {"abstract", "methods", "results", "figure_legends", "tables", "supplement"}
-MOTOR_FIELDS = ("assay_type", "family", "family_other", "isoform", "uniprot", "construct", "oligomeric_state", "adaptors",
+MOTOR_FIELDS = ("assay_type", "experiment_type", "family", "family_other", "isoform", "uniprot", "construct", "oligomeric_state", "adaptors",
                 "track", "probe_link", "load", "feedback", "chemistry", "reporting")
 
 

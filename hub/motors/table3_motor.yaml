@@ -1,0 +1,86 @@
+# Table 3 for motor experiments (SMASH-MOTOR).
+#
+# Follows the structure of Table 3 of "FAIR data for optical tweezers experiments" (Halma et al., Biophys. J. 124:1255,
+# 2025): four sections (hardware, assay, construct, solution), one row per metadata field, one column per experiment
+# type, and in each cell whether the field applies. Table 3's own columns are experiment classes (unfolding,
+# DNA-protein, force generation, rheology); here the columns are the motor experiment types.
+#
+# Cell codes: R = required for the data to be reusable; O = recommended / optional; - = not applicable.
+# Paths: "motor:<path>" is a field of the SMASH-MOTOR record; "smfs:<path>" is a field of the linked SMASH-BIO record;
+# "a|b" means either source counts as filled.
+# Only fields that exist in the schemas are listed (hub/motors/test_table3.py checks every path).
+#
+# PROPOSAL for the author: the R / O / - assignments are scientific judgements; edit freely. Completeness scores
+# (hub/motors/table3.py) use the R cells of the record's experiment type.
+
+columns:
+  optical_trap_single_bead: "Optical trap, single bead (bead carries the motor along a surface-bound track)"
+  optical_trap_three_bead: "Optical trap, three-bead (actin dumbbell held over a surface pedestal)"
+  optical_trap_dna_tether: "Optical trap, nucleic-acid tether (dual-trap dumbbell or single trap; polymerases, helicases, packaging, ribosome)"
+  magnetic_tweezers: "Magnetic tweezers (bead on a tethered nucleic acid)"
+  flow_stretching: "Flow stretching / DNA curtains"
+  sm_fluorescence: "Single-molecule fluorescence tracking (TIRF, FIONA, MINFLUX), no applied force"
+  gliding_ensemble: "Gliding / in vitro motility (ensemble)"
+
+# order of the columns in each cell string below:
+#                 sb 3b dna mt flow fluo glide
+rows:
+  hardware:
+    - {label: "Make and model of setup",         path: "smfs:hardware.make_of_setup",          cells: "O  O  O   O  O    O    O"}
+    - {label: "Detection device",                path: "smfs:hardware.detection_device",       cells: "R  R  R   R  R    R    O"}
+    - {label: "Objective lens",                  path: "smfs:hardware.objective_lens",         cells: "O  O  O   O  O    O    O"}
+    - {label: "Trap laser wavelength",           path: "smfs:hardware.optical.laser_wavelength", cells: "R  R  R   -  -    -    -"}
+    - {label: "Trap stiffness ± uncertainty",    path: "smfs:hardware.optical.trap_stiffness",  cells: "R  R  R   -  -    -    -"}
+    - {label: "Magnet configuration",            path: "smfs:hardware.magnetic",                cells: "-  -  -   R  -    -    -"}
+    - {label: "Calibration technique",           path: "smfs:hardware.calibration_technique",   cells: "R  R  R   R  -    -    -"}
+    - {label: "Acquisition rate",                path: "smfs:hardware.acquisition_rate",        cells: "R  R  R   R  R    R    O"}
+    - {label: "Filter frequency",                path: "smfs:hardware.filter_frequency",        cells: "R  R  R   O  -    -    -"}
+    - {label: "Temperature",                     path: "motor:chemistry.temperature_C|smfs:hardware.temperature", cells: "R  R  R   R  R    R    R"}
+  assay:
+    - {label: "Bead or probe size",              path: "smfs:assay.bead_size",                  cells: "R  R  R   R  -    -    -"}
+    - {label: "Motor attachment",                path: "motor:probe_link.attachment",           cells: "R  R  R   R  O    -    R"}
+    - {label: "Motors per probe",                path: "motor:probe_link.motors_per_probe",     cells: "R  R  O   O  O    O    -"}
+    - {label: "Single-motor verification",       path: "motor:probe_link.single_motor_verification", cells: "R  R  O   O  O    O    -"}
+    - {label: "Load geometry",                   path: "motor:load.geometry",                   cells: "R  R  R   R  O    -    -"}
+    - {label: "Load direction",                  path: "motor:load.direction",                  cells: "R  R  R   R  O    -    -"}
+    - {label: "Vertical force component considered", path: "motor:load.vertical_component_considered", cells: "R  O  -   -  -    -    -"}
+    - {label: "Feedback (clamp) mode",           path: "motor:feedback.mode",                   cells: "R  R  R   O  -    -    -"}
+    - {label: "Molecules analysed",              path: "motor:reporting.n_molecules",           cells: "R  R  R   R  R    R    O"}
+    - {label: "Runs analysed",                   path: "motor:reporting.n_runs",                cells: "R  O  R   O  O    R    -"}
+    - {label: "Steps analysed",                  path: "motor:reporting.n_steps",               cells: "R  R  R   O  -    O    -"}
+    - {label: "Step-detection method",           path: "motor:reporting.step_detection",        cells: "R  R  R   O  -    O    -"}
+    - {label: "Fit models",                      path: "motor:reporting.fit_models",            cells: "O  O  O   O  O    O    O"}
+  construct:
+    - {label: "Motor family",                    path: "motor:family",                          cells: "R  R  R   R  R    R    R"}
+    - {label: "Isoform / construct name",        path: "motor:isoform",                         cells: "R  R  R   R  R    R    R"}
+    - {label: "UniProt accession",               path: "motor:uniprot",                         cells: "R  R  R   R  R    R    R"}
+    - {label: "Truncation, tags, mutations",     path: "motor:construct",                       cells: "R  R  R   R  R    R    R"}
+    - {label: "Oligomeric state",                path: "motor:oligomeric_state",                cells: "O  O  O   O  O    O    O"}
+    - {label: "Adaptors / activators",           path: "motor:adaptors",                        cells: "O  O  O   O  O    O    O"}
+    - {label: "Track type",                      path: "motor:track.track_type",                cells: "R  R  R   R  R    R    R"}
+    - {label: "Track source",                    path: "motor:track.track_source",              cells: "R  R  R   R  R    R    R"}
+    - {label: "Track polarity known",            path: "motor:track.polarity_marked",           cells: "R  O  O   O  O    O    O"}
+    - {label: "Lattice or sequence",             path: "motor:track.lattice_or_sequence",       cells: "O  O  R   R  R    O    O"}
+    - {label: "Track decorations",               path: "motor:track.decorations",               cells: "O  O  O   O  O    O    O"}
+  solution:
+    - {label: "Buffer components",               path: "smfs:solution.components",              cells: "R  R  R   R  R    R    R"}
+    - {label: "Nucleotide and concentration",    path: "motor:chemistry.nucleotide",            cells: "R  R  R   R  R    R    R"}
+    - {label: "[ADP], [Pi]",                     path: "motor:chemistry.adp_uM",                cells: "O  O  O   O  O    O    O"}
+    - {label: "Nucleotide analogues",            path: "motor:chemistry.analogues",             cells: "O  O  O   O  O    O    O"}
+    - {label: "[Mg2+]",                          path: "motor:chemistry.mg_mM",                 cells: "R  R  R   R  R    R    R"}
+    - {label: "Ionic strength",                  path: "motor:chemistry.ionic_strength_mM",     cells: "R  R  R   R  R    R    R"}
+    - {label: "Oxygen scavenging",               path: "smfs:solution.oxygen_scavenging",       cells: "O  O  O   O  O    R    O"}
+    - {label: "Crowders",                        path: "motor:chemistry.crowders",              cells: "O  O  O   O  O    O    O"}
+    - {label: "Inhibitors",                      path: "motor:chemistry.inhibitors",            cells: "O  O  O   O  O    O    O"}
+
+# Observables an experiment type usually reports (E). Informational: shown in the rendered table, not scored.
+#                 sb 3b dna mt flow fluo glide
+observables:
+  - {quantity: step_size,               cells: "E  E  E   E  -    E    -"}
+  - {quantity: stall_force,             cells: "E  E  E   E  -    -    -"}
+  - {quantity: force_velocity_curve,    cells: "E  -  E   E  -    -    -"}
+  - {quantity: velocity,                cells: "E  -  E   E  E    E    E"}
+  - {quantity: processivity_run_length, cells: "E  -  E   E  E    E    -"}
+  - {quantity: dwell_time,              cells: "E  E  E   E  -    E    -"}
+  - {quantity: detachment_force,        cells: "E  E  -   -  -    -    -"}
+  - {quantity: randomness_parameter,    cells: "E  -  E   -  -    E    -"}

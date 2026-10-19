@@ -56,6 +56,19 @@
       ],
       "description": "gliding_or_ensemble: gliding or other ensemble motility assay without a single-molecule readout."
     },
+    "experiment_type": {
+      "enum": [
+        "optical_trap_single_bead",
+        "optical_trap_three_bead",
+        "optical_trap_dna_tether",
+        "magnetic_tweezers",
+        "flow_stretching",
+        "sm_fluorescence",
+        "gliding_ensemble",
+        "other"
+      ],
+      "description": "Experiment type: the column of the motor Table 3 (hub/motors/table3_motor.yaml) that decides which fields apply. Left out until it is known."
+    },
     "family": {
       "enum": [
         "kinesin",
@@ -135,6 +148,57 @@
     },
     "classification": {
       "$ref": "#/$defs/Classification"
+    },
+    "fair_completeness": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hardware": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "assay": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "construct": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "solution": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "overall": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "basis": {
+          "type": "string",
+          "description": "experiment_type whose R fields were scored, or 'core' (fields required for every type)."
+        }
+      },
+      "description": "Fraction of the motor Table 3 fields marked R for this record's experiment type that are filled, per section (hub/motors/table3.py). Measures what is reported and recoverable, not experimental quality."
     },
     "data_availability": {
       "$ref": "../smash-smfs-record.schema.json#/$defs/DataAvailability"

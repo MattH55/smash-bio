@@ -46,6 +46,15 @@ def stats(motor: list[dict], smfs_level: dict) -> dict:
         "n_ambiguous_family": sum(len(r["classification"]["family_hits"]) > 1 for r in motor),
     }
     out["pct_abstract_only"] = pct(out["n_abstract_only"], len(motor))
+    out["experiment_type"] = dict(Counter(r.get("experiment_type", "(not yet known)") for r in motor).most_common())
+    by_basis = defaultdict(list)
+    for r in motor:
+        by_basis[r["fair_completeness"]["basis"]].append(r["fair_completeness"])
+    def mean(vals: list) -> float | None:  # None when no field of that section is required for this basis
+        vals = [v for v in vals if v is not None]
+        return round(sum(vals) / len(vals), 3) if vals else None
+    out["completeness_by_basis"] = {b: {"n": len(L), **{s: mean([x[s] for x in L]) for s in ("hardware", "assay", "construct", "solution", "overall")}}
+                                    for b, L in sorted(by_basis.items())}
     fam = {}
     for f, n in Counter(r["family"] for r in motor).most_common():
         rs = [r for r in motor if r["family"] == f]

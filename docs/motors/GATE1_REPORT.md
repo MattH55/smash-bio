@@ -91,7 +91,23 @@ binding and structure studies, not only motility; the gold set's `is_processive_
 2. **Duplicates.** 43 MOTOR records repeat another's title (preprint and journal version), inherited from SMASH-BIO.
    Merge them in SMASH-MOTOR, or fix them at the source in SMASH-BIO?
 
-## 8. Carried over from the first report
+## 8. Addendum: Table 3 for motor experiments (your request after this report)
+
+The Table 3 framework of the FAIR optical-tweezers paper (four sections; one column per experiment type; each field
+marked as applying or not) is now applied to motor experiments: `docs/motors/TABLE3_MOTOR.md`, 43 fields x 7
+experiment types (OT single bead, OT three-bead, OT nucleic-acid tether, magnetic tweezers, flow stretching / curtains,
+single-molecule fluorescence, gliding / ensemble), every field an existing schema path. It drives:
+- a new optional `experiment_type` on MOTOR records: 128 set where unambiguous (magnetic tweezers 95, flow stretching
+  20, three-bead 13); 665 (mostly optical traps) wait for Phase 2, because the SMASH-BIO geometry cannot tell a
+  single-bead motility assay from a nucleic-acid tether;
+- `fair_completeness` per record over the R fields of its type. Mean overall 0.13 at this stage (only the family is
+  filled; motor fields come with Phase 2).
+
+**Question 3:** please review the R / O / - cells in `TABLE3_MOTOR.md` (they are scientific judgements; edit
+`hub/motors/table3_motor.yaml`). Should the same framework also replace the SMASH-BIO experiment-class columns for
+other experiment families (e.g. DNA-protein, unfolding), or stay motor-only for now?
+
+## 9. Carried over from the first report
 
 - 14 `ai_assisted` SMASH-BIO records fail the published v3.1.0 schema (values outside the vocabulary).
 - `website/js/submit.js` writes `schema_version: '3.0.0'`, which the schema rejects.

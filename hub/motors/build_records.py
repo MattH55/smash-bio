@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from motors.classify import GAZ_PATH, classify  # noqa: E402
 from motors.schema import validate  # noqa: E402
 from motors.spec import VERSION  # noqa: E402
+from motors.table3 import completeness  # noqa: E402
 
 HUB = Path(__file__).resolve().parents[1]
 ROOT = HUB.parent
@@ -40,6 +41,22 @@ def read_jsonl_gz(path: Path) -> list[dict]:
 
 def gazetteer_tag() -> str:
     return f"{GAZ_PATH.name}@sha256:{hashlib.sha256(GAZ_PATH.read_bytes()).hexdigest()[:12]}"
+
+
+def experiment_type(call, tech: dict) -> tuple[str | None, str | None]:
+    """Experiment type only where it is unambiguous from the classifier or the SMASH-BIO technique; else (None, None).
+    Optical-trap records are not split into single-bead / three-bead / nucleic-acid tether here: the SMASH-BIO geometry
+    is too coarse for that (Phase 2 extracts it from Methods)."""
+    if call.assay_type == "gliding_or_ensemble":
+        return "gliding_ensemble", "classifier: gliding / motility assay without a single-molecule readout"
+    primary, geom = tech.get("primary"), tech.get("force_application_geometry")
+    if primary == "magnetic_tweezers":
+        return "magnetic_tweezers", "technique.primary = magnetic_tweezers"
+    if primary == "hydrodynamic_stretching":
+        return "flow_stretching", f"technique.primary = hydrodynamic_stretching ({geom})"
+    if primary == "optical_tweezers" and geom == "three_bead_assay":
+        return "optical_trap_three_bead", "technique.force_application_geometry = three_bead_assay"
+    return None, None
 
 
 def build(smfs: list[dict], id_map: dict) -> tuple[list[dict], Counter]:
@@ -57,7 +74,8 @@ def build(smfs: list[dict], id_map: dict) -> tuple[list[dict], Counter]:
         if mid is None:
             mid = id_map[r["record_id"]] = f"MOTOR-{max([int(v[6:]) for v in id_map.values()] + [0]) + 1:06d}"
         tech = r["technique"]
-        out.append({
+        et, why = experiment_type(c, tech)
+        rec = {
             "record_id": mid, "schema_version": VERSION, "category": "processive_motor", "smfs_record_id": r["record_id"],
             "publication": {k: r["publication"][k] for k in PUB_KEYS if r["publication"].get(k) not in (None, "", [])},
             "technique": {"primary": tech["primary"], "force_application_geometry": tech.get("force_application_geometry", "other")},
@@ -66,7 +84,13 @@ def build(smfs: list[dict], id_map: dict) -> tuple[list[dict], Counter]:
             "classification": {"route": c.route, "certainty": c.certainty, "family_hits": c.scores, "gazetteer": tag},
             "data_availability": r["data_availability"],
             "curation": {"level": "auto", "last_updated": today},
-        })
+        }
+        if et:
+            rec["experiment_type"] = et
+            rec["evidence"]["experiment_type"] = {"field": "experiment_type", "method": "inferred", "section": "smash-bio record",
+                                                  "snippet": why, "confidence": "medium"}
+        rec["fair_completeness"] = completeness(rec, r)
+        out.append(rec)
     return out, reasons
 
 
@@ -86,7 +110,9 @@ def main() -> int:
     print(json.dumps({"smfs_records_read": len(smfs), "smfs_sha256": hashlib.sha256(a.smfs.read_bytes()).hexdigest(),
                       "motor_records": len(recs), "valid": len(good), "invalid": len(bad), "invalid_examples": bad[:5],
                       "families": dict(Counter(r["family"] for r in recs).most_common()),
-                      "assay_type": dict(Counter(r["assay_type"] for r in recs)), "classifier_reasons": dict(reasons.most_common()),
+                      "assay_type": dict(Counter(r["assay_type"] for r in recs)),
+                      "experiment_type": dict(Counter(r.get("experiment_type", "(not yet known)") for r in recs).most_common()),
+                      "classifier_reasons": dict(reasons.most_common()),
                       "out": str(a.out_dir / "smash-motor-records.jsonl.gz")}, indent=1))
     return 1 if bad else 0
 
