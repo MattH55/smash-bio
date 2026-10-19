@@ -68,14 +68,23 @@ def index_row(r, shard):
         "repo": da.get("repositories") or [], "nds": len([d for d in da.get("datasets", []) if not d.get("journal_mirror")]),
         "fair": r["fair_completeness"]["overall"], "kind": r["scope"]["article_kind"], "tier": r["scope"]["tier"],
         "nres": len(r.get("results") or []), "obs": sorted({x["quantity"] for x in r.get("results") or []}),
+        "t3": (r.get("classification") or {}).get("table3_type"),
+        "module": next((m["module_id"] for m in (r.get("classification") or {}).get("modules") or [] if m.get("role") == "primary"), None),
+        "smod": [m["module_id"] for m in (r.get("classification") or {}).get("modules") or [] if m.get("role") == "secondary"],
+        "sub": [s for m in (r.get("classification") or {}).get("modules") or [] if m.get("role") == "primary" for s in m.get("submodules") or []],
+        "assay": (r.get("classification") or {}).get("assay_type"),
+        "bead": (r.get("classification") or {}).get("bead_geometry"),
+        "mmode": (r.get("classification") or {}).get("measurement_modes") or [],
+        "proc": (r.get("classification") or {}).get("processivity"),
+        "fluo": [x for x in ((r.get("classification") or {}).get("correlative_fluorescence") or {}).get("modalities") or []],
         "cur": r["curation"]["level"], "oa": p.get("open_access"), "cit": p.get("cited_by") or 0,
         "kw": " ".join(filter(None, [" ".join(filter(None, p.get("keywords") or []))[:120],
                                      " ".join(a.split(" ")[0] for a in (p.get("authors") or [])[:8] if a)])).lower(),
     }
 
 
-CAT = ["tech", "geo", "st", "kind", "cur", "tier", "vend", "j"]            # dictionary-encoded scalars
-CATL = ["tech2", "mod", "cls", "et", "org", "repo", "obs", "ent", "tm", "uni"]  # dictionary-encoded lists
+CAT = ["tech", "geo", "st", "kind", "cur", "tier", "vend", "j", "t3", "module", "assay", "bead", "proc"]
+CATL = ["tech2", "mod", "cls", "et", "org", "repo", "obs", "ent", "tm", "uni", "smod", "sub", "mmode", "fluo"]
 BOOL = ["ds", "anydata", "code", "raw", "oa"]
 PLAIN = ["t", "a", "y", "doi", "pm", "sh", "fair", "nres", "nds", "cit", "kw"]
 
@@ -101,6 +110,7 @@ SITE_URL = "https://smash-bio.org/"
 MAIN_PAGES = [("", "1.0", "weekly"), ("explore.html", "0.9", "weekly"), ("datasets.html", "0.8", "weekly"),
               ("stats.html", "0.7", "monthly"), ("schema.html", "0.8", "monthly"), ("submit.html", "0.5", "monthly"),
               ("about.html", "0.5", "monthly"), ("sitemap.html", "0.3", "monthly"),
+              ("modules.html", "0.8", "weekly"), ("systems.html", "0.8", "weekly"),
               ("pull/index.html", "0.6", "monthly"), ("pull/benchmarks.html", "0.4", "monthly"),
               ("pull/about.html", "0.4", "monthly")]
 
@@ -296,8 +306,22 @@ def build_stats(recs, dsets):
     return st
 
 
+def _ensure_classification(recs):
+    """Stamp schema 3.2.0 when a rebuild starts from records that predate modules."""
+    if recs and recs[0].get("classification") and recs[0].get("schema_version") == "3.2.0":
+        return recs
+    import sys
+    root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(root / "taxonomy"))
+    sys.path.insert(0, str(root / "hub"))
+    from classify_modules import apply_classification
+    from load import load_taxonomy
+    taxonomy = load_taxonomy()
+    return [apply_classification(record, taxonomy) for record in recs]
+
+
 def main():
-    recs = [prune(r) for r in load_jsonl(OUT / "records.jsonl")]
+    recs = _ensure_classification([prune(r) for r in load_jsonl(OUT / "records.jsonl")])
     for r in recs:
         for x in r.get("results") or []:
             if (x.get("source") or {}).get("location") == "results":
@@ -316,7 +340,7 @@ def main():
             index.append(index_row(r, n))
         (DATA / "records" / f"r-{n:03d}.js").write_text(
             f"SMASH.registerShard({n}," + json.dumps(chunk, ensure_ascii=False, separators=(",", ":")) + ");\n", encoding="utf-8")
-    meta = {"built": datetime.date.today().isoformat(), "n": len(recs), "schema_version": "3.1.0"}
+    meta = {"built": datetime.date.today().isoformat(), "n": len(recs), "schema_version": "3.2.0"}
     (DATA / "index.js").write_text("SMASH.meta=" + json.dumps(meta) + ";\nSMASH.index=SMASH.unpackIndex(" +
                                    json.dumps(pack_index(index), ensure_ascii=False, separators=(",", ":")) + ");\n", encoding="utf-8")
     rid_title = {r["record_id"]: r["publication"].get("title") for r in recs}
@@ -366,13 +390,16 @@ def main():
         w = csv.writer(f)
         w.writerow(["record_id", "doi", "pmid", "year", "title", "first_author", "journal", "technique", "secondary_techniques", "geometry",
                     "experiment_classes", "entities", "uniprot", "organisms", "instrument", "data_status", "has_linked_dataset", "has_any_data",
-                    "has_code", "raw_traces", "repositories", "dataset_ids", "n_results", "fair_overall", "article_kind", "curation"])
+                    "has_code", "raw_traces", "repositories", "dataset_ids", "n_results", "fair_overall", "article_kind", "curation",
+                    "table3_type", "primary_module", "secondary_modules", "submodules", "assay_type", "bead_geometry", "measurement_modes", "processivity"])
         for r, row in zip(recs, index):
             w.writerow([row["id"], row["doi"], row["pm"], row["y"], row["t"], row["a"], row["j"], row["tech"], J(row["tech2"]), row["geo"],
                         J(row["cls"]), J(row["ent"]), J(row["uni"]), J(row["org"]), row["vend"] or "", row["st"],
                         row["ds"], row["anydata"], row["code"], row["raw"], J(row["repo"]),
                         J(d.get("id") for d in r["data_availability"]["datasets"] + r["data_availability"]["code"]),
-                        row["nres"], row["fair"], row["kind"], row["cur"]])
+                        row["nres"], row["fair"], row["kind"], row["cur"],
+                        row.get("t3") or "", row.get("module") or "", J(row.get("smod")), J(row.get("sub")),
+                        row.get("assay") or "", row.get("bead") or "", J(row.get("mmode")), row.get("proc") or ""])
     with open(dl / "smash-smfs-datasets.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["family_id", "canonical_doi_or_url", "version_dois", "title", "repository", "year", "resource_type", "relevance",

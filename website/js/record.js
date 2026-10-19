@@ -109,7 +109,7 @@
 
   const res = r.results || [];
   const resBody = res.length ? `<div class="data-table-wrap"><table class="data-table results-table"><thead><tr><th>Observable</th><th>Value</th><th>Source sentence</th></tr></thead><tbody>${res.map(x => `<tr>
-      <td>${E(S.OBS[x.quantity] || x.quantity)}</td>
+      <td>${E(S.OBS[x.quantity] || x.quantity)}${x.measurement_mode ? `<div class="muted small">${E(String(x.measurement_mode).replace(/_/g, ' '))}</div>` : ''}</td>
       <td class="num" style="white-space:nowrap">${x.value != null ? S.fmt(x.value) : `${S.fmt(x.min)}–${S.fmt(x.max)}`}${x.uncertainty != null ? ' ± ' + S.fmt(x.uncertainty) : ''} ${E(x.unit)}</td>
       <td class="muted small">${E((x.source || {}).snippet || '')}</td></tr>`).join('')}</tbody></table></div>
       <p class="notice" style="margin-top:10px"><i class="fas fa-circle-info"></i>Auto-extracted from the abstract (results schema <code>source.extraction = auto_regex</code>); verify against the paper before reuse.</p>` : '<p class="muted">No numerical results were extracted from the abstract.</p>';
@@ -131,19 +131,42 @@
   const anBody = kv('Analysis software', list(an.analysis_software)) + kv('Analysis models', list(an.analysis_models)) + kv('Disease relevance (text-mined)', list(an.disease_relevance)) +
     kv('Keywords', list((an.keywords || []).slice(0, 12))) + kv('MeSH', list((p.mesh_terms || []).slice(0, 14))) + kv('Funding', list(an.funding));
 
+  const cls = r.classification;
+  const classBody = (() => {
+    if (!cls) return '<p class="muted">This record has no module classification.</p>';
+    const prov = r.provenance || [];
+    const mods = (cls.modules || []).map(m => {
+      const ev = m.evidence_ref != null && prov[m.evidence_ref] ? (prov[m.evidence_ref].snippet || '') : '';
+      const meta = (S.moduleMeta || {})[m.module_id] || {};
+      const label = meta.label || String(m.module_id || '').replace(/_/g, ' ');
+      const subs = (m.submodules || []).map(s => String(s).replace(/_/g, ' ')).join(', ');
+      return `<a class="badge" href="modules/${E(m.module_id)}.html" title="${E(ev)}">${E(label)} · ${E(m.role)}${subs ? ' · ' + E(subs) : ''}</a>`;
+    }).join(' ');
+    const fluo = ((cls.correlative_fluorescence || {}).modalities || []).join(', ');
+    return kv('Table 3 type', cls.table3_type ? String(cls.table3_type).replace(/_/g, ' ') : null)
+      + `<div class="kv"><div class="k">Modules</div><div class="v">${mods || 'not reported'}</div></div>`
+      + kv('Assay', cls.assay_type ? String(cls.assay_type).replace(/_/g, ' ') : null)
+      + kv('Bead geometry', cls.bead_geometry ? String(cls.bead_geometry).replace(/_/g, ' ') : null)
+      + kv('Measurement modes', (cls.measurement_modes || []).length ? (cls.measurement_modes || []).map(m => `<span class="badge">${E(String(m).replace(/_/g, ' '))}</span>`).join(' ') : null)
+      + kv('Processivity', cls.processivity ? String(cls.processivity).replace(/_/g, ' ') : null)
+      + kv('Fluorescence', fluo || null)
+      + `<p class="muted small">Hover a module for the evidence snippet. Taxonomy ${E(cls.taxonomy_version || '')}.</p>`;
+  })();
+
   // ---------------------------------------------------------- aside
   const fc = r.fair_completeness || {};
   const cbar = (k, l) => `<div class="cbar"><span>${l}</span><span class="track"><span style="width:${Math.round((fc[k] || 0) * 100)}%"></span></span><span class="pct">${Math.round((fc[k] || 0) * 100)}%</span></div>`;
   const aside = `<div class="card"><div class="muted small">Table 3 completeness</div><div class="hero-score">${Math.round((fc.overall || 0) * 100)}%</div>
       <div class="completeness" style="margin-top:14px">${cbar('hardware', 'Hardware')}${cbar('assay', 'Assay')}${cbar('construct', 'Construct')}${cbar('solution', 'Solution')}${cbar('data', 'Data')}</div>
       <p class="muted small" style="margin:12px 0 0">Share of schema fields populated. ${r.curation.level === 'auto_abstract' ? 'Only the abstract was available, so hardware fields are mostly empty.' : ''}</p></div>
-    <div class="card toc-card"><div class="toc"><a href="#overview">Overview</a><a href="#bio">Biological system</a><a href="#hardware">Hardware</a><a href="#assay">Assay</a><a href="#solution">Solution</a><a href="#results">Results</a><a href="#data">Data availability</a><a href="#annotations">Annotations</a><a href="#json">Record JSON</a></div></div>
+    <div class="card toc-card"><div class="toc"><a href="#overview">Overview</a><a href="#class">Classification</a><a href="#bio">Biological system</a><a href="#hardware">Hardware</a><a href="#assay">Assay</a><a href="#solution">Solution</a><a href="#results">Results</a><a href="#data">Data availability</a><a href="#annotations">Annotations</a><a href="#json">Record JSON</a></div></div>
     <div class="card" style="display:flex;flex-direction:column;gap:8px">
       <button class="btn btn-secondary btn-sm" id="dl-json"><i class="fas fa-download"></i> Download record JSON</button>
       <a class="btn btn-ghost btn-sm" href="submit.html?from=${E(r.record_id)}"><i class="fas fa-pen"></i> Suggest a correction</a></div>`;
 
   root.innerHTML = `${header}<div class="record-layout" style="margin-top:22px"><div class="record-main">
     ${panel('overview', 'fa-file-lines', 'Overview', abs)}
+    ${panel('class', 'fa-layer-group', 'Classification', classBody, 'schema 3.2.0')}
     ${panel('bio', 'fa-dna', 'Biological system', bioBody, 'Table 3 · construct parameters')}
     ${panel('hardware', 'fa-microscope', 'Hardware conditions', hwBody, 'Table 3 · hardware')}
     ${panel('assay', 'fa-flask', 'Assay conditions', asBody, 'Table 3 · assay')}

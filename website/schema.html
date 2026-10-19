@@ -23,7 +23,7 @@
   <nav id="site-nav"></nav>
   <header class="page-header">
     <div class="container">
-      <h1>The SMASH-BIO schema <span class="badge badge-accent" style="vertical-align:middle">v3.1.0</span></h1>
+      <h1>The SMASH-BIO schema <span class="badge badge-accent" style="vertical-align:middle">v3.2.0</span></h1>
       <p>A single metadata standard for every technique that applies force between two ends of a biological system — built on Table&nbsp;3 of <em>FAIR data for optical tweezers experiments</em> (Halma, van Eck, Abeln et&nbsp;al., Biophys&nbsp;J 124:1255–1272, 2025).</p>
     </div>
   </header>
@@ -35,7 +35,7 @@
       <div class="grp">Results & data</div>
       <a href="#results">Results schema</a><a href="#observables">Observable vocabulary</a><a href="#traces">Raw trace format</a><a href="#availability">Data availability</a>
       <div class="grp">Provenance</div>
-      <a href="#provenance">Evidence & curation</a><a href="#completeness">Completeness score</a><a href="#pipeline">How records are built</a><a href="#downloads">Downloads</a><a href="#sim-downloads">Simulation downloads</a>
+      <a href="#provenance">Evidence & curation</a><a href="#completeness">Completeness score</a><a href="#pipeline">How records are built</a><a href="#modules">Modules and facets</a><a href="#downloads">Downloads</a><a href="#sim-downloads">Simulation downloads</a>
     </nav>
     <article class="prose">
       <h2 id="principles">Design principles</h2>
@@ -101,10 +101,22 @@
         <li><b>Curate.</b> Hand-curated studies override automatic values and are marked <code>curated</code>. Authors can submit verified records.</li>
       </ol>
 
+      <h2 id="modules">Modules and facets</h2>
+      <p>Schema 3.2.0 adds <code>classification</code> on every force-spectroscopy record. It keeps the older experiment-class field populated so existing <code>?cls=</code> links still select the same studies. Exactly one module has <code>role: primary</code>.</p>
+      <ul>
+        <li><code>table3_type</code> — unfolding, dna_protein, force_generation, rheology, or extended.</li>
+        <li><code>modules[]</code> — <code>module_id</code>, <code>role</code> (primary or secondary), <code>submodules</code>, <code>method</code> (rule, curated, author, or ml) and <code>evidence_ref</code> into <code>provenance</code>.</li>
+        <li><code>assay_type</code>, <code>bead_geometry</code>, <code>measurement_modes</code>, <code>correlative_fluorescence</code> and <code>processivity</code> — how the experiment was done. Processivity is processive, non_processive, unknown, or not_applicable.</li>
+        <li><code>taxonomy_version</code> — <code>1.0.0</code> for this release. The vocabulary files are published beside the schemas.</li>
+      </ul>
+      <p>Motor entities may also carry <code>processive</code> and <code>motor_track</code>. The thirteen module pages are at <a href="modules.html">Modules</a>.</p>
+
       <h2 id="downloads">Downloads</h2>
       <div class="card-grid">
-        <a class="card tech-card" href="downloads/smash-smfs-records.jsonl.gz" download><h3><i class="fas fa-file-zipper"></i> All records (JSONL.gz)</h3><p>Every record, schema v3, one JSON object per line.</p></a>
-        <a class="card tech-card" href="downloads/smash-smfs-summary.csv" download><h3><i class="fas fa-file-csv"></i> Summary table (CSV)</h3><p>One row per study: technique, system, identifiers, data status.</p></a>
+        <a class="card tech-card" href="downloads/smash-smfs-records.jsonl.gz" download><h3><i class="fas fa-file-zipper"></i> All records (JSONL.gz)</h3><p>Every record, schema v3.2.0, one JSON object per line.</p></a>
+        <a class="card tech-card" href="downloads/smash-smfs-summary.csv" download><h3><i class="fas fa-file-csv"></i> Summary table (CSV)</h3><p>One row per study, including the primary module, facets and processivity.</p></a>
+        <a class="card tech-card" href="downloads/smash-smfs-modules.csv" download><h3><i class="fas fa-file-csv"></i> Modules by year (CSV)</h3><p>Record counts and the share with a linked dataset, per module and year.</p></a>
+        <a class="card tech-card" href="schema/taxonomy/VERSION" download><h3><i class="fas fa-folder-tree"></i> Taxonomy 1.0.0</h3><p>Modules, facets, rules and the motor gazetteer, published next to the schemas.</p></a>
         <a class="card tech-card" href="downloads/smash-smfs-datasets.csv" download><h3><i class="fas fa-box-archive"></i> Deposits (CSV)</h3><p>All repository deposits with linked studies and formats.</p></a>
         <a class="card tech-card" href="schema/smash-smfs-record.schema.json" download><h3><i class="fas fa-code"></i> Record JSON Schema</h3><p>Draft 2020-12, for validation.</p></a>
         <a class="card tech-card" href="schema/smash-smfs-results.schema.json" download><h3><i class="fas fa-code"></i> Results &amp; trace schema</h3><p>Result, Observable, TraceSet definitions.</p></a>

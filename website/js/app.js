@@ -176,7 +176,7 @@ window.SMASH = window.SMASH || {};
   // header and footer work one directory down. Simulations stay a beta section:
   // the main nav item points at /sim/, and the experimental links keep their names.
   const NAV = [
-    ['index.html', 'Home'], ['explore.html', 'Explore'], ['systems.html', 'Systems'],
+    ['index.html', 'Home'], ['explore.html', 'Explore'], ['modules.html', 'Modules'], ['systems.html', 'Systems'],
     ['datasets.html', 'Datasets'], ['viewer.html', 'Data viewer'], ['stats.html', 'Insights'], ['sim/index.html', 'Simulations <span class="nav-beta">beta</span>'],
     ['pull/index.html', 'Pull <span class="nav-beta">beta</span>'],
     ['schema.html', 'Schema'], ['submit.html', 'Submit'], ['about.html', 'About']
@@ -187,16 +187,18 @@ window.SMASH = window.SMASH || {};
   ];
   const LOGO_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="3" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="3" fill="currentColor" stroke="none"/><path d="M8 12c1.2-3 2.3-3 3.5 0s2.3 3 3.5 0"/></svg>';
   S.inSimSection = () => /\/sim\//i.test(String(location.pathname || '').replace(/\\/g, '/'));
+  S.inModulesSection = () => /\/modules\//i.test(String(location.pathname || '').replace(/\\/g, '/'));
   S.renderChrome = () => {
     const path = String(location.pathname || '').replace(/\\/g, '/');
     const inSim = /\/sim\//i.test(path);
+    const inModules = /\/modules\//i.test(path);
     const file = (path.split('/').pop() || 'index.html').toLowerCase() || 'index.html';
-    const prefix = inSim ? '../' : '';
+    const prefix = (inSim || inModules) ? '../' : '';
     const nav = document.getElementById('site-nav');
     if (nav) {
       nav.className = 'navbar';
       const items = NAV.map(([href, label]) => {
-        const active = inSim ? href === 'sim/index.html' : file === href;
+        const active = inSim ? href === 'sim/index.html' : inModules ? href === 'modules.html' : file === href;
         return `<li><a href="${prefix}${href}"${active ? ' class="active" aria-current="page"' : ''}>${label}</a></li>`;
       }).join('');
       const searchHref = inSim ? 'explore.html' : `${prefix}explore.html`;
@@ -237,7 +239,7 @@ window.SMASH = window.SMASH || {};
       foot.innerHTML = `<div class="container"><div class="footer-grid">
         <div><a href="${prefix}index.html" class="logo"><span class="logo-mark">${LOGO_SVG}</span><span>SMASH<span class="logo-accent">-BIO</span></span></a>
           <p>Single Molecule Analysis and Spectroscopy Hub — an open index of force-spectroscopy studies, their biological systems, instruments and data. Pulling simulations are a separate beta section, indexed and counted separately from the experimental records.</p></div>
-        <div><h4>Hub</h4><ul><li><a href="${prefix}explore.html">Explore studies</a></li><li><a href="${prefix}systems.html">Biological systems</a></li><li><a href="${prefix}datasets.html">Datasets</a></li><li><a href="${prefix}stats.html">Insights</a></li></ul></div>
+        <div><h4>Hub</h4><ul><li><a href="${prefix}explore.html">Explore studies</a></li><li><a href="${prefix}modules.html">Experiment modules</a></li><li><a href="${prefix}systems.html">Biological systems</a></li><li><a href="${prefix}datasets.html">Datasets</a></li><li><a href="${prefix}stats.html">Insights</a></li></ul></div>
         <div><h4>Simulations <span class="nav-beta">beta</span></h4><ul><li><a href="${prefix}sim/index.html">Overview</a></li><li><a href="${prefix}sim/explore.html">Explore simulations</a></li><li><a href="${prefix}sim/stats.html">Coverage</a></li><li><a href="${prefix}sim/schema.html">Simulation schema</a></li></ul></div>
         <div><h4>Standard</h4><ul><li><a href="${prefix}schema.html">Force-spectroscopy schema</a></li><li><a href="${prefix}schema.html#downloads">Experimental downloads</a></li><li><a href="${prefix}sim/schema.html#downloads">Simulation downloads</a></li><li><a href="${prefix}sitemap.html">Sitemap</a></li></ul></div>
         <div><h4>Project</h4><ul><li><a href="${prefix}about.html">About &amp; methods</a></li><li><a href="${prefix}about.html#cite">How to cite</a></li><li><a href="${inSim ? 'submit.html' : prefix + 'submit.html'}">Submit a record</a></li><li><a href="mailto:mhalma@opensourcemed.info">Contact</a></li></ul></div>

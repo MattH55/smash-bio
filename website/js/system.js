@@ -74,9 +74,20 @@
     <aside class="record-aside">
       <div class="card"><h3 style="margin-bottom:12px">Links out</h3>${linkHtml || '<p class="muted small">No external identifiers.</p>'}</div>
       ${facts.length ? `<div class="card">${facts.map(([k, v]) => `<div class="kv" style="grid-template-columns:1fr"><div class="k" style="padding-bottom:2px">${E(k)}</div><div class="v" style="padding-top:0">${v}</div></div>`).join('')}</div>` : ''}
+      <div class="card"><h3 style="margin-bottom:10px">Modules</h3><div id="mod-list" class="chip-row"></div></div>
       <div class="card"><h3 style="margin-bottom:10px">Techniques</h3><div id="tech-bars"></div></div>
     </aside></div>`;
 
+  const modCounts = {};
+  (s.studies || []).forEach(x => {
+    const id = (S.moduleOf || {})[x.id];
+    if (id) modCounts[id] = (modCounts[id] || 0) + 1;
+  });
+  const modHost = document.getElementById('mod-list');
+  modHost.innerHTML = Object.entries(modCounts).sort((a, b) => b[1] - a[1]).map(([id, n]) => {
+    const label = (S.moduleMeta && S.moduleMeta[id] && S.moduleMeta[id].label) || id.replace(/_/g, ' ');
+    return `<a class="badge" href="modules/${E(id)}.html">${E(label)} <span class="muted">${n}</span></a>`;
+  }).join('') || '<span class="muted small">Module index not loaded.</span>';
   S.hbars(document.getElementById('tech-bars'), techRows, { link: k => `explore.html?ent=${encodeURIComponent(s.name)}&tech=${k}` });
   const yrs = Object.keys(s.by_year || {});
   if (yrs.length) {

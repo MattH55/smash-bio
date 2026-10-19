@@ -38,6 +38,20 @@
   const top = (o, n) => Object.entries(o).slice(0, n);
   S.hbars($('c-entities'), top(st.entity_counts, 15), { link: k => 'explore.html?ent=' + encodeURIComponent(k) });
   S.hbars($('c-classes'), Object.entries(st.class_counts).map(([k, v]) => [k, v, S.cl(k)]), { link: k => 'explore.html?cls=' + k });
+  if (S.index && $('c-modules')) {
+    const counts = {}, linked = {};
+    S.index.forEach(r => {
+      if (!r.module) return;
+      counts[r.module] = (counts[r.module] || 0) + 1;
+      if (r.ds) linked[r.module] = (linked[r.module] || 0) + 1;
+    });
+    const rows = Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, v]) => {
+      const label = (S.moduleMeta && S.moduleMeta[k] && S.moduleMeta[k].label) || k.replace(/_/g, ' ');
+      const share = v ? Math.round(100 * (linked[k] || 0) / v) : 0;
+      return [k, v, `${label} · ${share}% with data`];
+    });
+    S.hbars($('c-modules'), rows, { link: k => 'explore.html?module=' + k });
+  }
   S.hbars($('c-orgs'), top(st.organism_counts, 12), { link: k => 'explore.html?org=' + encodeURIComponent(k) });
   S.hbars($('c-vendors'), top(st.vendor_counts, 12).map(([k, v]) => [k, v, k === 'custom' ? 'Custom-built' : k]), { link: k => 'explore.html?vend=' + encodeURIComponent(k) });
   S.hbars($('c-repos'), top(st.repo_counts, 12), { link: k => 'explore.html?repo=' + encodeURIComponent(k) });

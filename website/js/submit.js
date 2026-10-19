@@ -11,6 +11,21 @@
     $(id).innerHTML = vals.map(v => `<button type="button" class="chip" data-v="${E(v)}">${E(fmt ? fmt(v) : v.replace(/_/g, ' '))}</button>`).join('');
     $(id).onclick = e => { const b = e.target.closest('.chip'); if (b) b.classList.toggle('active'); };
   };
+  const C = R.properties.classification.properties;
+  opts('f-module', C.modules.items.properties.module_id.enum, null, false);
+  const subs = C.modules.items.properties.submodules.items.enum;
+  const fillSubs = () => {
+    const meta = (S.moduleMeta || {})[$('f-module').value] || {};
+    const allowed = (meta.submodules || []).filter(id => subs.includes(id));
+    opts('f-sub', allowed.length ? allowed : subs);
+  };
+  $('f-module').onchange = fillSubs;
+  if (S.qs().get('module') && C.modules.items.properties.module_id.enum.includes(S.qs().get('module'))) $('f-module').value = S.qs().get('module');
+  fillSubs();
+  opts('f-assay', C.assay_type.enum);
+  opts('f-beadgeo', C.bead_geometry.enum);
+  opts('f-proc', C.processivity.enum, null, false);
+  chipSet('f-modes', C.measurement_modes.items.enum);
   chipSet('f-classes', R.$defs.ExperimentClass.enum, S.cl);
   chipSet('f-mods', R.$defs.Technique.properties.correlative_modalities.items.enum);
   const chipsOf = id => [...$(id).querySelectorAll('.chip.active')].map(b => b.dataset.v);
@@ -99,7 +114,17 @@
     }).filter(Boolean);
     const tech = $('f-tech').value, optical = ['optical_tweezers', 'torque_tweezers'].includes(tech);
     const rec = clean({
-      record_id: 'SMFS-000000', schema_version: '3.0.0',
+      record_id: 'SMFS-000000', schema_version: R.properties.schema_version.const,
+      classification: {
+        table3_type: ((S.moduleMeta || {})[$('f-module').value] || {}).table3 || 'extended',
+        modules: [{ module_id: $('f-module').value, role: 'primary', method: 'author', submodules: $('f-sub').value ? [$('f-sub').value] : [] }],
+        assay_type: $('f-assay').value || undefined,
+        bead_geometry: $('f-beadgeo').value || undefined,
+        measurement_modes: chipsOf('f-modes'),
+        processivity: $('f-proc').value,
+        taxonomy_version: '1.0.0',
+        correlative_fluorescence: { present: chipsOf('f-mods').length > 0, modalities: [] }
+      },
       curation: { level: 'author_verified', last_updated: new Date().toISOString().slice(0, 10), curators: [$('f-email').value] },
       publication: { title: $('f-title').value, doi: $('f-doi').value, year: num('f-year'), journal: $('f-journal').value, authors: $('f-authors').value.split(';').map(s => s.trim()).filter(Boolean) },
       technique: { primary: tech, force_application_geometry: $('f-geom').value, correlative_modalities: chipsOf('f-mods') },

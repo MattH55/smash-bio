@@ -5,8 +5,14 @@
   const PER = 25;
 
   // facet definitions: key -> {label, get(row) -> array of values, fmt}
+  const moduleLabel = id => (S.moduleMeta && S.moduleMeta[id] && S.moduleMeta[id].label) || String(id || '').replace(/_/g, ' ');
   const FACETS = [
+    { key: 'module', label: 'Module', get: r => r.module ? [r.module] : [], fmt: moduleLabel, open: true },
+    { key: 'sub', label: 'Sub-module', get: r => r.sub || [], fmt: x => String(x).replace(/_/g, ' '), open: true },
     { key: 'tech', label: 'Technique', get: r => [r.tech, ...r.tech2], fmt: S.tl, open: true },
+    { key: 'assay', label: 'Assay', get: r => r.assay ? [r.assay] : [], fmt: x => String(x).replace(/_/g, ' ') },
+    { key: 'mmode', label: 'Measurement mode', get: r => r.mmode || [], fmt: x => String(x).replace(/_/g, ' ') },
+    { key: 'fluo', label: 'Fluorescence', get: r => r.fluo || [], fmt: x => String(x).replace(/_/g, ' ') },
     { key: 'st', label: 'Data availability', get: r => [r.st], fmt: S.sl, open: true, order: k => (S.STATUS[k] || {}).rank },
     { key: 'cls', label: 'Experiment class (Table 3)', get: r => r.cls, fmt: S.cl, open: true },
     { key: 'ent', label: 'Molecule / system', get: r => r.ent, fmt: x => x, limit: 10 },
@@ -21,6 +27,11 @@
     { key: 'cur', label: 'Curation level', get: r => [r.cur], fmt: x => S.CURATION[x] || x },
   ];
   const TOGGLES = [
+    { key: 'proc_on', label: 'Processive', test: r => r.proc === 'processive', when: () => {
+      const sel = state.sel.module;
+      if (!sel || !sel.size || !S.moduleMeta) return false;
+      return [...sel].some(id => (S.moduleMeta[id] || {}).table3 === 'force_generation');
+    }},
     { key: 'ds', label: 'Has linked public dataset', test: r => r.ds },
     { key: 'raw', label: 'Raw force traces deposited', test: r => r.raw },
     { key: 'code', label: 'Has linked code', test: r => r.code },
@@ -85,8 +96,9 @@
   const facetEl = document.getElementById('facets');
   const expanded = {};
   function renderFacets() {
+    const toggles = TOGGLES.filter(t => !t.when || t.when());
     let html = `<div class="filter-group"><div class="facet-list" style="margin-top:0">` +
-      TOGGLES.map(t => {
+      toggles.map(t => {
         const n = rows.filter(r => passes(r, t.key) && t.test(r)).length;
         return `<label class="facet${n ? '' : ' zero'}"><input type="checkbox" data-tog="${t.key}" ${state.tog[t.key] ? 'checked' : ''}><span class="fname">${t.label}</span><span class="fcount">${S.fmt(n)}</span></label>`;
       }).join('') + `</div></div>`;

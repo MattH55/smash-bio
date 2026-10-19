@@ -46,7 +46,13 @@
       <fieldset><legend>Technique</legend><div class="form-grid">
         <div class="field"><label for="f-tech">Primary technique</label><select id="f-tech"></select></div>
         <div class="field"><label for="f-geom">Force geometry</label><select id="f-geom"></select></div>
-        <div class="field full"><label>Experiment classes</label><div class="chip-row" id="f-classes"></div></div>
+        <div class="field"><label for="f-module">Primary module</label><select id="f-module" required></select></div>
+        <div class="field"><label for="f-sub">Sub-module</label><select id="f-sub"></select></div>
+        <div class="field"><label for="f-assay">Assay</label><select id="f-assay"></select></div>
+        <div class="field"><label for="f-beadgeo">Bead geometry</label><select id="f-beadgeo"></select></div>
+        <div class="field"><label for="f-proc">Processivity</label><select id="f-proc"></select></div>
+        <div class="field full"><label>Measurement modes</label><div class="chip-row" id="f-modes"></div></div>
+        <div class="field full"><label>Experiment classes <span class="muted small">(kept for older links)</span></label><div class="chip-row" id="f-classes"></div></div>
         <div class="field full"><label>Correlative modalities</label><div class="chip-row" id="f-mods"></div></div>
       </div></fieldset>
 
@@ -107,6 +113,7 @@
   </main>
   <footer id="site-footer"></footer>
   <script src="data/schema.js"></script>
+  <script src="data/modules.js"></script>
   <script src="js/submit.js"></script>
 </body>
 </html>
