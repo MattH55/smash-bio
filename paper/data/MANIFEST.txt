@@ -1,0 +1,16 @@
+# Corpus snapshot used for the manuscript numbers
+# Source: local site build in ../website/downloads (hub/s07_build_site.py output; file mtimes 2026-10-11..15),
+#         copied unmodified. These are the files served at https://smash-bio.org/downloads/ for this release;
+#         NOT re-downloaded from the live site (no network check performed).
+# Copied: 2026-10-18
+# hub_logs/*: run logs from ../hub/out (classification and build, 2026-10-09/10), used only for pre-scope funnel counts
+# sha256  size_bytes  path
+f30dbca9c346fd38fb91c0e8bba8ac3cd0a8140fab5ee528454f93b4b04ac0c7  686739  data/sim/smash-sim-matches.csv
+ae469d6926617df4cb2f7cfc63baf26d22bb70de959c094d545d1b7315180d79  40956  data/sim/smash-sim-summary.csv
+ffb262661e3fcb7ff60afef080e040ad59c1bb215e8574f4991f0b5deb11e24d  21859  data/site_stats.js
+fda7556899ba7937857a9d842e9fa3dc417f315a45cef49722c6751d644b5e23  1090429  data/smash-smfs-datasets.csv
+8fa4bc181a295625375b6fd0b5cbd13c20d708703661bf25cea2c5f41ccf727f  7918548  data/smash-smfs-records.jsonl.gz
+5aaf38afd813aa14d0970aefba817f12b7cdd2241db2465fe058c9e2267c18c9  3162378  data/smash-smfs-summary.csv
+0e1db63be20f46e35ecb30ad15f458f41227e5ffe1ccc7ed53fc30f68a341f11  1254  data/hub_logs/build_log.txt
+0c6fc48afa27f5ac6ae4bea27cc1e6eeb389ed883d2178d9791d84cacbdef9c5  482  data/hub_logs/classify_log.txt
+030b050a2bc0b14f1fb861fec9f4a5aa096f51ec2da15b62a21d55c1c19dfb8e  992  data/hub_logs/harvester_m1_metrics.json

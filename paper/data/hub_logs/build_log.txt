@@ -1,0 +1,36 @@
+articles: 7703 curated YAML: 45 submitted JSON: 100
+taxonomy lookups: 0
+uniprot lookups: 637
+  uniprot: 250/637
+  uniprot: 500/637
+  uniprot: 637/637
+  annotate: 0/7703
+  annotate: 500/7703
+  annotate: 1000/7703
+  annotate: 1500/7703
+  annotate: 2000/7703
+  annotate: 2500/7703
+  annotate: 3000/7703
+  annotate: 3500/7703
+  annotate: 4000/7703
+  annotate: 4500/7703
+  annotate: 5000/7703
+  annotate: 5500/7703
+  annotate: 6000/7703
+  annotate: 6500/7703
+  annotate: 7000/7703
+  annotate: 7500/7703
+enriching deposits: 978
+  deposit metadata: 250/978
+  deposit metadata: 500/978
+  deposit metadata: 750/978
+  deposit metadata: 978/978
+removed after review (not SMFS): 9
+records: 7694 | status: {'unknown_no_fulltext': 4837, 'public_repository': 328, 'not_stated': 681, 'source_data_supplement': 83, 'journal_supplement': 1582, 'code_only': 76, 'on_request': 80, 'not_available': 27}
+with linked dataset: 272 | with code: 151 | raw traces: 5
+hub deposits: 3760 unlinked: 822
+mean completeness: 0.194
+  uniprot function: 146/146
+  wikipedia: 237/237
+systems: 242 | sitemap URLs: 7944
+records: 7694 shards: 77 sizes: {'index.js': 2393233, 'datasets.js': 1986776, 'stats.js': 21834, 'smash-smfs-records.jsonl.gz': 7874318}

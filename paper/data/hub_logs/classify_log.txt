@@ -1,0 +1,3 @@
+Counter({'core': 7334, 'out': 5595, 'peripheral': 2569, 'methods': 369})
+core technique counts: [('optical_tweezers', 2854), ('afm_smfs', 2566), ('force_spectroscopy_unspecified', 1256), ('magnetic_tweezers', 815), ('hydrodynamic_stretching', 120), ('tension_sensors', 87), ('nanopore_force', 67), ('biomembrane_force_probe', 53), ('torque_tweezers', 50), ('acoustic_force_spectroscopy', 44), ('micropipette', 35), ('centrifuge_force', 20), ('microneedle', 8)]
+core reviews: 602

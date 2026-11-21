@@ -1,0 +1,717 @@
+{
+ "smfs": {
+  "n_records": 7694,
+  "n_core": 7325,
+  "n_methods": 369,
+  "n_primary_research_methods_preprint": 7065,
+  "year_min": 1986,
+  "year_max": 2026,
+  "n_with_dataset": 272,
+  "n_with_any_data": 2273,
+  "n_with_code": 151,
+  "n_with_raw_traces": 5,
+  "n_not_checked": 4837,
+  "n_fulltext_checked": 2208,
+  "data_status": {
+   "unknown_no_fulltext": 4837,
+   "journal_supplement": 1632,
+   "not_stated": 685,
+   "public_repository": 272,
+   "source_data_supplement": 84,
+   "on_request": 81,
+   "code_only": 76,
+   "not_available": 27
+  },
+  "n_open_access": 1751,
+  "n_deposits": 1025,
+  "n_deposits_all_labels": 3820,
+  "deposits_by_repository": {
+   "Zenodo": 333,
+   "other": 295,
+   "Figshare": 204,
+   "GitHub": 140,
+   "Dryad": 53
+  },
+  "deposits_by_resource_type": {
+   "dataset": 503,
+   "software": 252,
+   "collection": 148,
+   "other": 63,
+   "unspecified": 41,
+   "text": 6,
+   "audiovisual": 4,
+   "journalarticle": 4,
+   "image": 4
+  },
+  "n_deposits_unlinked": 391,
+  "n_curated": 12,
+  "n_author_verified": 0,
+  "curation_levels": {
+   "auto_abstract": 5482,
+   "auto_fulltext": 2109,
+   "ai_assisted": 91,
+   "curated": 12
+  },
+  "by_technique": {
+   "optical_tweezers": {
+    "records": 2983,
+    "checked": 1196,
+    "with_dataset": 119,
+    "pct_with_dataset": 4.0,
+    "pct_with_dataset_of_checked": 9.9,
+    "raw_traces": 2,
+    "pct_raw_traces": 0.1
+   },
+   "afm_smfs": {
+    "records": 2560,
+    "checked": 948,
+    "with_dataset": 94,
+    "pct_with_dataset": 3.7,
+    "pct_with_dataset_of_checked": 9.9,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "force_spectroscopy_unspecified": {
+    "records": 1100,
+    "checked": 231,
+    "with_dataset": 16,
+    "pct_with_dataset": 1.5,
+    "pct_with_dataset_of_checked": 6.9,
+    "raw_traces": 1,
+    "pct_raw_traces": 0.1
+   },
+   "magnetic_tweezers": {
+    "records": 694,
+    "checked": 324,
+    "with_dataset": 32,
+    "pct_with_dataset": 4.6,
+    "pct_with_dataset_of_checked": 9.9,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "hydrodynamic_stretching": {
+    "records": 95,
+    "checked": 49,
+    "with_dataset": 3,
+    "pct_with_dataset": 3.2,
+    "pct_with_dataset_of_checked": 6.1,
+    "raw_traces": 1,
+    "pct_raw_traces": 1.1
+   },
+   "tension_sensors": {
+    "records": 80,
+    "checked": 40,
+    "with_dataset": 3,
+    "pct_with_dataset": 3.8,
+    "pct_with_dataset_of_checked": 7.5,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "nanopore_force": {
+    "records": 60,
+    "checked": 21,
+    "with_dataset": 1,
+    "pct_with_dataset": 1.7,
+    "pct_with_dataset_of_checked": 4.8,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "biomembrane_force_probe": {
+    "records": 44,
+    "checked": 20,
+    "with_dataset": 1,
+    "pct_with_dataset": 2.3,
+    "pct_with_dataset_of_checked": 5.0,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "acoustic_force_spectroscopy": {
+    "records": 37,
+    "checked": 14,
+    "with_dataset": 3,
+    "pct_with_dataset": 8.1,
+    "pct_with_dataset_of_checked": 21.4,
+    "raw_traces": 1,
+    "pct_raw_traces": 2.7
+   },
+   "centrifuge_force": {
+    "records": 18,
+    "checked": 9,
+    "with_dataset": 0,
+    "pct_with_dataset": 0.0,
+    "pct_with_dataset_of_checked": 0.0,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "torque_tweezers": {
+    "records": 10,
+    "checked": 2,
+    "with_dataset": 0,
+    "pct_with_dataset": 0.0,
+    "pct_with_dataset_of_checked": 0.0,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "micropipette": {
+    "records": 9,
+    "checked": 3,
+    "with_dataset": 0,
+    "pct_with_dataset": 0.0,
+    "pct_with_dataset_of_checked": 0.0,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   },
+   "microneedle": {
+    "records": 4,
+    "checked": 0,
+    "with_dataset": 0,
+    "pct_with_dataset": 0.0,
+    "pct_with_dataset_of_checked": 0.0,
+    "raw_traces": 0,
+    "pct_raw_traces": 0.0
+   }
+  },
+  "n_techniques": 12,
+  "identifiers_verified": {
+   "uniprot": 239
+  },
+  "identifiers_any": {
+   "addgene": 3,
+   "chebi": 3,
+   "cl": 14,
+   "genbank": 3,
+   "go": 6,
+   "pdb": 12,
+   "refseq": 1,
+   "rfam": 8,
+   "uniprot": 1392
+  },
+  "n_systems_resolved": 239,
+  "n_systems_resolved_note": "distinct verified UniProt/Rfam/GenBank/ChEBI IDs",
+  "n_records_with_uniprot": 3801,
+  "n_organisms": 270,
+  "n_results_extracted": 692,
+  "n_records_with_results": 527,
+  "results_per_observable_top10": {
+   "rupture_force": 111,
+   "step_size": 62,
+   "persistence_length": 54,
+   "adhesion_force": 50,
+   "unbinding_force": 47,
+   "velocity": 45,
+   "unfolding_force": 40,
+   "loading_rate": 37,
+   "folding_free_energy": 29,
+   "elastic_modulus": 28
+  },
+  "results_extraction": {
+   "auto_regex": 621,
+   "manual": 71
+  },
+  "fair_completeness": {
+   "mean_all": 0.194,
+   "median_all": 0.14,
+   "mean_fulltext": 0.42,
+   "median_fulltext": 0.44,
+   "mean_not_fulltext": 0.104,
+   "median_not_fulltext": 0.1,
+   "n_fulltext": 2208,
+   "note": "fulltext = records whose open-access full text was read (fulltext_checked)"
+  },
+  "availability_by_year": [
+   {
+    "year": 2000,
+    "n": 60,
+    "n_checked": 8,
+    "n_with_dataset": 2,
+    "n_public_repository": 2,
+    "share_with_dataset_of_checked": 0.25,
+    "drawn_in_fig3a": false
+   },
+   {
+    "year": 2001,
+    "n": 43,
+    "n_checked": 1,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": false
+   },
+   {
+    "year": 2002,
+    "n": 75,
+    "n_checked": 2,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": false
+   },
+   {
+    "year": 2003,
+    "n": 90,
+    "n_checked": 7,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": false
+   },
+   {
+    "year": 2004,
+    "n": 112,
+    "n_checked": 16,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2005,
+    "n": 152,
+    "n_checked": 20,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2006,
+    "n": 185,
+    "n_checked": 29,
+    "n_with_dataset": 1,
+    "n_public_repository": 1,
+    "share_with_dataset_of_checked": 0.0345,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2007,
+    "n": 212,
+    "n_checked": 42,
+    "n_with_dataset": 0,
+    "n_public_repository": 0,
+    "share_with_dataset_of_checked": 0.0,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2008,
+    "n": 226,
+    "n_checked": 60,
+    "n_with_dataset": 1,
+    "n_public_repository": 1,
+    "share_with_dataset_of_checked": 0.0167,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2009,
+    "n": 262,
+    "n_checked": 68,
+    "n_with_dataset": 1,
+    "n_public_repository": 1,
+    "share_with_dataset_of_checked": 0.0147,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2010,
+    "n": 251,
+    "n_checked": 92,
+    "n_with_dataset": 1,
+    "n_public_repository": 1,
+    "share_with_dataset_of_checked": 0.0109,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2011,
+    "n": 276,
+    "n_checked": 95,
+    "n_with_dataset": 1,
+    "n_public_repository": 1,
+    "share_with_dataset_of_checked": 0.0105,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2012,
+    "n": 279,
+    "n_checked": 113,
+    "n_with_dataset": 4,
+    "n_public_repository": 4,
+    "share_with_dataset_of_checked": 0.0354,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2013,
+    "n": 300,
+    "n_checked": 127,
+    "n_with_dataset": 2,
+    "n_public_repository": 2,
+    "share_with_dataset_of_checked": 0.0157,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2014,
+    "n": 294,
+    "n_checked": 135,
+    "n_with_dataset": 2,
+    "n_public_repository": 2,
+    "share_with_dataset_of_checked": 0.0148,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2015,
+    "n": 304,
+    "n_checked": 126,
+    "n_with_dataset": 5,
+    "n_public_repository": 5,
+    "share_with_dataset_of_checked": 0.0397,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2016,
+    "n": 289,
+    "n_checked": 142,
+    "n_with_dataset": 3,
+    "n_public_repository": 3,
+    "share_with_dataset_of_checked": 0.0211,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2017,
+    "n": 393,
+    "n_checked": 176,
+    "n_with_dataset": 8,
+    "n_public_repository": 8,
+    "share_with_dataset_of_checked": 0.0455,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2018,
+    "n": 371,
+    "n_checked": 164,
+    "n_with_dataset": 7,
+    "n_public_repository": 7,
+    "share_with_dataset_of_checked": 0.0427,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2019,
+    "n": 347,
+    "n_checked": 150,
+    "n_with_dataset": 13,
+    "n_public_repository": 13,
+    "share_with_dataset_of_checked": 0.0867,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2020,
+    "n": 363,
+    "n_checked": 136,
+    "n_with_dataset": 23,
+    "n_public_repository": 23,
+    "share_with_dataset_of_checked": 0.1691,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2021,
+    "n": 376,
+    "n_checked": 191,
+    "n_with_dataset": 29,
+    "n_public_repository": 29,
+    "share_with_dataset_of_checked": 0.1518,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2022,
+    "n": 387,
+    "n_checked": 194,
+    "n_with_dataset": 31,
+    "n_public_repository": 31,
+    "share_with_dataset_of_checked": 0.1598,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2023,
+    "n": 334,
+    "n_checked": 136,
+    "n_with_dataset": 26,
+    "n_public_repository": 26,
+    "share_with_dataset_of_checked": 0.1912,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2024,
+    "n": 336,
+    "n_checked": 156,
+    "n_with_dataset": 33,
+    "n_public_repository": 33,
+    "share_with_dataset_of_checked": 0.2115,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2025,
+    "n": 280,
+    "n_checked": 133,
+    "n_with_dataset": 43,
+    "n_public_repository": 43,
+    "share_with_dataset_of_checked": 0.3233,
+    "drawn_in_fig3a": true
+   },
+   {
+    "year": 2026,
+    "n": 314,
+    "n_checked": 138,
+    "n_with_dataset": 31,
+    "n_public_repository": 31,
+    "share_with_dataset_of_checked": 0.2246,
+    "drawn_in_fig3a": true
+   }
+  ],
+  "availability_by_year_note": "primary research + methods + preprints, 2000 onward",
+  "field_coverage_pct": {
+   "Instrument make": {
+    "all": 18.9,
+    "fulltext": 63.5
+   },
+   "Laser wavelength": {
+    "all": 3.7,
+    "fulltext": 12.1
+   },
+   "Trap / cantilever stiffness": {
+    "all": 7.4,
+    "fulltext": 24.4
+   },
+   "Calibration method": {
+    "all": 8.7,
+    "fulltext": 28.1
+   },
+   "Detection device": {
+    "all": 10.9,
+    "fulltext": 34.8
+   },
+   "Temperature": {
+    "all": 15.1,
+    "fulltext": 51.0
+   },
+   "Acquisition rate": {
+    "all": 7.1,
+    "fulltext": 24.2
+   },
+   "Bead size": {
+    "all": 11.8,
+    "fulltext": 37.7
+   },
+   "Attachment chemistry": {
+    "all": 16.0,
+    "fulltext": 48.3
+   },
+   "Trap control mode": {
+    "all": 28.5,
+    "fulltext": 53.9
+   },
+   "Buffer pH": {
+    "all": 17.0,
+    "fulltext": 57.3
+   },
+   "Buffer components": {
+    "all": 18.0,
+    "fulltext": 61.0
+   },
+   "UniProt-linked construct": {
+    "all": 49.4,
+    "fulltext": 54.6
+   },
+   "Organism": {
+    "all": 27.5,
+    "fulltext": 37.2
+   },
+   "Linked dataset": {
+    "all": 3.5,
+    "fulltext": 7.9
+   }
+  },
+  "field_cov": {
+   "instrument_make": {
+    "all": 18.9,
+    "fulltext": 63.5
+   },
+   "laser_wavelength": {
+    "all": 3.7,
+    "fulltext": 12.1
+   },
+   "trap_cantilever_stiffness": {
+    "all": 7.4,
+    "fulltext": 24.4
+   },
+   "calibration_method": {
+    "all": 8.7,
+    "fulltext": 28.1
+   },
+   "detection_device": {
+    "all": 10.9,
+    "fulltext": 34.8
+   },
+   "temperature": {
+    "all": 15.1,
+    "fulltext": 51.0
+   },
+   "acquisition_rate": {
+    "all": 7.1,
+    "fulltext": 24.2
+   },
+   "bead_size": {
+    "all": 11.8,
+    "fulltext": 37.7
+   },
+   "attachment_chemistry": {
+    "all": 16.0,
+    "fulltext": 48.3
+   },
+   "trap_control_mode": {
+    "all": 28.5,
+    "fulltext": 53.9
+   },
+   "buffer_ph": {
+    "all": 17.0,
+    "fulltext": 57.3
+   },
+   "buffer_components": {
+    "all": 18.0,
+    "fulltext": 61.0
+   },
+   "uniprot_linked_construct": {
+    "all": 49.4,
+    "fulltext": 54.6
+   },
+   "organism": {
+    "all": 27.5,
+    "fulltext": 37.2
+   },
+   "linked_dataset": {
+    "all": 3.5,
+    "fulltext": 7.9
+   }
+  },
+  "fair_sections_mean": {
+   "hardware": {
+    "all": 0.099,
+    "fulltext": 0.327
+   },
+   "assay": {
+    "all": 0.175,
+    "fulltext": 0.419
+   },
+   "construct": {
+    "all": 0.428,
+    "fulltext": 0.529
+   },
+   "solution": {
+    "all": 0.149,
+    "fulltext": 0.505
+   },
+   "data": {
+    "all": 0.119,
+    "fulltext": 0.317
+   }
+  },
+  "n_checked": 2857,
+  "n_deposits_linked": 634,
+  "pct_not_checked": 62.9,
+  "pct_fulltext_checked": 28.7,
+  "pct_with_dataset": 3.5,
+  "pct_with_dataset_of_checked": 9.5,
+  "pct_records_with_uniprot": 49.4,
+  "pct_core": 95.2,
+  "pct_with_results": 6.8,
+  "share_pct_by_year": {
+   "2000": 25.0,
+   "2001": 0.0,
+   "2002": 0.0,
+   "2003": 0.0,
+   "2004": 0.0,
+   "2005": 0.0,
+   "2006": 3.4,
+   "2007": 0.0,
+   "2008": 1.7,
+   "2009": 1.5,
+   "2010": 1.1,
+   "2011": 1.1,
+   "2012": 3.5,
+   "2013": 1.6,
+   "2014": 1.5,
+   "2015": 4.0,
+   "2016": 2.1,
+   "2017": 4.5,
+   "2018": 4.3,
+   "2019": 8.7,
+   "2020": 16.9,
+   "2021": 15.2,
+   "2022": 16.0,
+   "2023": 19.1,
+   "2024": 21.2,
+   "2025": 32.3,
+   "2026": 22.5
+  },
+  "max_share_pct_2004_2018": 4.5,
+  "n_kinds": {
+   "primary_research": 6062,
+   "preprint": 662,
+   "methods": 341,
+   "review": 614,
+   "correction": 15
+  },
+  "pipeline_funnel": {
+   "records_retained": 7694,
+   "with_data_link": 2273,
+   "with_resolved_system": 3801,
+   "fulltext_read": 2208,
+   "with_extracted_results": 527
+  }
+ },
+ "harvest": {
+  "n_harvested_classified": 15867,
+  "scope_tiers": {
+   "core": 7334,
+   "out": 5595,
+   "peripheral": 2569,
+   "methods": 369
+  },
+  "n_retained_before_review": 7703,
+  "n_removed_after_review": 9,
+  "n_released": 7694,
+  "source": "hub/out/classify_log.txt and build_log.txt, run of 2026-10-09/10"
+ },
+ "sim": {
+  "n_sim_records": 123,
+  "by_model_family": {
+   "other": 78,
+   "Go_CA": 20,
+   "thermodynamic_nearest_neighbour": 6,
+   "Martini": 6,
+   "SOP": 5,
+   "all_atom_explicit_solvent": 5,
+   "oxDNA": 3
+  },
+  "by_model_group": {
+   "other": 64,
+   "protein": 50,
+   "nucleic_acid": 9
+  },
+  "by_unit_system": {
+   "physical": 121,
+   "reduced": 2
+  },
+  "n_links": 3377,
+  "links_by_match_level": {
+   "same_molecule_different_geometry": 3040,
+   "homolog": 337
+  },
+  "links_by_experimental_source": {
+   "SMASH-BIO": 3353,
+   "MechanoProDB": 24
+  },
+  "n_links_smashbio": 3353,
+  "n_links_mechanoprodb": 24,
+  "n_sim_records_with_a_link": 106,
+  "n_smashbio_records_linked": 510,
+  "links_with_both_forces": 33,
+  "year_min": 2006,
+  "year_max": 2026
+ }
+}

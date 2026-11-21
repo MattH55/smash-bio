@@ -145,6 +145,13 @@ The metadata framework captures six major categories based on the Biophysical Jo
 
 ## Usage
 
+### Reproduce the numbers and figures of the article
+The script that computes every number in Halma (2026), *Open Research Europe*, and the figure scripts are in
+[`paper/`](paper/README.md), with the release files they were computed from.
+```bash
+python -I paper/scripts/corpus_stats.py --check > paper/out/corpus_stats.json
+```
+
 ### Generate All Metadata Files
 ```bash
 python generate_metadata_files.py

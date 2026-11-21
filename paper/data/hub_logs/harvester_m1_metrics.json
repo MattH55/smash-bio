@@ -1,0 +1,40 @@
+{
+  "milestone": 1,
+  "version": "1.0.0",
+  "run_date": "2026-10-10",
+  "baseline": {
+    "primary_studies": 7065,
+    "status_covered": 2664,
+    "status_coverage": 0.3771,
+    "deposit_rows": 3760,
+    "linked_deposit_rows": 2938,
+    "raw_trace_rows": 7,
+    "figshare_version_rows_at_least": 537
+  },
+  "cleanup": {
+    "candidate_rows_before_family_cleanup": 4486,
+    "deposit_families_all_labels": 3820,
+    "unique_biological_deposits": 1025,
+    "raw_trace_families": 7,
+    "relevance": {
+      "in_scope": 2777,
+      "methods": 261,
+      "unsure": 644,
+      "out_of_scope": 138
+    },
+    "families_with_multiple_dois": 606,
+    "review_queue": 644
+  },
+  "gates": {
+    "family_pairwise_accuracy": {
+      "target": 0.98,
+      "measured": null,
+      "reason": "gold set not yet labelled"
+    },
+    "relevance_in_scope_precision": {
+      "target": 0.95,
+      "measured": null,
+      "reason": "gold set not yet labelled"
+    }
+  }
+}
